@@ -23,4 +23,9 @@
 
   <!-- Power menu -->
   <java-symbol type="string" name="system_error_vendorprint" />
+
+  <!-- Device keyhandler -->
+  <java-symbol type="string" name="config_deviceKeyHandlerLib" />
+  <java-symbol type="string" name="config_deviceKeyHandlerClass" />
+
 </resources>
