@@ -76,6 +76,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private DarkIconManager mDarkIconManager;
     private SignalClusterView mSignalClusterView;
 
+    private View mLeftClock;
+
     private int mTickerEnabled;
     private TickerObserver mTickerObserver;
     private ContentResolver mContentResolver;
@@ -173,6 +175,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         Dependency.get(StatusBarIconController.class).addIconGroup(mDarkIconManager);
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
         mSignalClusterView = mStatusBar.findViewById(R.id.signal_cluster);
+        mLeftClock = mStatusBar.findViewById(R.id.left_clock);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mSignalClusterView);
         mBootlegLogo = mStatusBar.findViewById(R.id.status_bar_logo);
         updateSettings(false);
@@ -291,6 +294,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mShowLogo) {
             animateHide(mBootlegLogo, animate, true);
         }
+        animateHide(mLeftClock, animate);
     }
 
     public void showNotificationIconArea(boolean animate) {
@@ -298,6 +302,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mShowLogo) {
             animateShow(mBootlegLogo, animate);
         }
+        animateShow(mLeftClock, animate);
     }
 
     /**
