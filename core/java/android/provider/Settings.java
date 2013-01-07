@@ -5580,9 +5580,17 @@ public final class Settings {
          */
         public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
 
+        /**
+         * Whether to launch default music player when headset plugged in
+         * @hide
+         */
+        public static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
+        /** @hide */
+        private static final Validator HEADSET_CONNECT_PLAYER_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
 
         /**
-         * Status bar brightness control.
          * @hide
          */
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
@@ -5699,6 +5707,7 @@ public final class Settings {
             FOD_ANIM,
             LESS_BORING_HEADS_UP,
             STATUS_BAR_BRIGHTNESS_CONTROL,
+            HEADSET_CONNECT_PLAYER,
         };
 
         /**
@@ -5904,6 +5913,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
             PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
+            PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
         }
 
         /**
@@ -6058,6 +6068,7 @@ public final class Settings {
             VALIDATORS.put(FOD_ANIM, FOD_ANIM_VALIDATOR);
             VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_BRIGHTNESS_CONTROL, STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR);
+            VALIDATORS.put(HEADSET_CONNECT_PLAYER, HEADSET_CONNECT_PLAYER_VALIDATOR);
         }
 
         /**
