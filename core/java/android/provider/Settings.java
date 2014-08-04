@@ -11121,6 +11121,12 @@ public final class Settings {
          * @hide
          */
         public static final String SCREEN_OFF_UDFPS_ENABLED = "screen_off_udfps_enabled";
+
+        /**
+         * Whether to scramble a pin unlock layout
+         * @hide
+         */
+        public static final String LOCKSCREEN_PIN_SCRAMBLE_LAYOUT = "lockscreen_scramble_pin_layout";
     }
 
     /**
