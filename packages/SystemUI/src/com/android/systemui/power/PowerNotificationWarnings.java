@@ -21,15 +21,21 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.IRingtonePlayer;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
+import android.os.RemoteException;
 import android.os.UserHandle;
+import android.os.Vibrator;
+import android.provider.Settings;
 import android.support.annotation.VisibleForTesting;
 import android.text.Annotation;
 import android.text.Layout;
@@ -450,6 +456,47 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         mPlaySound = playSound;
         mWarning = true;
         updateNotification();
+    }
+
+    @Override
+    public void notifyBatteryPlugged() {
+        if (DEBUG) {
+            Slog.d(TAG, "notifyBatteryPlugged");
+        }
+        playBatteryPluggedSound();
+    }
+
+    private void playBatteryPluggedSound() {
+        final ContentResolver cr = mContext.getContentResolver();
+        if (Settings.Global.getInt(cr, Settings.Global.CHARGING_SOUNDS_ENABLED, 1) == 0) {
+            return;
+        }
+
+        if (DEBUG) {
+            Slog.d(TAG, "playing battery plugged sound");
+        }
+
+        AudioManager audioMan = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        final int mode = audioMan.getRingerModeInternal();
+        if (mode == AudioManager.RINGER_MODE_NORMAL) {
+            final String soundPath = Settings.Global.getString(cr,
+                    Settings.Global.BATTERY_PLUGGED_SOUND);
+            if (soundPath != null) {
+                final Uri soundUri = Uri.parse("file://" + soundPath);
+                if (soundUri != null) {
+                    try {
+                        final IRingtonePlayer player  = audioMan.getRingtonePlayer();
+                        if (player != null) {
+                            player.playAsync(soundUri, UserHandle.SYSTEM, false, AUDIO_ATTRIBUTES);
+                        }
+                    } catch (RemoteException e) {
+                    }
+                }
+            }
+        } else if (mode == AudioManager.RINGER_MODE_VIBRATE) {
+            Vibrator vibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
+            vibrator.vibrate(new long[]{0, 200L}, -1 /* repeat */);
+        }
     }
 
     @Override

@@ -2935,7 +2935,7 @@ public class SettingsProvider extends ContentProvider {
         }
 
         private final class UpgradeController {
-            private static final int SETTINGS_VERSION = 169;
+            private static final int SETTINGS_VERSION = 170;
 
             private final int mUserId;
 
@@ -3818,6 +3818,25 @@ public class SettingsProvider extends ContentProvider {
                                 null, true, SettingsState.SYSTEM_PACKAGE_NAME);
                     }
                     currentVersion = 169;
+                }
+                if (currentVersion == 169) {
+                    // Version 170: Set the default value for BATTERY_PLUGGED_SOUND.
+                    if (userId == UserHandle.USER_SYSTEM) {
+                        final SettingsState globalSettings = getGlobalSettingsLocked();
+                        final Setting currentSetting = globalSettings.getSettingLocked(
+                                Settings.Global.BATTERY_PLUGGED_SOUND);
+                        if (currentSetting.isNull()) {
+                            final String defaultValue = getContext().getResources().getString(
+                                    R.string.def_battery_plugged_sound);
+                            if (defaultValue != null) {
+                                globalSettings.insertSettingLocked(
+                                        Settings.Global.BATTERY_PLUGGED_SOUND, defaultValue,
+                                        null, true, SettingsState.SYSTEM_PACKAGE_NAME);
+                            }
+                        }
+                    }
+
+                    currentVersion = 170;
                 }
 
                 // vXXX: Add new settings above this point.
