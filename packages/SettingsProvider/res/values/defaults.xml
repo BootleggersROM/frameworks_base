@@ -217,4 +217,8 @@
 
     <!-- Default for Settings.System.VIBRATE_WHEN_RINGING -->
     <bool name="def_vibrate_when_ringing">false</bool>
+
+    <!-- Default for Settings.System.STATUS_BAR_NOTIF_COUNT. -->
+    <integer name="def_notif_count">0</integer>
+
 </resources>
