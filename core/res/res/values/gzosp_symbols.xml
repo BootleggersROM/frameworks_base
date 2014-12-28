@@ -48,4 +48,6 @@
     <!-- Mussing FP declaration -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 
+    <java-symbol type="bool" name="config_enableScreenrecordChord" />
+
 </resources>
