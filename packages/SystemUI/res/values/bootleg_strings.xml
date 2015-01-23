@@ -187,4 +187,7 @@
     <string name="quick_settings_sound_search">Sound search</string>
     <string name="quick_settings_sound_search_no_app">Sorry, but this doesn\'t work if you don\'t have a Sound search app.</string>
 
+    <!-- ADB over network QS tile -->
+    <string name="quick_settings_network_adb_label">ADB-Over-Network</string>
+
 </resources>
