@@ -23,4 +23,7 @@
     <!-- Tile without label height -->
     <dimen name="qs_tile_height_wo_label">48dp</dimen>
 
+    <!-- QS detail view scrolling -->
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
+
 </resources>
