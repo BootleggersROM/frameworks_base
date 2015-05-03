@@ -1937,6 +1937,11 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     @Override
     public boolean shouldPeek(Entry entry, StatusBarNotification sbn) {
+        // check if package is blacklisted first
+        if (isPackageBlacklisted(sbn.getPackageName())) {
+            return false;
+        }
+
         if (mIsOccluded && !isDozing()) {
             boolean devicePublic = mLockscreenUserManager.
                     isLockscreenPublicMode(mLockscreenUserManager.getCurrentUserId());
@@ -5074,6 +5079,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         return mDeviceInteractive;
     }
 
+    private ArrayList<String> mBlacklist = new ArrayList<String>();
+
     @Override  // NotificationData.Environment
     public boolean isDeviceProvisioned() {
         return mDeviceProvisionedController.isDeviceProvisioned();
@@ -5099,7 +5106,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES),
+                    false, this, UserHandle.USER_ALL);
+            update();
         }
 
         @Override
@@ -5108,7 +5118,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         public void update() {
-
+            ContentResolver resolver = mContext.getContentResolver();
+            final String blackString = Settings.System.getString(resolver,
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES);
+            splitAndAddToArrayList(mBlacklist, blackString, "\\|");
         }
     }
 
@@ -5588,6 +5601,21 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     protected void notifyHeadsUpGoingToSleep() {
         maybeEscalateHeadsUp();
+    }
+
+    private boolean isPackageBlacklisted(String packageName) {
+        return mBlacklist.contains(packageName);
+    }
+     private void splitAndAddToArrayList(ArrayList<String> arrayList,
+            String baseString, String separator) {
+        // clear first
+        arrayList.clear();
+        if (baseString != null) {
+            final String[] array = TextUtils.split(baseString, separator);
+            for (String item : array) {
+                arrayList.add(item.trim());
+            }
+        }
     }
 
     /**
