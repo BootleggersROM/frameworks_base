@@ -4108,6 +4108,13 @@ public final class Settings {
         public static final String POWERMENU_SOUNDPANEL = "powermenu_soundpanel";
 
         /**
+         * Three Finger Gesture from Oppo
+         *
+         * @hide
+         */
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
          * Whether to display the screenrecord option in the power menu
          *
          * @hide
