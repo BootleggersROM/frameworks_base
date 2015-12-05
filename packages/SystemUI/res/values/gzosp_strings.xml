@@ -19,6 +19,7 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_restart_soft">Soft Reboot</string>
     <string name="global_action_restart_systemui">Restart SystemUI</string>
+    <string name="global_action_screenrecord">Screenrecord</string>
 
     <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
     <string name="accessibility_data_connection_hspap">HSPA+</string>
@@ -51,6 +52,6 @@
     <string name="screenrecord_notif_pointer_off">Hide pointer</string>
     <!-- Screen record notification error title -->
     <string name="screenrecord_notif_error">Unable to record screen</string>
-    <string name="notification_channel_screenrecord">Screenrecords</string>ord
+    <string name="notification_channel_screenrecord">Screenrecords</string>
 
 </resources>
