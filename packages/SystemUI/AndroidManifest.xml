@@ -203,6 +203,9 @@
     <!-- OmniJaws -->
     <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
 
+    <!-- Show4G -->
+    <uses-permission android:name="android.permission.RESTART_UI" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
