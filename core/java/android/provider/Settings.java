@@ -5164,6 +5164,12 @@ public final class Settings {
         /** End of ABC system settings**/
 
         /**
+         * Whether to notification when the battery is fully charged
+         * @hide
+         */
+        public static final String BATTERY_FULLY_CHARGED_NOTIF = "battery_fully_charged_notif";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
