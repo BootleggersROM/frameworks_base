@@ -4767,6 +4767,16 @@ public final class Settings {
 
 
 
+       /**
+        * Defines the global heads up notification snooze
+        * @hide
+        */
+        public static final String HEADS_UP_NOTIFICATION_SNOOZE = "heads_up_notification_snooze";
+
+        /** @hide */
+        private static final Validator HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR =
+              new SettingsValidators.InclusiveIntegerRangeValidator(0, 1200000);
+
         /**
          * Whether to show a floating CPU info over the screen
          * @hide
@@ -4845,7 +4855,8 @@ public final class Settings {
             FINGERPRINT_SUCCESS_VIB,
             SCREEN_OFF_ANIMATION,
             LOCKSCREEN_MEDIA_METADATA,
-            LOCKSCREEN_MEDIA_BLUR
+            LOCKSCREEN_MEDIA_BLUR,
+            HEADS_UP_NOTIFICATION_SNOOZE
         };
 
         /**
@@ -5006,6 +5017,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(SHOW_CPU_OVERLAY);
+            PRIVATE_SETTINGS.add(HEADS_UP_NOTIFICATION_SNOOZE);
         }
 
         /**
@@ -5112,6 +5124,7 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(SHOW_CPU_OVERLAY, SHOW_CPU_OVERLAY_VALIDATOR);
+            VALIDATORS.put(HEADS_UP_NOTIFICATION_SNOOZE,HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR);
         }
 
         /**
