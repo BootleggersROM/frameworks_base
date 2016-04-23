@@ -5228,6 +5228,20 @@ public final class Settings {
         public static final String GESTURE_ANYWHERE_SHOW_TRIGGER = "gesture_anywhere_show_trigger";
 
         /**
+         * Switch to Enable/Disable ScreenRecord Shortcut.
+         *
+         * @hide
+         */
+        public static final String SCREEN_RECORD_SHORTCUT_SWITCH = "screen_record_shortcut";
+        
+	    /**
+         * Switch to Enable/Disable ScreenShot Shortcut.
+         *
+         * @hide
+         */
+        public static final String SCREEN_SHOT_SHORTCUT_SWITCH = "screen_shot_shortcut";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
