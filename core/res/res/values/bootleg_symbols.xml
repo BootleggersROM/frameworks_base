@@ -28,4 +28,7 @@
   <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
   <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
+  <!-- Usb drive persistent notification -->
+  <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+
 </resources>
