@@ -2206,7 +2206,7 @@ public final class ActiveServices {
 
         // Not running -- get it started, and enqueue this service record
         // to be executed when the app comes up.
-        if (app == null && !permissionsReviewRequired) {
+        if ((app == null || app.thread == null) && !permissionsReviewRequired) {
             if ((app=mAm.startProcessLocked(procName, r.appInfo, true, intentFlags,
                     hostingType, r.name, false, isolated, false)) == null) {
                 String msg = "Unable to launch app "
