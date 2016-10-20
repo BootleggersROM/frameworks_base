@@ -45,4 +45,8 @@
     <dimen name="qs_panel_margin_top">28dp</dimen>
     <dimen name="qs_panel_margin_top_header">85dp</dimen>
     <dimen name="qs_panel_footer_height">48dp</dimen>
+
+    <!-- Custom Carrier Label -->
+    <dimen name="status_bar_carrier_height">14dp</dimen>
+
 </resources>

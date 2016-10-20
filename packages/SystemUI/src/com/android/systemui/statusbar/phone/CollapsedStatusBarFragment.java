@@ -73,6 +73,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private ImageView mBootlegLogo;
     private int mLogoStyle;
     private boolean mShowLogo;
+    private View mCustomCarrierLabel;
+    private int mShowCarrierLabel;
+    private int mShowWeather;
     private final Handler mHandler = new Handler();
 
     private class BootlegSettingsObserver extends ContentObserver {
@@ -86,6 +89,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                     false, this, UserHandle.USER_ALL);
             getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_SHOW_CARRIER),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -134,6 +140,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mSignalClusterView = mStatusBar.findViewById(R.id.signal_cluster);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mSignalClusterView);
         mBootlegLogo = mStatusBar.findViewById(R.id.status_bar_logo);
+        mCustomCarrierLabel = mStatusBar.findViewById(R.id.statusbar_carrier_text);
         updateSettings(false);
         // Default to showing until we know otherwise.
         showSystemIconArea(false);
@@ -201,8 +208,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if ((diff1 & StatusBarManager.DISABLE_NOTIFICATION_ICONS) != 0) {
             if ((state1 & StatusBarManager.DISABLE_NOTIFICATION_ICONS) != 0) {
                 hideNotificationIconArea(animate);
+                hideCarrierName(animate);
             } else {
                 showNotificationIconArea(animate);
+                showCarrierName(animate);
             }
         }
     }
@@ -260,6 +269,18 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void showOperatorName(boolean animate) {
         if (mOperatorNameFrame != null) {
             animateShow(mOperatorNameFrame, animate);
+        }
+    }
+
+    public void hideCarrierName(boolean animate) {
+        if (mCustomCarrierLabel != null) {
+            animateHide(mCustomCarrierLabel, animate, true);
+        }
+    }
+
+    public void showCarrierName(boolean animate) {
+        if (mCustomCarrierLabel != null) {
+            setCarrierLabel(animate);
         }
     }
 
@@ -347,6 +368,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mLogoStyle = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
                 UserHandle.USER_CURRENT);
+        mShowCarrierLabel = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_SHOW_CARRIER, 1,
+                UserHandle.USER_CURRENT);
 
         switch(mLogoStyle) {
                 // Small BTLG
@@ -397,9 +421,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 mBootlegLogo.setImageDrawable(logo);
                 return;
             }
-
             mBootlegLogo.setImageDrawable(logo);
         }
+
 
         if (mNotificationIconAreaInner != null) {
             if (mShowLogo) {
@@ -409,6 +433,15 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             } else {
                 animateHide(mBootlegLogo, animate, false);
             }
+        }
+        setCarrierLabel(animate);
+    }
+
+    private void setCarrierLabel(boolean animate) {
+        if (mShowCarrierLabel == 2 || mShowCarrierLabel == 3) {
+            animateShow(mCustomCarrierLabel, animate);
+        } else {
+            animateHide(mCustomCarrierLabel, animate, false);
         }
     }
 }
