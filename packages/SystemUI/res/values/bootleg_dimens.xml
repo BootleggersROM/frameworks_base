@@ -91,4 +91,7 @@
     <dimen name="fod_animation_size">280dp</dimen>
     <dimen name="fod_animation_offset">4dp</dimen>
 
+    <!-- Custom Carrier Label -->
+    <dimen name="status_bar_carrier_height">14dp</dimen>
+
 </resources>

@@ -18,4 +18,8 @@
     <!-- Colors for gradient colors on QS -->
     <color name="qs_tile_gradient_start">@*android:color/accent_device_default</color>
     <color name="qs_tile_gradient_end">@*android:color/bootleg_accent_gradient_end_color</color>
+
+    <!-- Custom Carrier Label -->
+    <color name="status_bar_carrier_color">#FFFFFFFF</color>
+
 </resources>
