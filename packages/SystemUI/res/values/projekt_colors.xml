@@ -27,4 +27,7 @@
 
     <!-- Keyguard affordance circle background -->
     <color name="keyguard_affordance_circle_background">@android:color/white</color>
+
+    <!-- Power save warning color -->
+    <color name="powersave_warning_color">#ffff0000</color> <!-- red -->
 </resources>
