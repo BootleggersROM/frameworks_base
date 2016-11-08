@@ -5152,6 +5152,50 @@ public final class Settings {
         public static final String ALERT_SLIDER_SILENT_MODE = "alert_slider_silent_mode";
 
         /**
+         * some devices have a extra hw button e.g. n3 on the back on the
+         * fingerprint sensor. allow mapping button to key
+         *
+         * @hide
+         */
+        public static final String CUSTOM_BUTTON_EXTRA_KEY_MAPPING = "button_extra_mapping";
+
+        /** @hide */
+        private static final Validator CUSTOM_BUTTON_EXTRA_KEY_MAPPING_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+         * Enable proxi check for wake keys - must be implemented in a device
+         * KeyHandler
+         * @hide
+         */
+        public static final String CUSTOM_DEVICE_PROXI_CHECK_ENABLED = "device_proxi_check_enabled";
+
+        /** @hide */
+        private static final Validator CUSTOM_DEVICE_PROXI_CHECK_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Enable Gesture Haptic feedback
+         * KeyHandler
+         * @hide
+         */
+        public static final String CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED =
+                "device_gesture_feedback_enabled";
+
+        /** @hide */
+        private static final Validator CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * @hide
+         */
+        public static final String CUSTOM_DEVICE_FEATURE_SETTINGS = "device_feature_settings";
+
+        /** @hide */
+        private static final Validator CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5248,6 +5292,10 @@ public final class Settings {
             LOCKSCREEN_WEATHER_SHOW_TEMP,
             LOCKSCREEN_WEATHER_SHOW_CITY,
             BACK_GESTURE_HEIGHT,
+            CUSTOM_BUTTON_EXTRA_KEY_MAPPING,
+            CUSTOM_DEVICE_PROXI_CHECK_ENABLED,
+            CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED,
+            CUSTOM_DEVICE_FEATURE_SETTINGS
         };
 
         /**
@@ -5425,6 +5473,10 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_LAYOUT_ROWS);
             PRIVATE_SETTINGS.add(QS_LAYOUT_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_QUICKBAR_COLUMNS);
+            PRIVATE_SETTINGS.add(CUSTOM_BUTTON_EXTRA_KEY_MAPPING);
+            PRIVATE_SETTINGS.add(CUSTOM_DEVICE_PROXI_CHECK_ENABLED);
+            PRIVATE_SETTINGS.add(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED);
+            PRIVATE_SETTINGS.add(CUSTOM_DEVICE_FEATURE_SETTINGS);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(LOCK_SCREEN_CUSTOM_NOTIF);
@@ -5584,6 +5636,10 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_CITY, LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
+            VALIDATORS.put(CUSTOM_BUTTON_EXTRA_KEY_MAPPING, CUSTOM_BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
+            VALIDATORS.put(CUSTOM_DEVICE_PROXI_CHECK_ENABLED, CUSTOM_DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);
+            VALIDATORS.put(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED, CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);
+            VALIDATORS.put(CUSTOM_DEVICE_FEATURE_SETTINGS, CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR);
         }
 
         /**
