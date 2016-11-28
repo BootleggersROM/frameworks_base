@@ -3970,7 +3970,6 @@ public final class Settings {
         */
         public static final String LOCKSCREEN_BATTERY_INFO = "lockscreen_battery_info";
 
-
         /**
          * Change volume up and down handlign based on rotation
          * @hide
@@ -4305,6 +4304,12 @@ public final class Settings {
         * @hide
         */
        public static final String STATUS_BAR_FILE_HEADER_IMAGE = "status_bar_file_header_image";
+
+        /**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
