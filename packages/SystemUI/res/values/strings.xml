@@ -2240,4 +2240,7 @@
          app for debugging. Will not be seen by users. [CHAR LIMIT=20] -->
     <string name="heap_dump_tile_name">Dump SysUI Heap</string>
 
+    <!-- Gesture Anywhere -->
+    <string name="gestures_message">Draw your gesture here</string>
+
 </resources>
