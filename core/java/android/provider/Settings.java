@@ -5626,6 +5626,15 @@ public final class Settings {
         public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
 
         /**
+         * enable or disable single handed mode
+         * @hide
+         */
+        public static final String ONE_HAND_MODE_ENABLED = "one_hand_mode_enabled";
+
+        /** @hide */
+        private static final Validator ONE_HAND_MODE_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5738,7 +5747,8 @@ public final class Settings {
             DOZE_ON_CHARGE,
             LOCK_QS_DISABLED,
             DISPLAY_CUTOUT_MODE,
-            STOCK_STATUSBAR_IN_HIDE
+            STOCK_STATUSBAR_IN_HIDE,
+            ONE_HAND_MODE_ENABLED
         };
 
         /**
@@ -5930,6 +5940,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_QS_DISABLED);
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_MODE);
             PRIVATE_SETTINGS.add(STOCK_STATUSBAR_IN_HIDE);
+            PRIVATE_SETTINGS.add(ONE_HAND_MODE_ENABLED);
         }
 
         /**
@@ -6089,6 +6100,7 @@ public final class Settings {
             VALIDATORS.put(LOCK_QS_DISABLED, LOCK_QS_DISABLED_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_MODE, DISPLAY_CUTOUT_MODE_VALIDATOR);
             VALIDATORS.put(STOCK_STATUSBAR_IN_HIDE, STOCK_STATUSBAR_IN_HIDE_VALIDATOR);
+            VALIDATORS.put(ONE_HAND_MODE_ENABLED, ONE_HAND_MODE_ENABLED_VALIDATOR);
         }
 
         /**
