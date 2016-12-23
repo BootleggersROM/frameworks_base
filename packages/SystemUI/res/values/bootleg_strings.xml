@@ -65,4 +65,7 @@
 
     <!-- Screenshot delete toast -->
     <string name="delete_screenshot_toast">Screenshot deleted</string>
+
+    <!-- RAM available string -->
+    <string name="recents_free_ram">%1$dMB of RAM Available</string>
 </resources>
