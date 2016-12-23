@@ -81,4 +81,6 @@
     <string name="quick_settings_music_play">Play</string>
     <string name="quick_settings_music_pause">Pause</string>
 
+    <!-- AOSP Recents Membar -->
+    <string name="recents_free_ram">%1$dMB of RAM Avaliable</string>
 </resources>
