@@ -277,4 +277,7 @@
     <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">Close App</string>
 
+    <!-- Recents membar -->
+    <string name="recents_free_ram">%1$dMB of RAM Available</string>
+
 </resources>
