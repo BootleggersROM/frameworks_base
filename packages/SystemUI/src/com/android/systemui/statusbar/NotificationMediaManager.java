@@ -48,6 +48,7 @@ import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.DeviceConfig;
 import android.provider.DeviceConfig.Properties;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
@@ -762,7 +763,7 @@ public class NotificationMediaManager implements Dumpable {
     };
 
     private Bitmap processArtwork(Bitmap artwork) {
-        return mMediaArtworkProcessor.processArtwork(mContext, artwork);
+        return mMediaArtworkProcessor.processArtwork(mContext, artwork, getLockScreenMediaBlurLevel());
     }
 
     @MainThread
@@ -857,5 +858,12 @@ public class NotificationMediaManager implements Dumpable {
                 }
             }
         }
+    }
+
+    private float getLockScreenMediaBlurLevel() {
+        float level = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25,
+                UserHandle.USER_CURRENT) / 100;
+        return level;
     }
 }
