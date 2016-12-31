@@ -82,4 +82,5 @@ interface IStatusBarService
      * GZOSP
      */
     void toggleCameraFlash();
+    void restartUI();
 }
