@@ -63,12 +63,15 @@ public class StatusBarIconHolder {
     @Deprecated
     public static final int TYPE_WIFI_NEW = 4;
 
+    public static final int TYPE_NETWORK_TRAFFIC = 5;
+
     @IntDef({
             TYPE_ICON,
             TYPE_WIFI,
             TYPE_MOBILE,
             TYPE_MOBILE_NEW,
-            TYPE_WIFI_NEW
+            TYPE_WIFI_NEW,
+            TYPE_NETWORK_TRAFFIC
     })
     @Retention(RetentionPolicy.SOURCE)
     @interface IconType {}
@@ -152,6 +155,12 @@ public class StatusBarIconHolder {
         return holder;
     }
 
+    public static StatusBarIconHolder fromNetworkTraffic() {
+        StatusBarIconHolder holder = new StatusBarIconHolder();
+        holder.mType = TYPE_NETWORK_TRAFFIC;
+        return holder;
+    }
+
     public @IconType int getType() {
         return mType;
     }
@@ -193,6 +202,7 @@ public class StatusBarIconHolder {
                 return mMobileState.visible;
             case TYPE_MOBILE_NEW:
             case TYPE_WIFI_NEW:
+            case TYPE_NETWORK_TRAFFIC:
                 // The new pipeline controls visibilities via the view model and view binder, so
                 // this is effectively an unused return value.
                 return true;
