@@ -190,4 +190,7 @@
     <!-- ADB over network QS tile -->
     <string name="quick_settings_network_adb_label">ADB-Over-Network</string>
 
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
+
 </resources>
