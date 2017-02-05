@@ -3436,6 +3436,13 @@ public final class Settings {
                 "lockscreen_quick_unlock_control";
 
         /**
+         * Unlock keystore with fingerprint after reboot
+         * @hide
+         */
+        public static final String FP_UNLOCK_KEYSTORE =
+                "fp_unlock_keystore";
+
+        /**
          * A formatted string of the next alarm that is set, or the empty string
          * if there is no alarm set.
          *
