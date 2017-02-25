@@ -3982,5 +3982,8 @@ message MetricsEvent {
 
     // GZOSP custom constants
     GZOSP = 1500;
+
+    OMNI_QS_WEATHER = 1501;
+    OMNI_QS_WEATHER_DETAILS = 1502;
   }
 }
