@@ -4575,5 +4575,7 @@ message MetricsEvent {
     // Custom constants over here
     GZOSP = 1500;
     BOOTLEG = 1501;
+    OMNI_QS_WEATHER = 1502;
+    OMNI_QS_WEATHER_DETAILS = 1503;
   }
 }
