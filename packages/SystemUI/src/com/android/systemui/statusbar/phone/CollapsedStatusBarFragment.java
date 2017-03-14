@@ -57,6 +57,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private StatusBar mStatusBarComponent;
     private DarkIconManager mDarkIconManager;
     private SignalClusterView mSignalClusterView;
+    private View mOperatorNameFrame;
 
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
@@ -94,6 +95,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         // Default to showing until we know otherwise.
         showSystemIconArea(false);
         initEmergencyCryptkeeperText();
+        initOperatorName();
     }
 
     @Override
@@ -147,8 +149,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if ((diff1 & StatusBarManager.DISABLE_SYSTEM_INFO) != 0) {
             if ((state1 & StatusBarManager.DISABLE_SYSTEM_INFO) != 0) {
                 hideSystemIconArea(animate);
+                hideOperatorName(animate);
             } else {
                 showSystemIconArea(animate);
+                showOperatorName(animate);
             }
         }
         if ((diff1 & StatusBarManager.DISABLE_NOTIFICATION_ICONS) != 0) {
@@ -196,6 +200,18 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void showNotificationIconArea(boolean animate) {
         animateShow(mNotificationIconAreaInner, animate);
+    }
+
+    public void hideOperatorName(boolean animate) {
+        if (mOperatorNameFrame != null) {
+            animateHide(mOperatorNameFrame, animate);
+        }
+    }
+
+    public void showOperatorName(boolean animate) {
+        if (mOperatorNameFrame != null) {
+            animateShow(mOperatorNameFrame, animate);
+        }
     }
 
     /**
@@ -257,6 +273,13 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         } else if (emergencyViewStub != null) {
             ViewGroup parent = (ViewGroup) emergencyViewStub.getParent();
             parent.removeView(emergencyViewStub);
+        }
+    }
+
+    private void initOperatorName() {
+        if (getResources().getBoolean(R.bool.config_showOperatorNameInStatusBar)) {
+            ViewStub stub = mStatusBar.findViewById(R.id.operator_name);
+            mOperatorNameFrame = stub.inflate();
         }
     }
 }

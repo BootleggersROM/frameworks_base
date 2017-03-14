@@ -1747,6 +1747,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         }
     }
 
+    public ServiceState getServiceState(int subId) {
+        return mServiceStates.get(subId);
+    }
+
     /**
      * @return true if and only if the state has changed for the specified {@code slotId}
      */
