@@ -2040,4 +2040,11 @@ interface ITelephony {
      * data might be disabled on non-default data subscription but explicitly turned on by settings.
      */
     boolean isDataAllowedInVoiceCall(int subId);
+
+    /**
+     * ToggleE_GSM, NT_MODE_WCDMA_PREF)
+     * @param boolean to turn on and off 2G
+     * @hide
+     */
+     void toggle2G(boolean on);
 }
