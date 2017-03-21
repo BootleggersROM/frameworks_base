@@ -4820,6 +4820,37 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
+        * @hide
+         */
+        public static final String START_SCREEN_STATE_SERVICE = "start_screen_state_service";
+
+
+        /**
+         * @hide
+         */
+        public static final String SCREEN_STATE_TWOG = "screen_state_twog";
+
+        /**
+         * @hide
+         */
+        public static final String SCREEN_STATE_GPS = "screen_state_gps";
+
+        /**
+         * @hide
+         */
+        public static final String SCREEN_STATE_MOBILE_DATA = "screen_state_mobile_data";
+
+        /**
+         * @hide
+         */
+        public static final String SCREEN_STATE_OFF_DELAY = "screen_state_off_delay";
+
+        /**
+         * @hide
+         */
+        public static final String SCREEN_STATE_ON_DELAY = "screen_state_on_delay";
+
+        /**
          * Whether to show the kill app button in notification guts
          *
          * @hide
@@ -5070,6 +5101,12 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HEADS_UP_STOPLIST_VALUES);
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
             PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
+            PRIVATE_SETTINGS.add(START_SCREEN_STATE_SERVICE);
+            PRIVATE_SETTINGS.add(SCREEN_STATE_TWOG);
+            PRIVATE_SETTINGS.add(SCREEN_STATE_GPS);
+            PRIVATE_SETTINGS.add(SCREEN_STATE_MOBILE_DATA);
+            PRIVATE_SETTINGS.add(SCREEN_STATE_OFF_DELAY);
+            PRIVATE_SETTINGS.add(SCREEN_STATE_ON_DELAY);
         }
 
         /**
