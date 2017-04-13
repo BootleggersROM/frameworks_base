@@ -4387,6 +4387,12 @@ public final class Settings {
         public static final String AMBIENT_VISUALIZER_ENABLED = "ambient_visualizer";
 
         /**
+         * Whether to display cross sign for a data disabled connection
+         * @hide
+         */
+        public static final String DATA_DISABLED_ICON = "data_disabled_icon";
+
+        /**
          * Show or hide clock
          * 0 - hide
          * 1 - show (default)
