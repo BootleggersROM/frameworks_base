@@ -34,4 +34,10 @@
 
     <!-- PiP Tile -->
     <string name="quick_settings_pip_label">PiP</string>
+
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Prevent <xliff:g id="task">%1$s</xliff:g> from being dismissed</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Allow <xliff:g id="task">%1$s</xliff:g> to be dismissed</string>
+
 </resources>
