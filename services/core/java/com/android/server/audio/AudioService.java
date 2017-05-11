@@ -626,6 +626,8 @@ public class AudioService extends IAudioService.Stub
         }
     }
 
+    private int mLaunchPlayer;
+
     ///////////////////////////////////////////////////////////////////////////
     // Construction
     ///////////////////////////////////////////////////////////////////////////
@@ -648,6 +650,9 @@ public class AudioService extends IAudioService.Stub
 
         Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         mHasVibrator = vibrator == null ? false : vibrator.hasVibrator();
+
+        mLaunchPlayer = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.HEADSET_CONNECT_PLAYER, 4, UserHandle.USER_CURRENT);
 
         // Initialize volume
         int maxVolume = SystemProperties.getInt("ro.config.vc_call_vol_steps",
@@ -3236,6 +3241,24 @@ public class AudioService extends IAudioService.Stub
         synchronized (mScoClients) {
             if (connected) {
                 mBluetoothHeadsetDevice = btDevice;
+                switch (mLaunchPlayer) {
+                    case 0:
+                    case 1:
+                        //do nothing
+                        break;
+                    case 2:
+                    case 4:
+                        //launch the player if bt headset is not a carkit
+                        if (outDevice != AudioSystem.DEVICE_OUT_BLUETOOTH_SCO_CARKIT) {
+                            startMusicPlayer();
+                        }
+                        break;
+                    case 3:
+                    case 5:
+                        //launch the player for all bt headsets
+                        startMusicPlayer();
+                        break;
+                }
             } else {
                 mBluetoothHeadsetDevice = null;
                 resetBluetoothSco();
@@ -4953,6 +4976,8 @@ public class AudioService extends IAudioService.Stub
                     Settings.Global.ENCODED_SURROUND_OUTPUT), false, this);
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.VOLUME_KEYS_CONTROL_MEDIA_STREAM), false, this);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADSET_CONNECT_PLAYER), false, this);
         }
 
         @Override
@@ -4976,6 +5001,8 @@ public class AudioService extends IAudioService.Stub
 
                 setVolumeKeysControlMediaStream();
             }
+            mLaunchPlayer = Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.HEADSET_CONNECT_PLAYER, 4, UserHandle.USER_CURRENT);
         }
 
         private void updateEncodedSurroundOutput() {
@@ -5351,7 +5378,8 @@ public class AudioService extends IAudioService.Stub
             connType = AudioRoutesInfo.MAIN_HEADSET;
             intent.setAction(Intent.ACTION_HEADSET_PLUG);
             intent.putExtra("microphone", 1);
-            if (state == 1) {
+            if ((mLaunchPlayer == 1 || mLaunchPlayer == 4 || mLaunchPlayer == 5)
+                    && state ==1) {
                 startMusicPlayer();
             }
         } else if (device == AudioSystem.DEVICE_OUT_WIRED_HEADPHONE ||
@@ -5360,7 +5388,8 @@ public class AudioService extends IAudioService.Stub
             connType = AudioRoutesInfo.MAIN_HEADPHONES;
             intent.setAction(Intent.ACTION_HEADSET_PLUG);
             intent.putExtra("microphone", 0);
-            if (state == 1) {
+            if ((mLaunchPlayer == 1 || mLaunchPlayer == 4 || mLaunchPlayer == 5)
+                    && state ==1) {
                 startMusicPlayer();
             }
         } else if (device == AudioSystem.DEVICE_OUT_HDMI ||
@@ -5401,11 +5430,8 @@ public class AudioService extends IAudioService.Stub
             AudioSystem.DEVICE_OUT_ALL_USB;
 
     private void startMusicPlayer() {
-        boolean launchPlayer = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.HEADSET_CONNECT_PLAYER, 0, UserHandle.USER_CURRENT) != 0;
         TelecomManager tm = (TelecomManager) mContext.getSystemService(Context.TELECOM_SERVICE);
-
-        if (launchPlayer && !tm.isInCall()) {
+        if (!tm.isInCall()) {
             try {
                 Intent playerIntent = new Intent(Intent.ACTION_MAIN);
                 playerIntent.addCategory(Intent.CATEGORY_APP_MUSIC);
