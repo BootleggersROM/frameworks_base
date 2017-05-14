@@ -31,7 +31,7 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
 
     private final float mIconAlphaWhenOpaque;
 
-    private View mStartSide, mStatusIcons, mBattery, mClock, mCenterClock, mRightClock;
+    private View mStartSide, mStatusIcons, mBattery, mClock, mCenterClock, mRightClock, mStatusBarLogo, mStatusBarLogoRight;
     private Animator mCurrentAnimation;
 
     /**
@@ -47,6 +47,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
         mClock = statusBarView.findViewById(R.id.clock);
         mCenterClock = statusBarView.findViewById(R.id.center_clock);
         mRightClock = statusBarView.findViewById(R.id.right_clock);
+        mStatusBarLogo = statusBarView.findViewById(R.id.statusbar_logo);
+        mStatusBarLogoRight = statusBarView.findViewById(R.id.statusbar_logo_right);
         applyModeBackground(-1, getMode(), false /*animate*/);
         applyMode(getMode(), false /*animate*/);
     }
@@ -87,6 +89,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
         if (animate) {
             AnimatorSet anims = new AnimatorSet();
             anims.playTogether(
+                    animateTransitionTo(mStatusBarLogo, newAlphaBC),
+                    animateTransitionTo(mStatusBarLogoRight, newAlphaBC),
                     animateTransitionTo(mStartSide, newAlpha),
                     animateTransitionTo(mStatusIcons, newAlpha),
                     animateTransitionTo(mBattery, newAlpha),
@@ -100,6 +104,8 @@ public final class PhoneStatusBarTransitions extends BarTransitions {
             anims.start();
             mCurrentAnimation = anims;
         } else {
+            mStatusBarLogo.setAlpha(newAlphaBC);
+            mStatusBarLogoRight.setAlpha(newAlphaBC);
             mStartSide.setAlpha(newAlpha);
             mStatusIcons.setAlpha(newAlpha);
             mBattery.setAlpha(newAlphaBC);
