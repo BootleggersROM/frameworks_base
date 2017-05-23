@@ -517,6 +517,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private ArrayList<String> mStoplist = new ArrayList<String>();
     private ArrayList<String> mBlacklist = new ArrayList<String>();
 
+    private boolean mFpQuickPulldownQs;
     private boolean mFpDismissNotifications;
 
     // the tracker view
@@ -3377,8 +3378,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 return;
             }
             if (mNotificationPanel.isFullyCollapsed()) {
-                mNotificationPanel.expand(true /* animate */);
-                mMetricsLogger.count(NotificationPanelView.COUNTER_PANEL_OPEN, 1);
+                if (mFpQuickPulldownQs) {
+                    mNotificationPanel.expandWithQs();
+                    mMetricsLogger.count(NotificationPanelView.COUNTER_PANEL_OPEN_QS, 1);
+                } else {
+                    mNotificationPanel.expand(true /* animate */);
+                    mMetricsLogger.count(NotificationPanelView.COUNTER_PANEL_OPEN, 1);
+                }
             } else if (!mNotificationPanel.isInSettings() && !mNotificationPanel.isExpanding()){
                 mNotificationPanel.flingSettings(0 /* velocity */, true /* expand */);
                 mMetricsLogger.count(NotificationPanelView.COUNTER_PANEL_OPEN_QS, 1);
@@ -6875,6 +6881,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_ROWS_LANDSCAPE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.FP_QUICK_PULLDOWN_QS),
+                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_COLUMNS_PORTRAIT),
                     false, this, UserHandle.USER_ALL);
@@ -7004,6 +7013,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.FORCE_AMBIENT_FOR_MEDIA))) {
                 setForceAmbient();
+            } else if (uri.equals(Settings.Secure.getUriFor(
+                    Settings.Secure.FP_QUICK_PULLDOWN_QS))) {
+                setFpToQuickPulldownQs();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.AMBIENT_VISUALIZER_ENABLED))) {
                 setAmbientVis();
@@ -7064,6 +7076,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setSecurityAlpha();
             updateRecentsMode();
             setFpToDismissNotifications();
+            setFpToQuickPulldownQs();
             updateKeyguardStatusSettings();
         }
     }
@@ -7124,6 +7137,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         final String stopString = Settings.System.getString(mContext.getContentResolver(),
                     Settings.System.HEADS_UP_STOPLIST_VALUES);
         splitAndAddToArrayList(mStoplist, stopString, "\\|");
+    }
+
+    private void setFpToQuickPulldownQs() {
+        mFpQuickPulldownQs = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.FP_QUICK_PULLDOWN_QS, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void setHeadsUpBlacklist() {
