@@ -5115,6 +5115,12 @@ public final class Settings {
         private static final Validator LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to display 4G icon instead LTE
+         * @hide
+         */
+        public static final String SHOW_FOURG_ICON = "show_fourg_icon";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
