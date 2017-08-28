@@ -27,6 +27,16 @@
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
 
+    <!-- Power Menu -->
+    <string name="global_action_reboot">Restart</string>
+    <string name="global_action_reboot_more">Restart\u2026</string>
+    <string name="global_action_reboot_sub">System</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_dismissable_dialog_text">Advanced restart is disabled.\nDo you want to restart\u003f</string>
+    <string name="global_action_dnaa">Do not show again</string>
+    <string name="global_action_settings">Settings</string>
+
     <!-- Screenrecord Notification Ticker -->
     <string name="screenrecord_notif_ticker">Screen is being recorded</string>
     <!-- Screenrecord notification title -->
@@ -39,5 +49,13 @@
     <!-- Screen record notification error title -->
     <string name="screenrecord_notif_error">Unable to record screen</string>
     <string name="notification_channel_screenrecord">Screenrecords</string>
+
+    <!-- Global actions -->
+    <!-- string name="global_action_restart_advanced">Advanced reboot</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string-->
+    <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_screenrecord">Screenrecord</string>
+    <string name="global_action_flashlight">Flashlight</string>
 
 </resources>
