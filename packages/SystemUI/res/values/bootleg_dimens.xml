@@ -39,4 +39,10 @@
 
     <!-- Small QS Scrolling -->
     <dimen name="qs_scroller_margin">8dp</dimen>
+    <dimen name="qs_scroller_top_margin">40dp</dimen>
+
+    <!-- OmniStyle special dimens -->
+    <dimen name="qs_panel_margin_top">28dp</dimen>
+    <dimen name="qs_panel_margin_top_header">85dp</dimen>
+    <dimen name="qs_panel_footer_height">48dp</dimen>
 </resources>
