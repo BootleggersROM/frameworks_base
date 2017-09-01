@@ -6430,6 +6430,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.AMBIENT_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -6476,6 +6479,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.AMBIENT_VISUALIZER_ENABLED))) {
                 setAmbientVis();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
+                setLockscreenDoubleTapToSleep();
             }
         }
 
@@ -6493,6 +6499,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setQsPanelOptions();
             updateTheme();
             setForceAmbient();
+            setLockscreenDoubleTapToSleep();
         }
     }
 
@@ -6560,6 +6567,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                 UserHandle.USER_CURRENT) == 1;
     }
 
+    private void setLockscreenDoubleTapToSleep() {
+        if (mStatusBarWindow != null) {
+            mStatusBarWindow.setLockscreenDoubleTapToSleep();
+        }
+    }
+
     protected final ContentObserver mNavbarObserver = new ContentObserver(mHandler) {
         @Override
         public void onChange(boolean selfChange) {
@@ -6578,6 +6591,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
         }
     };
+
 
     private RemoteViews.OnClickHandler mOnClickHandler = new RemoteViews.OnClickHandler() {
 
