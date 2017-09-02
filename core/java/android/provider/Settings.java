@@ -3989,7 +3989,20 @@ public final class Settings {
         /** Beginning of ABC custom setttings**/
 
         /**
+         * Enable blocking wakelock
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_ENABLED = "wakelock_blocking_enabled";
+
+        /**
+         * List of wakelock blocks selected
+         * @hide
+         */
+        public static final String WAKELOCK_BLOCKING_LIST = "wakelock_blocking_list";
+
+        /**
          * Custom button brightness value for manual mode
+
          *
          * @hide
          */
