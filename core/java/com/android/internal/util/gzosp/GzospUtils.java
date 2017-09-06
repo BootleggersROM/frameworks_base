@@ -34,12 +34,17 @@ import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.view.DisplayInfo;
 import android.view.WindowManager;
+import android.view.IWindowManager;
+import android.view.WindowManagerGlobal;
 
 import java.util.Locale;
 
 import com.android.internal.statusbar.IStatusBarService;
 
 public class GzospUtils {
+
+    public static final String INTENT_SCREENSHOT = "action_take_screenshot";
+    public static final String INTENT_REGION_SCREENSHOT = "action_take_region_screenshot";
 
     private static int sDeviceType = -1;
     private static final int DEVICE_PHONE = 0;
@@ -145,6 +150,15 @@ public class GzospUtils {
 
     public static void toggleCameraFlash() {
         FireActions.toggleCameraFlash();
+    }
+
+    public static void takeScreenshot(boolean full) {
+        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+        try {
+            wm.sendGzospAction(new Intent(full? INTENT_SCREENSHOT : INTENT_REGION_SCREENSHOT));
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     private static final class FireActions {
