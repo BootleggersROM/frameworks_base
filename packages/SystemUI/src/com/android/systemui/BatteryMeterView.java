@@ -191,7 +191,7 @@ public class BatteryMeterView extends LinearLayout implements
     private void updateShowPercent() {
         final boolean showing = mBatteryPercentView != null;
         if (0 != Settings.System.getInt(getContext().getContentResolver(),
-                SHOW_BATTERY_PERCENT, 0) || mForceShowPercent) {
+                SHOW_BATTERY_PERCENT, 1) || mForceShowPercent) {
             if (!showing) {
                 mBatteryPercentView = loadPercentView();
                 if (mTextColor != 0) mBatteryPercentView.setTextColor(mTextColor);
