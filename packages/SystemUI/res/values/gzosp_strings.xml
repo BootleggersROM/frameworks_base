@@ -38,4 +38,7 @@
     <!-- PiP Tile -->
     <string name="quick_settings_pip_label">PiP</string>
 
+    <!-- SystemUITuner stuff -->
+    <string name="statusbar_items_title">Statusbar icons</string>
+
 </resources>
