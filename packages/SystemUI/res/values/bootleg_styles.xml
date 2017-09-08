@@ -34,4 +34,9 @@
         <item name="android:fontFamily">sans-serif-medium</item>
     </style>
 
+    <!-- Tuner Theme-->
+    <style name="ExTunerSettings" parent="@android:style/Theme.DeviceDefault.Settings">
+        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
+    </style>
+
 </resources>
