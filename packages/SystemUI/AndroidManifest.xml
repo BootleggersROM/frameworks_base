@@ -303,7 +303,15 @@
                   android:theme="@style/ExTunerSettings"
                   android:label="@string/statusbar_items_title"
                   android:process=":tuner"
-                  android:parentActivityName="com.bootleg.dumpster.fragments.StatusBarSettings"
+                  android:parentActivityName="com.bootleggers.dumpster.fragments.StatusBarSettings"
+                  android:exported="true">
+        </activity>
+
+        <activity android:name=".tuner.NavBarActivity"
+                  android:theme="@style/ExTunerSettings"
+                  android:label="@string/nav_bar"
+                  android:process=":tuner"
+                  android:parentActivityName="com.bootleggers.dumpster.fragments.NavbarSettings"
                   android:exported="true">
         </activity>
 
