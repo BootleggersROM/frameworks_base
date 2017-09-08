@@ -120,8 +120,31 @@ public class CaffeineTile extends QSTileImpl<BooleanState> {
     }
 
     @Override
+    public void handleLongClick() {
+        setCpuInfoEnabled();
+    }
+
+    @Override
     public Intent getLongClickIntent() {
-        return null;
+        return  null;
+    }
+
+    private boolean setCpuInfoEnabled() {
+        boolean enabled = Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.SHOW_CPU_OVERLAY, 1) != 0;
+        Intent service = (new Intent())
+                .setClassName("com.android.systemui",
+                "com.android.systemui.CPUInfoService");
+        if (!enabled) {
+            Settings.System.putInt(
+                mContext.getContentResolver(), Settings.System.SHOW_CPU_OVERLAY, 1);
+            mContext.startService(service);
+        } else {
+            Settings.System.putInt(
+                mContext.getContentResolver(), Settings.System.SHOW_CPU_OVERLAY, 0);
+            mContext.stopService(service);
+        }
+        return enabled;
     }
 
     @Override
