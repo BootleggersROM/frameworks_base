@@ -6008,6 +6008,12 @@ public final class Settings {
         };
 
         /**
+         * Wheter to show heads up only for dialer and sms apps
+         * @hide
+         */
+        public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
+
+        /**
          * These are all public system settings
          *
          * @hide
