@@ -740,6 +740,15 @@ final class DefaultPermissionGrantPolicy {
                         STORAGE_PERMISSIONS, true, userId);
             }
 
+            // CameraNextMod
+            PackageParser.Package cnm = getSystemPackageLPr("com.pms.cameranextmod7");
+            if (cnm != null && doesPackageSupportRuntimePermissions(cnm)) {
+            grantRuntimePermissionsLPw(cnm, CAMERA_PERMISSIONS, userId);
+            grantRuntimePermissionsLPw(cnm, MICROPHONE_PERMISSIONS, userId);
+            grantRuntimePermissionsLPw(cnm, STORAGE_PERMISSIONS, userId);
+            grantRuntimePermissionsLPw(cnm, LOCATION_PERMISSIONS, userId);
+            }
+
             mService.mSettings.onDefaultRuntimePermissionsGrantedLPr(userId);
 
             // Google Account
