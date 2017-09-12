@@ -62,7 +62,7 @@ public class CPUInfoService extends Service {
 
         private boolean mDataAvail;
         private String mCPUTemp;
-	
+
         private Handler mCurCPUHandler = new Handler() {
             public void handleMessage(Message msg) {
                 if(msg.obj==null){
