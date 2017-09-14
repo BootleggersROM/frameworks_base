@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2012-2015 The CyanogenMod Project
-     Copyright (c) 2013, The Linux Foundation. All rights reserved.
-     Copyright (c) 2017 GZOSP
+     Copyright (C) 2017 GZOSP
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -16,15 +14,9 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_disabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
-
-    <!-- Usb drive persistent notification -->
-    <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <!-- Wheter to enable doze always on -->
-    <java-symbol type="bool" name="config_enableDozeAlwaysOn"/>
+    <bool name="config_enableDozeAlwaysOn">false</bool>
 
 </resources>
