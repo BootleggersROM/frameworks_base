@@ -68,4 +68,8 @@
 
     <!-- RAM available string -->
     <string name="recents_free_ram">%1$dMB of RAM Available</string>
+
+    <!-- VoLTE icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
+
 </resources>
