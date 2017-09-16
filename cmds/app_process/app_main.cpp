@@ -17,7 +17,6 @@
 #include <hwbinder/IPCThreadState.h>
 #include <utils/Log.h>
 #include <cutils/memory.h>
-#include <cutils/process_name.h>
 #include <cutils/properties.h>
 #include <cutils/trace.h>
 #include <android_runtime/AndroidRuntime.h>
@@ -338,7 +337,6 @@ int main(int argc, char* const argv[])
     }
 
     if (!niceName.isEmpty()) {
-        set_process_name(niceName.string());
         runtime.setArgv0(niceName.string(), true /* setProcName */);
     }
 
