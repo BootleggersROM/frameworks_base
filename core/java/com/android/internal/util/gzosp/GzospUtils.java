@@ -18,6 +18,7 @@ package com.android.internal.util.gzosp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -137,6 +138,15 @@ public class GzospUtils {
 
     public static boolean isPackageInstalled(Context context, String pkg) {
         return isPackageInstalled(context, pkg, true);
+    }
+
+    public static boolean isPackageEnabled(String packageName, PackageManager pm) {
+        try {
+            ApplicationInfo ai = pm.getApplicationInfo(packageName, 0);
+            return ai.enabled;
+        } catch (PackageManager.NameNotFoundException notFound) {
+            return false;
+        }
     }
 
     private static int getScreenType(Context context) {
