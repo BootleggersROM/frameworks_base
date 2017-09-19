@@ -22,6 +22,9 @@
         <item>advanced</item>
         <item>screenshot</item>
         <item>airplane</item>
+        <item>settings</item>
+        <item>lockdown</item>
+        <item>silent</item>
     </string-array>
 
     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
