@@ -121,4 +121,11 @@ interface IStatusBarService
     void toggleCameraFlashState(boolean enable);
 
     void setPartialScreenshot(boolean active);
+
+    // HW keys API
+    void toggleRecentApps();
+    void toggleSplitScreen();
+    void preloadRecentApps();
+    void cancelPreloadRecentApps();
+    void startAssist(in Bundle args);
 }
