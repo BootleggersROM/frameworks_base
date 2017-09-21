@@ -28,6 +28,7 @@ import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioAttributes;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -35,6 +36,8 @@ import android.os.Looper;
 import android.os.PowerManager;
 import android.os.SystemClock;
 import android.os.UserHandle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.support.annotation.VisibleForTesting;
 import android.util.Slog;
@@ -85,6 +88,8 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
     private final Context mContext;
     private final NotificationManager mNoMan;
     private final PowerManager mPowerMan;
+    private final AudioManager mAudioMan;
+    private final Vibrator mVibrator;
     private final Handler mHandler = new Handler(Looper.getMainLooper());
     private final Receiver mReceiver = new Receiver();
     private final Intent mOpenBatterySettings = settings(Intent.ACTION_POWER_USAGE_SUMMARY);
@@ -109,6 +114,8 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
         mContext = context;
         mNoMan = notificationManager;
         mPowerMan = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+        mAudioMan = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         mReceiver.init();
     }
 
@@ -371,6 +378,29 @@ public class PowerNotificationWarnings implements PowerUI.WarningsUI {
             }
         }
     }*/
+
+    @Override
+    public void notifyBatteryPlugged() {
+        if (DEBUG) {
+            Slog.d(TAG, "notifyBatteryPlugged");
+        }
+        if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.VIBRATION_ON_CHARGE_STATE_CHANGED, 1,
+                UserHandle.USER_CURRENT) == 1) {
+            playBatteryPluggedVibration();
+        }
+    }
+
+    private void playBatteryPluggedVibration() {
+        if (DEBUG) {
+            Slog.d(TAG, "playing battery plugged vibration");
+        }
+        final int mode = mAudioMan.getRingerModeInternal();
+        if (mode == AudioManager.RINGER_MODE_NORMAL ||
+                mode == AudioManager.RINGER_MODE_VIBRATE) {
+            mVibrator.vibrate(VibrationEffect.createOneShot(150, VibrationEffect.DEFAULT_AMPLITUDE));
+        }
+    }
 
     @Override
     public void dismissInvalidChargerWarning() {
