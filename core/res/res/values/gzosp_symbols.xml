@@ -56,4 +56,7 @@
     <java-symbol type="anim" name="recent_screen_fade_out" />
     <java-symbol type="anim" name="recent_enter" />
 
+    <java-symbol type="anim" name="du_app_in" />
+    <java-symbol type="anim" name="du_app_out" />
+
 </resources>

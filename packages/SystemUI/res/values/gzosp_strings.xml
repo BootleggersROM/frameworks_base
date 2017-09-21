@@ -61,4 +61,6 @@
     <string name="show_fourg_title">Show 4G instead of LTE</string>
     <string name="show_fourg_summary">Replaces LTE statusbar indicator with 4G</string>
 
+    <string name="systemui_tuner_navbar_title">Stock settings</string>
+
 </resources>
