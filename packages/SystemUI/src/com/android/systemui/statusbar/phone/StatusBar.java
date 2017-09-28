@@ -460,6 +460,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     ActivityManager mAm;
     private ArrayList<String> mStoplist = new ArrayList<String>();
+    private ArrayList<String> mBlacklist = new ArrayList<String>();
 
     // the tracker view
     int mTrackingPosition; // the position of the top of the tracking view.
@@ -5451,6 +5452,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
         }
 
         @Override
@@ -5483,6 +5486,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                 final String stopString = Settings.System.getString(mContext.getContentResolver(),
                         Settings.System.HEADS_UP_STOPLIST_VALUES);
                 splitAndAddToArrayList(mStoplist, stopString, "\\|");
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES))) {
+                final String blackString = Settings.System.getString(mContext.getContentResolver(),
+                        Settings.System.HEADS_UP_BLACKLIST_VALUES);
+                splitAndAddToArrayList(mBlacklist, blackString, "\\|");
             }
         }
 
@@ -5493,6 +5501,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateDozeBrightness();
             updateQsPanelResources();
             setHeadsUpStoplist();
+            setHeadsUpBlacklist();
         }
     }
 
@@ -5528,9 +5537,15 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     private void setHeadsUpStoplist() {
-        final String stopString = Settings.System.getString(mContext.getContentResolver(),
-                    Settings.System.HEADS_UP_STOPLIST_VALUES);
-        splitAndAddToArrayList(mStoplist, stopString, "\\|");
+         final String stopString = Settings.System.getString(mContext.getContentResolver(),
+                     Settings.System.HEADS_UP_STOPLIST_VALUES);
+          splitAndAddToArrayList(mStoplist, stopString, "\\|");
+    }
+
+    private void setHeadsUpBlacklist() {
+        final String blackString = Settings.System.getString(mContext.getContentResolver(),
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES);
+        splitAndAddToArrayList(mBlacklist, blackString, "\\|");
     }
 
     private RemoteViews.OnClickHandler mOnClickHandler = new RemoteViews.OnClickHandler() {
@@ -7090,8 +7105,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         List<ActivityManager.RunningTaskInfo> taskInfo = mAm.getRunningTasks(1);
         ComponentName componentInfo = taskInfo.get(0).topActivity;
 
-        if(isPackageInStoplist(componentInfo.getPackageName())
-                && !isDialerApp(sbn.getPackageName())) {
+        if(isPackageBlacklisted(sbn.getPackageName())
+                || (isPackageInStoplist(componentInfo.getPackageName())
+                && !isDialerApp(sbn.getPackageName()))) {
             return false;
         }
 
@@ -7159,6 +7175,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private boolean isPackageInStoplist(String packageName) {
         return mStoplist.contains(packageName);
+    }
+
+    private boolean isPackageBlacklisted(String packageName) {
+        return mBlacklist.contains(packageName);
     }
 
     private boolean isDialerApp(String packageName) {
