@@ -4450,6 +4450,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.AMBIENT_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
         }
 
         @Override
@@ -4466,12 +4470,15 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.AMBIENT_VISUALIZER_ENABLED))) {
                 setAmbientVis();
             }
+            update();
         }
 
         public void update() {
             updateCutoutOverlay();
             setFpToDismissNotifications();
             setPulseOnNewTracks();
+            setHeadsUpStoplist();
+            setHeadsUpBlacklist();
         }
     }
 
@@ -4494,6 +4501,16 @@ public class StatusBar extends SystemUI implements DemoMode,
         mAmbientVisualizer = Settings.Secure.getIntForUser(
                 mContext.getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
                 UserHandle.USER_CURRENT) == 1;
+    }
+
+    private void setHeadsUpStoplist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpStoplist();
+    }
+
+    private void setHeadsUpBlacklist() {
+        if (mPresenter != null)
+            mPresenter.setHeadsUpBlacklist();
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
