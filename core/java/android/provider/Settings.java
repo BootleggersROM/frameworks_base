@@ -4306,6 +4306,7 @@ public final class Settings {
         /**
          * Wheter to use corner radius for Slim Recents cards
          * @hide
+         *
          */
         public static final String SLIM_RECENTS_CORNER_RADIUS = "slim_recents_corner_radius";
 
@@ -4360,6 +4361,12 @@ public final class Settings {
          * @hide
          */
         public static final String SCREENSHOT_SOUND = "screenshot_sound";
+
+        /**
+         * Whether to enable scrolling in the small quick settings
+         * @hide
+         */
+        public static final String QS_QUICKBAR_SCROLL_ENABLED = "qs_quickbar_scroll_enabled";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4546,6 +4553,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_TILE_TITLE_VISIBILITY);
             PRIVATE_SETTINGS.add(WAKE_WHEN_PLUGGED_OR_UNPLUGGED);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(QS_QUICKBAR_SCROLL_ENABLED);
         }
 
         /**

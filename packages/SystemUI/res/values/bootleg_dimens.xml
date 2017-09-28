@@ -36,4 +36,7 @@
 
     <!-- Membar spacing -->
     <dimen name="recents_membar_spacing">12dp</dimen>
+
+    <!-- Small QS Scrolling -->
+    <dimen name="qs_scroller_margin">8dp</dimen>
 </resources>

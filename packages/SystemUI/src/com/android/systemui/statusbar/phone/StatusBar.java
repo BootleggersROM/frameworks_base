@@ -185,6 +185,7 @@ import com.android.systemui.plugins.statusbar.NotificationSwipeActionHelper.Snoo
 import com.android.systemui.qs.QSFragment;
 import com.android.systemui.qs.QSPanel;
 import com.android.systemui.qs.QSTileHost;
+import com.android.systemui.qs.QuickStatusBarHeader;
 import com.android.systemui.recents.Recents;
 import com.android.systemui.recents.ScreenPinningRequest;
 import com.android.systemui.recents.events.EventBus;
@@ -449,6 +450,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     // settings
     private QSPanel mQSPanel;
+    private QuickStatusBarHeader mQuickStatusBarHeader;
 
     // 4G instead of LTE
     private boolean mShow4G;
@@ -902,8 +904,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         createAndAddWindows();
 
         mSettingsObserver.onChange(false); // set up
+
         mBootlegSettingsObserver.observe();
         mBootlegSettingsObserver.update();
+
         mCommandQueue.disable(switches[0], switches[6], false /* animate */);
         setSystemUiVisibility(switches[1], switches[7], switches[8], 0xffffffff,
                 fullscreenStackBounds, dockedStackBounds);
@@ -1213,6 +1217,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mQSPanel = ((QSFragment) qs).getQsPanel();
                     mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
                     mKeyguardStatusBar.setQSPanel(mQSPanel);
+                    mQuickStatusBarHeader = ((QSFragment) qs).getQuickStatusBarHeader();
                 }
             });
         }
@@ -4869,6 +4874,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public void onClosingFinished() {
         runPostCollapseRunnables();
+        if (mQuickStatusBarHeader != null) {
+            mQuickStatusBarHeader.onClosingFinished();
+        }
         if (!isPanelFullyCollapsed()) {
             // if we set it not to be focusable when collapsing, we have to undo it when we aborted
             // the closing
@@ -5693,6 +5701,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SHOW_FOURG),
                     false, this, UserHandle.USER_ALL);
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_QUICKBAR_SCROLL_ENABLED),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -5751,7 +5762,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                             updateRowStates();
                             updateClearAll();
                             updateEmptyShadeView();
-                    }
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_QUICKBAR_SCROLL_ENABLED))) {
+                if (mQuickStatusBarHeader != null) {
+                    mQuickStatusBarHeader.updateSettings();
+                }
+            }
         }
 
         @Override
