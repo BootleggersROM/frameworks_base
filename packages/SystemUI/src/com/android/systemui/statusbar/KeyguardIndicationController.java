@@ -33,6 +33,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.UserHandle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Log;
@@ -331,19 +332,24 @@ public class KeyguardIndicationController {
         }
 
         String batteryInfo = "";
-        if (mChargingCurrent > 0) {
-            batteryInfo = batteryInfo + (mChargingCurrent / 1000) + "mA";
-        }
-        if (mChargingVoltage > 0) {
-            batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                String.format("%.1f", (mChargingVoltage / 1000 / 1000)) + "V";
-        }
-        if (mTemperature > 0) {
-            batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                mTemperature / 10 + "°C";
-        }
-        if (batteryInfo != "") {
-            batteryInfo = "\n" + batteryInfo;
+        boolean showbatteryInfo = Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.LOCKSCREEN_BATTERY_INFO, 1, UserHandle.USER_CURRENT) == 1;
+
+        if (showbatteryInfo) {
+            if (mChargingCurrent > 0) {
+                batteryInfo = batteryInfo + (mChargingCurrent / 1000) + "mA";
+            }
+            if (mChargingVoltage > 0) {
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
+                        String.format("%.1f", (mChargingVoltage / 1000 / 1000)) + "V";
+            }
+            if (mTemperature > 0) {
+                batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
+                        mTemperature / 10 + "°C";
+            }
+            if (batteryInfo != "") {
+                batteryInfo = "\n" + batteryInfo;
+            }
         }
 
         if (hasChargingTime) {
