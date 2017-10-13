@@ -46,6 +46,7 @@
 
     <!-- PiP Tile -->
     <string name="quick_settings_pip_label">PiP</string>
+    <string name="quick_settings_pip_tile_app_na">Sorry, but it seems that the app doesn\'t support native PiP.</string>
 
     <!-- Content description for Accessibility on unlocked tasks in recents -->
     <string name="accessibility_lock_task">Prevent <xliff:g id="task">%1$s</xliff:g> from being dismissed</string>
