@@ -48,6 +48,7 @@
 
     <!-- PiP Tile -->
     <string name="quick_settings_pip_label">PiP</string>
+    <string name="quick_settings_pip_tile_app_na">Sorry but it seems that the app doesn\'t support native PiP.</string>
 
     <!-- Ambient display and lift gesture Tile -->
     <string name="quick_settings_doze_notifications_label">Ambient notifications</string>
