@@ -21,6 +21,8 @@
     <string name="reboot_to_recovery_message" translatable="false">Rebooting to recovery</string>
     <string name="reboot_to_bootloader_title" translatable="false">Bootloader</string>
     <string name="reboot_to_bootloader_message" translatable="false">Rebooting to bootloader</string>
+    <string name="reboot_title">Reboot</string>
+    <string name="reboot_message">Rebooting system</string>
 
     <!-- Wheter to enable doze always on -->
     <bool name="config_enableDozeAlwaysOn">false</bool>
