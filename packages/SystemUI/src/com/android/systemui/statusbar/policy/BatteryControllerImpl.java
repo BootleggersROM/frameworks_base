@@ -173,7 +173,7 @@ public class BatteryControllerImpl extends BroadcastReceiver implements BatteryC
     public boolean isBatterySaverWarningColor() {
         mBatterySaverWarningColor = Settings.System.getIntForUser(
             mContext.getContentResolver(),
-            Settings.System.BATTERY_SAVER_MODE_COLOR, 0,
+            Settings.Secure.STATUS_BAR_BATTERY_SAVER_COLOR, 0,
             UserHandle.USER_CURRENT) == 1;
 
         return mBatterySaverWarningColor;
