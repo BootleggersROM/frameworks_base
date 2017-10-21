@@ -4673,6 +4673,13 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
                 "double_tap_sleep_lockscreen";
 
+       /**
+        * Statusbar logo Style
+        * @hide
+         */
+        public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
+
+
         /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide

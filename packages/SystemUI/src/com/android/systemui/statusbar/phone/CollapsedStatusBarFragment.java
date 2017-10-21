@@ -24,6 +24,7 @@ import android.app.StatusBarManager;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
@@ -51,6 +52,11 @@ import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
+
+import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -87,6 +93,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     // Bootleg Logo
     private ImageView mBootlegLogo;
     private boolean mShowLogo;
+    private int mLogoStyle;
 
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
@@ -103,12 +110,20 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
          mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
                     false, this, UserHandle.USER_ALL);
+
+         mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO_STYLE),
+                    false, this, UserHandle.USER_ALL);
        }
 
-       @Override
-       public void onChange(boolean selfChange) {
-           updateSettings(true);
-       }
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if ((uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE)))){
+                 updateStatusBarLogo(true);
+        }
+            updateSettings(true);
+        }
     }
     private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
@@ -471,6 +486,193 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     private void updateStatusBarLogo(boolean animate) {
+        Drawable logo = null;
+        if (mStatusBar == null) return;
+        if (getContext() == null) {
+            return;
+        }
+
+        mShowLogo = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mLogoStyle = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+
+        switch(mLogoStyle) {
+                // Default HOME logo, first time
+            case 0:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_logo);
+                break;
+                // MDI Alien
+            case 1:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_alien);
+                break;
+                // MDI Android Head
+            case 2:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_android_head);
+                break;
+                // MDI brain
+            case 3:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_brain);
+                break;
+                // Small BTLG
+            case 4:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_btlg);
+                break;
+                // MDI Clippy
+            case 5:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_clippy);
+                break;
+                // MDI Diamond stone
+            case 6:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_diamond_stone);
+                break;
+                // MDI Drama Masks
+            case 7:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_drama_masks);
+                break;
+                // MDI emoji cool glasses 
+            case 8:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_emoticon_cool_outline);
+                break;
+                // MDI Fingerprint
+            case 9:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_fingerprint);
+                break;
+                // MDI Football Helmet
+            case 10:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_football_helmet);
+                break;
+                // MDI Gamepad
+            case 11:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_gamepad);
+                break;
+                // MDI Ghost
+            case 12:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_ghost);
+                break;
+                // MDI Github
+            case 13:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_github_face);
+                break;
+                // MDI Glass Cocktail
+            case 14:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_glass_cocktail);
+                break;
+                // MDI Glass Wine
+            case 15:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_glass_wine);
+                break;
+                // MDI Glitter (creative)
+            case 16:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_glitter);
+                break;
+                // MDI GController
+            case 17:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_google_controller);
+                break;
+                // MDI GraphQL
+            case 18:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_graphql);
+                break;
+                // MDI Guitar
+            case 19:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_guitar_electric);
+                break;
+                // MDI Guitar Pick
+            case 20:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_guitar_pick);
+                break;
+                // MDI Hand Okay
+            case 21:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_hand_okay);
+                break;
+                // MDI Heart
+            case 22:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_heart);
+                break;
+                // Linux
+            case 23:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_linux);
+                break;
+                // MDI Mushroom
+            case 24:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_mushroom);
+                break;
+                // nice logo >:]
+            case 25:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_nice_logo);
+                break;
+                // MDI Ornament
+            case 26:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_ornament);
+                break;
+                // MDI owl
+            case 27:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_owl);
+                break;
+                // MDI Pac-man
+            case 28:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_pac_man);
+                break;
+                // MDI Pine Tree
+            case 29:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_pine_tree);
+                break;
+                // Shishu Builds esmolified
+            case 30:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_shishubuilds);
+                break;
+                // Small BTLG
+            case 31:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_shishu_logo);
+                break;
+                // The S of the shishu builds
+            case 32:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_shishu_s);
+                break;
+                // MDI Space invaders
+            case 33:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_space_invaders);
+                break;
+                // MDI Sunglasses
+            case 34:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_sunglasses);
+                break;
+                // MDI timer sand
+            case 35:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_timer_sand);
+                break;
+                // Themeable Statusbar icon 01
+            case 36:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_themeicon01);
+                break;
+                // Themeable Statusbar icon 02
+            case 37:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_themeicon02);
+                break;
+                // Themeable Statusbar icon 03
+            case 38:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_themeicon03);
+                break;
+                // Default Bootleggers HOME logo, once again
+            default:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_logo);
+                break;
+        }
+
+        if (mBootlegLogo != null) {
+            if (logo == null) {
+                // Something wrong. Do not show anything
+                mBootlegLogo.setImageDrawable(logo);
+                mShowLogo = false;
+                return;
+            }
+
+            mBootlegLogo.setImageDrawable(logo);
+        }
+
         if (mNotificationIconAreaInner != null) {
             if (mShowLogo) {
                 if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
