@@ -1,0 +1,7 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/status_bar_btlg_bg"
+        />
+    <item android:drawable="@drawable/status_bar_btlg_fg"
+        />
+
+</layer-list>
