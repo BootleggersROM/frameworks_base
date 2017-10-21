@@ -43,6 +43,11 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 
+import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
  * and keyguard state. Also manages lifecycle to make sure the views it contains are being
@@ -63,19 +68,23 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private SignalClusterView mSignalClusterView;
     private View mOperatorNameFrame;
 
-    // Validus logo
-    private View mValidusLogo;
+    // Bootleggers logos
+    private ImageView mBootlegLogo;
+    private int mLogoStyle;
     private boolean mShowLogo;
     private final Handler mHandler = new Handler();
 
-    private class ValidusSettingsObserver extends ContentObserver {
-        ValidusSettingsObserver(Handler handler) {
+    private class BootlegSettingsObserver extends ContentObserver {
+        BootlegSettingsObserver(Handler handler) {
             super(handler);
         }
 
         void observe() {
             getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
+                    false, this, UserHandle.USER_ALL);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO_STYLE),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -84,7 +93,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             updateSettings(true);
         }
     }
-    private ValidusSettingsObserver mValidusSettingsObserver = new ValidusSettingsObserver(mHandler);
+    private BootlegSettingsObserver mBootlegSettingsObserver = new BootlegSettingsObserver(mHandler);
 
     private SignalCallback mSignalCallback = new SignalCallback() {
         @Override
@@ -99,7 +108,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
         mNetworkController = Dependency.get(NetworkController.class);
         mStatusBarComponent = SysUiServiceProvider.getComponent(getContext(), StatusBar.class);
-        mValidusSettingsObserver.observe();
+        mBootlegSettingsObserver.observe();
     }
 
     @Override
@@ -120,7 +129,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
         mSignalClusterView = mStatusBar.findViewById(R.id.signal_cluster);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mSignalClusterView);
-        mValidusLogo = mStatusBar.findViewById(R.id.status_bar_logo);
+        mBootlegLogo = mStatusBar.findViewById(R.id.status_bar_logo);
         updateSettings(false);
         // Default to showing until we know otherwise.
         showSystemIconArea(false);
@@ -227,14 +236,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void hideNotificationIconArea(boolean animate) {
         animateHide(mNotificationIconAreaInner, animate, true);
         if (mShowLogo) {
-            animateHide(mValidusLogo, animate, true);
+            animateHide(mBootlegLogo, animate, true);
         }
     }
 
     public void showNotificationIconArea(boolean animate) {
         animateShow(mNotificationIconAreaInner, animate);
         if (mShowLogo) {
-            animateShow(mValidusLogo, animate);
+            animateShow(mBootlegLogo, animate);
         }
     }
 
@@ -320,16 +329,77 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     public void updateSettings(boolean animate) {
+        Drawable logo = null;
+
+        if (mStatusBar == null) return;
+
         mShowLogo = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
+        mLogoStyle = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+
+        switch(mLogoStyle) {
+                // Small BTLG
+            case 1:
+                logo = getContext().getDrawable(R.drawable.status_bar_btlg);
+                break;
+                // Pitchblack Inspired Graffiti
+            case 2:
+                logo = getContext().getDrawable(R.drawable.status_bar_pb_graffiti);
+                break;
+                // Quetzal 
+            case 3:
+                logo = getContext().getDrawable(R.drawable.status_bar_quetzal_default);
+                break;
+                // Quetzal - Alternative design
+            case 3:
+                logo = getContext().getDrawable(R.drawable.status_bar_quetzal_alt);
+                break;
+                // The S of the shishu builds
+            case 5:
+                logo = getContext().getDrawable(R.drawable.status_bar_shishu_s);
+                break;
+                // Shishu Builds esmolified
+            case 6:
+                logo = getContext().getDrawable(R.drawable.status_bar_shishubuilds);
+                break;
+                // Themeable Statusbar icon 01
+            case 7:
+                logo = getContext().getDrawable(R.drawable.status_bar_themeicon01);
+                break;
+                // Themeable Statusbar icon 02
+            case 8:
+                logo = getContext().getDrawable(R.drawable.status_bar_themeicon02);
+                break;
+                // Themeable Statusbar icon 03
+            case 9:
+                logo = getContext().getDrawable(R.drawable.status_bar_themeicon03);
+                break;
+                // Default Bootleggers HOME logo, once again
+            default:
+                logo = getContext().getDrawable(R.drawable.status_bar_logo);
+                break;
+        }
+
+        if (mBootlegLogo != null) {
+            if (logo == null) {
+                // Something wrong. Do not show anything
+                mBootlegLogo.setImageDrawable(logo);
+                return;
+            }
+
+            mBootlegLogo.setImageDrawable(logo);
+        }
+
         if (mNotificationIconAreaInner != null) {
             if (mShowLogo) {
                 if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
-                    animateShow(mValidusLogo, animate);
+                    animateShow(mBootlegLogo, animate);
                 }
             } else {
-                animateHide(mValidusLogo, animate, false);
+                animateHide(mBootlegLogo, animate, false);
             }
         }
     }
