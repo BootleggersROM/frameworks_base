@@ -51,6 +51,11 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
 
+import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
  * and keyguard state. Also manages lifecycle to make sure the views it contains are being
@@ -77,6 +82,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     // Bootleggers additions start
     private View mBootlegLogo;
+    private int mLogoStyle;
     private boolean mShowLogo;
     private final Handler mHandler = new Handler();
 
@@ -88,6 +94,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         void observe() {
             getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
+                    false, this, UserHandle.USER_ALL);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO_STYLE),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -364,9 +373,70 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
     }
     public void updateSettings(boolean animate) {
+        Drawable logo = null;
+
+        if (mStatusBar == null) return;
+
         mShowLogo = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
+        mLogoStyle = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+
+        switch(mLogoStyle) {
+                // Small BTLG
+            case 1:
+                logo = getContext().getDrawable(R.drawable.status_bar_btlg);
+                break;
+                // Pitchblack Inspired Graffiti
+            case 2:
+                logo = getContext().getDrawable(R.drawable.status_bar_pb_graffiti);
+                break;
+                // Quetzal 
+            case 3:
+                logo = getContext().getDrawable(R.drawable.status_bar_quetzal_default);
+                break;
+                // Quetzal - Alternative design
+            case 4:
+                logo = getContext().getDrawable(R.drawable.status_bar_quetzal_alt);
+                break;
+                // The S of the shishu builds
+            case 5:
+                logo = getContext().getDrawable(R.drawable.status_bar_shishu_s);
+                break;
+                // Shishu Builds esmolified
+            case 6:
+                logo = getContext().getDrawable(R.drawable.status_bar_shishubuilds);
+                break;
+                // Themeable Statusbar icon 01
+            case 7:
+                logo = getContext().getDrawable(R.drawable.status_bar_themeicon01);
+                break;
+                // Themeable Statusbar icon 02
+            case 8:
+                logo = getContext().getDrawable(R.drawable.status_bar_themeicon02);
+                break;
+                // Themeable Statusbar icon 03
+            case 9:
+                logo = getContext().getDrawable(R.drawable.status_bar_themeicon03);
+                break;
+                // Default Bootleggers HOME logo, once again
+            default:
+                logo = getContext().getDrawable(R.drawable.status_bar_logo);
+                break;
+        }
+
+        if (mBootlegLogo != null) {
+            if (logo == null) {
+                // Something wrong. Do not show anything
+                mBootlegLogo.setImageDrawable(logo);
+                return;
+            }
+
+            mBootlegLogo.setImageDrawable(logo);
+        }
+
         if (mNotificationIconAreaInner != null) {
             if (mShowLogo) {
                 if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {

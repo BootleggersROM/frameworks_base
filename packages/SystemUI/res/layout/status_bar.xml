@@ -58,6 +58,12 @@
             android:padding="2dp"
             android:visibility="gone" />
 
+        <ViewStub
+            android:id="@+id/operator_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout="@layout/operator_name" />
+
         <!-- The alpha of this area is controlled from both PhoneStatusBarTransitions and
              PhoneStatusBar (DISABLE_NOTIFICATION_ICONS). -->
         <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
