@@ -89,8 +89,11 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
 
         @Override
-        public void onChange(boolean selfChange) {
+        public void onChange(boolean selfChange, Uri uri) {
+            if ((uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE))))  {
             updateSettings(true);
+            }
         }
     }
     private BootlegSettingsObserver mBootlegSettingsObserver = new BootlegSettingsObserver(mHandler);
