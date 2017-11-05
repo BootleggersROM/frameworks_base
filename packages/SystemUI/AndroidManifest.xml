@@ -261,6 +261,8 @@
     <!-- Kill app from slim recents -->
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
 
+    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+
     <!-- Weather on lockscreen -->
     <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
 
