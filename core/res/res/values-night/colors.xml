@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="dim_foreground_light">#ff555555</color>
+
+    <color name="material_grey_900">#ff111111</color>
+    <color name="material_grey_850">#ff000000</color>
+    <color name="material_grey_800">#ff000000</color>
+    <color name="material_blue_grey_800">#ff111111</color>
+    <color name="material_blue_grey_900">#ff000000</color>
+    <color name="material_blue_grey_950">#ff000000</color>
+
+    <color name="dslv_icon_dark">#ffffffff</color>
+
+    <color name="holo_blue_light">#FAFAFA</color>
+    <color name="holo_blue_dark">#FAFAFA</color>
+    <color name="holo_blue_bright">#FAFAFA</color>
+ 
+   <color name="micro_text_light">#ffffff</color>
+
+    <color name="notification_icon_bg_color">#ff333333</color>
+    <color name="notification_action_color_filter">#ffffffff</color>
+    <color name="notification_media_primary_color">#ffffffff</color>
+    <color name="notification_media_secondary_color">#ffffff</color>
+    <color name="notification_progress_background_color">#ff222222</color>
+    <color name="notification_template_material_big_picture_background_color">#ff111111</color>
+    <color name="notification_mtrl_action_textcolor">#ffffffff</color>
+    <color name="notification_mtrl_big_picture_bg">#ff111111</color>
+    <color name="notification_mtrl_action_text_light">#ffffffff</color>
+
+    <color name="system_notification_accent_color">#FAFAFA</color>
+
+    <color name="highlighted_text_holo_dark">#66ffffff</color>
+    <color name="highlighted_text_holo_light">#66ffffff</color>
+
+    <color name="suggestion_highlight_text">#ffbbbbbb</color>
+
+    <color name="transparent">#00000000</color>
+
+    <color name="background_leanback_dark">#000000</color>
+
+    <color name="primary_text_leanback_dark">#ffffffff</color>
+    <color name="secondary_text_leanback_dark">#ffffff</color>
+    <color name="primary_text_default_material_dark">#ffffffff</color>
+    <color name="secondary_text_default_material_light">#ff999999</color>
+
+    <color name="timepicker_default_ampm_selected_background_color_holo_dark">#ff555555</color>
+    <color name="timepicker_default_background_material">#ff000000</color>
+    <color name="timepicker_default_text_color_material">#ffffffff</color>
+    <color name="timepicker_default_ampm_selected_background_color_material">#ff555555</color>
+    <color name="timepicker_default_selector_color_material">#ff777777</color>
+
+    <color name="datepicker_default_header_selector_background_holo_dark">#ff111111</color>
+    <color name="datepicker_default_header_dayofweek_background_color_holo_dark">#ffffffff</color>
+    <color name="datepicker_default_disabled_text_color_holo_dark">#80ffffff</color>
+    <color name="datepicker_default_selected_text_color_holo_dark">#ffffffff</color>
+    <color name="datepicker_default_pressed_text_color_holo_dark">#ffffff</color>
+    <color name="datepicker_default_header_selector_background_material_dark">#ff111111</color>
+    <color name="datepicker_default_disabled_text_color_material_dark">#80ffffff</color>
+    <color name="datepicker_default_selected_text_color_material_dark">#ffbbbbbb</color>
+    <color name="datepicker_default_pressed_text_color_material_dark">#ffaaaaaa</color>
+    <color name="datepicker_default_circle_background_color_material_dark">#ffffffff</color>
+    <color name="datepicker_default_view_animator_color_material_dark">#ff000000</color>
+
+    <color name="resolver_list_bg">#000000</color> <!-- Background colour for the bottom sheet to choose which app to use to open certain items --> 
+
+    <color name="global_menu_icon">#30FAFAFA</color>
+    <color name="global_menu_icon_enabled">#FAFAFA</color>
+
+    <color name="chooser_grid_bg">#000000</color>
+
+    <color name="user_icon_1">#ff0097a7</color>
+    <color name="user_icon_2">#ff303f9f</color>
+    <color name="user_icon_3">#ff1976d2</color>
+    <color name="user_icon_4">#ffc2185b</color>
+    <color name="user_icon_5">#ff388e3c</color>
+    <color name="user_icon_6">#ff689f38</color>
+    <color name="user_icon_7">#fff57c00</color>
+    <color name="user_icon_8">#ffe64a19</color>
+
+    <color name="Blue_700">#ff1976d2</color>
+    <color name="Indigo_700">#ff303f9f</color>
+    <color name="Pink_700">#ffc2185b</color>
+    <color name="Purple_700">#ff512da8</color>
+    <color name="Red_700">#ffd32f9f</color>
+    <color name="Teal_700">#ff00796b</color>
+ 
+
+    <color name="notification_material_background_color">#000000</color>
+    <color name="notification_action_list">#000000</color> <!-- The REPLY background in a notification -->
+    <color name="notification_default_color">#FAFAFA</color>
+    <color name="notification_icon_default_color">#FAFAFA</color>
+    <color name="notification_text_default_color">#FAFAFA</color>
+
+    <color name="chooser_service_row_background_color">#000000</color>
+
+    <color name="material_deep_teal_100">#FAFAFA</color>
+    <color name="material_deep_teal_300">#FAFAFA</color>
+
+    <color name="user_icon_default_gray">#FAFAFA</color>
+    <color name="user_icon_default_white">#FAFAFA</color>
+
+    <color name="app_permission_icon_tint">#FAFAFA</color>
+
+    <color name="notification_title_text">#FAFAFA</color>
+    <color name="notification_content_text">#FAFAFA</color>
+
+    <color name="primary_text_holo_light">#FAFAFA</color>
+    <color name="primary_text_nodisable_holo_light">#FAFAFA</color>
+    <color name="primary_text_disable_only_holo_dark">#FAFAFA</color>
+    <color name="primary_text_disable_only_holo_light">#FAFAFA</color>
+    <color name="primary_text_nodisable_holo_dark">#FAFAFA</color>
+
+    <color name="legacy_control_activated">#FAFAFA</color>
+    <color name="legacy_button_pressed">#FAFAFA</color>
+    <color name="legacy_light_control_activated">#FAFAFA</color>
+    <color name="legacy_light_button_pressed">#FAFAFA</color>
+
+    <color name="holo_control_activated">#FAFAFA</color>
+    <color name="holo_light_control_activated">#FAFAFA</color>
+
+    <color name="accessibility_focus_highlight">#FAFAFA</color>
+
+    <color name="sender_text_color">#FAFAFA</color>
+
+    <color name="immersive_cling_bg_color">#ff00796b</color>
+    <color name="immersive_cling_text_color">#ffffffff</color>
+
+    <color name="primary_device_default_dark">#000000</color> 
+    <color name="primary_dark_device_default_dark">#000000</color>
+    <color name="notification_action_list_dark">#000000</color> 
+
+    <color name="primary_device_default_settings">#000000</color>
+    <color name="primary_dark_device_default_settings">#000000</color>
+    <color name="secondary_device_default_settings">#242424</color> 
+
+    <color name="tertiary_device_default_settings">#FAFAFA</color>
+    <color name="quaternary_device_default_settings">#FAFAFA</color>
+
+    <color name="accent_device_default_700">#FAFAFA</color>
+    <color name="accent_device_default_light">#FAFAFA</color>
+    <color name="accent_device_default_dark">#FAFAFA</color>
+    <color name="accent_device_default_50">#FAFAFA</color>
+</resources>

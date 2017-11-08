@@ -2845,4 +2845,7 @@
        Items added outside of a group may have their value recalculated
        every time something new is added to this file.
        =============================================================== -->
+    <public type="style" name="Theme.Material.DayNight" />
+    <public type="style" name="Theme.Material.DayNight.Dialog.Alert" />
+
 </resources>

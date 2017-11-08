@@ -60,6 +60,7 @@ import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -228,6 +229,13 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         mAirplaneState = getUpdatedAirplaneToggleState();
     }
 
+    // As day/night theming isn't fully implemented, we need to use a day/night themed context
+    private ContextThemeWrapper getThemedContext(Context context) {
+        ContextThemeWrapper themedContext =
+                new ContextThemeWrapper(context, com.android.internal.R.style.Theme_Material_DayNight);
+        return themedContext;
+    }
+
     /**
      * Show the global actions dialog (creating if necessary)
      * @param keyguardShowing True if keyguard is showing
@@ -286,7 +294,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         if (!mHasVibrator) {
             mSilentModeAction = new SilentModeToggleAction();
         } else {
-            mSilentModeAction = new SilentModeTriStateAction(mContext, mAudioManager, mHandler);
+            mSilentModeAction = new SilentModeTriStateAction(getThemedContext(mContext),
+                    mAudioManager, mHandler);
         }
         mAirplaneModeOn = new ToggleAction(
                 R.drawable.ic_lock_airplane_mode,
@@ -405,12 +414,12 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         mAdapter = new MyAdapter();
 
-        AlertParams params = new AlertParams(mContext);
+        AlertParams params = new AlertParams(getThemedContext(mContext));
         params.mAdapter = mAdapter;
         params.mOnClickListener = this;
         params.mForceInverseBackground = true;
 
-        ActionsDialog dialog = new ActionsDialog(mContext, params);
+        ActionsDialog dialog = new ActionsDialog(getThemedContext(mContext), params);
         dialog.setCanceledOnTouchOutside(false); // Handled by the custom class.
 
         dialog.getListView().setItemsCanFocus(true);
@@ -835,7 +844,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
 
         public View getView(int position, View convertView, ViewGroup parent) {
             Action action = getItem(position);
-            return action.create(mContext, convertView, parent, LayoutInflater.from(mContext));
+            return action.create(getThemedContext(mContext), convertView, parent,
+                    LayoutInflater.from(getThemedContext(mContext)));
         }
     }
 
