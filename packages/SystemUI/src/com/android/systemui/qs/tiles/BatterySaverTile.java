@@ -109,8 +109,13 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
     protected void handleUpdateState(BooleanState state, Object arg) {
         state.state = mCharging ? Tile.STATE_UNAVAILABLE
                 : mPowerSave ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
-        state.icon = ResourceIcon.get(R.drawable.ic_qs_battery_saver);
-        state.label = mContext.getString(R.string.battery_detail_switch_title);
+        if (mCharging) {
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_battery_saver_charging);
+            state.label = mContext.getString(R.string.keyguard_plugged_in);
+        } else {
+            state.icon = ResourceIcon.get(R.drawable.ic_qs_battery_saver);
+            state.label = mContext.getString(R.string.battery_detail_switch_title);
+        }
         state.contentDescription = state.label;
         state.value = mPowerSave;
         state.expandedAccessibilityClassName = Switch.class.getName();
@@ -200,8 +205,8 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
             final TextView batterySaverSummary =
                     (TextView) mCurrentView.findViewById(android.R.id.summary);
             if (mCharging) {
-                mCurrentView.findViewById(R.id.switch_container).setAlpha(.7f);
-                batterySaverTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14);
+                mCurrentView.findViewById(R.id.switch_container).setAlpha(1f);
+                batterySaverTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
                 batterySaverTitle.setText(R.string.battery_detail_charging_summary);
                 mCurrentView.findViewById(android.R.id.toggle).setVisibility(View.GONE);
                 mCurrentView.findViewById(R.id.switch_container).setClickable(false);
