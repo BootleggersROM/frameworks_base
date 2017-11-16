@@ -63,4 +63,6 @@
     <string name="quick_settings_screenshot_label">Screenshot</string>
     <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
 
+    <!-- Screenshot delete toast -->
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
 </resources>
