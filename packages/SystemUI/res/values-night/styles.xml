@@ -29,8 +29,8 @@
     <style name="Platform.V21.AppCompat.Light" parent="@*android:style/Theme.Material.NoActionBar">
         <item name="android:textColorHintInverse">#ffbbbbbb</item>
         <item name="android:textColorHint">#ffbbbbbb</item>
-        <item name="android:textColorLink">#009688</item>
-        <item name="android:textColorLinkInverse">#009688</item>
+        <item name="android:textColorLink">#FAFAFA</item>
+        <item name="android:textColorLinkInverse">#FAFAFA</item>
     </style>
     <style name="Platform.V25.AppCompat.Light" parent="@*android:style/Theme.Material.NoActionBar" />
     <style name="QSIconTheme">
@@ -92,6 +92,6 @@
         <item name="android:paddingEnd">4.0dip</item>
     </style>
     <style name="systemui_theme_remote_input" parent="@*android:style/Theme.Material">
-        <item name="android:colorAccent">#009688</item>
+        <item name="android:colorAccent">#FAFAFA</item>
     </style>
 </resources>
