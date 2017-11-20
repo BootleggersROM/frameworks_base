@@ -26,10 +26,12 @@ please see themes_device_defaults.xml.
 <resources>
 
     <!-- Material theme (day/night version) for activities. -->
-    <style name="Theme.Material.DayNight" parent="Theme.Material" />
+    <style name="Theme.Material.DayNight" parent="Theme.DeviceDefault.Light" />
+
 
     <!-- Material user theme for alert dialog windows, which is used by the
          {@link android.app.AlertDialog} class. -->
     <style name="Theme.Material.DayNight.Dialog.Alert" parent="Theme.Material.DayNight.Dialog.BaseAlert" />
     <style name="Theme.Material.DayNight.Dialog.BaseAlert" parent="Theme.Material.Dialog.BaseAlert" />
 </resources>
+
