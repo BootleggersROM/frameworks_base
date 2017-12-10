@@ -5850,17 +5850,31 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         void observe() {
             ContentResolver resolver = mContext.getContentResolver();
-
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LAST_DOZE_AUTO_BRIGHTNESS),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LAST_DOZE_AUTO_BRIGHTNESS))) {
+                updateDozeBrightness();
+            }
         }
 
         public void update() {
-
+            updateDozeBrightness();
         }
+    }
+
+    private void updateDozeBrightness() {
+        int defaultDozeBrightness = mContext.getResources().getInteger(
+                com.android.internal.R.integer.config_screenBrightnessDoze);
+        int lastValue = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LAST_DOZE_AUTO_BRIGHTNESS, defaultDozeBrightness,
+                UserHandle.USER_CURRENT);
+        mStatusBarWindowManager.updateDozeBrightness(lastValue);
     }
 
     private RemoteViews.OnClickHandler mOnClickHandler = new RemoteViews.OnClickHandler() {
