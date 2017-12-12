@@ -74,6 +74,9 @@
     <!-- VoLTE icon switch -->
     <string name="status_bar_volte">VoLTE</string>
 
+    <!-- Roaming icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Sound</string>
     <string name="quick_settings_sound_ring">Ring</string>
