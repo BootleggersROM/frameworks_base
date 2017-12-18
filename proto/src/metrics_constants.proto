@@ -3977,6 +3977,9 @@ message MetricsEvent {
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
 
+    // Bootleggers custom constants
+    BOOTLEG = 1499;
+
     // GZOSP custom constants
     GZOSP = 1500;
   }
