@@ -18,6 +18,5 @@
 
     <!-- Pure Tuner Theme-->
     <style name="ExTunerSettings" parent="@android:style/Theme.Material.Settings">
-        <item name="preferenceTheme">@style/TunerPreferenceTheme</item>
     </style>
 </resources>

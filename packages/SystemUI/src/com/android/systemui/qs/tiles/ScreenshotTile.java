@@ -40,7 +40,7 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.VALIDUS;
+        return MetricsEvent.BOOTLEG;
     }
 
     @Override
