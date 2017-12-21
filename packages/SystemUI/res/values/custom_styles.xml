@@ -18,6 +18,7 @@
 
     <!-- Pure Tuner Theme-->
     <style name="ExTunerSettings" parent="@android:style/Theme.Material.Settings">
+        <item name="preferenceTheme">@style/TunerSettings</item>
     </style>
 
     <style name="TextAppearance.StatusBar.Expanded.Weather">

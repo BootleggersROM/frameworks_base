@@ -362,7 +362,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 logo = getContext().getDrawable(R.drawable.status_bar_quetzal_default);
                 break;
                 // Quetzal - Alternative design
-            case 3:
+            case 4:
                 logo = getContext().getDrawable(R.drawable.status_bar_quetzal_alt);
                 break;
                 // The S of the shishu builds
