@@ -311,6 +311,7 @@ public class QuickQSPanel extends QSPanel {
         @Override
         public boolean isShowTitles() {
             return false;
+        }
 
         public void updateTileGaps() {
             int panelWidth = mContext.getResources()

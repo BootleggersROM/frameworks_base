@@ -685,9 +685,6 @@ public class CommandQueue extends IStatusBar.Stub {
                         mCallbacks.get(i).toggleCameraFlash();
                     }
                     break;
-                case MSG_RESTART_UI:
-                    for (int i = 0; i < mCallbacks.size(); i++) {
-                        mCallbacks.get(i).restartUI();
                 case MSG_SCREEN_PINNING_STATE_CHANGED:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).screenPinningStateChanged(msg.arg1 != 0);

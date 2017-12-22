@@ -22,10 +22,7 @@ import android.app.ActivityManager;
 import android.app.ActivityManager.MemoryInfo;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-<<<<<<< HEAD
 import android.animation.AnimatorSet;
-=======
->>>>>>> 6a86bea... Recents fab button improvements
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.view.ScaleGestureDetector;
