@@ -128,4 +128,9 @@
     <!-- Bootleg Dumpster Tile -->
     <string name="quick_settings_bootlegdump_label">The Dumpster</string>
     <string name="quick_settings_bootlegdump_toast">Wew, for some reason it\'s dead, it\'s broken, it\'s not working.</string>
+
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
+    <string name="quick_settings_hwkeys_label">HW keys</string>
 </resources>
