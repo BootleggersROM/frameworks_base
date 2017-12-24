@@ -1,0 +1,4 @@
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+        android:src="@drawable/btlg_bg"
+    android:tint="?android:attr/colorAccent"
+    android:alpha = "0.75"/>
