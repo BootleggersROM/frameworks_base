@@ -66,6 +66,7 @@
 
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="nfc"
+<<<<<<< HEAD:packages/SystemUI/res/xml/statusbar_items.xml
         android:persistent="false"
         android:title="@string/status_bar_nfc" />
 
@@ -73,6 +74,17 @@
 >>>>>>> 82636c4... SystemUI: Hide NFC from statusbar icons if NFC isn't available:packages/SystemUI/res/xml/statusbar_icon_settings.xml
         android:key="rotate"
         android:title="@string/status_bar_settings_auto_rotation" />
+=======
+        android:title="@string/status_bar_nfc" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="rotate"
+        android:title="@string/status_bar_settings_auto_rotation" />
+
+    <com.android.systemui.tuner.StatusBarSwitch
+        android:key="airplane"
+        android:title="@string/status_bar_airplane" />
+>>>>>>> 2c00947... SystemUI: Add statusbar NFC icon:packages/SystemUI/res/xml/statusbar_icon_settings.xml
 
     <com.android.systemui.tuner.StatusBarSwitch
         android:key="volume"
