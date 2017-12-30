@@ -898,7 +898,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         public View getView(int position, View convertView, ViewGroup parent) {
             Action action = getItem(position);
             View view = action.create(mContext, convertView, parent, LayoutInflater.from(mContext));
-            if (position == 11) {
+            if (position == 99) {
                 HardwareUiLayout.get(parent).setDivisionView(view);
             }
             return view;
