@@ -200,9 +200,6 @@
     <!-- OmniJaws -->
     <uses-permission android:name="org.omnirom.omnijaws.READ_WEATHER" />
 
-    <!-- Show4G -->
-    <uses-permission android:name="android.permission.RESTART_UI" />
-
     <!-- DU permissions -->
     <uses-permission android:name="android.permission.NAVIGATION_EDITOR" />
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />

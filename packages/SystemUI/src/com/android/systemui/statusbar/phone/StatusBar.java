@@ -461,9 +461,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private QSPanel mQSPanel;
     private QuickStatusBarHeader mQuickStatusBarHeader;
 
-    // 4G instead of LTE
-    private boolean mShow4G;
-
     // top bar
     protected KeyguardStatusBarView mKeyguardStatusBar;
     KeyguardStatusView mKeyguardStatusView;
@@ -5811,9 +5808,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.USE_SLIM_RECENTS),
                   false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.SHOW_FOURG),
-                    false, this, UserHandle.USER_ALL);
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_QUICKBAR_SCROLL_ENABLED),
                     false, this, UserHandle.USER_ALL);
@@ -5866,16 +5860,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.USE_SLIM_RECENTS))) {
                 updateRecentsMode();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.SHOW_FOURG))) {
-                    mShow4G = Settings.System.getIntForUser(
-                            mContext.getContentResolver(),
-                            Settings.System.SHOW_FOURG,
-                            0, UserHandle.USER_CURRENT) == 1;
-                            mCommandQueue.restartUI();
-                            updateRowStates();
-                            updateClearAll();
-                            updateEmptyShadeView();
-            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_QUICKBAR_SCROLL_ENABLED))) {
                 if (mQuickStatusBarHeader != null) {
                     mQuickStatusBarHeader.updateSettings();
@@ -5897,7 +5881,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpBlacklist();
             updateRecentsIconPack();
             updateRecentsMode();
-            set4GorLTE();
         }
     }
 
@@ -5942,12 +5925,6 @@ public class StatusBar extends SystemUI implements DemoMode,
          final String stopString = Settings.System.getString(mContext.getContentResolver(),
                      Settings.System.HEADS_UP_STOPLIST_VALUES);
           splitAndAddToArrayList(mStoplist, stopString, "\\|");
-    }
-
-    private void set4GorLTE() {
-            ContentResolver resolver = mContext.getContentResolver();
-            boolean mShow4G = Settings.System.getIntForUser(resolver,
-                    Settings.System.SHOW_FOURG, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     private void setHeadsUpBlacklist() {
