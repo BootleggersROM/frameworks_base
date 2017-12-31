@@ -47,8 +47,4 @@ public interface RecentsComponent {
     void onDraggingInRecentsEnded(float velocity);
 
     void resetIconCache();
-
-    void evictAllCaches();
-    void removeSbCallbacks();
-    void addSbCallbacks();
 }
