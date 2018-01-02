@@ -4321,6 +4321,7 @@ public final class Settings {
          * 0 - wallpaper based
          * 1 - force light
          * 2 - force dark
+         * 3 - force black
          * @hide
          */
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
