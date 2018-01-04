@@ -127,4 +127,7 @@
   <!-- Ambient display music ticker -->
   <bool name="config_canForceDozeNotifications">true</bool>
 
+  <!-- Whether the device supports Smart Pixels -->
+  <bool name="config_enableSmartPixels">false</bool>
+
 </resources>

@@ -248,4 +248,7 @@
   <java-symbol type="drawable" name="bootleg_theme_nerves_bg01" />
   <java-symbol type="drawable" name="bootleg_theme_nerves_bg02" />
 
+  <!-- Whether the device supports Smart Pixels -->
+  <java-symbol type="bool" name="config_enableSmartPixels" />
+
 </resources>
