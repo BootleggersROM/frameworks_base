@@ -4806,7 +4806,6 @@ public final class Settings {
         * @hide
         */
        public static final String BATTERY_LIGHT_ALLOW_ON_DND = "battery_light_allow_on_dnd";
-
         /**
         * Whether to show blinking light when battery is low
         * @hide
@@ -5617,6 +5616,14 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        /**
+         * Wheter to play notification sound and vibration if screen is ON
+         * 0 - never
+         * 1 - always
+         * @hide
+         */
+        public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
