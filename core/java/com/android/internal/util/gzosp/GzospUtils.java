@@ -27,14 +27,26 @@ import android.content.res.Resources;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
+import android.hardware.input.InputManager;
 import android.net.ConnectivityManager;
-import android.net.ConnectivityManager;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.PowerManager;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemClock;
 import android.util.DisplayMetrics;
+import android.view.InputDevice;
+import android.view.KeyCharacterMap;
+import android.view.KeyEvent;
 import android.view.DisplayInfo;
 import android.view.WindowManager;
-
+import android.view.IWindowManager;
+import android.view.WindowManagerGlobal;
 import java.util.List;
 import java.util.Locale;
+
+import com.android.internal.statusbar.IStatusBarService;
 
 public class GzospUtils {
 
