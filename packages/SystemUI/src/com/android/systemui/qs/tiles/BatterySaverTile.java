@@ -36,7 +36,7 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
 
     private int mLevel;
     private boolean mPowerSave;
-    private boolean mCharging;
+    private static boolean mCharging;
     private boolean mPluggedIn;
 
     public BatterySaverTile(QSHost host) {
@@ -80,12 +80,23 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
+
         state.state = mPluggedIn ? Tile.STATE_UNAVAILABLE
                 : mPowerSave ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE;
+
         BatterySaverIcon bsi = new BatterySaverIcon();
         bsi.mState = state.state;
         state.icon = bsi;
-        state.label = mContext.getString(R.string.battery_detail_switch_title);
+
+        if (mCharging) {
+            state.label = mContext.getString(R.string.keyguard_plugged_in);
+        } else {
+            if (mLevel == 100) {
+                state.label = mContext.getString(R.string.keyguard_charged);
+            } else {
+                state.label = mLevel + "%";
+            }
+        }
         state.contentDescription = state.label;
         state.value = mPowerSave;
         state.expandedAccessibilityClassName = Switch.class.getName();
@@ -128,7 +139,12 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
             // Show as full so it's always uniform color
             super.setBatteryLevel(MAX_BATTERY);
             setPowerSave(true);
-            setCharging(false);
+
+            if (mCharging) {
+                setCharging(true);
+            } else {
+                setCharging(false);
+            }
         }
 
         @Override
