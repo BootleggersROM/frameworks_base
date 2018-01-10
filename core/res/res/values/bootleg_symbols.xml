@@ -47,4 +47,7 @@
 
     <!-- Whether the device supports Smart Pixels -->
     <java-symbol type="bool" name="config_enableSmartPixels" />
+
+    <!-- Timer in ms to trigger the proximity timeout on flashlight -->
+    <java-symbol type="integer" name="config_flashlightProximityTimeout" />
 </resources>
