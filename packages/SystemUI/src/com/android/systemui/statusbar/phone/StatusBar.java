@@ -6623,12 +6623,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.USE_SLIM_RECENTS, 0, mCurrentUserId) == 1;
         if (slimRecents) {
             mRecents.evictAllCaches();
-            mRecents.removeSbCallbacks();
             mSlimRecents = new RecentController(mContext);
             rebuildRecentsScreen();
             mSlimRecents.addSbCallbacks();
         } else {
-            mRecents.addSbCallbacks();
             if (mSlimRecents != null) {
                 mSlimRecents.evictAllCaches();
                 mSlimRecents.removeSbCallbacks();
