@@ -170,6 +170,15 @@ public class BootlegUtils {
         }
     }
 
+    public static void takeScreenrecord(int mode) {
+        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+        try {
+            wm.screenRecordAction(mode);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean isPhone(Context context) {
         return getScreenType(context) == DEVICE_PHONE;
     }
