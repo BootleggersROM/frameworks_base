@@ -11063,6 +11063,18 @@ public final class Settings {
                 "location_settings_link_to_permissions_enabled";
 
         /**
+         * Defines the screen-off animation to display
+         * @hide
+         */
+        public static final String SCREEN_OFF_ANIMATION = "screen_off_animation";
+
+        /**
+         * Whether to show a screen-on animation
+         * @hide
+         */
+        public static final String SCREEN_ON_ANIMATION = "screen_on_animation";
+
+        /**
          * Flag to enable use of RefactoredBackupManagerService.
          *
          * @hide
