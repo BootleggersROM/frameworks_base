@@ -89,6 +89,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     // custom carrier label
     private View mCustomCarrierLabel;
     private int mShowCarrierLabel;
+    private View mBatteryBar;
 
     // Bootleg Logo
     private ImageView mBootlegLogo;
@@ -168,6 +169,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mClockController = new ClockController(mStatusBar);
         mCustomCarrierLabel = mStatusBar.findViewById(R.id.statusbar_carrier_text);
         mBootlegLogo = (ImageView)mStatusBar.findViewById(R.id.status_bar_logo);
+        mBatteryBar = mStatusBar.findViewById(R.id.battery_bar);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mBootlegLogo);
         updateSettings(false);
         showSystemIconArea(false);
@@ -294,10 +296,12 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideSystemIconArea(boolean animate) {
         animateHide(mSystemIconArea, animate);
+        animateHide(mBatteryBar, animate);
     }
 
     public void showSystemIconArea(boolean animate) {
         animateShow(mSystemIconArea, animate);
+        animateShow(mBatteryBar, animate);
     }
 
     public void hideClock(boolean animate) {
