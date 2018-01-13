@@ -100,4 +100,7 @@
     <string-array name="config_vendorPlatformSignatures">
     </string-array>
 
+    <!-- Force enable AOD -->
+    <bool name="config_dozeAlwaysOnDisplayEnabledDefault">false</bool>
+
 </resources>

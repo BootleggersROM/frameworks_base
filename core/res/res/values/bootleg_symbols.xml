@@ -79,4 +79,7 @@
   platform signatures, specifically for use on devices with a vendor partition. -->
   <java-symbol type="array" name="config_vendorPlatformSignatures" />
 
+  <!-- Force enable AOD -->
+  <java-symbol type="bool" name="config_dozeAlwaysOnDisplayEnabledDefault" />
+
 </resources>
