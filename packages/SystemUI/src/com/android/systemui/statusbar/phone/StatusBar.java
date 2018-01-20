@@ -4206,8 +4206,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         updateRowStates();
         mScreenPinningRequest.onConfigurationChanged();
-
-        refreshTicker();
     }
 
     public void userSwitched(int newUserId) {
