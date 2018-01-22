@@ -14,12 +14,14 @@
      limitations under the License.
 -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-        android:width="28.0dp"
-        android:height="28.0dp"
-        android:viewportWidth="96.0"
-        android:viewportHeight="96.0">
+        android:width="54dp"
+        android:height="27dp"
+        android:viewportWidth="108"
+        android:viewportHeight="54">
 
     <path
-        android:fillColor="@color/icon_color_overview_dark"
-        android:pathData="M70,76H26c-3.3,0-6-2.7-6-6V26c0-3.3,2.7-6,6-6h44c3.3,0,6,2.7,6,6v44C76,73.3,73.3,76,70,76z" />
+        android:strokeColor="@color/icon_color_overview_dark"
+        android:strokeWidth="3"
+        android:strokeMiterLimit="10"
+        android:pathData="M68.3,43.5H39.8c-1.2,0-2.2-1-2.2-2.2V12.8c0-1.2,1-2.2,2.2-2.2h28.5c1.2,0,2.2,1,2.2,2.2v28.5 C70.5,42.5,69.5,43.5,68.3,43.5z" />
 </vector>
