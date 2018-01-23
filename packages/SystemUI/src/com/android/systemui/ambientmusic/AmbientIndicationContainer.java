@@ -1,6 +1,7 @@
 package com.android.systemui.ambientmusic;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.media.MediaMetadata;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -70,7 +71,9 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     }
 
     public void setIndication(MediaMetadata mediaMetaData) {
+        Resources res = getResources();
         CharSequence charSequence = null;
+        //String musicstring = res.getString(R.string.ambientmusic_songinfo);
         if (mediaMetaData != null) {
             CharSequence artist = mediaMetaData.getText(MediaMetadata.METADATA_KEY_ARTIST);
             CharSequence album = mediaMetaData.getText(MediaMetadata.METADATA_KEY_ALBUM);
@@ -78,7 +81,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
             if (artist != null && album != null && title != null) {
                 /* considering we are in Ambient mode here, it's not worth it to show
                     too many infos, so let's skip album name to keep a smaller text */
-                charSequence = artist.toString() /*+ " - " + album.toString()*/ + " - " + title.toString();
+                charSequence = String.format(res.getString(R.string.ambientmusic_songinfo), title.toString(), artist.toString());
+                // charSequence = artist.toString() /*+ " - " + album.toString()*/ + " - " + title.toString(); 
             }
         }
         mText.setText(charSequence);
