@@ -4383,6 +4383,13 @@ public final class Settings {
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
         /**
+         * Lockscreen Visualizer
+         *
+         * @hide
+         */
+        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer";
+
+        /**
          * Ambient Display Visualizer
          *
          * @hide
@@ -4536,6 +4543,7 @@ public final class Settings {
             NOTIFICATION_SOUND,
             ACCELEROMETER_ROTATION,
             SHOW_BATTERY_PERCENT,
+            LOCKSCREEN_VISUALIZER_ENABLED,
             AMBIENT_VISUALIZER_ENABLED,
             STATUS_BAR_CLOCK,
             STATUSBAR_CLOCK_STYLE,
@@ -4682,6 +4690,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(SYSTEM_THEME_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_VISUALIZER_ENABLED);
             PRIVATE_SETTINGS.add(AMBIENT_VISUALIZER_ENABLED);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
@@ -8005,13 +8014,6 @@ public final class Settings {
          * @hide
          */
         public static final String NIGHT_BRIGHTNESS_VALUE = "night_brightness_value";
-
-        /**
-         * Lockscreen Visualizer
-         *
-         * @hide
-         */
-        public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer";
 
         /**
          * This are the settings to be backed up.

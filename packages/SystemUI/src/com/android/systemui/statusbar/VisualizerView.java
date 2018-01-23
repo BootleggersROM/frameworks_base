@@ -38,18 +38,12 @@ import android.view.View;
 import com.android.internal.utils.du.UserContentObserver;
 
 import com.android.systemui.Dependency;
-import com.android.systemui.tuner.TunerService;
-
-import android.provider.Settings;
 
 public class VisualizerView extends View
-        implements Palette.PaletteAsyncListener, TunerService.Tunable {
+        implements Palette.PaletteAsyncListener {
 
     private static final String TAG = VisualizerView.class.getSimpleName();
     private static final boolean DEBUG = false;
-
-    private static final String LOCKSCREEN_VISUALIZER_ENABLED =
-            Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED;
 
     private Paint mPaint;
     private Visualizer mVisualizer;
@@ -195,7 +189,6 @@ public class VisualizerView extends View
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Dependency.get(TunerService.class).addTunable(this, LOCKSCREEN_VISUALIZER_ENABLED);
         mObserver = new SettingsObserver(new Handler());
         mObserver.observe();
         mObserver.update();
@@ -204,7 +197,6 @@ public class VisualizerView extends View
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        Dependency.get(TunerService.class).removeTunable(this);
         mObserver.unobserve();
         mObserver = null;
         mCurrentBitmap = null;
@@ -401,17 +393,6 @@ public class VisualizerView extends View
         }
     }
 
-    @Override
-    public void onTuningChanged(String key, String newValue) {
-        if (!LOCKSCREEN_VISUALIZER_ENABLED.equals(key)) {
-            return;
-        }
-        mVisualizerEnabled = newValue == null || Integer.parseInt(newValue) != 0;
-
-        checkStateChanged();
-        updateViewVisibility();
-    }
-
     private class SettingsObserver extends UserContentObserver {
 
         public SettingsObserver(Handler handler) {
@@ -420,6 +401,9 @@ public class VisualizerView extends View
 
         @Override
         protected void update() {
+            mVisualizerEnabled = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.LOCKSCREEN_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
             mAmbientVisualizerEnabled = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
                 UserHandle.USER_CURRENT) == 1;
@@ -430,6 +414,9 @@ public class VisualizerView extends View
         @Override
         protected void observe() {
             super.observe();
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
             getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.AMBIENT_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_ALL);
