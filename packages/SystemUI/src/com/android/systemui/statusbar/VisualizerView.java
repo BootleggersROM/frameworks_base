@@ -61,6 +61,7 @@ public class VisualizerView extends View
     private boolean mDisplaying = false; // the state we're animating to
     private boolean mDozing = false;
     private boolean mOccluded = false;
+    private boolean mAmbientVisualizerEnabled = false;
 
     private int mColor;
     private Bitmap mCurrentBitmap;
@@ -323,7 +324,7 @@ public class VisualizerView extends View
 
         color = Color.argb(140, Color.red(color), Color.green(color), Color.blue(color));
 
-        if (mColor != color) {
+        if (mColor != color && !mDozing) {
             mColor = color;
 
             if (mVisualizer != null) {
@@ -343,11 +344,35 @@ public class VisualizerView extends View
     }
 
     private void checkStateChanged() {
-        if (getVisibility() == View.VISIBLE && mVisible && mPlaying && !mDozing && !mPowerSaveMode
+        if (getVisibility() == View.VISIBLE && mVisible && mPlaying && mDozing && mAmbientVisualizerEnabled && !mPowerSaveMode
+                 && mVisualizerEnabled && !mOccluded) {
+            if (!mDisplaying) {
+                mDisplaying = true;
+                AsyncTask.execute(mLinkVisualizer);
+                mPaint.setColor(mColor);
+                animate()
+                        .alpha(0.25f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            } else {
+                mPaint.setColor(mColor);
+                animate()
+                        .alpha(0.25f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            }
+        } else if (getVisibility() == View.VISIBLE && mVisible && mPlaying && !mDozing && !mPowerSaveMode
                 && mVisualizerEnabled && !mOccluded) {
             if (!mDisplaying) {
                 mDisplaying = true;
                 AsyncTask.execute(mLinkVisualizer);
+                mPaint.setColor(mColor);
+                animate()
+                        .alpha(1f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            } else {
+                mPaint.setColor(mColor);
                 animate()
                         .alpha(1f)
                         .withEndAction(null)
@@ -356,7 +381,7 @@ public class VisualizerView extends View
         } else {
             if (mDisplaying) {
                 mDisplaying = false;
-                if (mVisible) {
+                if (mVisible && !mAmbientVisualizerEnabled) {
                     animate()
                             .alpha(0f)
                             .withEndAction(mAsyncUnlinkVisualizer)
@@ -382,6 +407,9 @@ public class VisualizerView extends View
             mVisualizerEnabled = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.LOCKSCREEN_VISUALIZER_ENABLED, 0,
                 UserHandle.USER_CURRENT) == 1;
+            mAmbientVisualizerEnabled = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
             checkStateChanged();
             updateViewVisibility();
         }
@@ -391,6 +419,9 @@ public class VisualizerView extends View
             super.observe();
             getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
+            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.AMBIENT_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_ALL);
         }
 
