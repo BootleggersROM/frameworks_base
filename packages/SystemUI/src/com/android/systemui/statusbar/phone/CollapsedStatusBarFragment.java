@@ -81,7 +81,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private View mTickerViewFromStub;
 
     // Bootleggers additions start
-    private View mBootlegLogo;
+    private ImageView mBootlegLogo;
     private int mLogoStyle;
     private boolean mShowLogo;
     private final Handler mHandler = new Handler();
@@ -434,6 +434,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             if (logo == null) {
                 // Something wrong. Do not show anything
                 mBootlegLogo.setImageDrawable(logo);
+                mShowLogo = false;
                 return;
             }
 
