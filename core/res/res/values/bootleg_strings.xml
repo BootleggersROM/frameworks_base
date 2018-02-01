@@ -63,4 +63,7 @@
     <string name="notify_battery_fully_charged_text">Disconnect your device from the charger to improve battery longevity.</string>
     <string name="battery_charged_channel_name">Battery charged</string>
 
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Long press power button to interact</string>
+
 </resources>
