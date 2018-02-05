@@ -4360,6 +4360,13 @@ public final class Settings {
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
 
         /**
+         * Current theme overlay
+         * @hide
+         */
+        public static final String SYSTEM_THEME_CURRENT_OVERLAY = "system_theme_current_overlay";
+
+
+        /**
          * Force an Ambient notification when a new media track is being played
          * 0 - disabled
          * 1 - show track info within normal Ambient Display notifications
