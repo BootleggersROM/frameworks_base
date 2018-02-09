@@ -47,6 +47,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.os.UserHandle;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.service.media.CameraPrewarmService;
 import android.telecom.TelecomManager;
 import android.text.TextUtils;
@@ -344,7 +345,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     private void updateRightAffordanceIcon() {
         IconState state = mRightButton.getIcon();
-        mRightAffordanceView.setVisibility(!mDozing && state.isVisible ? View.VISIBLE : View.GONE);
+        mRightAffordanceView.setVisibility(!mDozing && state.isVisible && !hideShortcuts() ? View.VISIBLE : View.GONE);
         if (state.isVisible) {
             mRightAffordanceView.setImageDrawable(state.drawable, state.tint);
             mRightAffordanceView.setContentDescription(state.contentDescription);
@@ -390,7 +391,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
             // Things are not set up yet; reply hazy, ask again later
             return;
         }
-        mRightAffordanceView.setVisibility(!mDozing && mRightButton.getIcon().isVisible
+        mRightAffordanceView.setVisibility(!mDozing && mRightButton.getIcon().isVisible && !hideShortcuts()
                 ? View.VISIBLE : View.GONE);
     }
 
@@ -404,7 +405,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     private void updateLeftAffordanceIcon() {
         IconState state = mLeftButton.getIcon();
-        mLeftAffordanceView.setVisibility(!mDozing && state.isVisible ? View.VISIBLE : View.GONE);
+        mLeftAffordanceView.setVisibility(!mDozing && state.isVisible && !hideShortcuts() ? View.VISIBLE : View.GONE);
         if (state.isVisible) {
             mLeftAffordanceView.setImageDrawable(state.drawable, state.tint);
             mLeftAffordanceView.setContentDescription(state.contentDescription);
@@ -857,6 +858,13 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
                 startFinishDozeAnimation();
             }
         }
+    }
+
+    private boolean hideShortcuts() {
+        boolean secure = mLockPatternUtils.isSecure(KeyguardUpdateMonitor.getCurrentUser());
+        return secure && Settings.Secure.getIntForUser(
+                mContext.getContentResolver(), Settings.Secure.LOCK_QS_DISABLED, 0,
+                KeyguardUpdateMonitor.getCurrentUser()) != 0;
     }
 
     private class DefaultLeftButton implements IntentButton {
