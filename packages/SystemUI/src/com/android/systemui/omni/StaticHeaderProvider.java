@@ -35,7 +35,7 @@ import java.io.InputStream;
 import java.util.Calendar;
 
 import com.android.systemui.R;
-import com.android.internal.util.aicp.AicpUtils;
+import com.android.internal.util.gzosp.GzospUtils;
 
 public class StaticHeaderProvider implements
         StatusBarHeaderMachine.IStatusBarHeaderProvider {
@@ -103,7 +103,7 @@ public class StaticHeaderProvider implements
         if (mRes == null) {
             return null;
         }
-        if (!AicpUtils.isPackageAvailable(mPackageName, mContext)) {
+        if (!GzospUtils.isPackageAvailable(mPackageName, mContext)) {
             Log.w(TAG, "Header pack image " + mImage + " no longer available");
             return null;
         }
