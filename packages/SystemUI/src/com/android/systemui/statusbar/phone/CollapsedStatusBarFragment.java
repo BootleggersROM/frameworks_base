@@ -221,7 +221,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         super.onDestroyView();
         Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mSignalClusterView);
         Dependency.get(StatusBarIconController.class).removeIconGroup(mDarkIconManager);
-        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mAEXLogo);
+        Dependency.get(DarkIconDispatcher.class).removeDarkReceiver(mBootlegLogo);
         if (mNetworkController.hasEmergencyCryptKeeperText()) {
             mNetworkController.removeCallback(mSignalCallback);
         }
