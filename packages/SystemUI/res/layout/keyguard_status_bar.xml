@@ -54,7 +54,7 @@
         </FrameLayout>
     </LinearLayout>
 
-    <com.android.systemui.aex.carrierlabel.CarrierLabel
+    <com.android.systemui.bootleg.carrierlabel.CarrierLabel
         android:id="@+id/keyguard_carrier_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
