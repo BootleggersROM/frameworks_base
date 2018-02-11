@@ -410,6 +410,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
     }
 
+    private void setCarrierLabel(boolean animate) {
+        if (mShowCarrierLabel == 2 || mShowCarrierLabel == 3) {
+            animateShow(mCustomCarrierLabel, animate);
+        } else {
+            animateHide(mCustomCarrierLabel, animate, false);
+        }
+    }
+
     public void updateSettings(boolean animate) {
         Drawable logo = null;
 
@@ -428,6 +436,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         setCarrierLabel(animate);
 
         switch(mLogoStyle) {
+                // Default HOME logo, first time
+            case 0:
+                logo = getContext().getDrawable(R.drawable.status_bar_logo);
+                break;
                 // Small BTLG
             case 1:
                 logo = getContext().getDrawable(R.drawable.status_bar_btlg);
@@ -490,12 +502,5 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 animateHide(mBootlegLogo, animate, false);
             }
         }
-    private void setCarrierLabel(boolean animate) {
-        if (mShowCarrierLabel == 2 || mShowCarrierLabel == 3) {
-            animateShow(mCustomCarrierLabel, animate);
-        } else {
-            animateHide(mCustomCarrierLabel, animate, false);
-        }
-    }
   }
 }
