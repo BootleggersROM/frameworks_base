@@ -375,6 +375,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mCustomCarrierLabel != null) {
             setCarrierLabel(animate);
         }
+    }
 
     /**
      * Hides a view.
@@ -479,14 +480,14 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
 
         mShowLogo = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                mContentResolver, Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
         mLogoStyle = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                mContentResolver, Settings.System.STATUS_BAR_LOGO_STYLE, 0,
                 UserHandle.USER_CURRENT);
 
         mShowCarrierLabel = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_CARRIER, 1,
+                mContentResolver, Settings.System.STATUS_BAR_CARRIER, 1,
                 UserHandle.USER_CURRENT);
         setCarrierLabel(animate);
 
