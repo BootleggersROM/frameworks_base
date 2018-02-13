@@ -47,6 +47,7 @@ import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.SignalClusterView;
 import com.android.systemui.statusbar.phone.StatusBarIconController.DarkIconManager;
 import com.android.systemui.statusbar.phone.TickerView;
+import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher;
 import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
@@ -93,6 +94,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private int mShowCarrierLabel;
 
     // Clock position and tweaks
+    private View mClock;
+    private View mCenterClock;
     private View mLeftClock;
     private int mClockStyle;
     private final Handler mHandler = new Handler();
@@ -103,17 +106,35 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
 
         void observe() {
-            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
                     false, this, UserHandle.USER_ALL);
-            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO_STYLE),
                     false, this, UserHandle.USER_ALL);
-            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_CARRIER),
                     false, this, UserHandle.USER_ALL);
-            getContext().getContentResolver().registerContentObserver(Settings.System.getUriFor(
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUSBAR_CLOCK_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CLOCK),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CLOCK_SECONDS),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_DATE_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUSBAR_CLOCK_DATE_FORMAT),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -122,7 +143,13 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             if ((uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO))) ||
                 (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE))) ||
                 (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_CARRIER))) ||
-                (uri.equals(Settings.System.getUriFor(Settings.System.STATUSBAR_CLOCK_STYLE))))  {
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUSBAR_CLOCK_STYLE))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_CLOCK))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_CLOCK_SECONDS))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUSBAR_CLOCK_AM_PM_STYLE))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUSBAR_CLOCK_DATE_DISPLAY))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUSBAR_CLOCK_DATE_STYLE))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUSBAR_CLOCK_DATE_FORMAT))))  {
             updateSettings(true);
             }
         }
@@ -192,7 +219,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mSystemIconArea = mStatusBar.findViewById(R.id.system_icon_area);
         mSignalClusterView = mStatusBar.findViewById(R.id.signal_cluster);
         mCenterClockLayout = (LinearLayout) mStatusBar.findViewById(R.id.center_clock_layout);
+        mClock = mStatusBar.findViewById(R.id.clock);
         mLeftClock = mStatusBar.findViewById(R.id.left_clock);
+        mCenterClock = mStatusBar.findViewById(R.id.center_clock);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mSignalClusterView);
         mBootlegLogo = (ImageView) mStatusBar.findViewById(R.id.status_bar_logo);
         Dependency.get(DarkIconDispatcher.class).addDarkReceiver(mBootlegLogo);
@@ -268,11 +297,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             if ((state1 & DISABLE_NOTIFICATION_ICONS) != 0) {
                 hideNotificationIconArea(animate);
                 hideCarrierName(animate);
-                hideLeftClock(animate);
             } else {
                 showNotificationIconArea(animate);
                 showCarrierName(animate);
-                showLeftClock(animate);
             }
         }
     }
@@ -309,11 +336,17 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     public void hideSystemIconArea(boolean animate) {
         animateHide(mSystemIconArea, animate, true);
         animateHide(mCenterClockLayout, animate, true);
+        if (((Clock)mLeftClock).isEnabled()) {
+            animateHide(mLeftClock, animate, true);
+        }
     }
 
     public void showSystemIconArea(boolean animate) {
         animateShow(mSystemIconArea, animate);
         animateShow(mCenterClockLayout, animate);
+        if (((Clock)mLeftClock).isEnabled()) {
+            animateShow(mLeftClock, animate);
+        }
     }
 
     public void hideNotificationIconArea(boolean animate) {
@@ -342,17 +375,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mCustomCarrierLabel != null) {
             setCarrierLabel(animate);
         }
-    }
-
-    public void hideLeftClock(boolean animate) {
-        if (mLeftClock != null) {
-            animateHide(mLeftClock, animate, false);
-        }
-    }
-
-    public void showLeftClock(boolean animate) {
-        updateClockStyle(animate);
-    }
 
     /**
      * Hides a view.
@@ -468,10 +490,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 UserHandle.USER_CURRENT);
         setCarrierLabel(animate);
 
-        mClockStyle = Settings.System.getIntForUser(mContentResolver,
-                Settings.System.STATUSBAR_CLOCK_STYLE, 0,
-                UserHandle.USER_CURRENT);
-        updateClockStyle(animate);
+        ((Clock)mClock).updateSettings();
+        ((Clock)mCenterClock).updateSettings();
+        ((Clock)mLeftClock).updateSettings();
 
         switch(mLogoStyle) {
                 // Default HOME logo, first time
