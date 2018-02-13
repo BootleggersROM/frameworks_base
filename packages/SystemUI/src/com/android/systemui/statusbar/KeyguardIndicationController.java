@@ -86,10 +86,7 @@ public class KeyguardIndicationController {
     private boolean mPowerPluggedIn;
     private boolean mPowerCharged;
     private int mChargingSpeed;
-    private int mChargingCurrent;
-    private double mChargingVoltage;
     private int mChargingWattage;
-    private int mTemperature;
     private String mMessageToShowOnScreenOn;
 
     private KeyguardUpdateMonitorCallback mUpdateMonitorCallback;
@@ -372,30 +369,12 @@ public class KeyguardIndicationController {
                 break;
         }
 
-        String batteryInfo = "";
-        if (mChargingCurrent > 0) {
-            batteryInfo = batteryInfo + (mChargingCurrent / 1000) + "mA";
-        }
-        if (mChargingVoltage > 0) {
-            batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                String.format("%.1f", (mChargingVoltage / 1000 / 1000)) + "V";
-        }
-        if (mTemperature > 0) {
-            batteryInfo = (batteryInfo == "" ? "" : batteryInfo + " · ") +
-                mTemperature / 10 + "°C";
-        }
-        if (batteryInfo != "") {
-            batteryInfo = "\n" + batteryInfo;
-        }
-
         if (hasChargingTime) {
             String chargingTimeFormatted = Formatter.formatShortElapsedTimeRoundingUpToMinutes(
                     mContext, chargingTimeRemaining);
-            String chargingText = mContext.getResources().getString(chargingId, chargingTimeFormatted);
-            return chargingText + batteryInfo;
+            return mContext.getResources().getString(chargingId, chargingTimeFormatted);
         } else {
-            String chargingText = mContext.getResources().getString(chargingId);
-            return chargingText + batteryInfo;
+            return mContext.getResources().getString(chargingId);
         }
     }
 
@@ -446,10 +425,7 @@ public class KeyguardIndicationController {
             boolean wasPluggedIn = mPowerPluggedIn;
             mPowerPluggedIn = status.isPluggedIn() && isChargingOrFull;
             mPowerCharged = status.isCharged();
-            mChargingCurrent = status.maxChargingCurrent;
-            mChargingVoltage = status.maxChargingVoltage;
             mChargingWattage = status.maxChargingWattage;
-            mTemperature = status.temperature;
             mChargingSpeed = status.getChargingSpeed(mSlowThreshold, mFastThreshold);
             updateIndication();
             if (mDozing) {
