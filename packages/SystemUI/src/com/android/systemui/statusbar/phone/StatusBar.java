@@ -6461,7 +6461,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 setAmbientVis();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
-                setLockscreenDoubleTapToSleep();
+                setStatusBarWindowViewOptions();
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE))) {
                 setStatusBarWindowViewOptions();
@@ -6481,7 +6481,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateRecentsIconPack();
             updateTheme();
             setForceAmbient();
-            setLockscreenDoubleTapToSleep();
+            setStatusBarWindowViewOptions();
         }
     }
 
@@ -6492,6 +6492,12 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.LAST_DOZE_AUTO_BRIGHTNESS, defaultDozeBrightness,
                 UserHandle.USER_CURRENT);
         mStatusBarWindowManager.updateDozeBrightness(lastValue);
+    }
+
+    private void setStatusBarWindowViewOptions() {
+        if (mStatusBarWindow != null) {
+            mStatusBarWindow.setStatusBarWindowViewOptions();
+        }
     }
 
     private void setLockscreenMediaMetadata() {
@@ -6537,12 +6543,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         mAmbientVisualizer = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
                 UserHandle.USER_CURRENT) == 1;
-    }
-
-    private void setLockscreenDoubleTapToSleep() {
-        if (mStatusBarWindow != null) {
-            mStatusBarWindow.setLockscreenDoubleTapToSleep();
-        }
     }
 
     protected final ContentObserver mNavbarObserver = new ContentObserver(mHandler) {
