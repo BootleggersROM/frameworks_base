@@ -4453,6 +4453,13 @@ public final class Settings {
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
 
         /**
+         * Select various accents to go along with system themes
+         *
+         * @hide
+         */
+        public static final String ACCENT_PICKER = "accent_picker";
+
+        /**
          * Show four g instead of LTE
          * @hide
          */
