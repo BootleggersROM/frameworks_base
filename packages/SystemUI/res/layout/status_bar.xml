@@ -71,7 +71,6 @@
              PhoneStatusBar (DISABLE_NOTIFICATION_ICONS). -->
         <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
             android:id="@+id/notification_icon_area"
-            android:paddingStart="2dp"
             android:layout_width="0dip"
             android:layout_height="match_parent"
             android:layout_weight="1"
