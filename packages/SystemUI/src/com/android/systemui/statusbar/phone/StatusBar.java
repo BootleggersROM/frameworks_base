@@ -6552,6 +6552,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
     }
 
+    public void updateQsbhClock() {
+        if (mQuickStatusBarHeader != null) {
+            mQuickStatusBarHeader.updateQsbhClock();
+        }
+    }
+
     private void updateDozeBrightness() {
         int defaultDozeBrightness = mContext.getResources().getInteger(
                 com.android.internal.R.integer.config_screenBrightnessDoze);
