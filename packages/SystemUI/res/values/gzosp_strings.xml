@@ -50,7 +50,7 @@
     <string name="quick_settings_screenshot_label">Screenshot</string>
     <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
 
-    <string name="recents_free_ram">%1$dMB of RAM Avaliable</string>
+    <string name="recents_free_ram">%1$dMB of RAM Available</string>
 
     <!-- VoLTE icon switch -->
     <string name="status_bar_volte">VoLTE</string>
