@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+** Copyright (C) 2017 Cosmic-OS Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources>
+
+    <!-- Package Manager -->
+    <java-symbol type="array" name="config_disabledComponents" />
+	<java-symbol type="array" name="config_forceEnabledComponents" />
+
+    <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+
+    <!-- Usb drive persistent notification -->
+    <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+
+    <!-- Extended Power Menu -->
+    <java-symbol type="array" name="config_extendedGlobalActionsList" />
+    <java-symbol type="drawable" name="ic_restart_quick" />
+    <java-symbol type="drawable" name="ic_restart_recovery" />
+    <java-symbol type="drawable" name="ic_restart_bootloader" />
+    <!-- Defined in res/res/values/symbols.xml -
+    <java-symbol type="string" name="global_action_restart" />-->
+    <java-symbol type="string" name="global_action_quick_restart" />
+    <java-symbol type="string" name="global_action_recovery" />
+    <java-symbol type="string" name="global_action_bootloader" />
+    <!-- Shutdown Thread -->
+    <java-symbol type="string" name="global_restart" />
+    <java-symbol type="string" name="global_restart_message" />
+    <java-symbol type="string" name="global_quick_restart" />
+    <java-symbol type="string" name="global_restart_recovery" />
+    <java-symbol type="string" name="global_restart_recovery_message" />
+    <java-symbol type="string" name="global_restart_bootloader" />
+    <java-symbol type="string" name="global_restart_bootloader_message" />
+
+    <!-- IME selector notification toggle -->
+    <java-symbol type="bool" name="config_show_cmIMESwitcher"/>
+
+    <!-- Unlink notification volume -->
+    <java-symbol type="drawable" name="ic_audio_notification_new" />
+    <java-symbol type="drawable" name="ic_audio_notification_mute_new" />
+
+    <!-- DUI --> 
+    <java-symbol type="anim" name="du_app_in" />
+    <java-symbol type="anim" name="du_app_out" />
+
+    <!-- Hardware key binding -->
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
+    <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
+    <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+
+    <!-- Screen recording -->
+    <java-symbol type="bool" name="config_enableScreenrecordChord" />
+
+    <!-- Whether device has dash charging support -->
+    <java-symbol type="bool" name="config_hasDashCharger" />
+
+    <!-- framework instrumentation and AppProtect features -->
+    <java-symbol type="string" name="config_optionalPackageVerifierName" />
+    <java-symbol type="integer" name="config_sms_authorization_timeout_ms" />
+    <java-symbol type="bool" name="config_sms_authorization_enabled" />
+
+    <!-- Whether notify fingerprint client of successful cancelled authentication -->
+    <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+
+    <!-- Whether device has turbo power charging support -->
+    <java-symbol type="bool" name="config_hasTurboPowerCharger" />
+
+</resources>
