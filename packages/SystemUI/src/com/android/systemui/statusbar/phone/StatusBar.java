@@ -4241,216 +4241,216 @@ public class StatusBar extends SystemUI implements DemoMode,
     // Switches theme accent from to another or back to stock
     public void updateAccents() {
         int accentSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.ACCENT_PICKER, 0, mCurrentUserId);
+                Settings.System.ACCENT_PICKER, 0, mLockscreenUserManager.getCurrentUserId());
         if (accentSetting == 0) {
             unloadAccents();
         } else if (accentSetting == 1) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.newhouseorange",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 2) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.warmthorange",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 3) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.awmawy",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 4) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.coldyellow",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 5) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.maniamber",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 6) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.limedgreen",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 7) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.diffdaygreen",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 8) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.movemint",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 9) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.seasidemint",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 10) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.naturedgreen",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 11) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.stock",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 12) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.kablue",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 13) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.holillusion",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 14) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.heirloombleu",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 15) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.coldbleu",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 16) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.obfusbleu",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 17) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.frenchbleu",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 18) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.footprintpurple",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 19) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.dreamypurple",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 20) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.notimppurple",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 21) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.spookedpurple",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 22) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.illusionspurple",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 23) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.trufilpink",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 24) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.duskpurple",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 25) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.labouchered",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 26) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.bubblegumpink",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 27) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.misleadingred",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 28) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.hazedpink",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 29) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.burningred",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 30) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.whythisgrey",
-                        true, mCurrentUserId);
+                        true, mLockscreenUserManager.getCurrentUserId());
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
@@ -4462,65 +4462,65 @@ public class StatusBar extends SystemUI implements DemoMode,
         OverlayInfo themeInfo = null;
         try {
             mOverlayManager.setEnabled("com.google.android.theme.newhouseorange",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.warmthorange",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.awmawy",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.coldyellow",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.maniamber",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.limedgreen",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.diffdaygreen",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.movemint",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.seasidemint",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.naturedgreen",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.stock",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.kablue",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.holillusion",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.heirloombleu",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.coldbleu",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.obfusbleu",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.frenchbleu",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.footprintpurple",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.dreamypurple",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.notimppurple",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.spookedpurple",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.illusionspurple",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.trufilpink",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.duskpurple",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.labouchered",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.bubblegumpink",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.misleadingred",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.hazedpink",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.burningred",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
             mOverlayManager.setEnabled("com.google.android.theme.whythisgrey",
-                    false /*disable*/, mCurrentUserId);
+                    false /*disable*/, mLockscreenUserManager.getCurrentUserId());
         } catch (RemoteException e) {
             e.printStackTrace();
         }
