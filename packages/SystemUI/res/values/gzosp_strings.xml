@@ -161,4 +161,38 @@
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
+    <!-- Theme tile -->
+    <string name="systemui_theme_style_title">UI style</string>
+    <string name="systemui_theme_style_auto">Automatic</string>
+    <string name="systemui_theme_style_light">Light UI</string>
+    <string name="systemui_theme_style_dark">Dark UI</string>
+    <string name="systemui_theme_style_black">Black UI</string>
+    <string name="systemui_theme_style_shishu">Shishu Dreams UI</string>
+    <string name="systemui_theme_style_shishunights">Shishu Nights UI</string>
+    <string name="systemui_theme_style_shishuillusion">Shishu Illusions UI</string>
+    <string name="quick_settings_theme_tile_title">Accent</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
+    <string name="quick_settings_theme_tile_color_default">Default Accent</string>
+    <string name="quick_settings_theme_tile_color_warmthorange">Warmth Orange</string>
+    <string name="quick_settings_theme_tile_color_maniayellow">Mania Yellow</string>
+    <string name="quick_settings_theme_tile_color_movemint">Move Mint</string>
+    <string name="quick_settings_theme_tile_color_seasidemint">Seaside Mint</string>
+    <string name="quick_settings_theme_tile_color_naturedgreen">Nature Taken Green</string>
+    <string name="quick_settings_theme_tile_color_aospteal">AOSP Stock Teal</string>
+    <string name="quick_settings_theme_tile_color_kablue">A Kernel Adiutor Blue</string>
+    <string name="quick_settings_theme_tile_color_holillusion">Holillusion Cyan</string>
+    <string name="quick_settings_theme_tile_color_heirloom">Heirloom Hydrangea Bleu</string>
+    <string name="quick_settings_theme_tile_color_obfusbleu">Obfuscated Bleu</string>
+    <string name="quick_settings_theme_tile_color_frenchbleu">French Bleu</string>
+    <string name="quick_settings_theme_tile_color_footprintpurple">Footprint Purple</string>
+    <string name="quick_settings_theme_tile_color_dreamypurple">By the way here\'s a dreamy purple</string>
+    <string name="quick_settings_theme_tile_color_notimpurple">Not Impressive Purple</string>
+    <string name="quick_settings_theme_tile_color_spookedpurple">Spooked Purple</string>
+    <string name="quick_settings_theme_tile_color_trufilpink">True Feel Pink</string>
+    <string name="quick_settings_theme_tile_color_bubblegumpink">Bubblegum Pink</string>
+    <string name="quick_settings_theme_tile_color_labouchered">La Bouche Red</string>
+    <string name="quick_settings_theme_tile_color_misleadingred">Misleading Red</string>
+    <string name="quick_settings_theme_tile_color_whythisgrey">For some reason here\'s a grey</string>
+
 </resources>

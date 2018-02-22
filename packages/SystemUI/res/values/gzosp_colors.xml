@@ -26,5 +26,28 @@
 
     <!-- Zen QS panel -->
     <color name="zen_qs_panel_close_button_color">@android:color/white</color>
+
+    <!-- Theme tile DO NOT OVERLAY!!! We need the true colors here! -->
+    <color name="quick_settings_theme_tile_default">#3c5ae0</color>
+    <color name="quick_settings_theme_tile_warmthorange">#ff6f20</color>
+    <color name="quick_settings_theme_tile_maniayellow">#f6ca11</color>
+    <color name="quick_settings_theme_tile_movemint">#46ff99</color>
+    <color name="quick_settings_theme_tile_seasidemint">#01c18c</color>
+    <color name="quick_settings_theme_tile_naturedgreen">#00ad84</color>
+    <color name="quick_settings_theme_tile_aospteal">#009688</color>
+    <color name="quick_settings_theme_tile_kablue">#025e79</color>
+    <color name="quick_settings_theme_tile_holillusion">#0ac8ff</color>
+    <color name="quick_settings_theme_tile_heirloom">#327ccb</color>
+    <color name="quick_settings_theme_tile_obfusbleu">#0042ba</color>
+    <color name="quick_settings_theme_tile_frenchbleu">#2856ff</color>
+    <color name="quick_settings_theme_tile_footprintpurple">#3c5ae0</color>
+    <color name="quick_settings_theme_tile_dreamypurple">#7278e5</color>
+    <color name="quick_settings_theme_tile_notimpurple">#8522ff</color>
+    <color name="quick_settings_theme_tile_spookedpurple">#822b6b</color>
+    <color name="quick_settings_theme_tile_trufilpink">#ae2463</color>
+    <color name="quick_settings_theme_tile_bubblegumpink">#e52c5f</color>
+    <color name="quick_settings_theme_tile_labouchered">#bc092f</color>
+    <color name="quick_settings_theme_tile_misleadingred">#ea3556</color>
+    <color name="quick_settings_theme_tile_whythisgrey">#91919b</color>
 </resources>
 
