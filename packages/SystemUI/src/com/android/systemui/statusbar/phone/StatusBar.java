@@ -1212,7 +1212,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 DUActionUtils.hasNavbarByDefault(mContext) ? 1 : 0) != 0;
         if (DEBUG)
             Log.v(TAG, "hasNavigationBar=" + showNav);
-        if (showNav) {
+        if (showNav && mNavigationBarView == null) {
             createNavigationBar();
         }
 
