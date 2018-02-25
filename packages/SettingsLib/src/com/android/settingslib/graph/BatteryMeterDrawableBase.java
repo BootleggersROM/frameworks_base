@@ -52,6 +52,7 @@ public class BatteryMeterDrawableBase extends Drawable {
     public static final int BATTERY_STYLE_BIG_CIRCLE = 4;
     public static final int BATTERY_STYLE_BIG_DOTTED_CIRCLE = 5;
     public static final int BATTERY_STYLE_TEXT = 6;
+    public static final int BATTERY_STYLE_HIDDEN = 7;
 
     protected final Context mContext;
     protected final Paint mFramePaint;
