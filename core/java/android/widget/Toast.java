@@ -468,7 +468,7 @@ public class Toast {
                 }
 
                 ImageView appIcon = (ImageView) mView.findViewById(android.R.id.icon);
-                if ((Settings.System.getInt(context.getContentResolver(), Settings.System.TOAST_ICON, 0) == 1)) {
+                if ((Settings.System.getInt(context.getContentResolver(), Settings.System.TOAST_ICON, 1) == 1)) {
                     if (appIcon != null) {
                         PackageManager pm = context.getPackageManager();
                         Drawable icon = null;
