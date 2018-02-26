@@ -178,7 +178,7 @@ public class QuickQSPanel extends QSPanel {
 
     public void updateSettings() {
         setMaxTiles(Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QS_QUICKBAR_SCROLL_ENABLED, 0, UserHandle.USER_CURRENT) == 0 ?
+                Settings.System.QS_QUICKBAR_SCROLL_ENABLED, 1, UserHandle.USER_CURRENT) == 0 ?
                 NUM_QUICK_TILES_DEFAULT : NUM_QUICK_TILES_ALL);
     }
 
