@@ -307,7 +307,7 @@ public final class BatteryService extends SystemService {
             mBatteryLightEnabled = Settings.System.getInt(resolver,
                     Settings.System.BATTERY_LIGHT_ENABLED, 1) == 1;
             mAllowBatteryLightOnDnd = Settings.System.getInt(resolver,
-                    Settings.System.BATTERY_LIGHT_ALLOW_ON_DND, 0) == 1;
+                    Settings.System.BATTERY_LIGHT_ALLOW_ON_DND, 1) == 1;
             mIsDndActive = Settings.Global.getInt(resolver,
                     Settings.Global.ZEN_MODE, Settings.Global.ZEN_MODE_OFF)
                     != Settings.Global.ZEN_MODE_OFF;

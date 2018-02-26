@@ -123,7 +123,7 @@ public class MusicTile extends QSTileImpl<BooleanState> {
 
     private boolean MusicTileTitle() {
         return Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.MUSIC_TILE_TITLE, 0, UserHandle.USER_CURRENT) == 1;
+                Settings.System.MUSIC_TILE_TITLE, 1, UserHandle.USER_CURRENT) == 1;
     }
 
     private void playbackStateUpdate(int state) {

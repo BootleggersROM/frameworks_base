@@ -405,7 +405,7 @@ public class VisualizerView extends View
         @Override
         protected void update() {
             mVisualizerEnabled = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.LOCKSCREEN_VISUALIZER_ENABLED, 0,
+                getContext().getContentResolver(), Settings.System.LOCKSCREEN_VISUALIZER_ENABLED, 1,
                 UserHandle.USER_CURRENT) == 1;
             mAmbientVisualizerEnabled = Settings.System.getIntForUser(
                 getContext().getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
