@@ -2301,7 +2301,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
 
         //top_activity = task.stack.topRunningActivityLocked();
         /* App is launching from recent apps and it's a new process */
-        if(top_activity != null && top_activity.state == ActivityState.DESTROYED) {
+        if(top_activity != null && top_activity.getState() == ActivityState.DESTROYED) {
             acquireAppLaunchPerfLock(top_activity.packageName);
         }
 
@@ -3490,7 +3490,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
                 // matches not on the specified display.
                 if (mTmpFindTaskResult.r != null) {
                     if (!mTmpFindTaskResult.matchedByRootAffinity) {
-                        if(mTmpFindTaskResult.r.state == ActivityState.DESTROYED ) {
+                        if(mTmpFindTaskResult.r.getState() == ActivityState.DESTROYED ) {
                             /*It's a new app launch */
                             acquireAppLaunchPerfLock(r.packageName);
                         }
@@ -3513,7 +3513,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
         }
 
         /* Acquire perf lock *only* during new app launch */
-        if (mTmpFindTaskResult.r == null || mTmpFindTaskResult.r.state == ActivityState.DESTROYED) {
+        if (mTmpFindTaskResult.r == null || mTmpFindTaskResult.r.getState() == ActivityState.DESTROYED) {
             acquireAppLaunchPerfLock(r.packageName);
         }
 
