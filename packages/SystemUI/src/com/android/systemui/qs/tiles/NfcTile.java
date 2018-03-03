@@ -96,6 +96,7 @@ public class NfcTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
+        if (getAdapter() == null) return;
         final Drawable mEnable = mContext.getDrawable(R.drawable.ic_qs_nfc_enabled);
         final Drawable mDisable = mContext.getDrawable(R.drawable.ic_qs_nfc_disabled);
         state.value = getAdapter().isEnabled();
