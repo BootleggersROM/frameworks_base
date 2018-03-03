@@ -70,10 +70,14 @@
     <java-symbol type="bool" name="config_button_brightness_support" />
     <java-symbol type="integer" name="config_button_brightness_default" />
 
-  <!-- Forcefully tint notification icon text -->
-  <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
+    <!-- Forcefully tint notification icon text -->
+    <java-symbol type="bool" name="config_useDarkBgNotificationIconTextTinting" />
 
     <!-- Whether device has turbo power charging support -->
     <java-symbol type="bool" name="config_hasTurboPowerCharger" />
+
+    <!-- The list of vendor package signatures that should also be considered
+    platform signatures, specifically for use on devices with a vendor partition. -->
+    <java-symbol type="array" name="config_vendorPlatformSignatures" />
 
 </resources>
