@@ -57,10 +57,6 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
     public void handleLongClick() {
         mHost.collapsePanels();
 
-        //finish collapsing the panel
-        try {
-             Thread.sleep(1000); //1s
-        } catch (InterruptedException ie) {}
         GzospUtils.takeScreenshot(mRegion ? false : true);
     }
 
