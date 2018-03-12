@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (C) 2006 The Android Open Source Project
+        Copyright (C) 2017 The ABC rom
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,18 +16,11 @@
 -->
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- Status bar notification ticker -->
-    <style name="TextAppearance.StatusBar.PhoneTicker"
-        parent="@*android:style/TextAppearance.StatusBar">
-        <!-- Note: must be dp to fit in status bar -->
-        <item name="android:textSize">14dp</item>
-    </style>
 
-    <!-- Custom Carrier Label -->
-    <style name="TextAppearance.StatusBar.CarrierLabel" parent="@*android:style/TextAppearance.StatusBar.Icon">
-        <item name="android:textSize">14dp</item>
-        <item name="android:textStyle">normal</item>
-        <item name="android:textColor">@color/status_bar_clock_color</item>
+    <!-- Slim recent app screen animation -->
+    <style name="Animation.SlimRecentScreen">
+        <item name="android:windowEnterAnimation">@anim/recent_enter</item>
+        <item name="android:windowExitAnimation">@anim/recent_exit</item>
     </style>
 
 </resources>
