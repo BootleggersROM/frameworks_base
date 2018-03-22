@@ -77,6 +77,10 @@ public class WeatherTile extends QSTileImpl<BooleanState> implements OmniJawsCli
 
     private static final String[] ALTERNATIVE_WEATHER_APPS = {
             "cz.martykan.forecastie",
+            "com.accuweather.android",
+            "com.wunderground.android.weather",
+            "com.samruston.weather",
+            "jp.miyavi.androiod.gnws",
     };
 
     @Inject
@@ -188,22 +192,23 @@ public class WeatherTile extends QSTileImpl<BooleanState> implements OmniJawsCli
     @Override
     public Intent getLongClickIntent() {
         if (DEBUG) Log.d(TAG, "getLongClickIntent");
+        PackageManager pm = mContext.getPackageManager();
+        for (String app: ALTERNATIVE_WEATHER_APPS) {
+            if (BootlegUtils.isPackageAvailable(app, mContext)) {
+                Intent intent = pm.getLaunchIntentForPackage(app);
+                if (intent != null) {
+                    return intent;
+                }
+            }
+        }
         if (BootlegUtils.isPackageAvailable("com.google.android.googlequicksearchbox", mContext)) {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse("dynact://velour/weather/ProxyActivity"));
             intent.setComponent(new ComponentName("com.google.android.googlequicksearchbox",
                     "com.google.android.apps.gsa.velour.DynamicActivityTrampoline"));
             return intent;
-        } else {
-            PackageManager pm = mContext.getPackageManager();
-            for (String app: ALTERNATIVE_WEATHER_APPS) {
-                Intent intent = pm.getLaunchIntentForPackage(app);
-                if (intent != null) {
-                    return intent;
-                }
-            }
-            return mWeatherClient.getSettingsIntent();
         }
+        return mWeatherClient.getSettingsIntent();
     }
 
     @Override
