@@ -16,6 +16,9 @@
 -->
 
 <resources>
+    <!-- Settings icon tint color -->
+    <color name="settings_icon_tint_color">#737373</color>
+
     <!-- Notification icon/text dynamic tint -->
     <color name="notification_text_default_color">@android:color/notification_default_color</color>
 
