@@ -6911,6 +6911,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_ALPHA),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_SECURITY_ALPHA),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
 
@@ -6976,6 +6982,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_TICKER_ANIMATION_MODE))) {
                 updateTickerAnimation();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_ALPHA))) {
+              setNewOverlayAlpha();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_SECURITY_ALPHA))) {
+              setSecurityAlpha();
             }
         }
 
@@ -6995,6 +7007,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateTickerAnimation();
             setForceAmbient();
             setStatusBarWindowViewOptions();
+            setNewOverlayAlpha();
+            setSecurityAlpha();
         }
     }
 
@@ -7014,6 +7028,22 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void updateQsbhClock() {
         if (mQuickStatusBarHeader != null) {
             mQuickStatusBarHeader.updateQsbhClock();
+        }
+    }
+
+    public void setNewOverlayAlpha() {
+        float overlayalpha = Settings.System.getFloatForUser(mContext.getContentResolver(),
+        Settings.System.LOCKSCREEN_ALPHA, 0.45f, UserHandle.USER_CURRENT);
+        if (mScrimController != null) {
+        	mScrimController.setOverlayAlpha(overlayalpha);
+		}
+    }
+
+    public void setSecurityAlpha() {
+        float securityoverlayalpha = Settings.System.getFloatForUser(mContext.getContentResolver(),
+        Settings.System.LOCKSCREEN_SECURITY_ALPHA, 0.75f, UserHandle.USER_CURRENT);
+        if (mScrimController != null) {
+        	mScrimController.setSecurityOverlayAlpha(securityoverlayalpha);
         }
     }
 
