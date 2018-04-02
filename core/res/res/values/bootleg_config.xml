@@ -114,4 +114,8 @@
        Used to decide if we show pulse settings -->
   <bool name="config_ledCanPulse">true</bool>
 
+  <!-- Does the notification LED support multiple colors?
+       Used to decide if the user can change the colors -->
+  <bool name="config_multiColorNotificationLed">false</bool>
+
 </resources>
