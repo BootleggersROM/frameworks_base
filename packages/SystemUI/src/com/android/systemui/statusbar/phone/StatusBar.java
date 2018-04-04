@@ -1212,7 +1212,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 DUActionUtils.hasNavbarByDefault(mContext) ? 1 : 0) != 0;
         if (DEBUG)
             Log.v(TAG, "hasNavigationBar=" + showNav);
-        if (showNav) {
+        if (showNav && mNavigationBarView == null) {
             createNavigationBar();
         }
 
@@ -1683,6 +1683,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                 animateCollapsePanels(CommandQueue.FLAG_EXCLUDE_NONE);
             }
         };
+
+        if (hideAnimatedList.isEmpty()) {
+            animationFinishAction.run();
+            return;
+        }
 
         // let's disable our normal animations
         mStackScroller.setDismissAllInProgress(true);

@@ -3349,6 +3349,7 @@ struct ResTable::PackageGroup
                 cacheEntry.filteredConfigs.clear();
 
                 bag_set** typeBags = cacheEntry.cachedBags;
+                cacheEntry.cachedBags = NULL;
                 if (kDebugTableNoisy) {
                     printf("typeBags=%p\n", typeBags);
                 }
@@ -3361,10 +3362,10 @@ struct ResTable::PackageGroup
                     for (size_t j = 0; j < N; j++) {
                         if (typeBags[j] && typeBags[j] != (bag_set*)0xFFFFFFFF) {
                             free(typeBags[j]);
+                            typeBags[j] = NULL;
                         }
                     }
                     free(typeBags);
-                    cacheEntry.cachedBags = NULL;
                 }
             }
         }
@@ -4047,7 +4048,7 @@ bool ResTable::getResourceName(uint32_t resID, bool allowUtf8, resource_name* ou
 
     if (p < 0) {
         if (Res_GETPACKAGE(resID)+1 == 0) {
-            ALOGW("No package identifier when getting name for resource number 0x%08x", resID);
+            ALOGV("No package identifier when getting name for resource number 0x%08x", resID);
         } else {
 #ifndef STATIC_ANDROIDFW_FOR_TOOLS
             ALOGW("No known package when getting name for resource number 0x%08x", resID);
