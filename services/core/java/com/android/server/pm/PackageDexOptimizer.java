@@ -116,6 +116,10 @@ public class PackageDexOptimizer {
     int performDexOpt(PackageParser.Package pkg, String[] sharedLibraries,
             String[] instructionSets, CompilerStats.PackageStats packageStats,
             PackageDexUsage.PackageUseInfo packageUseInfo, DexoptOptions options) {
+        if (pkg.applicationInfo.uid == -1) {
+            throw new IllegalArgumentException("Dexopt for " + pkg.packageName
+                    + " has invalid uid.");
+        }
         if (!canOptimizePackage(pkg)) {
             return DEX_OPT_SKIPPED;
         }
@@ -154,6 +158,17 @@ public class PackageDexOptimizer {
         }
         String[] classLoaderContexts = DexoptUtils.getClassLoaderContexts(
                 pkg.applicationInfo, sharedLibraries, pathsWithCode);
+
+        // Sanity check that we do not call dexopt with inconsistent data.
+        if (paths.size() != classLoaderContexts.length) {
+            String[] splitCodePaths = pkg.applicationInfo.getSplitCodePaths();
+            throw new IllegalStateException("Inconsistent information "
+                + "between PackageParser.Package and its ApplicationInfo. "
+                + "pkg.getAllCodePaths=" + paths
+                + " pkg.applicationInfo.getBaseCodePath=" + pkg.applicationInfo.getBaseCodePath()
+                + " pkg.applicationInfo.getSplitCodePaths="
+                + (splitCodePaths == null ? "null" : Arrays.toString(splitCodePaths)));
+        }
 
         // Sanity check that we do not call dexopt with inconsistent data.
         if (paths.size() != classLoaderContexts.length) {
@@ -280,6 +295,9 @@ public class PackageDexOptimizer {
      */
     public int dexOptSecondaryDexPath(ApplicationInfo info, String path,
             PackageDexUsage.DexUseInfo dexUseInfo, DexoptOptions options) {
+        if (info.uid == -1) {
+            throw new IllegalArgumentException("Dexopt for path " + path + " has invalid uid.");
+        }
         synchronized (mInstallLock) {
             final long acquireTime = acquireWakeLockLI(info.uid);
             try {
