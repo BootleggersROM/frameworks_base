@@ -604,6 +604,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private BatteryController mBatteryController;
     protected boolean mPanelExpanded;
     private IOverlayManager mOverlayManager;
+    private int mCurrentTheme;
     private boolean mKeyguardRequested;
     private boolean mIsKeyguard;
     private LogMaker mStatusBarStateLog;
@@ -832,6 +833,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         final Context context = mContext;
         updateDisplaySize(); // populates mDisplayMetrics
         updateResources();
+        getCurrentThemeSetting();
         updateTheme();
 
         inflateStatusBarWindow(context);
@@ -4032,14 +4034,17 @@ public class StatusBar extends SystemUI implements DemoMode,
         Trace.endSection();
     }
 
+    private void getCurrentThemeSetting() {
+        mCurrentTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.SYSTEM_THEME_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+    }
+
     /**
      * Switches theme from light to dark and vice-versa.
      */
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
 
-        int userThemeSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SYSTEM_THEME_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
         boolean useDarkTheme = false;
         boolean useBlackTheme = false;
         boolean useShishuTheme = false;
@@ -4047,7 +4052,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         boolean useShishuIllusionsTheme = false;
         boolean useShishuImmensityTheme = false;
         boolean useShishuAmalgamationTheme = false;
-        if (userThemeSetting == 0) {
+        if (mCurrentTheme == 0) {
             // The system wallpaper defines if QS should be light or dark.
             WallpaperColors systemColors = mColorExtractor
                     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
@@ -4059,13 +4064,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                         == Configuration.UI_MODE_NIGHT_YES;
             useDarkTheme = wallpaperWantsDarkTheme || nightModeWantsDarkTheme;
         } else {
-            useDarkTheme = userThemeSetting == 2;
-            useBlackTheme = userThemeSetting == 3;
-            useShishuTheme = userThemeSetting == 4;
-            useShishuNightsTheme = userThemeSetting == 5;
-            useShishuIllusionsTheme = userThemeSetting == 6;
-            useShishuImmensityTheme = userThemeSetting == 7;
-            useShishuAmalgamationTheme = userThemeSetting == 8;
+            useDarkTheme = mCurrentTheme == 2;
+            useBlackTheme = mCurrentTheme == 3;
+            useShishuTheme = mCurrentTheme == 4;
+            useShishuNightsTheme = mCurrentTheme == 5;
+            useShishuIllusionsTheme = mCurrentTheme == 6;
+            useShishuImmensityTheme = mCurrentTheme == 7;
+            useShishuAmalgamationTheme = mCurrentTheme == 8;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
@@ -5336,6 +5341,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                     // Keeps us from overloading the system by performing these tasks every time.
                     unloadAccents();
                     updateAccents();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_STYLE))) {
+                getCurrentThemeSetting();
+                updateTheme();
             }
         }
 
