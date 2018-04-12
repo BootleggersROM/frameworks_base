@@ -242,7 +242,7 @@ public class KeyguardStatusView extends GridLayout implements
 
     private int getLockClockFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 12);
+                Settings.System.LOCK_CLOCK_FONTS, 4);
     }
 
     public void refreshTime() {
