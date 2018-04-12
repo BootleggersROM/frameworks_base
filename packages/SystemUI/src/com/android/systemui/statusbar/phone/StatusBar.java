@@ -3176,6 +3176,17 @@ public class StatusBar extends SystemUI implements DemoMode,
         return themeInfo != null && themeInfo.isEnabled();
     }
 
+    public boolean isUsingShishuIllusionTheme() {
+        OverlayInfo themeInfo = null;
+        try {
+            themeInfo = mOverlayManager.getOverlayInfo("com.android.system.theme.shishuillusion",
+                    mCurrentUserId);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return themeInfo != null && themeInfo.isEnabled();
+    }
+
     @Nullable
     public View getAmbientIndicationContainer() {
         return mAmbientIndicationContainer;
@@ -5171,6 +5182,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.SYSTEM_THEME_STYLE, 0, mCurrentUserId);
         boolean useShishuTheme = false;
         boolean useShishuNightsTheme = false;
+        boolean useShishuIllusionTheme = false;
         boolean useBlackTheme = false;
         boolean useDarkTheme = false;
         if (userThemeSetting == 0) {
@@ -5184,6 +5196,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             useBlackTheme = userThemeSetting == 3;
             useShishuTheme = userThemeSetting == 4;
             useShishuNightsTheme = userThemeSetting == 5;
+            useShishuIllusionTheme = userThemeSetting == 6;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             try {
@@ -5223,6 +5236,17 @@ public class StatusBar extends SystemUI implements DemoMode,
                         useShishuNightsTheme, mCurrentUserId);
                 mOverlayManager.setEnabled("com.android.settings.theme.shishunights",
                         useShishuNightsTheme, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        }
+
+        if (isUsingShishuIllusionTheme() != useShishuIllusionTheme) {
+            try {
+                mOverlayManager.setEnabled("com.android.system.theme.shishuillusion",
+                        useShishuIllusionTheme, mCurrentUserId);
+                mOverlayManager.setEnabled("com.android.settings.theme.shishuillusion",
+                        useShishuIllusionTheme, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
