@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="settings_search_bar_corner_radius">25dp</dimen>
+    <dimen name="settings_search_bar_elevation">1dp</dimen>
+    <dimen name="search_bar_margin">14dp</dimen>
+    <dimen name="search_bar_negative_margin">-14dp</dimen>
+</resources>
