@@ -174,26 +174,26 @@
     <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
     <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
     <string name="quick_settings_theme_tile_color_default">Default Accent</string>
-    <string name="quick_settings_theme_tile_color_warmthorange">Warmth Orange</string>
-    <string name="quick_settings_theme_tile_color_maniayellow">Mania Yellow</string>
-    <string name="quick_settings_theme_tile_color_movemint">Move Mint</string>
-    <string name="quick_settings_theme_tile_color_seasidemint">Seaside Mint</string>
-    <string name="quick_settings_theme_tile_color_naturedgreen">Nature Taken Green</string>
-    <string name="quick_settings_theme_tile_color_aospteal">AOSP Stock Teal</string>
-    <string name="quick_settings_theme_tile_color_kablue">A Kernel Adiutor Blue</string>
-    <string name="quick_settings_theme_tile_color_holillusion">Holillusion Cyan</string>
-    <string name="quick_settings_theme_tile_color_heirloom">Heirloom Hydrangea Bleu</string>
-    <string name="quick_settings_theme_tile_color_obfusbleu">Obfuscated Bleu</string>
-    <string name="quick_settings_theme_tile_color_frenchbleu">French Bleu</string>
-    <string name="quick_settings_theme_tile_color_footprintpurple">Footprint Purple</string>
-    <string name="quick_settings_theme_tile_color_dreamypurple">By the way here\'s a dreamy purple</string>
-    <string name="quick_settings_theme_tile_color_notimpurple">Not Impressive Purple</string>
-    <string name="quick_settings_theme_tile_color_spookedpurple">Spooked Purple</string>
-    <string name="quick_settings_theme_tile_color_trufilpink">True Feel Pink</string>
-    <string name="quick_settings_theme_tile_color_bubblegumpink">Bubblegum Pink</string>
-    <string name="quick_settings_theme_tile_color_labouchered">La Bouche Red</string>
-    <string name="quick_settings_theme_tile_color_misleadingred">Misleading Red</string>
-    <string name="quick_settings_theme_tile_color_whythisgrey">For some reason here\'s a grey</string>
+    <string name="quick_settings_theme_tile_color_warmthorange" translatable="false">Warmth Orange</string>
+    <string name="quick_settings_theme_tile_color_maniayellow" translatable="false">Mania Yellow</string>
+    <string name="quick_settings_theme_tile_color_movemint" translatable="false">Move Mint</string>
+    <string name="quick_settings_theme_tile_color_seasidemint" translatable="false">Seaside Mint</string>
+    <string name="quick_settings_theme_tile_color_naturedgreen" translatable="false">Nature Taken Green</string>
+    <string name="quick_settings_theme_tile_color_aospteal" translatable="false">AOSP Stock Teal</string>
+    <string name="quick_settings_theme_tile_color_kablue" translatable="false">A Kernel Adiutor Blue</string>
+    <string name="quick_settings_theme_tile_color_holillusion" translatable="false">Holillusion Cyan</string>
+    <string name="quick_settings_theme_tile_color_heirloom" translatable="false">Heirloom Hydrangea Bleu</string>
+    <string name="quick_settings_theme_tile_color_obfusbleu" translatable="false">Obfuscated Bleu</string>
+    <string name="quick_settings_theme_tile_color_frenchbleu" translatable="false">French Bleu</string>
+    <string name="quick_settings_theme_tile_color_footprintpurple" translatable="false">Footprint Purple</string>
+    <string name="quick_settings_theme_tile_color_dreamypurple" translatable="false">By the way here\'s a dreamy purple</string>
+    <string name="quick_settings_theme_tile_color_notimpurple" translatable="false">Not Impressive Purple</string>
+    <string name="quick_settings_theme_tile_color_spookedpurple" translatable="false">Spooked Purple</string>
+    <string name="quick_settings_theme_tile_color_trufilpink" translatable="false">True Feel Pink</string>
+    <string name="quick_settings_theme_tile_color_bubblegumpink" translatable="false">Bubblegum Pink</string>
+    <string name="quick_settings_theme_tile_color_labouchered" translatable="false">La Bouche Red</string>
+    <string name="quick_settings_theme_tile_color_misleadingred" translatable="false">Misleading Red</string>
+    <string name="quick_settings_theme_tile_color_whythisgrey" translatable="false">For some reason here\'s a grey</string>
 
     <!-- Theme QS -->
     <string name="theme_info_title">What is this?</string>
