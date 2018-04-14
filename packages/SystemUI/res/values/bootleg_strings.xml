@@ -92,6 +92,7 @@
     <!-- NavBar Tuner -->
     <string name="menu_ime_always_show">Menu / Keyboard Switcher (always show)</string>
     <string name="search">Search</string>
+    <string name="nav_bar_layout_inverse">Swap back and recents</string>
 
     <!-- SysUI Tuner -->
     <string name="statusbar_items_title">Statusbar icon</string>
