@@ -3779,7 +3779,7 @@ public final class Settings {
         @Deprecated
         public static final String DOCK_SOUNDS_ENABLED = Global.DOCK_SOUNDS_ENABLED;
 
-	/**
+    /**
          * Check the proximity sensor during wakeup
          * @hide
          */
@@ -4017,7 +4017,7 @@ public final class Settings {
          */
         public static final String LAST_DOZE_AUTO_BRIGHTNESS = "last_doze_auto_brightness";
 
-      	/**
+        /**
          * show the membar in recents
          *  @hide
          */
@@ -4791,7 +4791,7 @@ public final class Settings {
         public static final String SCREENSHOT_EDIT_USER_APP = "screenshot_edit_user_app";
 
 
-    	/**
+        /**
          * change lockscreen alpha color
          * @hide
          */
@@ -4851,6 +4851,12 @@ public final class Settings {
          * @hide
          */
         public static final String QS_RUNNING_SERVICES_TOGGLE = "qs_running_services_toggle";
+
+        /**
+         * show recents in grid style or android go style
+         * @hide
+         */
+        public static final String RECENTS_LAYOUT_STYLE = "recents_layout_style";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
