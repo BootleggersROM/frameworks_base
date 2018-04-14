@@ -64,11 +64,7 @@
   <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> பார்க்கக் அறிவிக்கைகள் 1 நிமிடம் ஸ்னூஸ்.</string>
   <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> பார்க்கக் அறிவிக்கைகள் 1 நிமிடம் ஸ்னூஸ்.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash சார்ஜிங் (<xliff: g id = "charging_time_left" உதாரணம் = "4 மணி நேரம் மற்றும் 2 நிமிடங்கள்">% s </ xliff: g> முழுமையாக்கும் வரை)
-
-keyguard_indication_dash_charging_time
-சாதனம் சார்ஜ் சார்ஜர் மூலம் சார்ஜ் செய்யப்படும் போது கீயார்டைக் குறிக்கும். Keyguard_plugged_in_dash_charging ஐ பொருத்த வேண்டும் [Char Limit = 40]
-கோப்பு: ex_strings.xml</string>
+  <string name="keyguard_indication_dash_charging_time">Dash சார்ஜிங் (<xliff:g id="charging_time_left" example="4 மணி நேரம் மற்றும் 2 நிமிடங்கள்">% s </xliff:g> முழுமையாக்கும் வரை)</string>
   <string name="keyguard_plugged_in_dash_charging">டாஷ் சார்ஜிங்</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">திரை பதிவு செய்யப்படுகிறது</string>
