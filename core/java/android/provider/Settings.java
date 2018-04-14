@@ -4573,12 +4573,14 @@ public final class Settings {
         public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
 
         /**
-         * Which component to use for Recents UI
+         * Which kind of style you might want to see on Recents UI
          * 0 - Pie Recents (Quickstep)
          * 1 - Oreo Recents (SystemUI)
+         * 2 - Grid Recents (SystemUI)
+         * 3 - Android Go Recents (SystemUI)
          * @hide
          */
-        public static final String RECENTS_COMPONENT = "recents_component";
+        public static final String RECENTS_LAYOUT_STYLE  = "recents_layout_style";
 
         /**
          * 0 - Default
