@@ -95,7 +95,9 @@
   <string name="quick_settings_music_pause">Pause</string>
   <!-- Expanded Desktop QS Tile -->
   <string name="quick_settings_expanded_desktop_label">Affichage étendu</string>
+
   <string name="quick_settings_expanded_desktop">Étendu</string>
+
   <!-- QS customizer -->
   <!-- Bootleg Dumpster Tile -->
   <!-- HW Keys Tile -->

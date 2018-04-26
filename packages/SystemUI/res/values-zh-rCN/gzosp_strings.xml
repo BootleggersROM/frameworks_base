@@ -50,7 +50,11 @@
   <string name="quick_settings_sound_label">声音</string>
   <string name="quick_settings_sound_ring">响铃</string>
   <string name="quick_settings_sound_vibrate">振动</string>
+
+  <string name="quick_settings_sound_dnd">勿扰</string>
+
   <string name="quick_settings_sound_dnd">请勿打扰</string>
+
   <string name="lockscreen_default">默认</string>
   <string name="lockscreen_hidden">无</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
@@ -96,14 +100,22 @@
   <string name="quick_settings_music_pause">暂停</string>
   <!-- Expanded Desktop QS Tile -->
   <string name="quick_settings_expanded_desktop_label">扩展桌面</string>
+
+  <string name="quick_settings_expanded_desktop">扩展桌面</string>
+
   <string name="quick_settings_expanded_desktop">扩展</string>
+
   <string name="quick_settings_expanded_desktop_off">正常</string>
   <string name="quick_settings_expanded_navigation_off">隐藏导航栏</string>
   <string name="quick_settings_expanded_statusbar_off">隐藏状态栏</string>
   <!-- QS customizer -->
   <string name="drag_or_tap_to_add_tiles">拖动或点击以添加瓷贴</string>
   <!-- Bootleg Dumpster Tile -->
+
+  <string name="quick_settings_bootlegdump_label">垃圾箱</string>
+
   <string name="quick_settings_bootlegdump_label">Bootleg设置</string>
+
   <string name="quick_settings_bootlegdump_toast">好吧，因为某些原因，它死了，它坏了，它不正常工作了。</string>
   <!-- HW Keys Tile -->
   <string name="accessibility_quick_settings_hwkeys_on">实体按键已开启</string>
@@ -139,6 +151,9 @@
   <string name="systemui_theme_style_black">黑色界面</string>
   <string name="systemui_theme_style_shishu">Shishu梦想界面</string>
   <string name="systemui_theme_style_shishunights">Shishu晚上界面</string>
+
+  <!-- Theme QS -->
+
   <string name="systemui_theme_style_shishuillusion">Shishu半透明界面</string>
   <string name="quick_settings_theme_tile_title">强调色</string>
   <string name="quick_settings_theme_tile_accent_detail_title">选择颜色</string>
@@ -147,4 +162,5 @@
   <!-- Theme QS -->
   <string name="theme_info_title">这是什么?</string>
   <string name="theme_info_message">主题瓷贴虽然独特但却易于使用，它允许用户更改系统强调色或样式。\n\n为了更改强调色和样式，只需简单地长按瓷贴，然后再次按下即可从所提供的选项中进行选择。</string>
+
 </resources>

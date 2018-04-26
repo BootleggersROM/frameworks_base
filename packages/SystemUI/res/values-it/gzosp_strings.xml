@@ -142,7 +142,11 @@
   <string name="systemui_theme_style_shishuillusion">Interfaccia utente Shishu Illusions</string>
   <string name="quick_settings_theme_tile_title">Colore primario</string>
   <string name="quick_settings_theme_tile_accent_detail_title">Seleziona il colore</string>
+
+  <string name="quick_settings_theme_tile_style_detail_title">Seleziona stile (Necessita riavvio SystemUI)</string>
+
   <string name="quick_settings_theme_tile_style_detail_title">Seleziona lo stile (richiede il riavvio del SystemUI)</string>
+
   <string name="quick_settings_theme_tile_color_default">Colore primario predefinito</string>
   <!-- Theme QS -->
   <string name="theme_info_title">Cos\'è questo?</string>

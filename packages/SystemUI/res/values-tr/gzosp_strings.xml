@@ -43,7 +43,11 @@
   <!-- Screenshot QS tile -->
   <string name="quick_settings_screenshot_label">Ekran görüntüsü</string>
   <string name="quick_settings_region_screenshot_label">Kısmi ekran görüntüsü</string>
+
+  <string name="recents_free_ram">Boş Ram: %1$d MB</string>
+
   <string name="recents_free_ram">Boş Ram: %1$dMB</string>
+
   <!-- VoLTE icon switch -->
   <string name="status_bar_volte">VoLTE</string>
   <!-- Sound QS Tile -->
@@ -77,7 +81,11 @@
   <string name="screenrecord_notif_pointer_on">İşaretçiyi göster</string>
   <string name="screenrecord_notif_pointer_off">İşaretçiyi gizle</string>
   <!-- Screen record notification error title -->
+
+  <string name="screenrecord_notif_error">Ekran kaydı yapılamıyor</string>
+
   <string name="screenrecord_notif_error">Ekran kaydedilemiyor</string>
+
   <string name="notification_channel_screenrecord">Ekran kayıtları</string>
   <!-- Screenrecord Tile -->
   <string name="quick_settings_screenrecord">Ekran kaydı</string>
@@ -104,7 +112,11 @@
   <string name="drag_or_tap_to_add_tiles">Kare eklemek için dokunun</string>
   <!-- Bootleg Dumpster Tile -->
   <string name="quick_settings_bootlegdump_label">The Dumpster</string>
+
+  <string name="quick_settings_bootlegdump_toast">Www, bir sebepten dolayı öldü, kırıldı, işe yaramıyor.</string>
+
   <string name="quick_settings_bootlegdump_toast">Wew, bir sebepten dolayı öldü, kırıldı, işe yaramıyor.</string>
+
   <!-- HW Keys Tile -->
   <string name="accessibility_quick_settings_hwkeys_on">Donanım tuşları açık</string>
   <string name="accessibility_quick_settings_hwkeys_off">Donanım tuşları kapalı</string>
@@ -117,7 +129,11 @@
   <string name="keyguard_plugged_in_turbo_charging">Turbo Şarj oluyor</string>
   <!-- Sound Search tile -->
   <string name="quick_settings_sound_search">Sesli arama</string>
+
+  <string name="quick_settings_sound_search_no_app">Üzgünüm, ama eğer bir ses arama uygulaması yoksa bu işe yaramaz.</string>
+
   <string name="quick_settings_sound_search_no_app">Üzgünüz, eğer bir sesli arama uygulaması yoksa bu işe yaramayacaktır.</string>
+
   <!-- OmniJaws -->
   <string name="omnijaws_service_error">Hata</string>
   <string name="omnijaws_service_unkown">Hava durumu verileri yok</string>

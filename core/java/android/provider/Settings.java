@@ -4165,7 +4165,61 @@ public final class Settings {
 
 
         /**
-         * show clear all recents button
+         * Finger amount for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_FINGERS = "carbon_custom_gesture_fingers";
+
+        /**
+         * right gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_RIGHT = "carbon_custom_gesture_right";
+
+        /**
+         * left gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_LEFT = "carbon_custom_gesture_left";
+
+        /**
+         * up gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_UP = "carbon_custom_gesture_up";
+
+        /**
+         * down gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_DOWN = "carbon_custom_gesture_down";
+
+        /**
+         * right gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_PACKAGE_RIGHT = "carbon_custom_gesture_package_right";
+
+        /**
+         * left gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_PACKAGE_LEFT = "carbon_custom_gesture_package_left";
+
+        /**
+         * up gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_PACKAGE_UP = "carbon_custom_gesture_package_up";
+
+        /**
+         * down gesture for CarbonGestures
+         * @hide
+         */
+        public static final String CARBON_CUSTOM_GESTURE_PACKAGE_DOWN = "carbon_custom_gesture_package_down";
+
+        /**
+         * show clear all recent
          * @hide
          */
         public static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
@@ -11564,6 +11618,12 @@ public final class Settings {
          * @hide
          */
         public static final String RINGTONE_FOCUS_MODE = "ringtone_focus_mode";
+
+        /**
+         * Default animation
+         * @hide
+         */
+        public static final String SYSTEM_DEFAULT_ANIMATION = "system_default_animation";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
