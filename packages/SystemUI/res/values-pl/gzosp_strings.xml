@@ -25,7 +25,11 @@
   <!-- Power Menu -->
   <string name="global_action_restart_system">Uruchom ponownie</string>
   <string name="global_action_restart_advanced">Zaawansowane</string>
+
   <string name="global_action_restart_recovery">Odzyskiwanie</string>
+
+  <string name="global_action_restart_recovery">Recovery</string>
+
   <string name="global_action_restart_bootloader">Tryb Bootloader</string>
   <string name="global_action_restart_ui">SystemUI</string>
   <string name="global_action_restart_hot">Szybkie Uruchomienie</string>
@@ -130,7 +134,11 @@
   <string name="omnijaws_service_last_update">Ostatnia aktualizacja:</string>
   <!-- Reboot/Recovery QS Tile -->
   <string name="quick_settings_reboot_label">Uruchom ponownie</string>
+
   <string name="quick_settings_reboot_recovery_label">Odzyskiwanie</string>
+
+  <string name="quick_settings_reboot_recovery_label">Recovery</string>
+
   <!-- Theme tile -->
   <string name="systemui_theme_style_title">Styl interfejsu</string>
   <string name="systemui_theme_style_auto">Automatycznie</string>

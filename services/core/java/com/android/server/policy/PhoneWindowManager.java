@@ -829,6 +829,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mHavePendingMediaKeyRepeatWithWakeLock;
 
     private int mCurrentUserId;
+    private boolean haveEnableGesture = false;
 
     private boolean haveEnableGesture = false;
 
@@ -1213,6 +1214,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private SystemGesturesPointerEventListener mSystemGestures;
     private OPGesturesListener mOPGestures;
 
+
     private CarbonGesturesListener mCarbonGesturesRight;
     private CarbonGesturesListener mCarbonGesturesLeft;
     private CarbonGesturesListener mCarbonGesturesUp;
@@ -1221,7 +1223,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private String mCarbonGesturesLeftPackage;
     private String mCarbonGesturesUpPackage;
     private String mCarbonGesturesDownPackage;
-
 
     IStatusBarService getStatusBarService() {
         synchronized (mServiceAquireLock) {
@@ -2507,6 +2508,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             haveEnableGesture = false;
             mWindowManagerFuncs.unregisterPointerEventListener(mOPGestures);
         }
+
      }
     private CarbonGesturesListener initCarbonGesture(int fingers, int keycode, CarbonGesturesListener.Directions direction) {
         return new CarbonGesturesListener(mContext, fingers, direction, new CarbonGesturesListener.Callbacks() {
@@ -2586,6 +2588,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return gesture;
         }
         return null;
+
 
     }
 
@@ -2716,7 +2719,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 updateWakeGestureListenerLp();
             }
 
-
 	    //Three Finger Gesture
             boolean threeFingerGesture = Settings.System.getIntForUser(resolver,
                     Settings.System.THREE_FINGER_GESTURE, 0, UserHandle.USER_CURRENT) == 1;
@@ -2756,6 +2758,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mCarbonGesturesDown = handleCarbonGesture(mCarbonGesturesDown,
                 carbonCustomGestureFingers, carbonCustomGestureDown + carbonCustomGestureFingers,
                 CarbonGesturesListener.Directions.DOWN, carbonCustomGestureDownPkg);
+
 
 
             // Configure rotation lock.

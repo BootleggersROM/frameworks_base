@@ -17,5 +17,11 @@
 -->
 <resources>
   <!-- Ambient Display Pixel-Like string -->
+
   <!--OmniJaws -->
+
+  <string name="ambientmusic_songinfo">%s par %s</string>
+  <!--OmniJaws -->
+  <string name="weather_info_not_available">Informations météorologiques non disponibles</string>
+
 </resources>

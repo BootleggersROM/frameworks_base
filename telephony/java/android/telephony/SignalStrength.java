@@ -19,7 +19,6 @@ package android.telephony;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.telephony.Rlog;
 import android.util.Log;
 import android.content.res.Resources;
 
@@ -345,11 +344,6 @@ public class SignalStrength implements Parcelable {
         ss.mLteRssnr = in.readInt();
         ss.mLteCqi = in.readInt();
         ss.mTdScdmaRscp = in.readInt();
-        /* Hack signal strength */
-        if (ss.mGsmSignalStrength < 27) ss.mGsmSignalStrength += 3;
-        if (ss.mLteSignalStrength < 91) ss.mLteSignalStrength += 5;
-        if (ss.mLteRsrp != ss.INVALID && ss.mLteRsrp > 49) ss.mLteRsrp -= 5;
-        if (ss.mLteRsrq != ss.INVALID && ss.mLteRsrq > 3) ss.mLteRsrq -= 2;
         return ss;
     }
 
@@ -431,6 +425,15 @@ public class SignalStrength implements Parcelable {
                 ? -mTdScdmaRscp : SignalStrength.INVALID;
         // Cqi no change
         if (DBG) log("Signal after validate=" + this);
+    }
+
+    /**
+     * Fix {@link #isGsm} based on the signal strength data.
+     *
+     * @hide
+     */
+    public void fixType() {
+        isGsm = getCdmaRelatedSignalStrength() == SIGNAL_STRENGTH_NONE_OR_UNKNOWN;
     }
 
     /**
@@ -546,30 +549,7 @@ public class SignalStrength implements Parcelable {
      *     while 4 represents a very strong signal strength.
      */
     public int getLevel() {
-        int level = 0;
-
-        if (isGsm) {
-            level = getLteLevel();
-            if (level == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
-                level = getTdScdmaLevel();
-                if (level == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
-                    level = getGsmLevel();
-                }
-            }
-        } else {
-            int cdmaLevel = getCdmaLevel();
-            int evdoLevel = getEvdoLevel();
-            if (evdoLevel == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
-                /* We don't know evdo, use cdma */
-                level = cdmaLevel;
-            } else if (cdmaLevel == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
-                /* We don't know cdma, use evdo */
-                level = evdoLevel;
-            } else {
-                /* We know both, use the lowest level */
-                level = cdmaLevel < evdoLevel ? cdmaLevel : evdoLevel;
-            }
-        }
+        int level = isGsm ? getGsmRelatedSignalStrength() : getCdmaRelatedSignalStrength();
         if (DBG) log("getLevel=" + level);
         return level;
     }
@@ -887,8 +867,8 @@ public class SignalStrength implements Parcelable {
 
         if (rsrpIconLevel != -1) return rsrpIconLevel;
 
-        /* Valid values are (0-63, 99) as defined in TS 36.331 */
-        if (mLteSignalStrength > 63) rssiIconLevel = SIGNAL_STRENGTH_NONE_OR_UNKNOWN;
+        /* Valid values are (0-31, 99) as defined in TS 27.001 8.5 */
+        if (mLteSignalStrength > 31) rssiIconLevel = SIGNAL_STRENGTH_NONE_OR_UNKNOWN;
         else if (mLteSignalStrength >= 12) rssiIconLevel = SIGNAL_STRENGTH_GREAT;
         else if (mLteSignalStrength >= 8) rssiIconLevel = SIGNAL_STRENGTH_GOOD;
         else if (mLteSignalStrength >= 5) rssiIconLevel = SIGNAL_STRENGTH_MODERATE;
@@ -1052,6 +1032,36 @@ public class SignalStrength implements Parcelable {
                 + " " + mLteRsrpBoost
                 + " " + mTdScdmaRscp
                 + " " + (isGsm ? "gsm|lte" : "cdma"));
+    }
+
+    /** Returns the signal strength related to GSM. */
+    private int getGsmRelatedSignalStrength() {
+        int level = getLteLevel();
+        if (level == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
+            level = getTdScdmaLevel();
+            if (level == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
+                level = getGsmLevel();
+            }
+        }
+        return level;
+    }
+
+    /** Returns the signal strength related to CDMA. */
+    private int getCdmaRelatedSignalStrength() {
+        int level;
+        int cdmaLevel = getCdmaLevel();
+        int evdoLevel = getEvdoLevel();
+        if (evdoLevel == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
+            /* We don't know evdo, use cdma */
+            level = cdmaLevel;
+        } else if (cdmaLevel == SIGNAL_STRENGTH_NONE_OR_UNKNOWN) {
+            /* We don't know cdma, use evdo */
+            level = evdoLevel;
+        } else {
+            /* We know both, use the lowest level */
+            level = cdmaLevel < evdoLevel ? cdmaLevel : evdoLevel;
+        }
+        return level;
     }
 
     /**
