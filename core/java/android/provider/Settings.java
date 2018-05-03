@@ -6607,11 +6607,11 @@ public final class Settings {
          */
         public static final String FLING_RIPPLE_COLOR = "fling_ripple_color";
 
-        /**
+         /**
          * Fling gesture trails on/off
-         *
-         * @hide
-         */
+          *
+          * @hide
+          */
         public static final String FLING_TRAILS_ENABLED = "fling_trails_enabled";
 
         /**
@@ -6627,6 +6627,13 @@ public final class Settings {
          * @hide
          */
         public static final String PULSE_ACCENT_COLOR_ENABLED = "pulse_accent_color_enabled";
+
+        /**
+         * Fling pulse bars smoothing
+         *
+         * @hide
+         */
+        public static final String FLING_PULSE_SMOOTHING_ENABLED = "fling_pulse_smoothing_enabled";
 
         /**
          * Fling pulse lavalamp psychedelic colors
