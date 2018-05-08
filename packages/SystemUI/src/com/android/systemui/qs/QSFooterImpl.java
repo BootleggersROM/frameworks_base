@@ -28,6 +28,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Bundle;
 import android.os.UserManager;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 import android.text.TextUtils;
@@ -96,6 +97,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
     private final int mColorForeground;
     private final CellSignalState mInfo = new CellSignalState();
     private OnClickListener mExpandClickListener;
+    private boolean hasRunningServices;
 
     public QSFooterImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -279,10 +281,11 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private void updateVisibilities() {
         final boolean isDemo = UserManager.isDeviceInDemoMode(mContext);
+        hasRunningServices = !isRunningServicesDisabled();
         mMultiUserSwitch.setVisibility(showUserSwitcher(isDemo) ? View.VISIBLE : View.INVISIBLE);
         mEdit.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
         mSettingsButton.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
-        mRunningServicesButton.setVisibility(!isDemo && mExpanded ? View.VISIBLE : View.INVISIBLE);
+        mRunningServicesButton.setVisibility(hasRunningServices ? !isDemo && mExpanded ? View.VISIBLE : View.INVISIBLE : View.GONE);
     }
 
     private boolean showUserSwitcher(boolean isDemo) {
@@ -326,6 +329,11 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             mMultiUserSwitch.setQsPanel(qsPanel);
             mQsPanel.setFooterPageIndicator(mPageIndicator);
         }
+    }
+
+    public boolean isRunningServicesDisabled() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.QS_RUNNING_SERVICES_TOGGLE, 0) == 0;
     }
 
     @Override
