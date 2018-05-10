@@ -117,10 +117,11 @@ public class RecentsConfiguration {
         isLowRamDeviceDefault = ActivityManager.isLowRamDeviceStatic();
         if (isGoLayoutEnabled() == true) {
             isLowRamDevice = true;
+            dragToSplitEnabled = true;
         } else { 
             isLowRamDevice = isLowRamDeviceDefault;
+            dragToSplitEnabled = !isLowRamDevice;
         }
-        dragToSplitEnabled = !isLowRamDevice;
 
         float screenDensity = context.getResources().getDisplayMetrics().density;
         smallestWidth = ssp.getDeviceSmallestWidth();
