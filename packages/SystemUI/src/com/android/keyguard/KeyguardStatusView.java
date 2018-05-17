@@ -496,79 +496,79 @@ public class KeyguardStatusView extends GridLayout implements
         // Lockscreen date
 
         if (lockDateFont == 0) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+            mDateView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
         if (lockDateFont == 1) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            mDateView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
         }
         if (lockDateFont == 2) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            mDateView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
         }
         if (lockDateFont == 3) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+            mDateView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
         }
         if (lockDateFont == 4) {
-            mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+            mDateView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
         }
         if (lockDateFont == 5) {
-            mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+            mDateView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
         }
         if (lockDateFont == 6) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+            mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
         }
         if (lockDateFont == 7) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+            mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
         }
         if (lockDateFont == 8) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+            mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
         }
         if (lockDateFont == 9) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+            mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
         }
         if (lockDateFont == 10) {
-            mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+            mDateView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         }
         if (lockDateFont == 11) {
-            mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+            mDateView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
         }
 
        // Lockscreen owner info
 
         if (lockOwnFont == 0) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
         if (lockOwnFont == 1) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
         }
         if (lockOwnFont == 2) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
         }
         if (lockOwnFont == 3) {
-            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
         }
         if (lockOwnFont == 4) {
-            mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
         }
         if (lockOwnFont == 5) {
-            mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
         }
         if (lockOwnFont == 6) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
         }
         if (lockOwnFont == 7) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
         }
         if (lockOwnFont == 8) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
         }
         if (lockOwnFont == 9) {
-            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
         }
         if (lockOwnFont == 10) {
-            mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         }
         if (lockOwnFont == 11) {
-            mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+            mOwnerInfo.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
         }
 
     }
