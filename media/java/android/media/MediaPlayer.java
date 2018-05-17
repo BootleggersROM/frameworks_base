@@ -39,7 +39,6 @@ import android.os.PowerManager;
 import android.os.SystemProperties;
 import android.provider.Settings;
 import android.system.ErrnoException;
-import android.system.Os;
 import android.system.OsConstants;
 import android.util.Log;
 import android.util.Pair;
@@ -61,6 +60,7 @@ import android.media.SyncParams;
 import com.android.internal.util.Preconditions;
 
 import libcore.io.IoBridge;
+import libcore.io.Libcore;
 import libcore.io.Streams;
 
 import java.io.ByteArrayOutputStream;
@@ -2829,7 +2829,7 @@ public class MediaPlayer extends PlayerBase
 
         final FileDescriptor dupedFd;
         try {
-            dupedFd = Os.dup(fd);
+            dupedFd = Libcore.os.dup(fd);
         } catch (ErrnoException ex) {
             Log.e(TAG, ex.getMessage(), ex);
             throw new RuntimeException(ex);
@@ -2867,7 +2867,7 @@ public class MediaPlayer extends PlayerBase
             private int addTrack() {
                 final ByteArrayOutputStream bos = new ByteArrayOutputStream();
                 try {
-                    Os.lseek(dupedFd, offset2, OsConstants.SEEK_SET);
+                    Libcore.os.lseek(dupedFd, offset2, OsConstants.SEEK_SET);
                     byte[] buffer = new byte[4096];
                     for (long total = 0; total < length2;) {
                         int bytesToRead = (int) Math.min(buffer.length, length2 - total);
@@ -2891,7 +2891,7 @@ public class MediaPlayer extends PlayerBase
                     return MEDIA_INFO_TIMED_TEXT_ERROR;
                 } finally {
                     try {
-                        Os.close(dupedFd);
+                        Libcore.os.close(dupedFd);
                     } catch (ErrnoException e) {
                         Log.e(TAG, e.getMessage(), e);
                     }

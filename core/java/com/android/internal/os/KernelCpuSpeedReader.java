@@ -15,11 +15,12 @@
  */
 package com.android.internal.os;
 
-import android.system.Os;
 import android.text.TextUtils;
 import android.os.StrictMode;
 import android.system.OsConstants;
 import android.util.Slog;
+
+import libcore.io.Libcore;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -52,7 +53,7 @@ public class KernelCpuSpeedReader {
                 cpuNumber);
         mLastSpeedTimesMs = new long[numSpeedSteps];
         mDeltaSpeedTimesMs = new long[numSpeedSteps];
-        long jiffyHz = Os.sysconf(OsConstants._SC_CLK_TCK);
+        long jiffyHz = Libcore.os.sysconf(OsConstants._SC_CLK_TCK);
         mJiffyMillis = 1000/jiffyHz;
     }
 
