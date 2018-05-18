@@ -5033,6 +5033,18 @@ public final class Settings {
          */
         public static final String HIDE_LOCKSCREEN_ALARM = "hide_lockscreen_alarm";
 
+        /**
+         * Select which lockscreen date style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_DATE_SELECTION = "lockscreen_date_selection";
+
+        /**
+         * Select which lockscreen clock style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+
         /** End of ABC system settings**/
 
         /**
