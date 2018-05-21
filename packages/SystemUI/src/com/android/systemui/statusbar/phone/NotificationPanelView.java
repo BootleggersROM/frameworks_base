@@ -2777,6 +2777,11 @@ public class NotificationPanelView extends PanelView implements
         }
     }
 
+    public void updateKeyguardStatusSettings() {
+        mKeyguardStatusView.updateAll();
+        mClockPositionAlgorithm.setClockSelection(mKeyguardStatusView.getClockSelection());
+    }
+
     public void setStatusAccessibilityImportance(int mode) {
          mKeyguardStatusView.setImportantForAccessibility(mode);
     }
