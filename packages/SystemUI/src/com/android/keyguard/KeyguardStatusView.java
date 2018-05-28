@@ -379,7 +379,7 @@ public class KeyguardStatusView extends GridLayout implements
         mWeatherClient.addObserver(this);
         mSettingsObserver.observe();
         queryAndUpdateWeather();
-        updateSettings(false);
+        updateWeatherSettings(false);
     }
 
     @Override
