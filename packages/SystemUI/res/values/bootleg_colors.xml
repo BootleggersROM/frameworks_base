@@ -59,5 +59,9 @@
     <color name="quick_settings_theme_tile_hazedpink">#c83c64</color>
     <color name="quick_settings_theme_tile_burningred">#f21a48</color>
     <color name="quick_settings_theme_tile_whythisgrey">#91919b</color>
+
+    <!-- Power menu wallpaper tint off color -->
+    <color name="power_menu_wallpaper_tint_off_color">@*android:color/power_menu_wallpaper_tint_off_color</color>
+
 </resources>
 
