@@ -49,5 +49,9 @@
     <color name="quick_settings_theme_tile_labouchered">#bc092f</color>
     <color name="quick_settings_theme_tile_misleadingred">#ea3556</color>
     <color name="quick_settings_theme_tile_whythisgrey">#91919b</color>
+
+    <!-- Power menu wallpaper tint off color -->
+    <color name="power_menu_wallpaper_tint_off_color">@*android:color/power_menu_wallpaper_tint_off_color</color>
+
 </resources>
 
