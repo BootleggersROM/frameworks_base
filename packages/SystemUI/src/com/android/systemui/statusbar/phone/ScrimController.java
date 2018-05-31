@@ -91,6 +91,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
     private final KeyguardUpdateMonitor mKeyguardUpdateMonitor;
 
     private final SysuiColorExtractor mColorExtractor;
+    private final ColorExtractor mInternalColorExtractor;
     private GradientColors mLockColors;
     private GradientColors mSystemColors;
     private boolean mNeedsDrawableColorUpdate;
@@ -161,9 +162,13 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
 
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
-        mLockColors = mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
+        mInternalColorExtractor = Dependency.get(ColorExtractor.class);
+        mInternalColorExtractor.addOnColorsChangedListener(this);
+        mLockColors = showWallpaperTintKeyguard() ? mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
+                ColorExtractor.TYPE_DARK, true /* ignoreVisibility */) : mColorExtractor.getColors(3,
                 ColorExtractor.TYPE_DARK, true /* ignoreVisibility */);
-        mSystemColors = mColorExtractor.getColors(WallpaperManager.FLAG_SYSTEM,
+        mSystemColors = showWallpaperTintNotificationShade() ? mColorExtractor.getColors(WallpaperManager.FLAG_SYSTEM,
+                ColorExtractor.TYPE_DARK, true /* ignoreVisibility */) : mColorExtractor.getColors(3,
                 ColorExtractor.TYPE_DARK, true /* ignoreVisibility */);
         mOverlayAlpha = Settings.System.getFloatForUser(context.getContentResolver(),
                 Settings.System.LOCKSCREEN_ALPHA, 0.45f, UserHandle.USER_CURRENT);
@@ -343,7 +348,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
         final float maxNotificationDensity = 3;
         float notificationDensity = Math.min(notificationCount / maxNotificationDensity, 1f);
         float newAlpha = MathUtils.map(0, 1,
-                showWallpaperTintKeyguard() ? GRADIENT_SCRIM_ALPHA : CUSTOM_GRADIENT_SCRIM_ALPHA, GRADIENT_SCRIM_ALPHA_BUSY,
+                GRADIENT_SCRIM_ALPHA, GRADIENT_SCRIM_ALPHA_BUSY,
                 notificationDensity);
         if (mScrimBehindAlphaKeyguard != newAlpha) {
             mScrimBehindAlphaKeyguard = newAlpha;
@@ -354,8 +359,8 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
 
     private float getScrimInFrontAlpha() {
         return mKeyguardUpdateMonitor.needsSlowUnlockTransition()
-                ? showWallpaperTintKeyguard() ? SCRIM_IN_FRONT_ALPHA_LOCKED : CUSTOM_GRADIENT_SCRIM_ALPHA
-                : showWallpaperTintKeyguard() ? SCRIM_IN_FRONT_ALPHA : CUSTOM_GRADIENT_SCRIM_ALPHA;
+                ? SCRIM_IN_FRONT_ALPHA_LOCKED
+                : SCRIM_IN_FRONT_ALPHA;
     }
 
     /**
@@ -466,13 +471,11 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
 
     private void updateScrimNormal() {
         float frac = mFraction;
-        float customfrac = mFraction;
 
         // let's start this 20% of the way down the screen
         frac = frac * 1.2f - 0.2f;
-        customfrac = frac * 0.0f - 0.0f;
 
-        if (showWallpaperTintNotificationShade() ? frac <= 0 : customfrac <= 0) {
+        if (frac <= 0) {
             setScrimBehindAlpha(0);
         } else {
             // woo, special effects
@@ -789,13 +792,13 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
     @Override
     public void onColorsChanged(ColorExtractor colorExtractor, int which) {
         if ((which & WallpaperManager.FLAG_LOCK) != 0) {
-            mLockColors = mColorExtractor.getColors(WallpaperManager.FLAG_LOCK,
+            mLockColors = mColorExtractor.getColors(showWallpaperTintKeyguard() ? WallpaperManager.FLAG_LOCK : 3,
                     ColorExtractor.TYPE_DARK, true /* ignoreVisibility */);
             mNeedsDrawableColorUpdate = true;
             scheduleUpdate();
         }
         if ((which & WallpaperManager.FLAG_SYSTEM) != 0) {
-            mSystemColors = mColorExtractor.getColors(WallpaperManager.FLAG_SYSTEM,
+            mSystemColors = mColorExtractor.getColors(showWallpaperTintNotificationShade() ? WallpaperManager.FLAG_SYSTEM : 3,
                     ColorExtractor.TYPE_DARK, mKeyguardShowing);
             mNeedsDrawableColorUpdate = true;
             scheduleUpdate();

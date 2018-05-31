@@ -21,11 +21,13 @@ import android.annotation.Nullable;
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.util.Log;
 import android.util.SparseArray;
 
+import com.android.internal.R;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.colorextraction.types.ExtractionType;
 import com.android.internal.colorextraction.types.Tonal;
@@ -42,6 +44,7 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
     public static final int TYPE_NORMAL = 0;
     public static final int TYPE_DARK = 1;
     public static final int TYPE_EXTRA_DARK = 2;
+    public static final int FLAG_BLACKFALLBACK = 3;
     private static final int[] sGradientTypes = new int[]{TYPE_NORMAL, TYPE_DARK, TYPE_EXTRA_DARK};
 
     private static final String TAG = "ColorExtractor";
@@ -53,6 +56,7 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
     private final ExtractionType mExtractionType;
     protected WallpaperColors mSystemColors;
     protected WallpaperColors mLockColors;
+    protected WallpaperColors mBlackFallbackColors;
 
     public ColorExtractor(Context context) {
         this(context, new Tonal(context));
@@ -62,9 +66,10 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
     public ColorExtractor(Context context, ExtractionType extractionType) {
         mContext = context;
         mExtractionType = extractionType;
+        Resources res = context.getResources();
 
         mGradientColors = new SparseArray<>();
-        for (int which : new int[] { WallpaperManager.FLAG_LOCK, WallpaperManager.FLAG_SYSTEM}) {
+        for (int which : new int[] { WallpaperManager.FLAG_LOCK, WallpaperManager.FLAG_SYSTEM, FLAG_BLACKFALLBACK}) {
             GradientColors[] colors = new GradientColors[sGradientTypes.length];
             mGradientColors.append(which, colors);
             for (int type : sGradientTypes) {
@@ -75,6 +80,7 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
         mOnColorsChangedListeners = new ArrayList<>();
         GradientColors[] systemColors = mGradientColors.get(WallpaperManager.FLAG_SYSTEM);
         GradientColors[] lockColors = mGradientColors.get(WallpaperManager.FLAG_LOCK);
+        GradientColors[] fallbackColors = mGradientColors.get(FLAG_BLACKFALLBACK);;
 
         WallpaperManager wallpaperManager = mContext.getSystemService(WallpaperManager.class);
         if (wallpaperManager == null) {
@@ -86,6 +92,7 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             Trace.beginSection("ColorExtractor#getWallpaperColors");
             mSystemColors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
             mLockColors = wallpaperManager.getWallpaperColors(WallpaperManager.FLAG_LOCK);
+            mBlackFallbackColors = WallpaperColors.fromDrawable(res.getDrawable(R.drawable.system_notint));
             Trace.endSection();
         }
 
@@ -98,6 +105,10 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
                 lockColors[TYPE_NORMAL],
                 lockColors[TYPE_DARK],
                 lockColors[TYPE_EXTRA_DARK]);
+        extractInto(mBlackFallbackColors,
+                fallbackColors[TYPE_NORMAL],
+                fallbackColors[TYPE_DARK],
+                fallbackColors[TYPE_EXTRA_DARK]);
     }
 
     /**
@@ -124,8 +135,8 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             throw new IllegalArgumentException(
                     "type should be TYPE_NORMAL, TYPE_DARK or TYPE_EXTRA_DARK");
         }
-        if (which != WallpaperManager.FLAG_LOCK && which != WallpaperManager.FLAG_SYSTEM) {
-            throw new IllegalArgumentException("which should be FLAG_SYSTEM or FLAG_NORMAL");
+        if (which != WallpaperManager.FLAG_LOCK && which != WallpaperManager.FLAG_SYSTEM && which != FLAG_BLACKFALLBACK) {
+            throw new IllegalArgumentException("which should be FLAG_SYSTEM, FLAG_NORMAL or FLAG_BLACKFALLBACK");
         }
         return mGradientColors.get(which)[type];
     }
@@ -142,6 +153,8 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             return mLockColors;
         } else if (which == WallpaperManager.FLAG_SYSTEM) {
             return mSystemColors;
+        } else  if (which == FLAG_BLACKFALLBACK) {
+            return mBlackFallbackColors;
         } else {
             throw new IllegalArgumentException("Invalid value for which: " + which);
         }
@@ -165,6 +178,14 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             GradientColors[] systemColors = mGradientColors.get(WallpaperManager.FLAG_SYSTEM);
             extractInto(colors, systemColors[TYPE_NORMAL], systemColors[TYPE_DARK],
                     systemColors[TYPE_EXTRA_DARK]);
+            changed = true;
+        }
+
+        if ((which & FLAG_BLACKFALLBACK) != 0) {
+            mBlackFallbackColors = colors;
+            GradientColors[] fallbackColors = mGradientColors.get(WallpaperManager.FLAG_SYSTEM);
+            extractInto(colors, fallbackColors[TYPE_NORMAL], fallbackColors[TYPE_DARK],
+                    fallbackColors[TYPE_EXTRA_DARK]);
             changed = true;
         }
 

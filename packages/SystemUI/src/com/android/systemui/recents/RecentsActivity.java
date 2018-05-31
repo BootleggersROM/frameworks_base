@@ -138,6 +138,7 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
 
     // Theme and colors
     private SysuiColorExtractor mColorExtractor;
+    private ColorExtractor mInternalColorExtractor;
     private boolean mUsingDarkText;
 
     /**
@@ -356,6 +357,8 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
         // Select theme based on wallpaper colors
         mColorExtractor = Dependency.get(SysuiColorExtractor.class);
         mColorExtractor.addOnColorsChangedListener(this);
+        mInternalColorExtractor = Dependency.get(ColorExtractor.class);
+        mInternalColorExtractor.addOnColorsChangedListener(this);
         mUsingDarkText = mColorExtractor.getColors(ColorExtractor.TYPE_DARK,
                 WallpaperManager.FLAG_SYSTEM, true).supportsDarkText();
         setTheme(mUsingDarkText ? R.style.RecentsTheme_Wallpaper_Light
@@ -414,9 +417,13 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
         // Getting system scrim colors ignoring wallpaper visibility since it should never be grey.
         ColorExtractor.GradientColors systemColors = mColorExtractor.getColors(
                 ColorExtractor.TYPE_DARK, WallpaperManager.FLAG_SYSTEM, true);
+
+        ColorExtractor.GradientColors noShadeColors = mColorExtractor.getColors(
+                ColorExtractor.TYPE_DARK, 3, true);
+
         // We don't want to interpolate colors because we're defining the initial state.
         // Gradient should be set/ready when you open "Recents".
-        mRecentsView.setScrimColors(systemColors, false);
+        mRecentsView.setScrimColors(!showWallpaperTint(getApplicationContext()) ? noShadeColors : systemColors, false);
 
         // Notify of the next draw
         mRecentsView.getViewTreeObserver().addOnPreDrawListener(mRecentsDrawnEventListener);
@@ -958,4 +965,11 @@ public class RecentsActivity extends Activity implements ViewTreeObserver.OnPreD
             mRecentsView.dump(prefix, writer);
         }
     }
+
+
+   private boolean showWallpaperTint(Context context) {
+        return Settings.System.getIntForUser(context.getContentResolver(),
+                Settings.System.WALLPAPER_RECENTS_TINT, 1, UserHandle.USER_CURRENT) == 1;
+    }
+
 }
