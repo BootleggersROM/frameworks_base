@@ -700,84 +700,111 @@ public class KeyguardStatusView extends GridLayout implements
 
         if (lockDateFont == 0) {
             mDateView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
         if (lockDateFont == 1) {
             mDateView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
         }
         if (lockDateFont == 2) {
             mDateView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
         }
         if (lockDateFont == 3) {
             mDateView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
         }
         if (lockDateFont == 4) {
             mDateView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
         }
         if (lockDateFont == 5) {
             mDateView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
         }
         if (lockDateFont == 6) {
             mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
         }
         if (lockDateFont == 7) {
             mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
         }
         if (lockDateFont == 8) {
             mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
         }
         if (lockDateFont == 9) {
             mDateView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
         }
         if (lockDateFont == 10) {
             mDateView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
         }
         if (lockDateFont == 11) {
             mDateView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+            mAlarmStatusView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
         }
         if (lockDateFont == 12) {
             mDateView.setTypeface(Typeface.create("adamcg-pro", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("adamcg-pro", Typeface.NORMAL));
         }
         if (lockDateFont == 13) {
             mDateView.setTypeface(Typeface.create("alien-league", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("alien-league", Typeface.NORMAL));
         }
         if (lockDateFont == 14) {
             mDateView.setTypeface(Typeface.create("bignoodle-regular", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("bignoodle-regular", Typeface.NORMAL));
         }
         if (lockDateFont == 15) {
             mDateView.setTypeface(Typeface.create("biko", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("biko", Typeface.NORMAL));
         }
         if (lockDateFont == 16) {
             mDateView.setTypeface(Typeface.create("ginora-sans", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("ginora-sans", Typeface.NORMAL));
         }
         if (lockDateFont == 17) {
             mDateView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
         }
         if (lockDateFont == 18) {
             mDateView.setTypeface(Typeface.create("inkferno", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("inkferno", Typeface.NORMAL));
         }
         if (lockDateFont == 19) {
             mDateView.setTypeface(Typeface.create("instruction", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("instruction", Typeface.NORMAL));
         }
         if (lockDateFont == 20) {
             mDateView.setTypeface(Typeface.create("jack-lane", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("jack-lane", Typeface.NORMAL));
         }
         if (lockDateFont == 21) {
             mDateView.setTypeface(Typeface.create("monad", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("monad", Typeface.NORMAL));
         }
         if (lockDateFont == 22) {
             mDateView.setTypeface(Typeface.create("noir", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("noir", Typeface.NORMAL));
         }
         if (lockDateFont == 23) {
             mDateView.setTypeface(Typeface.create("outrun-future", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("outrun-future", Typeface.NORMAL));
         }
         if (lockDateFont == 24) {
             mDateView.setTypeface(Typeface.create("riviera", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("riviera", Typeface.NORMAL));
         }
         if (lockDateFont == 25) {
             mDateView.setTypeface(Typeface.create("the-outbox", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("the-outbox", Typeface.NORMAL));
         }
         if (lockDateFont == 26) {
             mDateView.setTypeface(Typeface.create("themeable-date", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("themeable-date", Typeface.NORMAL));
         }
 
        // Lockscreen owner info
