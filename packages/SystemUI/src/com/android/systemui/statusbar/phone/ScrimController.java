@@ -22,15 +22,12 @@ import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.app.WallpaperManager;
 import android.content.Context;
-import android.content.ContentResolver;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.graphics.drawable.Drawable;
 import android.os.Trace;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.util.MathUtils;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +66,6 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
             = new PathInterpolator(0.3f, 0f, 0.8f, 1f);
     // Default alpha value for most scrims, if unsure use this constant
     public static final float GRADIENT_SCRIM_ALPHA = 0.45f;
-    public static final float CUSTOM_GRADIENT_SCRIM_ALPHA = 0.00f;
     // A scrim varies its opacity based on a busyness factor, for example
     // how many notifications are currently visible.
     public static final float GRADIENT_SCRIM_ALPHA_BUSY = 0.70f;
@@ -343,7 +339,7 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
         final float maxNotificationDensity = 3;
         float notificationDensity = Math.min(notificationCount / maxNotificationDensity, 1f);
         float newAlpha = MathUtils.map(0, 1,
-                showWallpaperTintKeyguard() ? GRADIENT_SCRIM_ALPHA : CUSTOM_GRADIENT_SCRIM_ALPHA, GRADIENT_SCRIM_ALPHA_BUSY,
+                GRADIENT_SCRIM_ALPHA, GRADIENT_SCRIM_ALPHA_BUSY,
                 notificationDensity);
         if (mScrimBehindAlphaKeyguard != newAlpha) {
             mScrimBehindAlphaKeyguard = newAlpha;
@@ -354,8 +350,8 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
 
     private float getScrimInFrontAlpha() {
         return mKeyguardUpdateMonitor.needsSlowUnlockTransition()
-                ? showWallpaperTintKeyguard() ? SCRIM_IN_FRONT_ALPHA_LOCKED : CUSTOM_GRADIENT_SCRIM_ALPHA
-                : showWallpaperTintKeyguard() ? SCRIM_IN_FRONT_ALPHA : CUSTOM_GRADIENT_SCRIM_ALPHA;
+                ? SCRIM_IN_FRONT_ALPHA_LOCKED
+                : SCRIM_IN_FRONT_ALPHA;
     }
 
     /**
@@ -466,13 +462,9 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
 
     private void updateScrimNormal() {
         float frac = mFraction;
-        float customfrac = mFraction;
-
         // let's start this 20% of the way down the screen
         frac = frac * 1.2f - 0.2f;
-        customfrac = frac * 0.0f - 0.0f;
-
-        if (showWallpaperTintNotificationShade() ? frac <= 0 : customfrac <= 0) {
+        if (frac <= 0) {
             setScrimBehindAlpha(0);
         } else {
             // woo, special effects
@@ -818,17 +810,5 @@ public class ScrimController implements ViewTreeObserver.OnPreDrawListener,
         pw.print("   mBouncerShowing="); pw.println(mBouncerShowing);
         pw.print("   mTracking="); pw.println(mTracking);
         pw.print("   mForceHideScrims="); pw.println(mForceHideScrims);
-    }
-
-    private boolean showWallpaperTintKeyguard() {
-        final ContentResolver resolver = mScrimBehind.getContext().getContentResolver();
-        return Settings.System.getIntForUser(resolver,
-                Settings.System.WALLPAPER_KEYGUARD_WALLPAPER_TINT, 1, UserHandle.USER_CURRENT) == 1;
-    }
-
-    private boolean showWallpaperTintNotificationShade() {
-        final ContentResolver resolver = mScrimBehind.getContext().getContentResolver();
-        return Settings.System.getIntForUser(resolver,
-                Settings.System.WALLPAPER_NOTIFICATION_SHADE_WALLPAPER_TINT, 1, UserHandle.USER_CURRENT) == 1;
     }
 }

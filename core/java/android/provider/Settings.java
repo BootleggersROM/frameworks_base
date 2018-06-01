@@ -5045,30 +5045,6 @@ public final class Settings {
          */
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
-        /**
-         * Whether to display the wallpaper tint on the power menu
-         * @hide
-         */
-        public static final String WALLPAPER_POWER_MENU_TINT = "wallpaper_power_menu_tint";
-
-        /**
-         * Whether to display the wallpaper tint in recents
-         * @hide
-         */
-        public static final String WALLPAPER_RECENTS_TINT = "wallpaper_recents_tint";
-
-        /**
-         * Whether to display the wallpaper tint in the notification shade
-         * @hide
-         */
-        public static final String WALLPAPER_NOTIFICATION_SHADE_WALLPAPER_TINT = "wallpaper_notification_shade_wallpaper_tint";
-
-        /**
-         * Whether to display the wallpaper tint in the keyguard
-         * @hide
-         */
-        public static final String WALLPAPER_KEYGUARD_WALLPAPER_TINT = "wallpaper_keyguard_wallpaper_tint";
-
         /** End of ABC system settings**/
 
         /**
