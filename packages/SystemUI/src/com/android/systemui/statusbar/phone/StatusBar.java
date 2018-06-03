@@ -6754,7 +6754,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     }
 
     public boolean isDoubleTapOnMusicTicker(float eventX, float eventY) {
-        if (eventX <= 0 || eventY <= 0 || mAmbientIndicationContainer == null 
+        if (eventX <= 0 || eventY <= 0 || mAmbientIndicationContainer == null
                 || mAmbientIndicationContainer.getVisibility() != View.VISIBLE) {
             return false;
         }
@@ -6764,7 +6764,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         float viewY = eventY - mTmpInt2[1];
         if (0 <= viewX && viewX <= indication.getWidth()
                 && 0 <= viewY && viewY <= indication.getHeight()) {
-            handleSystemKey(KeyEvent.KEYCODE_MEDIA_NEXT);
             return true;
         }
         return false;

@@ -92,6 +92,8 @@ public class StatusBarWindowView extends FrameLayout {
     private boolean mTouchCancelled;
     private boolean mTouchActive;
 
+    private boolean mIsMusicTickerTap;
+
     public StatusBarWindowView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setMotionEventSplittingEnabled(false);
@@ -99,7 +101,8 @@ public class StatusBarWindowView extends FrameLayout {
         mTransparentSrcPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
         mFalsingManager = FalsingManager.getInstance(context);
         mDoubleTapHelper = new DoubleTapHelper(this, active -> {}, event -> {
-            if (mService.isDoubleTapOnMusicTicker(event.getX(), event.getY())) {
+            if (mIsMusicTickerTap) {
+                mService.handleSystemKey(KeyEvent.KEYCODE_MEDIA_NEXT);
                 return true;
             }
             mService.wakeUpIfDozing(SystemClock.uptimeMillis(), this);
@@ -298,10 +301,20 @@ public class StatusBarWindowView extends FrameLayout {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (mService.isDozing() && !mStackScrollLayout.hasPulsingNotifications()) {
-            // Capture all touch events in always-on.
-            return true;
+        // if in Aod, or dozing but tapping on music info, return to skip the onTouchEvent
+        mIsMusicTickerTap = false;
+        if (mService.isDozing()) {
+            if (mService.isDoubleTapOnMusicTicker(ev.getX(), ev.getY())) {
+                mIsMusicTickerTap = true;
+                mDoubleTapHelper.onTouchEvent(ev);
+                return true;
+            }
+            if (!mStackScrollLayout.hasPulsingNotifications()) {
+                // Capture all touch events in always-on.
+                return true;
+            }
         }
+
         boolean intercept = false;
         if (mNotificationPanel.isFullyExpanded()
                 && mStackScrollLayout.getVisibility() == View.VISIBLE
