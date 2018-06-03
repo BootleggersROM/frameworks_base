@@ -47,6 +47,7 @@ import com.android.systemui.statusbar.SignalClusterView;
 import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
 
+import java.lang.Math;
 
 public class QuickStatusBarHeader extends FrameLayout implements StatusBarHeaderMachine.IStatusBarHeaderMachineObserver {
     private static final String TAG = "QuickStatusBarHeader";
@@ -275,7 +276,11 @@ public class QuickStatusBarHeader extends FrameLayout implements StatusBarHeader
 
         if (mCurrentBackground != null) {
             if (headerShadow != 0) {
-                int shadow = Color.argb(headerShadow, 0, 0, 0);
+                int intColor = Utils.getColorAttr(getContext(), android.R.attr.colorBackgroundFloating);
+                int red = Math.round((intColor >> 16) & 0xFF);
+                int green = Math.round((intColor >> 8) & 0xFF);
+                int blue = Math.round((intColor) & 0xFF);
+                int shadow = Color.argb(headerShadow, red, green, blue);
                 mCurrentBackground.setColorFilter(shadow, Mode.SRC_ATOP);
             } else {
                 mCurrentBackground.setColorFilter(null);
