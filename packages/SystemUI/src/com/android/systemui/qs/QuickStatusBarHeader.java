@@ -256,7 +256,7 @@ public class QuickStatusBarHeader extends FrameLayout implements StatusBarHeader
                 int green = Math.round((intColor >> 8) & 0xFF);
                 int blue = Math.round((intColor) & 0xFF);
                 int shadow = Color.argb(headerShadow, red, green, blue);
-                mCurrentBackground.setColorFilter(shadow, Mode.DST_OVER);
+                mCurrentBackground.setColorFilter(shadow, Mode.SRC_ATOP);
             } else {
                 mCurrentBackground.setColorFilter(null);
             }
