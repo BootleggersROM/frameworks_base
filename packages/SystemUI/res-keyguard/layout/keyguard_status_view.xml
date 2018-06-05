@@ -41,12 +41,12 @@
                 android:id="@+id/clock_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
                 android:textColor="?attr/wallpaperTextColor"
                 style="@style/widget_big_thin"
-                android:layout_marginBottom="@dimen/bottom_text_spacing_digital" />
+                android:gravity="center"
+                android:layout_marginBottom="0dp" />
             <CustomAnalogClock
                 android:id="@+id/analog_clock_view"
                 android:layout_width="wrap_content"

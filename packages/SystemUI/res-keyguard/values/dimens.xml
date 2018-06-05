@@ -62,4 +62,7 @@
 
     <!-- The translation for disappearing security views after having solved them. -->
     <dimen name="disappear_y_translation">-32dp</dimen>
+
+    <!-- Stuff for shishu clock sizes -->
+    <dimen name="widget_clock_shishu_size">175dp</dimen>
 </resources>
