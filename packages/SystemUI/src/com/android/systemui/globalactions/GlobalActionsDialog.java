@@ -1740,7 +1740,8 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
             mGradientDrawable.setScreenSize(displaySize.x, displaySize.y);
             GradientColors colors = mColorExtractor.getColors(mKeyguardShowing ?
                     WallpaperManager.FLAG_LOCK : WallpaperManager.FLAG_SYSTEM);
-            mGradientDrawable.setColors(colors, false);
+            GradientColors noTintColors = mColorExtractor.getColors(6);
+            mGradientDrawable.setColors(showWallpaperTint(mContext) ? colors : noTintColors, false);
         }
 
         @Override
@@ -1763,9 +1764,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                     .setUpdateListener(animation -> {
                         int alpha = (int) ((Float) animation.getAnimatedValue()
                                 * ScrimController.GRADIENT_SCRIM_ALPHA * 255);
-                        int transparent = (int) ((Float) animation.getAnimatedValue()
-                                * ScrimController.CUSTOM_GRADIENT_SCRIM_ALPHA * 255);
-                        mGradientDrawable.setAlpha(showWallpaperTint(mContext) ? alpha : transparent);
+                        mGradientDrawable.setAlpha(alpha);
                     })
                     .withEndAction(() -> getWindow().getDecorView().requestAccessibilityFocus())
                     .start();
@@ -1784,9 +1783,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
                     .setUpdateListener(animation -> {
                         int alpha = (int) ((1f - (Float) animation.getAnimatedValue())
                                 * ScrimController.GRADIENT_SCRIM_ALPHA * 255);
-                        int transparent = (int) ((1f - (Float) animation.getAnimatedValue())
-                                * ScrimController.CUSTOM_GRADIENT_SCRIM_ALPHA * 255);
-                        mGradientDrawable.setAlpha(showWallpaperTint(mContext) ? alpha : transparent);
+                        mGradientDrawable.setAlpha(alpha);
                     })
                     .start();
         }
@@ -1814,11 +1811,11 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener, DialogIn
         public void onColorsChanged(ColorExtractor extractor, int which) {
             if (mKeyguardShowing) {
                 if ((WallpaperManager.FLAG_LOCK & which) != 0) {
-                    mGradientDrawable.setColors(extractor.getColors(WallpaperManager.FLAG_LOCK));
+                    mGradientDrawable.setColors(showWallpaperTint(mContext) ? extractor.getColors(WallpaperManager.FLAG_LOCK) : extractor.getColors(6));
                 }
             } else {
                 if ((WallpaperManager.FLAG_SYSTEM & which) != 0) {
-                    mGradientDrawable.setColors(extractor.getColors(WallpaperManager.FLAG_SYSTEM));
+                    mGradientDrawable.setColors(showWallpaperTint(mContext) ? extractor.getColors(WallpaperManager.FLAG_SYSTEM) : extractor.getColors(6));
                 }
             }
         }

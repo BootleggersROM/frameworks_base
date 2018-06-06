@@ -41,4 +41,10 @@
     <color name="analog_clock_hand_hour_color">@*android:color/accent_device_default_light</color>
     <color name="analog_clock_hand_minute_color">#212121</color>
 
+    <!-- Tint disabled colors -->
+    <color name="lockscreen_wallpaper_tint_off_color">#ff121212</color>
+    <color name="recents_wallpaper_tint_off_color">#ff121212</color>
+    <color name="status_bar_wallpaper_tint_off_color">#ff121212</color>
+    <color name="power_menu_wallpaper_tint_off_color">#ff121212</color>
+
 </resources>
