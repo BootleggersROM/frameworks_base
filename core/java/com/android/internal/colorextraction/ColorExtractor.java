@@ -21,6 +21,7 @@ import android.annotation.Nullable;
 import android.app.WallpaperColors;
 import android.app.WallpaperManager;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Trace;
 import android.os.UserHandle;
 import android.util.Log;
@@ -42,6 +43,12 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
     public static final int TYPE_NORMAL = 0;
     public static final int TYPE_DARK = 1;
     public static final int TYPE_EXTRA_DARK = 2;
+
+    //Special tint flags for the no tint colors
+    public static final int FLAG_LOCKTINT = 3;
+    public static final int FLAG_RECENTSTINT = 4;
+    public static final int FLAG_STATUSBARTINT = 5;
+    public static final int FLAG_POWERMENUTINT = 6;
     private static final int[] sGradientTypes = new int[]{TYPE_NORMAL, TYPE_DARK, TYPE_EXTRA_DARK};
 
     private static final String TAG = "ColorExtractor";
@@ -53,6 +60,10 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
     private final ExtractionType mExtractionType;
     protected WallpaperColors mSystemColors;
     protected WallpaperColors mLockColors;
+    protected WallpaperColors mLockTintColors  = new WallpaperColors(Color.valueOf(com.android.internal.R.color.lockscreen_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.lockscreen_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.lockscreen_wallpaper_tint_off_color),0);
+    protected WallpaperColors mRecentsTintColors  = new WallpaperColors(Color.valueOf(com.android.internal.R.color.recents_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.recents_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.recents_wallpaper_tint_off_color),0);
+    protected WallpaperColors mStatusbarTintColors  = new WallpaperColors(Color.valueOf(com.android.internal.R.color.status_bar_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.status_bar_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.status_bar_wallpaper_tint_off_color),0);
+    protected WallpaperColors mPowermenuTintColors  = new WallpaperColors(Color.valueOf(com.android.internal.R.color.power_menu_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.power_menu_wallpaper_tint_off_color), Color.valueOf(com.android.internal.R.color.power_menu_wallpaper_tint_off_color),0);
 
     public ColorExtractor(Context context) {
         this(context, new Tonal(context));
@@ -64,7 +75,7 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
         mExtractionType = extractionType;
 
         mGradientColors = new SparseArray<>();
-        for (int which : new int[] { WallpaperManager.FLAG_LOCK, WallpaperManager.FLAG_SYSTEM}) {
+        for (int which : new int[] { WallpaperManager.FLAG_LOCK, WallpaperManager.FLAG_SYSTEM, FLAG_LOCKTINT, FLAG_RECENTSTINT, FLAG_STATUSBARTINT, FLAG_POWERMENUTINT}) {
             GradientColors[] colors = new GradientColors[sGradientTypes.length];
             mGradientColors.append(which, colors);
             for (int type : sGradientTypes) {
@@ -75,6 +86,10 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
         mOnColorsChangedListeners = new ArrayList<>();
         GradientColors[] systemColors = mGradientColors.get(WallpaperManager.FLAG_SYSTEM);
         GradientColors[] lockColors = mGradientColors.get(WallpaperManager.FLAG_LOCK);
+        GradientColors[] lockTintColors = mGradientColors.get(FLAG_LOCKTINT);
+        GradientColors[] recentsTintColors = mGradientColors.get(FLAG_RECENTSTINT);
+        GradientColors[] statusbarTintColors = mGradientColors.get(FLAG_STATUSBARTINT);
+        GradientColors[] powermenuTintColors = mGradientColors.get(FLAG_POWERMENUTINT);
 
         WallpaperManager wallpaperManager = mContext.getSystemService(WallpaperManager.class);
         if (wallpaperManager == null) {
@@ -98,6 +113,22 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
                 lockColors[TYPE_NORMAL],
                 lockColors[TYPE_DARK],
                 lockColors[TYPE_EXTRA_DARK]);
+        extractInto(mLockTintColors,
+                lockTintColors[TYPE_NORMAL],
+                lockTintColors[TYPE_DARK],
+                lockTintColors[TYPE_EXTRA_DARK]);
+        extractInto(mRecentsTintColors,
+                recentsTintColors[TYPE_NORMAL],
+                recentsTintColors[TYPE_DARK],
+                recentsTintColors[TYPE_EXTRA_DARK]);
+        extractInto(mStatusbarTintColors,
+                statusbarTintColors[TYPE_NORMAL],
+                statusbarTintColors[TYPE_DARK],
+                statusbarTintColors[TYPE_EXTRA_DARK]);
+        extractInto(mPowermenuTintColors,
+                powermenuTintColors[TYPE_NORMAL],
+                powermenuTintColors[TYPE_DARK],
+                powermenuTintColors[TYPE_EXTRA_DARK]);
     }
 
     /**
@@ -124,8 +155,9 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             throw new IllegalArgumentException(
                     "type should be TYPE_NORMAL, TYPE_DARK or TYPE_EXTRA_DARK");
         }
-        if (which != WallpaperManager.FLAG_LOCK && which != WallpaperManager.FLAG_SYSTEM) {
-            throw new IllegalArgumentException("which should be FLAG_SYSTEM or FLAG_NORMAL");
+        if (which != WallpaperManager.FLAG_LOCK && which != WallpaperManager.FLAG_SYSTEM && which != FLAG_LOCKTINT
+            && which != FLAG_RECENTSTINT && which != FLAG_STATUSBARTINT && which != FLAG_POWERMENUTINT) {
+            throw new IllegalArgumentException("which should be FLAG_SYSTEM, FLAG_NORMAL or any of the tint flags (FLAG_LOCKTINT, FLAG_RECENTSTINT, FLAG_STATUSBARTINT or FLAG_POWERMENUTINT)");
         }
         return mGradientColors.get(which)[type];
     }
@@ -142,6 +174,14 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             return mLockColors;
         } else if (which == WallpaperManager.FLAG_SYSTEM) {
             return mSystemColors;
+        } else if (which == FLAG_LOCKTINT) {
+            return mLockTintColors;
+        } else if (which == FLAG_RECENTSTINT) {
+            return mRecentsTintColors;
+        } else if (which == FLAG_STATUSBARTINT) {
+            return mStatusbarTintColors;
+        } else if (which == FLAG_POWERMENUTINT) {
+            return mPowermenuTintColors;
         } else {
             throw new IllegalArgumentException("Invalid value for which: " + which);
         }
@@ -165,6 +205,38 @@ public class ColorExtractor implements WallpaperManager.OnColorsChangedListener 
             GradientColors[] systemColors = mGradientColors.get(WallpaperManager.FLAG_SYSTEM);
             extractInto(colors, systemColors[TYPE_NORMAL], systemColors[TYPE_DARK],
                     systemColors[TYPE_EXTRA_DARK]);
+            changed = true;
+        }
+
+        if ((which & FLAG_LOCKTINT) != 0) {
+            mLockTintColors  = colors;
+            GradientColors[] lockTintColors = mGradientColors.get(FLAG_LOCKTINT);
+            extractInto(colors, lockTintColors[TYPE_NORMAL], lockTintColors[TYPE_DARK],
+                    lockTintColors[TYPE_EXTRA_DARK]);
+            changed = true;
+        }
+
+        if ((which & FLAG_RECENTSTINT) != 0) {
+            mRecentsTintColors  = colors;
+            GradientColors[] recentsTintColors = mGradientColors.get(FLAG_RECENTSTINT);
+            extractInto(colors, recentsTintColors[TYPE_NORMAL], recentsTintColors[TYPE_DARK],
+                    recentsTintColors[TYPE_EXTRA_DARK]);
+            changed = true;
+        }
+
+        if ((which & FLAG_STATUSBARTINT) != 0) {
+            mStatusbarTintColors  = colors;
+            GradientColors[] statusbarTintColors = mGradientColors.get(FLAG_STATUSBARTINT);
+            extractInto(colors, statusbarTintColors[TYPE_NORMAL], statusbarTintColors[TYPE_DARK],
+                    statusbarTintColors[TYPE_EXTRA_DARK]);
+            changed = true;
+        }
+
+        if ((which & FLAG_POWERMENUTINT) != 0) {
+            mPowermenuTintColors  = colors;
+            GradientColors[] powermenuTintColors = mGradientColors.get(FLAG_POWERMENUTINT);
+            extractInto(colors, powermenuTintColors[TYPE_NORMAL], powermenuTintColors[TYPE_DARK],
+                    powermenuTintColors[TYPE_EXTRA_DARK]);
             changed = true;
         }
 
