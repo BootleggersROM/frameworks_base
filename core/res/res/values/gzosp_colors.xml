@@ -45,6 +45,6 @@
     <color name="lockscreen_wallpaper_tint_off_color">#ff121212</color>
     <color name="recents_wallpaper_tint_off_color">#ff121212</color>
     <color name="status_bar_wallpaper_tint_off_color">#ff121212</color>
-    <color name="power_menu_wallpaper_tint_off_color">#ff121212</color>
+    <color name="power_menu_wallpaper_tint_off_color">#d9121212</color>
 
 </resources>
