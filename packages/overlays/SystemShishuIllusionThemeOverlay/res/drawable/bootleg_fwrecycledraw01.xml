@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--suppress AndroidUnknownAttribute -->
-<vector xmlns:api24="http://schemas.android.com/apk/res/android" xmlns:android="http://schemas.android.com/apk/res/android"
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:viewportWidth="720"
     android:viewportHeight="1280"
     android:width="720dp"
@@ -8,9 +8,8 @@
 
     <!-- Workaround BG -->
     <path
-        android:pathData="M1.3329999 1.351l721.2390101 0 0 1279.741 -721.2390101 0z"
-        android:fillType="evenOdd"
-        android:fillColor="@*android:color/black" />
+        android:pathData="M0 0l720 0 0 1280 -720 0z"
+        android:fillColor="@*android:color/background_material_dark" />
 
     <!-- Front lines -->
     <path
@@ -55,5 +54,4 @@
         android:pathData="M-61 596l179 384c0 0 57 100 118 0 61 -100 223 -509 223 -509 0 0 64 -120 124 0 60 120 87 212 159 226"
         android:strokeWidth="6"
         android:strokeColor="@*android:color/accent_device_default_light" android:strokeAlpha="0.35" />
-
 </vector>
