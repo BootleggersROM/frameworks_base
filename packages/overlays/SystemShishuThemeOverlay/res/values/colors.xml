@@ -2,6 +2,9 @@
 <resources>
     <color name="black">#ff121217</color>
 
+    <!-- Material background -->
+    <color name="background_material_dark">@*android:color/black</color>
+
     <!-- Color Constants -->
     <color name="theme_text1">#ffe5e5e5</color> <!-- text primary -->
     <color name="theme_text2">#b3e5e5e5</color>  <!-- text secondary -->
