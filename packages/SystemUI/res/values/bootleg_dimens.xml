@@ -53,4 +53,7 @@
     <dimen name="keyguard_charging_indication_height">48dp</dimen>
     <dimen name="keyguard_charging_indication_width">24dp</dimen>
 
+   <!-- Ambient clock padding workaround -->
+  <dimen name="ambient_clock_forced_top_padding">10dp</dimen>
+  <dimen name="ambient_clock_forced_bottom_padding">0dp</dimen>
 </resources>
