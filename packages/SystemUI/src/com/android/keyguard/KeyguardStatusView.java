@@ -251,10 +251,8 @@ public class KeyguardStatusView extends GridLayout implements
         layoutParams.bottomMargin = getResources().getDimensionPixelSize(
                 R.dimen.bottom_text_spacing_digital);
         mClockView.setLayoutParams(layoutParams);
-        mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         mDateView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_label_font_size));
-        mDateView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
 
         // Custom analog clock
         MarginLayoutParams customlayoutParams = (MarginLayoutParams) mAnalogClockView.getLayoutParams();
@@ -276,13 +274,12 @@ public class KeyguardStatusView extends GridLayout implements
         if (mOwnerInfo != null) {
             mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     getResources().getDimensionPixelSize(R.dimen.widget_label_font_size));
-            mOwnerInfo.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
     }
 
     private int getLockClockFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 4);
+                Settings.System.LOCK_CLOCK_FONTS, 17);
     }
 
     private int getLockDateFont() {
