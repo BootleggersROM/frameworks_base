@@ -447,6 +447,11 @@ public class KeyguardStatusView extends GridLayout implements
         switch (mClockSelection) {
             case 0: // default digital
             default:
+                mClockView.setBackgroundResource(0);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
@@ -455,6 +460,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
             case 1: // digital (bold)
+                mClockView.setBackgroundResource(0);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
@@ -463,6 +473,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
             case 2: // analog
+                mClockView.setBackgroundResource(0);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mAnalogClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
@@ -471,6 +486,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
             case 3: // analog (deadpool)
+                mClockView.setBackgroundResource(0);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mDeadPoolClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
@@ -479,6 +499,11 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.setVisibility(View.GONE);
                 break;
             case 4: // sammy
+                mClockView.setBackgroundResource(0);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
@@ -487,26 +512,46 @@ public class KeyguardStatusView extends GridLayout implements
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
             case 5: // sammy (bold)
-                mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mClockView.setBackgroundResource(0);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
-                mClockView.setLineSpacing(0,1f);
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
             case 6: // sammy accent
+                mClockView.setBackgroundResource(0);
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setLineSpacing(0,1f);
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
             case 7: // sammy accent (alt)
+                mClockView.setBackgroundResource(0);
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
                 mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                 getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
+                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
+                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setLineSpacing(-60f,1f);
+                mAnalogClockView.setVisibility(View.GONE);
+                mDeadPoolClockView.setVisibility(View.GONE);
+                break;
+            case 8: // shishu normal 01
+                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_shishu_normalbg));
+                mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.setPadding(20,20,20,20);
+                mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_shishu_accent_font_size));
+                mClockView.setLineSpacing(0,1f);
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
@@ -579,6 +624,12 @@ public class KeyguardStatusView extends GridLayout implements
                 mDeadPoolClockView.unregisterReceiver();
                 break;
             case 7: // sammy accent
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mClockView.setSingleLine(false);
+                mAnalogClockView.unregisterReceiver();
+                mDeadPoolClockView.unregisterReceiver();
+                break;
+            case 8: // shishu normal 01
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 mClockView.setSingleLine(false);
                 mAnalogClockView.unregisterReceiver();

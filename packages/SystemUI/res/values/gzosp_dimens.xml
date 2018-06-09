@@ -65,4 +65,7 @@
     <!-- QS detail view scrolling -->
    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
 
+   <!-- Ambient clock padding workaround -->
+  <dimen name="ambient_clock_forced_top_padding">10dp</dimen>
+  <dimen name="ambient_clock_forced_bottom_padding">0dp</dimen>
 </resources>
