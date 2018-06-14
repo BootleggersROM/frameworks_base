@@ -177,7 +177,7 @@ public class KeyguardClockPositionAlgorithm {
     private int getClockY() {
         // Dark: Align the bottom edge of the clock at one third:
         // clockBottomEdge = result - mKeyguardStatusHeight / 2 + mClockBottom
-        float clockYDark = ((mIsBigClock ? mBigClockPadding : 0.33f) * mHeight + (float) mKeyguardStatusHeight / 2 - mClockBottom)
+        float clockYDark = ((mBigClockPadding) * mHeight + (float) mKeyguardStatusHeight / 2 - mClockBottom)
                 + burnInPreventionOffsetY();
         float clockYRegular = getClockYFraction() * mHeight;
         return (int) interpolate(clockYRegular, clockYDark, mDarkAmount);
