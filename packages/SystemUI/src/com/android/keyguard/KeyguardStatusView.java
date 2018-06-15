@@ -309,6 +309,9 @@ public class KeyguardStatusView extends GridLayout implements
         } else if (mClockSelection == 7) {
             mClockView.setFormat12Hour(Html.fromHtml("<font color='#454545'>hh</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
             mClockView.setFormat24Hour(Html.fromHtml("<font color='#454545'>kk</font><br><font color=" + getResources().getColor(R.color.sammy_minutes_accent) + ">mm</font>"));
+        } else if (mClockSelection == 9) {
+            mClockView.setFormat12Hour(Html.fromHtml("hh mm"));
+            mClockView.setFormat24Hour(Html.fromHtml("kk mm"));
         } else {
             mClockView.setFormat12Hour("hh\nmm");
             mClockView.setFormat24Hour("kk\nmm");
@@ -555,6 +558,18 @@ public class KeyguardStatusView extends GridLayout implements
                 mAnalogClockView.setVisibility(View.GONE);
                 mDeadPoolClockView.setVisibility(View.GONE);
                 break;
+            case 9: // shishu diamond
+                mClockView.setBackground(getResources().getDrawable(R.drawable.clock_shishu_diamondbg));
+                mClockView.getLayoutParams().width = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.getLayoutParams().height = getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_size);
+                mClockView.setLineSpacing(0,1f);
+                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                getResources().getDimensionPixelSize(R.dimen.widget_shishu_inmensity_font_size));
+                mClockView.setPadding(20,20,20,20);
+                mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mAnalogClockView.setVisibility(View.GONE);
+                mDeadPoolClockView.setVisibility(View.GONE);
+                break;
         }
 
         mDateView.setVisibility(mDarkAmount != 1 ? (mShowDate ? View.VISIBLE : View.GONE) : View.VISIBLE);
@@ -630,6 +645,12 @@ public class KeyguardStatusView extends GridLayout implements
                 mDeadPoolClockView.unregisterReceiver();
                 break;
             case 8: // shishu normal 01
+                params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mClockView.setSingleLine(false);
+                mAnalogClockView.unregisterReceiver();
+                mDeadPoolClockView.unregisterReceiver();
+                break;
+            case 9: // shishu diamond
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
                 mClockView.setSingleLine(false);
                 mAnalogClockView.unregisterReceiver();
