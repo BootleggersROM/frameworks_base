@@ -41,6 +41,6 @@
             android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="fill_parent"
-            android:background="?android:attr/windowBackground" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
