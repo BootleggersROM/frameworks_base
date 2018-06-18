@@ -5396,138 +5396,208 @@ public class StatusBar extends SystemUI implements DemoMode,
             unloadAccents();
         } else if (accentSetting == 1) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.warmthorange",
+                mOverlayManager.setEnabled("com.google.android.theme.newhouseorange",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 2) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.maniamber",
+                mOverlayManager.setEnabled("com.google.android.theme.warmthorange",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 3) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.movemint",
+                mOverlayManager.setEnabled("com.google.android.theme.awmawy",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 4) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.seasidemint",
+                mOverlayManager.setEnabled("com.google.android.theme.coldyellow",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 5) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.naturedgreen",
+                mOverlayManager.setEnabled("com.google.android.theme.maniamber",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 6) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.stock",
+                mOverlayManager.setEnabled("com.google.android.theme.limedgreen",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 7) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.kablue",
+                mOverlayManager.setEnabled("com.google.android.theme.diffdaygreen",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 8) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.holillusion",
+                mOverlayManager.setEnabled("com.google.android.theme.movemint",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 9) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.heirloombleu",
+                mOverlayManager.setEnabled("com.google.android.theme.seasidemint",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 10) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.obfusbleu",
+                mOverlayManager.setEnabled("com.google.android.theme.naturedgreen",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 11) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.frenchbleu",
+                mOverlayManager.setEnabled("com.google.android.theme.stock",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 12) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.footprintpurple",
+                mOverlayManager.setEnabled("com.google.android.theme.kablue",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 13) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.dreamypurple",
+                mOverlayManager.setEnabled("com.google.android.theme.holillusion",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 14) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.notimppurple",
+                mOverlayManager.setEnabled("com.google.android.theme.heirloombleu",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 15) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.spookedpurple",
+                mOverlayManager.setEnabled("com.google.android.theme.coldbleu",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 16) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.trufilpink",
+                mOverlayManager.setEnabled("com.google.android.theme.obfusbleu",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 17) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.bubblegumpink",
+                mOverlayManager.setEnabled("com.google.android.theme.frenchbleu",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 18) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.labouchered",
+                mOverlayManager.setEnabled("com.google.android.theme.footprintpurple",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 19) {
             try {
-                mOverlayManager.setEnabled("com.google.android.theme.misleadingred",
+                mOverlayManager.setEnabled("com.google.android.theme.dreamypurple",
                         true, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
         } else if (accentSetting == 20) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.notimppurple",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 21) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.spookedpurple",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 22) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.illusionspurple",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 23) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.trufilpink",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 24) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.duskpurple",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 25) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.labouchered",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 26) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.bubblegumpink",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 27) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.misleadingred",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 28) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.hazedpink",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 29) {
+            try {
+                mOverlayManager.setEnabled("com.google.android.theme.burningred",
+                        true, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        } else if (accentSetting == 30) {
             try {
                 mOverlayManager.setEnabled("com.google.android.theme.whythisgrey",
                         true, mCurrentUserId);
@@ -5541,9 +5611,19 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void unloadAccents() {
         OverlayInfo themeInfo = null;
         try {
+            mOverlayManager.setEnabled("com.google.android.theme.newhouseorange",
+                    false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.warmthorange",
                     false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.awmawy",
+                    false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.coldyellow",
+                    false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.maniamber",
+                    false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.limedgreen",
+                    false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.diffdaygreen",
                     false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.movemint",
                     false /*disable*/, mCurrentUserId);
@@ -5559,6 +5639,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.heirloombleu",
                     false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.coldbleu",
+                    false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.obfusbleu",
                     false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.frenchbleu",
@@ -5571,13 +5653,21 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.spookedpurple",
                     false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.illusionspurple",
+                    false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.trufilpink",
                     false /*disable*/, mCurrentUserId);
-            mOverlayManager.setEnabled("com.google.android.theme.bubblegumpink",
+            mOverlayManager.setEnabled("com.google.android.theme.duskpurple",
                     false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.labouchered",
                     false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.bubblegumpink",
+                    false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.misleadingred",
+                    false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.hazedpink",
+                    false /*disable*/, mCurrentUserId);
+            mOverlayManager.setEnabled("com.google.android.theme.burningred",
                     false /*disable*/, mCurrentUserId);
             mOverlayManager.setEnabled("com.google.android.theme.whythisgrey",
                     false /*disable*/, mCurrentUserId);
