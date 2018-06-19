@@ -4752,12 +4752,6 @@ public final class Settings {
                 "status_bar_ticker_animation_mode";
 
         /**
-         * Which recents style to use
-         * @hide
-         */
-        public static final String RECENTS_LAYOUT_STYLE = "recents_layout_style";
-
-        /**
          * Whether to use the MTP by default after connecting to PC
          * @hide
          */
