@@ -167,9 +167,9 @@
     <string name="systemui_theme_style_light">Light UI</string>
     <string name="systemui_theme_style_dark">Dark UI</string>
     <string name="systemui_theme_style_black">Black UI</string>
-    <string name="systemui_theme_style_shishu">Shishu Dreams UI</string>
-    <string name="systemui_theme_style_shishunights">Shishu Nights UI</string>
-    <string name="systemui_theme_style_shishuillusion">Shishu Illusions UI</string>
+    <string name="systemui_theme_style_shishu" translatable="false">Shishu Dreams UI</string>
+    <string name="systemui_theme_style_shishunights" translatable="false">Shishu Nights UI</string>
+    <string name="systemui_theme_style_shishuillusion" translatable="false">Shishu Illusions UI</string>
     <string name="quick_settings_theme_tile_title">Accent</string>
     <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
     <string name="quick_settings_theme_tile_style_detail_title">Select style (needs a SystemUI reboot)</string>
