@@ -104,7 +104,7 @@
   <string name="drag_or_tap_to_add_tiles">Перетащите или нажмите на плитку для добавления</string>
   <!-- Bootleg Dumpster Tile -->
   <string name="quick_settings_bootlegdump_label">Расширенные настройки</string>
-  <string name="quick_settings_bootlegdump_toast">Воу, по некоторым причинам он мертв, он сломался, он не работает.</string>
+  <string name="quick_settings_bootlegdump_toast">Воу, по некоторым причинам это мертво, это сломалось и это не работает.</string>
   <!-- HW Keys Tile -->
   <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки вкл</string>
   <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выкл</string>
@@ -147,4 +147,12 @@
   <!-- Theme QS -->
   <string name="theme_info_title">Что это?</string>
   <string name="theme_info_message">Плитка \"Темы\" - это уникальная, но простая в использовании плитка, которая позволяет пользователю изменять системный оттенок или стиль.\n\nЧтобы переключиться между оттенками и стилями, просто длительно удерживайте нажатой плитку, а затем ещё раз нажмите на неё, чтобы выбрать из предложенных вариантов.</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <!-- Sync QS Tile -->
+  <!-- Smart pixels QS tile -->
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
 </resources>

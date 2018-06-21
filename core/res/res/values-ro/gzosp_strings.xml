@@ -27,4 +27,6 @@
   <!-- DUI permission of control navbar editor -->
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">Permiteți unei aplicații sa controleze editarea barei de navigație.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_default">Implicit</string>
 </resources>

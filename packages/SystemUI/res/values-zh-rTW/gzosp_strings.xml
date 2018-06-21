@@ -20,36 +20,132 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+  <string name="accessibility_data_connection_hspap">HSPA+</string>
   <!-- Empty summary workaround -->
   <!-- Power Menu -->
+  <string name="global_action_restart_system">重新啟動</string>
+  <string name="global_action_restart_recovery">Recovery 模式</string>
+  <string name="global_action_restart_bootloader">Bootloader 模式</string>
+  <string name="global_action_restart_ui">系統使用者介面</string>
+  <string name="global_action_restart_hot">快速重啟</string>
+  <string name="global_action_screenshot">螢幕截圖</string>
+  <string name="global_action_screenrecord">螢幕錄製</string>
   <!-- Caffeine QS Tile -->
+  <string name="quick_settings_caffeine_label">暫停休眠</string>
+  <string name="accessibility_quick_settings_caffeine_off">關閉暫停休眠</string>
+  <string name="accessibility_quick_settings_caffeine_on">開啟暫時休眠</string>
   <!-- PiP Tile -->
+  <string name="quick_settings_pip_label">PiP</string>
+  <string name="quick_settings_pip_tile_app_na">抱歉，但是這應用程式看起來不支援原生 PiP。</string>
   <!-- SystemUITuner stuff -->
+  <string name="statusbar_items_title">狀態列圖示</string>
   <!-- Screenshot QS tile -->
+  <string name="quick_settings_screenshot_label">螢幕截圖</string>
+  <string name="quick_settings_region_screenshot_label">部份螢幕截圖</string>
+  <string name="recents_free_ram">%1$dMB 可用記憶體</string>
   <!-- VoLTE icon switch -->
+  <string name="status_bar_volte">VoLTE</string>
   <!-- Sound QS Tile -->
+  <string name="quick_settings_sound_label">鈴聲</string>
+  <string name="quick_settings_sound_ring">響鈴</string>
+  <string name="quick_settings_sound_vibrate">振動</string>
+  <string name="quick_settings_sound_dnd">請勿打擾</string>
+  <string name="lockscreen_default">預設</string>
+  <string name="lockscreen_hidden">無</string>
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+  <string name="custom_hint">滑動圖示以啟動</string>
   <!-- Heads Up QS Tile -->
+  <string name="quick_settings_heads_up_label">浮動通知</string>
+  <string name="accessibility_quick_settings_heads_up_off">關閉浮動通知。</string>
+  <string name="accessibility_quick_settings_heads_up_on">開啟浮動通知。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">浮動通知已關閉。</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">浮動通知已開啟。</string>
   <!-- Heads up snooze toast -->
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> 的預覽通知會暫停 1 分鐘。</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> 的預覽通知會暫停 <xliff:g id="number">%d</xliff:g> 分鐘。</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_dash_charging_time">正在快速充電（剩餘 <xliff:g id="charging_time_left" example="4 小時 2 分鐘">%s</xliff:g> 充滿）</string>
+  <string name="keyguard_plugged_in_dash_charging">正在快速充電</string>
   <!-- Screenrecord Notification Ticker -->
+  <string name="screenrecord_notif_ticker">正在錄製螢幕</string>
   <!-- Screenrecord notification title -->
+  <string name="screenrecord_notif_title">錄製螢幕</string>
   <!-- Screenrecord notification action: Stop -->
+  <string name="screenrecord_notif_stop">停止</string>
   <!-- Screenrecord notification action: show/hide pointer -->
+  <string name="screenrecord_notif_pointer_on">顯示游標</string>
+  <string name="screenrecord_notif_pointer_off">隱藏游標</string>
   <!-- Screen record notification error title -->
+  <string name="screenrecord_notif_error">無法錄製螢幕</string>
+  <string name="notification_channel_screenrecord">螢幕錄影</string>
   <!-- Screenrecord Tile -->
+  <string name="quick_settings_screenrecord">螢幕錄製</string>
+  <string name="systemui_tuner_navbar_title">原始設定</string>
   <!-- Volume QS Tile -->
+  <string name="accessibility_quick_settings_volume_panel">音量</string>
+  <string name="quick_settings_volume_panel_label">音量</string>
   <!-- ADB over network QS tile -->
+  <string name="quick_settings_network_adb_enabled_label">已啟用</string>
+  <string name="quick_settings_network_adb_disabled_label">已停用</string>
+  <string name="quick_settings_network_adb_label">網路 ADB 偵錯</string>
+  <string name="quick_settings_network_adb_toast">USB 偵錯未啟用</string>
   <!-- Music tile -->
+  <string name="quick_settings_music_label">音樂</string>
+  <string name="quick_settings_music_play">播放</string>
+  <string name="quick_settings_music_pause">暫停</string>
   <!-- Expanded Desktop QS Tile -->
+  <string name="quick_settings_expanded_desktop_label">擴充桌面</string>
+  <string name="quick_settings_expanded_desktop">擴充</string>
+  <string name="quick_settings_expanded_desktop_off">正常</string>
+  <string name="quick_settings_expanded_navigation_off">隱藏導覽欄</string>
+  <string name="quick_settings_expanded_statusbar_off">隱藏狀態欄</string>
   <!-- QS customizer -->
+  <string name="drag_or_tap_to_add_tiles">拖曳或點擊以新增圖塊</string>
   <!-- Bootleg Dumpster Tile -->
+  <string name="quick_settings_bootlegdump_label">Dumpster</string>
+  <string name="quick_settings_bootlegdump_toast">喔喔，它因為一些原因，所以死了、壞了、不運作了。</string>
   <!-- HW Keys Tile -->
+  <string name="accessibility_quick_settings_hwkeys_on">實體按鍵已開啟</string>
+  <string name="accessibility_quick_settings_hwkeys_off">實體按鍵已關閉</string>
+  <string name="quick_settings_hwkeys_label">實體按鍵</string>
   <!-- Battery saver tile -->
+  <string name="battery_saver_qs_tile_fully_charged">已充滿</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+  <string name="keyguard_indication_turbo_power_time">TurboPower 已連接（剩餘 <xliff:g id="charging_time_left">%s</xliff:g> 充滿）</string>
+  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower 已連接</string>
+  <string name="keyguard_plugged_in_turbo_charging">Turbo Charging</string>
   <!-- Sound Search tile -->
+  <string name="quick_settings_sound_search">語音搜尋</string>
+  <string name="quick_settings_sound_search_no_app">抱歉，但請安裝一個語音搜尋應用程式。</string>
   <!-- OmniJaws -->
+  <string name="omnijaws_service_error">錯誤</string>
+  <string name="omnijaws_service_unkown">沒有天氣資訊</string>
+  <string name="omnijaws_service_error_long">載入天氣資訊時錯誤</string>
+  <string name="omnijaws_service_disabled">服務被停用</string>
+  <string name="omnijaws_detail_header">天氣</string>
+  <string name="omnijaws_label_default">天氣</string>
+  <string name="omnijaws_current_text">現在</string>
+  <string name="omnijaws_package_not_available">不支援 OmniJaws</string>
+  <string name="omnijaws_service_last_update">上次更新：</string>
   <!-- Reboot/Recovery QS Tile -->
+  <string name="quick_settings_reboot_label">重新啟動</string>
+  <string name="quick_settings_reboot_recovery_label">Recovery 模式</string>
   <!-- Theme tile -->
+  <string name="systemui_theme_style_auto">自動</string>
+  <string name="systemui_theme_style_shishuillusion">Shishu 半透明介面</string>
+  <string name="quick_settings_theme_tile_title">強調顏色</string>
+  <string name="quick_settings_theme_tile_accent_detail_title">選擇顏色</string>
+  <string name="quick_settings_theme_tile_style_detail_title">選擇風格（需要重啟 SystemUI）</string>
+  <string name="quick_settings_theme_tile_color_default">預設強調顏色</string>
   <!-- Theme QS -->
+  <string name="theme_info_title">這是什麼？</string>
+  <string name="theme_info_message">這個主題圖塊雖獨特但易於使用，它允許使用者修改系統的強調色或是風格。\n\n若要變更強調色與風格，只需簡單的長按圖塊，並且再次按下即可從所提供的選項中選擇。</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <!-- Sync QS Tile -->
+  <!-- Smart pixels QS tile -->
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
 </resources>

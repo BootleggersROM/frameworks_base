@@ -52,4 +52,12 @@
   <!-- Reboot/Recovery QS Tile -->
   <!-- Theme tile -->
   <!-- Theme QS -->
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <!-- Sync QS Tile -->
+  <!-- Smart pixels QS tile -->
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
 </resources>

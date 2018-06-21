@@ -19,4 +19,5 @@
   <!-- Ambient Display Pixel-Like string -->
   <string name="ambientmusic_songinfo">%s von %s</string>
   <!--OmniJaws -->
+  <string name="weather_info_not_available">Wetterinformationen nicht verfügbar</string>
 </resources>

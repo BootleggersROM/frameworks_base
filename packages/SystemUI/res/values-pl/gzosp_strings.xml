@@ -101,10 +101,10 @@
   <string name="quick_settings_expanded_navigation_off">Ukryj pasek nawigacji</string>
   <string name="quick_settings_expanded_statusbar_off">Ukryj pasek stanu</string>
   <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Przeciągnij, lub dotknij żeby dodać kafelki</string>
+  <string name="drag_or_tap_to_add_tiles">Przeciągnij lub dotknij, żeby dodać kafelki</string>
   <!-- Bootleg Dumpster Tile -->
   <string name="quick_settings_bootlegdump_label">Wysypisko śmieci</string>
-  <string name="quick_settings_bootlegdump_toast">Wow, z jakiegoś powodu, to jest martwe, jest uszkodzone, nie działa.</string>
+  <string name="quick_settings_bootlegdump_toast">Wow, z jakiegoś powodu to jest martwe, uszkodzone bądź nie działa.</string>
   <!-- HW Keys Tile -->
   <string name="accessibility_quick_settings_hwkeys_on">Klawisze sprzętowe włączone</string>
   <string name="accessibility_quick_settings_hwkeys_off">Klawisze sprzętowe wyłączone</string>
@@ -137,8 +137,8 @@
   <string name="systemui_theme_style_light">Jasny interfejs użytkownika</string>
   <string name="systemui_theme_style_dark">Ciemny interfejs użytkownika</string>
   <string name="systemui_theme_style_black">Czarny interfejs użytkownika</string>
-  <string name="systemui_theme_style_shishu">Shishu Dreams UI</string>
-  <string name="systemui_theme_style_shishunights">Shishu Nights UI</string>
+  <string name="systemui_theme_style_shishu">Marzenia Shishu UI</string>
+  <string name="systemui_theme_style_shishunights">Shishu Nocne UI</string>
   <string name="systemui_theme_style_shishuillusion">Iluzja Shishu UI</string>
   <string name="quick_settings_theme_tile_title">Akcent</string>
   <string name="quick_settings_theme_tile_accent_detail_title">Wybierz kolor</string>
@@ -147,4 +147,23 @@
   <!-- Theme QS -->
   <string name="theme_info_title">Co to jest?</string>
   <string name="theme_info_message">Kafelek \"Motywy\" jest unikalny, ale łatwy w użyciu. Pozwala on na zmianę koloru akcentu lub stylu systemu.\n\nAby przełączyć się między kolorem akcentu i stylem, przytrzymaj kafelek, po czym naciśnij go, aby wybrać jedną z proponowanych opcji.</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_running_services">Otwórz ekran włączonych zadań.</string>
+  <!-- Sync QS Tile -->
+  <string name="quick_settings_sync_label">Synchronizacja</string>
+  <string name="accessibility_quick_settings_sync_off">Synchronizacja wyłączona</string>
+  <string name="accessibility_quick_settings_sync_on">Synchronizacja włączona</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronizacja została wyłączona</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronizacja została włączona</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart piksele</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączenie smart pikseli</string>
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Wymuszone wyłączenie?</string>
+  <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
+  <string name="kill">Zamknij</string>
 </resources>

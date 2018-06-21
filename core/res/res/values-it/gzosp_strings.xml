@@ -30,4 +30,21 @@
   <string name="permlab_toggleNavigationEditor">controllo modifica di navigazione</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">Consente ad un\'applicazione di controllare le modifiche della barra di navigazione.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_fade">Dissolvenza</string>
+  <string name="animation_slide_right">Scorri verso destra</string>
+  <string name="animation_slide_left">Scorri verso sinistra</string>
+  <string name="animation_slide_right_no_fade">Scorri verso destra (nessuna dissolvenza)</string>
+  <string name="animation_slide_left_no_fade">Scorri verso sinistra (senza dissolvenza)</string>
+  <string name="animation_slide_up">Scorri verso il basso</string>
+  <string name="animation_slide_down">Scorri verso l\'alto</string>
+  <string name="animation_default">Predefinito</string>
+  <string name="animation_translucent">Traslucido</string>
+  <string name="animation_grow_shrink">Espandi (verso l\'alto)</string>
+  <string name="animation_grow_shrink_center">Espandi (dal centro)</string>
+  <string name="animation_grow_shrink_bottom">Espandi (verso il basso)</string>
+  <string name="animation_grow_shrink_left">Espandi (a sinistra)</string>
+  <string name="animation_grow_shrink_right">Espandi (a destra)</string>
+  <string name="animation_random">Casuale</string>
+  <string name="action_null">Vuoto</string>
 </resources>

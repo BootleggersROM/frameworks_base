@@ -147,4 +147,12 @@
   <!-- Theme QS -->
   <string name="theme_info_title">这是什么?</string>
   <string name="theme_info_message">主题瓷贴虽然独特但却易于使用，它允许用户更改系统强调色或样式。\n\n为了更改强调色和样式，只需简单地长按瓷贴，然后再次按下即可从所提供的选项中进行选择。</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <!-- Sync QS Tile -->
+  <!-- Smart pixels QS tile -->
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
 </resources>

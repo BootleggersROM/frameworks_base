@@ -30,4 +30,7 @@
   <string name="permlab_toggleNavigationEditor">ovládání navigačního editoru</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">Umožní aplikaci provádět změny v editoru navigačního panelu.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_fade">Slábnutí</string>
+  <string name="animation_default">Výchozí</string>
 </resources>

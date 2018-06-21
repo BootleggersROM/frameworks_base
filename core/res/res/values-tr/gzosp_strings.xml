@@ -23,11 +23,28 @@
   <string name="reboot_title">Yeniden başlat</string>
   <string name="reboot_message">Sistem yeniden başlatılıyor</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_preventpower">güç tuşu işlevini değiştir</string>
+  <string name="permlab_preventpower">güç tuşunu geçersiz kıl</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_preventpower">Uygulamanın güç tuşunun işlevini değiştirmesine izin verir.</string>
+  <string name="permdesc_preventpower">Uygulamaya güç tuşunu geçersiz kılma izni verir.</string>
   <!-- DUI permission of control navbar editor -->
   <string name="permlab_toggleNavigationEditor">gezinme çubuğu düzenleyicisini kontrol et</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Bir uygulamanın gezinme çubuğunu değiştirmesine izin ver.</string>
+  <string name="permdesc_toggleNavigationEditor">Bir uygulamanın gezinme çubuğu düzenleyicisini kontrol etmesine izin verir.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_fade">Karart</string>
+  <string name="animation_slide_right">Sağa kaydır</string>
+  <string name="animation_slide_left">Sola kaydır</string>
+  <string name="animation_slide_right_no_fade">Sağa kaydır (Karartma yok)</string>
+  <string name="animation_slide_left_no_fade">Sola kaydır (Karartma yok)</string>
+  <string name="animation_slide_up">Aşağı kaydır</string>
+  <string name="animation_slide_down">Yukarı kaydır</string>
+  <string name="animation_default">Varsayılan</string>
+  <string name="animation_translucent">Yarı şeffaf</string>
+  <string name="animation_grow_shrink">Büyüt (Yukarıdan)</string>
+  <string name="animation_grow_shrink_center">Büyüt (Ortadan)</string>
+  <string name="animation_grow_shrink_bottom">Büyüt (Aşağıdan)</string>
+  <string name="animation_grow_shrink_left">Büyüt (Soldan)</string>
+  <string name="animation_grow_shrink_right">Büyüt (Sağdan)</string>
+  <string name="animation_random">Karışık</string>
+  <string name="action_null">Boş</string>
 </resources>

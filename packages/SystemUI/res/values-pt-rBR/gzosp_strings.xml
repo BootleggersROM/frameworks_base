@@ -56,17 +56,17 @@
   <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
   <string name="custom_hint">Deslize a partir do ícone para iniciar</string>
   <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Notificações pop-up</string>
-  <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
+  <string name="quick_settings_heads_up_label">Notificações flutuantes</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notificações flutuantes desativadas</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notificações flutuantes ativadas</string>
+  <string name="accessibility_quick_settings_heads_up_changed_off">As notificações flutuantes foram desativadas.</string>
+  <string name="accessibility_quick_settings_heads_up_changed_on">As notificações flutuantes foram ativadas.</string>
   <!-- Heads up snooze toast -->
   <string name="heads_up_snooze_message_one_minute">Notificações flutuantes de <xliff:g id="string">%s</xliff:g> estão silenciadas por 1 minuto.</string>
   <string name="heads_up_snooze_message">Notificações flutuantes de <xliff:g id="string">%s</xliff:g> estão silenciadas por <xliff:g id="number">%d </xliff:g> minutos.</string>
   <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
   <string name="keyguard_indication_dash_charging_time">Carregamento Dash (<xliff:g id="charging_time_left">%s</xliff:g> para conclusão)</string>
-  <string name="keyguard_plugged_in_dash_charging">Carregamento Dash</string>
+  <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">A tela está sendo gravada</string>
   <!-- Screenrecord notification title -->
@@ -147,4 +147,23 @@
   <!-- Theme QS -->
   <string name="theme_info_title">O que é isso?</string>
   <string name="theme_info_message">O atalho Tema é um atalho único mas fácil de usar que permite ao usuário alterar o estilo do sistema.\n\nPara trocar entre diferentes estilos, toque e segure no atalho e então toque novamente para selecionar uma das opções oferecidas.</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_running_services">Abrir a tela dos Serviços em Execução.</string>
+  <!-- Sync QS Tile -->
+  <string name="quick_settings_sync_label">Sincronizar</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronização desativada</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronização ativada</string>
+  <string name="accessibility_quick_settings_sync_changed_off">A sincronização foi desativada</string>
+  <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Pixels inteligentes</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Auto-habilitar pixels inteligentes</string>
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Forçar parada?</string>
+  <string name="force_stop_dlg_text">Se você forçar a parada de um aplicativo, ele poderá apresentar falhas.</string>
+  <string name="kill">Fechar</string>
 </resources>

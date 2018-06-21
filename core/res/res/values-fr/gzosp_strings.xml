@@ -30,4 +30,6 @@
   <string name="permlab_toggleNavigationEditor">éditeur des contrôles de navigation</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">Autoriser une application à éditer les contrôles de navigation.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_default">Par défaut</string>
 </resources>

@@ -147,4 +147,23 @@
   <!-- Theme QS -->
   <string name="theme_info_title">Co to je?</string>
   <string name="theme_info_message">Dlaždice motivů je jedinečná a snadno použitelná dlaždice, která uživateli umožňuje měnit odstín nebo styl stystému.\n\nChcete-li provést změnu odstínu a stylu, jednoduše stiskněte dlouze dlaždici a poté ji stiskněte znovu pro výběr nabízených možností.</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_running_services">Otevřít obrazovku spuštěných služeb.</string>
+  <!-- Sync QS Tile -->
+  <string name="quick_settings_sync_label">Synchronizace</string>
+  <string name="accessibility_quick_settings_sync_off">Synch. vypnuta</string>
+  <string name="accessibility_quick_settings_sync_on">Synch. zapnuta</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Synchronizace byla vypnuta</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Synchronizace byla zapnuta</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart Pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Vynutit ukončení?</string>
+  <string name="force_stop_dlg_text">Vynucené ukončení může způsobit nepředvídatelné chování aplikace.</string>
+  <string name="kill">Zavřít</string>
 </resources>

@@ -30,4 +30,7 @@
   <string name="permlab_toggleNavigationEditor">控制导航栏编辑器</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">允许应用控制导航栏编辑器</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_fade">淡出</string>
+  <string name="animation_default">默认</string>
 </resources>

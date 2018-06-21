@@ -30,4 +30,6 @@
   <string name="permlab_toggleNavigationEditor">नेविगेशन बदलावकारक को संभाले</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">दूसरे एप्लीकेशन को नेविगेशन बार में बदलाव करने की छूट</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_default">डिफॉल्ट</string>
 </resources>

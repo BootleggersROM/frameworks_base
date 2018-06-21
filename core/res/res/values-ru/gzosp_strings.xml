@@ -30,4 +30,7 @@
   <string name="permlab_toggleNavigationEditor">Управление редактором панели навигации</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
   <string name="permdesc_toggleNavigationEditor">Разрешать приложению управлять редактированием панели навигации.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_fade">Затухание</string>
+  <string name="animation_default">По умолчанию</string>
 </resources>

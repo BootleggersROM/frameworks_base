@@ -38,4 +38,6 @@ permlab_preventpower
 permdesc_toggleNavigationEditor
 [Char Limit = None] பயன்பாட்டு அனுமதிப்பத்திரத்தின் விவரத்தை குறிப்பிடுவதால், பயன்பாட்டிற்கு இதை அனுமதிக்க வேண்டுமா எனத் தேர்வு செய்யலாம்.
 கோப்பு: ex_strings. xml.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_default">இயல்புநிலை</string>
 </resources>

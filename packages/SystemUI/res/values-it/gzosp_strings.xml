@@ -147,4 +147,23 @@
   <!-- Theme QS -->
   <string name="theme_info_title">Cos\'è questo?</string>
   <string name="theme_info_message">Il tema dei tile è un sistema tematico unico ma di facile utilizzo che consente all\'utente di modificare lo stile del sistema.\n\nPer cambiare lo stile e il colore principale, basta una pressione prolungata sul tile e poi premere di nuovo per scegliere tra le opzioni presentati.</string>
+  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+  <string name="accessibility_quick_settings_running_services">Apri la schermata dei Servizi in Esecuzione.</string>
+  <!-- Sync QS Tile -->
+  <string name="quick_settings_sync_label">Sincronizza</string>
+  <string name="accessibility_quick_settings_sync_off">Sincronizzazione off</string>
+  <string name="accessibility_quick_settings_sync_on">Sincronizzazione on</string>
+  <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata</string>
+  <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata</string>
+  <!-- Smart pixels QS tile -->
+  <string name="quick_settings_smart_pixels">Smart pixels</string>
+  <string name="quick_settings_smart_pixels_on_power_save">Abilita automaticamente i Smart Pixels</string>
+  <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+  <!-- Kill button in notification guts -->
+  <string name="force_stop_dlg_title">Arresto forzato?</string>
+  <string name="force_stop_dlg_text">Se forzi l\'interruzione di un\'app, potrebbe diventare instabile.</string>
+  <string name="kill">Chiudi</string>
 </resources>

@@ -20,8 +20,17 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Power menu -->
+  <string name="reboot_title">Újraindítás</string>
+  <string name="reboot_message">A Rendszer újraindítása</string>
   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permlab_preventpower">kikapcsológomb felülírása</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_preventpower">Lehetővé teszi egy alkalmazás számára a kikapcsológomb felülbírálatát.</string>
   <!-- DUI permission of control navbar editor -->
+  <string name="permlab_toggleNavigationEditor">navigációssáv-szerkesztő kezelése</string>
   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+  <string name="permdesc_toggleNavigationEditor">Lehetővé teszi egy alkalmazás számára, hogy kezelje a navigációssáv-szerkesztőt.</string>
+  <!-- AOKP custom system animations -->
+  <string name="animation_fade">Áttűnés</string>
+  <string name="animation_default">Alapértelmezett</string>
 </resources>
