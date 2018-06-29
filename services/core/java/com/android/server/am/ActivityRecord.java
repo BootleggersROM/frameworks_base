@@ -2038,6 +2038,10 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
             mStackSupervisor.reportActivityLaunchedLocked(false /* timeout */, this,
                     info.windowsFullyDrawnDelayMs);
         }
+        int isGame = isAppInfoGame();
+        if (mUxPerf !=  null) {
+            mUxPerf.perfUXEngine_events(BoostFramework.UXE_EVENT_GAME, 0, packageName, isGame);
+        }
         if (mPerfFirstDraw == null) {
             mPerfFirstDraw = new BoostFramework();
         }
@@ -2050,6 +2054,16 @@ final class ActivityRecord extends ConfigurationContainer implements AppWindowCo
             perfActivityBoostHandler = -1;
         }
     }
+
+    public int isAppInfoGame() {
+        int isGame = 0;
+        if (appInfo != null) {
+            isGame = (appInfo.category == ApplicationInfo.CATEGORY_GAME ||
+                      (appInfo.flags & ApplicationInfo.FLAG_IS_GAME) == ApplicationInfo.FLAG_IS_GAME) ? 1 : 0;
+        }
+        return isGame;
+    }
+
     @Override
     public void onStartingWindowDrawn(long timestamp) {
         synchronized (service) {
