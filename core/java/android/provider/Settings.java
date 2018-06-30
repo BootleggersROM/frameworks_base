@@ -2997,6 +2997,13 @@ public final class Settings {
             "lock_pattern_tactile_feedback_enabled";
 
         /**
+         * Whether to scramble a pin unlock layout
+         * 0 = 0ff, 1 = on
+         */
+        public static final String LOCKSCREEN_SCRAMBLE_PIN_LAYOUT =
+                "lockscreen_scramble_pin_layout";
+
+        /**
          * Whether to use the custom quick unlock screen control
          * @hide
          */
