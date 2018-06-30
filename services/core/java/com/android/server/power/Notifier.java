@@ -595,11 +595,6 @@ final class Notifier {
         if (DEBUG) {
             Slog.d(TAG, "onWiredChargingStarted");
         }
-
-        mSuspendBlocker.acquire();
-        Message msg = mHandler.obtainMessage(MSG_WIRED_CHARGING_STARTED);
-        msg.setAsynchronous(true);
-        mHandler.sendMessage(msg);
     }
 
     private void updatePendingBroadcastLocked() {

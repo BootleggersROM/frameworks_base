@@ -9489,6 +9489,18 @@ public final class Settings {
         private static final Validator CHARGING_VIBRATION_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to vibrate on power connection or disconnection
+         * @hide
+         */
+        public static final String VIBRATION_ON_CHARGE_STATE_CHANGED = "vibration_on_charge_state_changed";
+
+        /**
+         * URI for charging event sounds
+         * @hide
+         */
+        public static final String CHARGING_SOUNDS_RINGTONE = "charging_sounds_ringtone";
+
+        /**
          * Whether we keep the device on while the device is plugged in.
          * Supported values are:
          * <ul>
