@@ -20,7 +20,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.om.IOverlayManager;
-import android.content.om.OverlayInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
@@ -48,7 +47,10 @@ import com.android.systemui.qs.QSDetailItems.Item;
 import com.android.systemui.qs.QSDetailItemsList;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
+import com.android.internal.statusbar.ThemeAccentUtils;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
+import com.android.systemui.statusbar.NotificationLockscreenUserManager;
+import com.android.systemui.Dependency;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -155,12 +157,16 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
     }
 
     private IOverlayManager mOverlayManager;
+    private int mCurrentUserId;
+    protected NotificationLockscreenUserManager mLockscreenUserManager;
     private Mode mMode;
 
     public ThemeTile(QSHost host) {
         super(host);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
+        mLockscreenUserManager = Dependency.get(NotificationLockscreenUserManager.class);
+        mCurrentUserId = mLockscreenUserManager.getCurrentUserId();
         mMode = Mode.ACCENT;
     }
 
