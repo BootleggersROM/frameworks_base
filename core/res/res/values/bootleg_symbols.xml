@@ -173,4 +173,7 @@
   <java-symbol type="anim" name="slide_in_left_no_fade" />
   <java-symbol type="anim" name="slide_out_right_no_fade" />
 
+  <!-- SU Shell -->
+  <java-symbol type="string" name="cannot_get_su" />
+
 </resources>

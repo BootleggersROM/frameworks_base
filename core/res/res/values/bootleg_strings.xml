@@ -50,4 +50,7 @@
     <string name="animation_random">Random</string>
     <string name="action_null">Blank</string>
 
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Sorry, but SU permissions weren't allowed. Please root your device or check your root management app.</string>
+
 </resources>
