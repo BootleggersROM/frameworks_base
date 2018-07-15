@@ -256,4 +256,11 @@
     <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
     <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
 
+    <!-- Log Tile -->
+    <string name="quick_settings_logcat_label">LogCat</string>
+    <string name="quick_settings_logcatradio_label">LogCatRadio</string>
+    <string name="quick_settings_kmsg_label">Kmsg</string>
+    <string name="quick_settings_dmesg_label">Dmsg</string>
+    <string name="cannot_get_su">Action failed because of missing superuser access</string>
+
 </resources>
