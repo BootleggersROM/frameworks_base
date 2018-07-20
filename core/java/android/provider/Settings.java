@@ -4382,6 +4382,12 @@ public final class Settings {
          */
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
+        /**
+         * Ambient Display Visualizer
+         *
+         * @hide
+         */
+        public static final String AMBIENT_VISUALIZER_ENABLED  = "ambient_visualizer";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -4439,7 +4445,8 @@ public final class Settings {
             LOCK_TO_APP_ENABLED,
             NOTIFICATION_SOUND,
             ACCELEROMETER_ROTATION,
-            SHOW_BATTERY_PERCENT
+            SHOW_BATTERY_PERCENT,
+            AMBIENT_VISUALIZER_ENABLED
         };
 
         /**
@@ -4578,6 +4585,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(SYSTEM_THEME_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(AMBIENT_VISUALIZER_ENABLED);
         }
 
         /**
