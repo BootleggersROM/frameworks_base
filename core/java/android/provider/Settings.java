@@ -4702,7 +4702,6 @@ public final class Settings {
          */
         public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
-
         /**
          *  Enable statusbar double tap gesture on to put device to sleep
          * @hide
@@ -9204,6 +9203,13 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_VISUALIZER_ENABLED = "lockscreen_visualizer";
+
+        /**
+         * Ambient Display Visualizer
+         *
+         * @hide
+         */
+        public static final String AMBIENT_VISUALIZER_ENABLED = "ambient_visualizer";
 
         /**
          * Add or remove software navigation bar
