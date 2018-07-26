@@ -4400,6 +4400,8 @@ public final class Settings {
          * 1 - force light
          * 2 - force dark
          * 3 - force black
+         * 4 - force shishu dreams
+         * 5 - force shishu nights
          * @hide
          */
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
