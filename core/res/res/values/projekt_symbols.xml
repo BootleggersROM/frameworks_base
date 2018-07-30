@@ -32,4 +32,7 @@
   <!-- Settings icon tint color -->
   <java-symbol type="color" name="settings_icon_tint_color" />
 
+  <!-- Bootleg unneccesary gradient declaration | Just for our shishu bars -->
+  <java-symbol type="color" name="bootleg_accent_gradient_end_color" />
+
 </resources>

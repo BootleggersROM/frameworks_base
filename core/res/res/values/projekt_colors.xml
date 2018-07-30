@@ -19,6 +19,9 @@
     <!-- Settings icon tint color -->
     <color name="settings_icon_tint_color">#737373</color>
 
+    <!-- Bootleg unneccesary gradient declaration | Just for our shishu bars -->
+    <color name="bootleg_accent_gradient_end_color">#00000000</color>
+
     <!-- Notification icon/text dynamic tint -->
     <color name="notification_text_default_color">@android:color/notification_default_color</color>
 
