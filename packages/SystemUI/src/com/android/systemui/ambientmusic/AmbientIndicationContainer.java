@@ -148,7 +148,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
 
         mInfoAvailable = mInfoToSet != null;
         if (mInfoAvailable) {
-            mText.setText(mInfoToSet);
             mMediaMetaData = mediaMetaData;
             mMediaText = notificationText;
             boolean isAnotherTrack = mInfoAvailable
