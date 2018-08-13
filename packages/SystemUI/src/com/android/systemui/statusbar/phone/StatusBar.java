@@ -3314,6 +3314,17 @@ public class StatusBar extends SystemUI implements DemoMode,
         return themeInfo != null && themeInfo.isEnabled();
     }
 
+    public boolean isUsingShishuAmalgamationTheme() {
+        OverlayInfo themeInfo = null;
+        try {
+            themeInfo = mOverlayManager.getOverlayInfo("com.android.system.theme.shishuamalgamation",
+                    mCurrentUserId);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return themeInfo != null && themeInfo.isEnabled();
+    }
+
     // Check for black and white accent overlays
 /*    public void unfuckBlackWhiteAccent() {
         ThemeAccentUtils.unfuckBlackWhiteAccent(mOverlayManager, mCurrentUserId);
@@ -5519,6 +5530,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         boolean useShishuNightsTheme = false;
         boolean useShishuIllusionsTheme = false;
         boolean useShishuImmensityTheme = false;
+        boolean useShishuAmalgamationTheme = false;
         boolean useBlackTheme = false;
         boolean useDarkTheme = false;
         if (userThemeSetting == 0) {
@@ -5534,6 +5546,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             useShishuNightsTheme = userThemeSetting == 5;
             useShishuIllusionsTheme = userThemeSetting == 6;
             useShishuImmensityTheme = userThemeSetting == 7;
+            useShishuAmalgamationTheme = userThemeSetting == 8;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             try {
@@ -5607,6 +5620,19 @@ public class StatusBar extends SystemUI implements DemoMode,
                         useShishuImmensityTheme, mCurrentUserId);
                 mOverlayManager.setEnabled("com.android.systemui.theme.shishuimmensity",
                         useShishuImmensityTheme, mCurrentUserId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change theme", e);
+            }
+        }
+
+        if (isUsingShishuAmalgamationTheme() != useShishuAmalgamationTheme) {
+            try {
+                mOverlayManager.setEnabled("com.android.system.theme.shishuamalgamation",
+                        useShishuAmalgamationTheme, mCurrentUserId);
+                mOverlayManager.setEnabled("com.android.settings.theme.shishuamalgamation",
+                        useShishuAmalgamationTheme, mCurrentUserId);
+                mOverlayManager.setEnabled("com.android.systemui.theme.shishuamalgamation",
+                        useShishuAmalgamationTheme, mCurrentUserId);
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't change theme", e);
             }
