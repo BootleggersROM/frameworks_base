@@ -21,6 +21,7 @@ import android.app.Fragment;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.os.Build;
 import android.provider.Settings.Secure;
 import android.support.annotation.VisibleForTesting;
 import android.util.DisplayMetrics;
@@ -63,6 +64,8 @@ public class RoundedCorners extends SystemUI implements Tunable {
                 R.dimen.rounded_corner_radius);
         setupRounding();
         int padding = mContext.getResources().getDimensionPixelSize(
+                R.dimen.rounded_corner_content_padding);
+        int padding_alt = mContext.getResources().getDimensionPixelSize(
                 R.dimen.rounded_corner_content_padding);
         setupPadding(padding);
     }
@@ -139,7 +142,7 @@ public class RoundedCorners extends SystemUI implements Tunable {
             fragmentHostManager.addTagListener(CollapsedStatusBarFragment.TAG,
                     new TunablePaddingTagListener(padding, R.id.status_bar));
             fragmentHostManager.addTagListener(QS.TAG,
-                    new TunablePaddingTagListener(padding, R.id.headerIcons));
+                    new TunablePaddingTagListener(padding, R.id.header));
         }
     }
 
@@ -194,12 +197,7 @@ public class RoundedCorners extends SystemUI implements Tunable {
         private TunablePadding mTunablePadding;
 
         public TunablePaddingTagListener(int padding, int id) {
-            
-            if (id == R.id.headerIcons) {
-                mPadding = padding + 8;
-            } else {
-                mPadding = padding;
-            } 
+            mPadding = padding;
             mId = id;
         }
 
