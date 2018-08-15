@@ -31,6 +31,11 @@
   <!-- Gesture Sensor -->
   <java-symbol type="bool" name="config_enableGestureService" />
 
+    <!-- Path to the library that contains a alternative device specific key handler -->
+    <string name="config_alternativeDeviceKeyHandlerLib" translatable="false"></string>
+      <!-- Name of that alternative key handler class -->
+    <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
+
     <!-- advanced reboot to bootloader. -->
     <string name="reboot_to_bootloader_title">Reboot bootloader</string>
     <string name="reboot_to_bootloader_message">Rebooting to bootloader\u2026</string>
