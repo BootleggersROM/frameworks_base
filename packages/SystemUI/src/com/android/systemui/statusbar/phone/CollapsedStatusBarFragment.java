@@ -156,11 +156,17 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             } else {
                 showSystemIconArea(animate);
                 showOperatorName(animate);
+                if (((Clock)mClockView).isEnabled() == false) {
+                    ((Clock)mClockView).setClockVisibleByUser(false);
+                }
             }
         }
         if ((diff1 & DISABLE_NOTIFICATION_ICONS) != 0) {
             if ((state1 & DISABLE_NOTIFICATION_ICONS) != 0) {
                 hideNotificationIconArea(animate);
+                if (((Clock)mClockView).isEnabled() == false) {
+                    ((Clock)mClockView).setClockVisibleByUser(false);
+                }
             } else {
                 showNotificationIconArea(animate);
             }
