@@ -28,6 +28,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.UserHandle;
+import android.provider.Settings;
 import android.support.v4.graphics.ColorUtils;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -41,6 +42,7 @@ import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
+import android.graphics.Typeface;
 
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.ViewClippingUtil;
@@ -84,6 +86,7 @@ public class KeyguardStatusView extends GridLayout implements
         @Override
         public void onTimeChanged() {
             refreshTime();
+            refreshLockFont();
         }
 
         @Override
@@ -218,6 +221,10 @@ public class KeyguardStatusView extends GridLayout implements
         mClockSeparator.setLayoutParams(layoutParams);
     }
 
+    private int getLockClockFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONTS, 0);
+    }
     /**
      * Animate clock and its separator when necessary.
      */
@@ -236,7 +243,7 @@ public class KeyguardStatusView extends GridLayout implements
         if (view == mClockView) {
             float clockScale = smallClock ? mSmallClockScale : 1;
             Paint.Style style = smallClock ? Paint.Style.FILL_AND_STROKE : Paint.Style.FILL;
-            mClockView.animate().cancel();
+            mClockView.animate().cancel();	
             if (shouldAnimate) {
                 mClockView.setY(oldTop + heightOffset);
                 mClockView.animate()
@@ -308,6 +315,7 @@ public class KeyguardStatusView extends GridLayout implements
     public void dozeTimeTick() {
         refreshTime();
         mKeyguardSlice.refresh();
+        refreshLockFont();
     }
 
     private void refreshTime() {
@@ -377,6 +385,48 @@ public class KeyguardStatusView extends GridLayout implements
     @Override
     public boolean hasOverlappingRendering() {
         return false;
+    }
+
+        private void refreshLockFont() {
+        final Resources res = getContext().getResources();
+        boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
+        int lockClockFont = isPrimary ? getLockClockFont() : 0;
+        if (lockClockFont == 0) {
+            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
+        }
+        if (lockClockFont == 1) {
+            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+        }
+        if (lockClockFont == 2) {
+            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
+        }
+        if (lockClockFont == 3) {
+            mClockView.setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+        }
+        if (lockClockFont == 4) {
+            mClockView.setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
+        }
+        if (lockClockFont == 5) {
+            mClockView.setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
+        }
+        if (lockClockFont == 6) {
+            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+        }
+        if (lockClockFont == 7) {
+            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+        }
+        if (lockClockFont == 8) {
+            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+        }
+        if (lockClockFont == 9) {
+            mClockView.setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+        }
+        if (lockClockFont == 10) {
+            mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+        }
+        if (lockClockFont == 11) {
+            mClockView.setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+        }
     }
 
     // DateFormat.getBestDateTimePattern is extremely expensive, and refresh is called often.
