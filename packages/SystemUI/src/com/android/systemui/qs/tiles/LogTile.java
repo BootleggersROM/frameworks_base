@@ -40,8 +40,6 @@ public class LogTile extends QSTileImpl<BooleanState> {
 	private boolean mLogcatRadio;
 	private boolean mKmsg;
 	private boolean mDmsg;
-    private String mLogType;
-    private String mLogDestination;
 
     public LogTile(QSHost host) {
         super(host);
@@ -73,71 +71,55 @@ public class LogTile extends QSTileImpl<BooleanState> {
             mLogcatRadio = true;
             mKmsg = false;
             mDmsg = false;
-            mLogType = "Radio Logcat";
         } else if (mLog == 2) {
             mLogcat = false;
             mLogcatRadio = false;
             mKmsg = true;
             mDmsg = false;
-            mLogType = "Kmsg";
         } else if (mLog == 3) {
             mLogcat = false;
             mLogcatRadio = false;
             mKmsg = false;
             mDmsg = true;
-            mLogType = "mDmsg";
         } else {
             mLogcat = true;
             mLogcatRadio = false;
             mKmsg = false;
             mDmsg = false;
-            mLogType = "Logcat";
         }
         new CreateLogTask().execute(mLogcat, mLogcatRadio, mKmsg, mDmsg);
     }
 
     public void makeLogcat() throws SuShell.SuDeniedException, IOException {
-        mLogDestination = "LogCat.txt";
         final String LOGCAT_FILE = new File(Environment
-            .getExternalStorageDirectory(), mLogDestination).getAbsolutePath();
+            .getExternalStorageDirectory(), "LogCat.txt").getAbsolutePath();
         String command = "logcat -d";
         command += " > " + LOGCAT_FILE;
         SuShell.runWithSuCheck(command);
-        makeToast(mLogType, mLogDestination);
     }
 
     public void makeLogcatRadio() throws SuShell.SuDeniedException, IOException {
-        mLogDestination = "LogcatRadio.txt";
         final String LOGCAT_RADIO_FILE = new File(Environment
-            .getExternalStorageDirectory(), mLogDestination).getAbsolutePath();
+            .getExternalStorageDirectory(), "LogcatRadio.txt").getAbsolutePath();
         String command = "logcat -d -b radio";
         command += " > " + LOGCAT_RADIO_FILE;
         SuShell.runWithSuCheck(command);
-        makeToast(mLogType, mLogDestination);
     }
 
     public void makeKmsg() throws SuShell.SuDeniedException, IOException {
-        mLogDestination = "KernelLog.txt";
         final String KMSG_FILE = new File(Environment
-            .getExternalStorageDirectory(), mLogDestination).getAbsolutePath();
+            .getExternalStorageDirectory(), "KernelLog.txt").getAbsolutePath();
         String command = "cat /proc/last_kmsg";
         command += " > " + KMSG_FILE;
         SuShell.runWithSuCheck(command);
-        makeToast(mLogType, mLogDestination);
     }
 
     public void makeDmesg() throws SuShell.SuDeniedException, IOException {
-        mLogDestination = "Dmesg.txt";
         final String DMESG_FILE = new File(Environment
-            .getExternalStorageDirectory(), mLogDestination).getAbsolutePath();
+            .getExternalStorageDirectory(), "Dmesg.txt").getAbsolutePath();
         String command = "dmesg";
         command += " > " + DMESG_FILE;
         SuShell.runWithSuCheck(command);
-        makeToast(mLogType, mLogDestination);
-    }
-
-    public void makeToast(String logType, String logFile) {
-                Toast.makeText(mContext, mContext.getString(R.string.quick_settings_log_complete, logType, logFile),Toast.LENGTH_LONG).show();
     }
 
     private class CreateLogTask extends AsyncTask<Boolean, Void, Void> {
