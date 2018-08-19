@@ -75,8 +75,8 @@
   <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dinonaktifkan.</string>
   <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang diaktifkan.</string>
   <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff: g id = "string">% s </ xliff: g> - Mengintip pemberitahuan tertidur selama 1 menit.</string>
-  <string name="heads_up_snooze_message"><xliff: g id = "string">% s </ xliff: g> - Mengintip pemberitahuan tertunda untuk <xliff: g id = "number">% d </ xliff: g> minutes.</string>
+  <string name="heads_up_snooze_message_one_minute"><xliff:g id = "string">%s</xliff:g> - Mengintip pemberitahuan tertidur selama 1 menit.</string>
+  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Mengintip pemberitahuan tertunda untuk <xliff:g id="number">%d </xliff:g> minutes.</string>
   <!-- Screenrecord Notification Ticker -->
   <string name="screenrecord_notif_ticker">Layar sedang direkam</string>
   <string name="screenrecord_notif_final_ticker">Layar berhasil direkam</string>
