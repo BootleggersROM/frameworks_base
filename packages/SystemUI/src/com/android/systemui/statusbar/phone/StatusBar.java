@@ -5699,7 +5699,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     // Switches theme accent from to another or back to stock
     public void updateAccents() {
         int accentSetting = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.ACCENT_PICKER, 0, mCurrentUserId);
+                Settings.System.ACCENT_PICKER, 18, mCurrentUserId);
         if (accentSetting == 0) {
             unloadAccents();
         } else if (accentSetting == 1) {
@@ -7480,7 +7480,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private void setLockscreenMediaMetadata() {
         mLockscreenMediaMetadata = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_METADATA, 0, UserHandle.USER_CURRENT) == 1;
+                Settings.System.LOCKSCREEN_MEDIA_METADATA, 1, UserHandle.USER_CURRENT) == 1;
     }
 
     private void updateQsPanelResources() {

@@ -381,7 +381,7 @@ public abstract class QSTileImpl<TState extends State> implements QSTile {
     public static int getColorForState(Context context, int state) {
         
         boolean enableQsTileTinting = Settings.System.getInt(context.getContentResolver(), 
-                       Settings.System.QS_TILE_TINTING_ENABLE, 1) == 1;
+                       Settings.System.QS_TILE_TINTING_ENABLE, 0) == 1;
 
         switch (state) {
             case Tile.STATE_UNAVAILABLE:
