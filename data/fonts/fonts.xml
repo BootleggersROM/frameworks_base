@@ -223,6 +223,10 @@
         <font weight="300" style="normal">BadScript-Regular.ttf</font>
     </family>
 
+    <family name="bariol-reg">
+        <font weight="300" style="normal">Bariol-Regular.ttf</font>
+    </family>
+
     <family name="cherryswash">
         <font weight="300" style="normal">CherrySwash-Regular.ttf</font>
     </family>

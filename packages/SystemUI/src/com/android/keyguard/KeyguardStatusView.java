@@ -878,6 +878,9 @@ public class KeyguardStatusView extends GridLayout implements
         if (lockClockFont == 37) {
             mClockView.setTypeface(Typeface.create("voltaire", Typeface.NORMAL));
         }
+        if (lockClockFont == 38) {
+            mClockView.setTypeface(Typeface.create("bariol-reg", Typeface.NORMAL));
+        }
 
         // Lockscreen date
 
@@ -1038,6 +1041,11 @@ public class KeyguardStatusView extends GridLayout implements
             mAlarmStatusView.setTypeface(Typeface.create("voltaire", Typeface.NORMAL));
         }
 
+        if (lockDateFont == 39) {
+            mDateView.setTypeface(Typeface.create("bariol-reg", Typeface.NORMAL));
+            mAlarmStatusView.setTypeface(Typeface.create("bariol-reg", Typeface.NORMAL));
+        }
+
        // Lockscreen owner info
 
         if (lockOwnFont == 0) {
@@ -1163,6 +1171,10 @@ public class KeyguardStatusView extends GridLayout implements
         if (lockOwnFont == 40) {
             mOwnerInfo.setTypeface(Typeface.create("voltaire", Typeface.NORMAL));
         }
+        if (lockOwnFont == 41) {
+            mOwnerInfo.setTypeface(Typeface.create("bariol-reg", Typeface.NORMAL));
+        }
+
     }
 
     public void updateAll() {
