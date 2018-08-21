@@ -579,6 +579,8 @@ public class PackageManagerService extends IPackageManager.Stub
 
     private static final String PRODUCT_OVERLAY_DIR = "/product/overlay";
 
+    private static final String SYSTEM_OVERLAY_DIR = "/system/overlay";
+
     /** Canonical intent used to identify what counts as a "web browser" app */
     private static final Intent sBrowserIntent;
     static {
@@ -2605,7 +2607,7 @@ public class PackageManagerService extends IPackageManager.Stub
                 scanFlags = scanFlags | SCAN_FIRST_BOOT_OR_UPGRADE;
             }
 
-            // Collect vendor/product overlay packages. (Do this before scanning any apps.)
+            // Collect vendor/product/system overlay packages. (Do this before scanning any apps.)
             // For security and version matching reason, only consider
             // overlay packages if they reside in the right directory.
             scanDirTracedLI(new File(VENDOR_OVERLAY_DIR),
@@ -2621,6 +2623,12 @@ public class PackageManagerService extends IPackageManager.Stub
                     scanFlags
                     | SCAN_AS_SYSTEM
                     | SCAN_AS_PRODUCT,
+                    0);
+            scanDirTracedLI(new File(SYSTEM_OVERLAY_DIR),
+                    mDefParseFlags
+                    | PackageParser.PARSE_IS_SYSTEM_DIR,
+                    scanFlags
+                    | SCAN_AS_SYSTEM,
                     0);
 
             mParallelPackageParserCallback.findStaticOverlayPackages();
