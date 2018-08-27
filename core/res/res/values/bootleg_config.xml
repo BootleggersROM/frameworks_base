@@ -28,4 +28,7 @@
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
     <bool name="config_useSystemClockforRotationSensor">false</bool>
 
+    <!-- Add some extra spacing to all the buttons affected by TextAllCaps -->
+    <item name="config_buttonTextLetterSpacing" format="float" type="dimen">0</item>
+
 </resources>
