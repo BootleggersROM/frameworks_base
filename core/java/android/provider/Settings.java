@@ -4412,6 +4412,11 @@ public final class Settings {
          * 1 - force light
          * 2 - force dark
          * 3 - force black
+         * 4 - force shishu dreams
+         * 5 - force shishu nights
+         * 6 - force shishu illusions
+         * 7 - force shishu immensity
+         * 8 - force shishu amalgamation
          * @hide
          */
         public static final String SYSTEM_THEME_STYLE = "system_theme_style";
