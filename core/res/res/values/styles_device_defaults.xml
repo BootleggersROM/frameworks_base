@@ -232,6 +232,7 @@ easier.
     <style name="TextAppearance.DeviceDefault.Widget.Button" parent="TextAppearance.Material.Widget.Button">
         <item name="fontFamily">@string/config_headlineFontFamilyMedium</item>
         <item name="textAllCaps">@bool/config_buttonTextAllCaps</item>
+        <item name="letterSpacing">@dimen/config_buttonTextLetterSpacing</item>
     </style>
     <style name="TextAppearance.DeviceDefault.Widget.IconMenu.Item" parent="TextAppearance.Material.Widget.IconMenu.Item"/>
     <style name="TextAppearance.DeviceDefault.Widget.TabWidget" parent="TextAppearance.Material.Widget.TabWidget"/>
