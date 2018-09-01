@@ -3695,7 +3695,7 @@ public class SettingsProvider extends ContentProvider {
                     if (currentSetting.isNull()) {
                         secureSettings.insertSettingLocked(
                                 Secure.VOLUME_HUSH_GESTURE,
-                                Integer.toString(Secure.VOLUME_HUSH_VIBRATE),
+                                Integer.toString(Secure.VOLUME_HUSH_OFF),
                                 null, true, SettingsState.SYSTEM_PACKAGE_NAME);
                     }
 
