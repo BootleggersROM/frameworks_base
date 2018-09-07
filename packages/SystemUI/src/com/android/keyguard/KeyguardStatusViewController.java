@@ -230,6 +230,11 @@ public class KeyguardStatusViewController extends ViewController<KeyguardStatusV
                 mView.updateSettings();
             }
         }
+
+        @Override
+        public void onUserSwitchComplete(int userId) {
+            mView.updateSettings();
+        }
     };
 
     /**
