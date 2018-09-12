@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.ContentResolver;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.RemoteException;
@@ -89,6 +90,7 @@ public class KeyguardStatusView extends GridLayout implements
         @Override
         public void onTimeChanged() {
             refreshTime();
+            refreshLockFont();
         }
 
         @Override
@@ -152,6 +154,11 @@ public class KeyguardStatusView extends GridLayout implements
      */
     public boolean hasCustomClock() {
         return mClockView.hasCustomClock();
+    }
+
+    private int getLockClockFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONT_STYLE, 0);
     }
 
     /**
@@ -254,6 +261,7 @@ public class KeyguardStatusView extends GridLayout implements
         if (mClockView != null) {
             mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                     getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
+            refreshLockFont();
         }
         if (mOwnerInfo != null) {
             mOwnerInfo.setTextSize(TypedValue.COMPLEX_UNIT_PX,
@@ -347,6 +355,60 @@ public class KeyguardStatusView extends GridLayout implements
     @Override
     public void onLocaleListChanged() {
         refreshFormat();
+    }
+
+    private void refreshLockFont() {
+		setFontStyle(mClockView, getLockClockFont());
+    }
+
+    private void setFontStyle(KeyguardClockSwitch view, int fontstyle) {
+    	if (view != null) {
+    		switch (fontstyle) {
+    			case 0:
+    			default:
+    				view.setTextFont(Typeface.create(mContext.getResources().getString(R.string.clock_sysfont_headline_medium), Typeface.NORMAL));
+    				break;
+    			case 1:
+    				view.setTextFont(Typeface.create(mContext.getResources().getString(R.string.clock_sysfont_body_medium), Typeface.NORMAL));
+    				break;
+    			case 2:
+    				view.setTextFont(Typeface.create("sans-serif", Typeface.BOLD));
+    				break;
+    			case 3:
+    				view.setTextFont(Typeface.create("sans-serif", Typeface.NORMAL));
+    				break;
+    			case 4:
+    				view.setTextFont(Typeface.create("sans-serif", Typeface.ITALIC));
+    				break;
+    			case 5:
+    				view.setTextFont(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
+    				break;
+    			case 6:
+    				view.setTextFont(Typeface.create("sans-serif-light", Typeface.NORMAL));
+    				break;
+    			case 7:
+    				view.setTextFont(Typeface.create("sans-serif-thin", Typeface.NORMAL));
+    				break;
+    			case 8:
+    				view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+    				break;
+    			case 9:
+    				view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
+    				break;
+    			case 10:
+    				view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.BOLD));
+    				break;
+    			case 11:
+    				view.setTextFont(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
+    				break;
+    			case 12:
+    				view.setTextFont(Typeface.create("sans-serif-medium", Typeface.NORMAL));
+    				break;
+    			case 13:
+    				view.setTextFont(Typeface.create("sans-serif-medium", Typeface.ITALIC));
+    				break;
+    		}
+    	}
     }
 
     public void dump(FileDescriptor fd, PrintWriter pw, String[] args) {
