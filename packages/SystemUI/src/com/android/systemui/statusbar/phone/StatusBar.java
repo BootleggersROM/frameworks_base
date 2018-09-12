@@ -4125,6 +4125,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                             useShishuTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.shishu",
                             useShishuTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.systemui.theme.shishu",
+                            useShishuTheme, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
@@ -4136,6 +4138,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mOverlayManager.setEnabled("com.android.system.theme.shishunights",
                             useShishuNightsTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.shishunights",
+                            useShishuNightsTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.systemui.theme.shishunights",
                             useShishuNightsTheme, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
@@ -4149,6 +4153,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                             useShishuIllusionsTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.shishuillusions",
                             useShishuIllusionsTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.systemui.theme.shishuillusions",
+                            useShishuIllusionsTheme, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
@@ -4161,6 +4167,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                             useShishuImmensityTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.shishuimmensity",
                             useShishuImmensityTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.systemui.theme.shishuimmensity",
+                            useShishuImmensityTheme, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
@@ -4172,6 +4180,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mOverlayManager.setEnabled("com.android.system.theme.shishuamalgamation",
                             useShishuAmalgamationTheme, mLockscreenUserManager.getCurrentUserId());
                     mOverlayManager.setEnabled("com.android.settings.theme.shishuamalgamation",
+                            useShishuAmalgamationTheme, mLockscreenUserManager.getCurrentUserId());
+                    mOverlayManager.setEnabled("com.android.systemui.theme.shishuamalgamation",
                             useShishuAmalgamationTheme, mLockscreenUserManager.getCurrentUserId());
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
