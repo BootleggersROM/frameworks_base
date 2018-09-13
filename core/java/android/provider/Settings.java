@@ -4519,6 +4519,14 @@ public final class Settings {
         public static final String LOCK_OWNER_FONTS = "lock_owner_fonts";
 
         /**
+         * @hide
+         */
+        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+        /** @hide */
+        private static final Validator USE_OLD_MOBILETYPE_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4585,7 +4593,8 @@ public final class Settings {
             OMNI_QS_LAYOUT_ROWS_LANDSCAPE,
             SHOW_FOURG,
             OMNI_ASPECT_RATIO_APPS_ENABLED,
-            OMNI_ASPECT_RATIO_APPS_LIST
+            OMNI_ASPECT_RATIO_APPS_LIST,
+            USE_OLD_MOBILETYPE
         };
 
         /**
@@ -4712,6 +4721,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SHOW_FOURG);
             PRIVATE_SETTINGS.add(OMNI_ASPECT_RATIO_APPS_ENABLED);
             PRIVATE_SETTINGS.add(OMNI_ASPECT_RATIO_APPS_LIST);
+            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
         }
 
         /**
@@ -4812,6 +4822,7 @@ public final class Settings {
                     OMNI_ASPECT_RATIO_APPS_ENABLED_VALIDATOR);
             VALIDATORS.put(OMNI_ASPECT_RATIO_APPS_LIST,
                     OMNI_ASPECT_RATIO_APPS_LIST_VALIDATOR);
+            VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
         }
 
         /**
