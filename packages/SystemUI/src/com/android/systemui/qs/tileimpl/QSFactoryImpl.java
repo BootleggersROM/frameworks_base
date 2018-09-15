@@ -32,6 +32,7 @@ import com.android.systemui.qs.tiles.ColorInversionTile;
 import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
+import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.IntentTile;
 import com.android.systemui.qs.tiles.LocationTile;
@@ -104,6 +105,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new ScreenshotTile(mHost);
             case "theme":
                 return new ThemeTile(mHost);
+            case "gaming":
+                return new GamingModeTile(mHost);
         }
 
         // Intent tiles.
