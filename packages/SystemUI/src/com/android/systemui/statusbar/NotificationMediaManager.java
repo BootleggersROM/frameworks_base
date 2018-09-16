@@ -55,6 +55,12 @@ public class NotificationMediaManager implements Dumpable {
     private MediaController mMediaController;
     private String mMediaNotificationKey;
     private MediaMetadata mMediaMetadata;
+    private MediaUpdateListener mListener;
+
+    // callback into NavigationFragment for Pulse
+    public interface MediaUpdateListener {
+        public void onMediaUpdated(boolean playing);
+    }
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
         @Override
@@ -68,9 +74,14 @@ public class NotificationMediaManager implements Dumpable {
                     clearCurrentMediaNotification();
                     mPresenter.updateMediaMetaData(true, true);
                 }
+
                 if (mStatusBar != null) {
                     mStatusBar.getVisualizer().setPlaying(state.getState()
                             == PlaybackState.STATE_PLAYING);
+                }
+
+                if (mListener != null) {
+                    mListener.onMediaUpdated(isPlaybackActive(state.getState()));
                 }
             }
         }
@@ -83,6 +94,17 @@ public class NotificationMediaManager implements Dumpable {
             }
             mMediaMetadata = metadata;
             mPresenter.updateMediaMetaData(true, true);
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive());
+            }
+        }
+
+        @Override
+        public void onSessionDestroyed() {
+            super.onSessionDestroyed();
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive());
+            }
         }
     };
 
@@ -194,6 +216,9 @@ public class NotificationMediaManager implements Dumpable {
                 clearCurrentMediaNotificationSession();
                 mMediaController = controller;
                 mMediaController.registerCallback(mMediaListener);
+                if (mListener != null) {
+                    mListener.onMediaUpdated(isPlaybackActive());
+                }
                 mMediaMetadata = mMediaController.getMetadata();
                 if (DEBUG_MEDIA) {
                     Log.v(TAG, "DEBUG_MEDIA: insert listener, found new controller: "
@@ -244,6 +269,14 @@ public class NotificationMediaManager implements Dumpable {
         pw.println();
     }
 
+    public void addCallback(MediaUpdateListener listener) {
+        mListener = listener;
+    }
+
+    public boolean isPlaybackActive() {
+        return isPlaybackActive(getMediaControllerPlaybackState(mMediaController));
+    }
+
     private boolean isPlaybackActive(int state) {
         return state != PlaybackState.STATE_STOPPED && state != PlaybackState.STATE_ERROR
                 && state != PlaybackState.STATE_NONE;
@@ -284,6 +317,9 @@ public class NotificationMediaManager implements Dumpable {
                         + mMediaController.getPackageName());
             }
             mMediaController.unregisterCallback(mMediaListener);
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive());
+            }
         }
         mMediaController = null;
     }

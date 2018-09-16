@@ -20,13 +20,13 @@
  * packages by overriding onExemptBroadcast(Context context, String packageName)
  */
 
-package com.android.internal.util.hwkeys;
+package com.android.internal.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-public abstract class SystemReceiver extends BroadcastReceiver {
+public abstract class SmartSystemReceiver extends BroadcastReceiver {
 
     protected abstract void onSecureReceive(Context context, Intent intent);
 
