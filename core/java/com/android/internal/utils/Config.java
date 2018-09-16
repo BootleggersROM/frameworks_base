@@ -29,15 +29,15 @@
  * for easy loading and setting
  * 
  */
-package com.android.internal.util.hwkeys;
+package com.android.internal.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.android.internal.util.hwkeys.ActionHandler;
-import com.android.internal.util.hwkeys.ActionConstants.ConfigMap;
-import com.android.internal.util.hwkeys.ActionConstants.Defaults;
+import com.android.internal.utils.ActionHandler;
+import com.android.internal.utils.ActionConstants.ConfigMap;
+import com.android.internal.utils.ActionConstants.Defaults;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;

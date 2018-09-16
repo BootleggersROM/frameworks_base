@@ -16,7 +16,7 @@
 * limitations under the License.
 */
 
-package com.android.internal.util.hwkeys;
+package com.android.internal.utils;
 
 import java.io.File;
 import java.io.FileDescriptor;

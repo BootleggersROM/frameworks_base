@@ -29,12 +29,12 @@ import static android.view.WindowManager.LayoutParams.PRIVATE_FLAG_KEYGUARD;
 
 import java.util.ArrayList;
 
-import com.android.internal.util.hwkeys.ActionConstants;
-import com.android.internal.util.hwkeys.ActionHandler;
-import com.android.internal.util.hwkeys.ActionUtils;
-import com.android.internal.util.hwkeys.Config;
-import com.android.internal.util.hwkeys.Config.ActionConfig;
-import com.android.internal.util.hwkeys.Config.ButtonConfig;
+import com.android.internal.utils.ActionConstants;
+import com.android.internal.utils.ActionHandler;
+import com.android.internal.utils.ActionUtils;
+import com.android.internal.utils.Config;
+import com.android.internal.utils.Config.ActionConfig;
+import com.android.internal.utils.Config.ButtonConfig;
 
 import android.content.ContentResolver;
 import android.content.Context;
