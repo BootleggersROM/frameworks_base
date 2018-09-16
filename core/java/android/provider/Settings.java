@@ -4960,6 +4960,23 @@ public final class Settings {
         public static final String SCREENSHOT_TYPE = "screenshot_type";
 
         /**
+         * enable custom lockscreen max notifications config
+         * @hide
+         */
+        public static final String LOCK_SCREEN_CUSTOM_NOTIF = "lock_screen_custom_notif";
+        /** @hide */
+        private static final Validator LOCK_SCREEN_CUSTOM_NOTIF_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
+         * custom lockscreen max notification config
+         * @hide
+         */
+        public static final String LOCKSCREEN_MAX_NOTIF_CONFIG = "lockscreen_max_notif_config";
+        /** @hide */
+        private static final Validator LOCKSCREEN_MAX_NOTIF_CONFIG_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(1, 3);
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5037,7 +5054,9 @@ public final class Settings {
             QS_LAYOUT_COLUMNS,
             QS_TILE_TITLE_VISIBILITY,
             QS_LAYOUT_ROWS,
-            QS_QUICKBAR_COLUMNS
+            QS_QUICKBAR_COLUMNS,
+            LOCK_SCREEN_CUSTOM_NOTIF,
+            LOCKSCREEN_MAX_NOTIF_CONFIG
         };
 
         /**
@@ -5216,6 +5235,8 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_QUICKBAR_COLUMNS);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
+            PRIVATE_SETTINGS.add(LOCK_SCREEN_CUSTOM_NOTIF);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_MAX_NOTIF_CONFIG);
         }
 
         /**
@@ -5332,6 +5353,8 @@ public final class Settings {
             VALIDATORS.put(QS_TILE_TITLE_VISIBILITY, QS_TILE_TITLE_VISIBILITY_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_ROWS, QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(QS_QUICKBAR_COLUMNS, QS_QUICKBAR_COLUMNS_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_CUSTOM_NOTIF, LOCK_SCREEN_CUSTOM_NOTIF_VALIDATOR);
+            VALIDATORS.put(LOCKSCREEN_MAX_NOTIF_CONFIG, LOCKSCREEN_MAX_NOTIF_CONFIG_VALIDATOR);
         }
 
         /**
