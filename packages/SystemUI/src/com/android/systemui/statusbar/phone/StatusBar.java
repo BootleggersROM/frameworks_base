@@ -433,6 +433,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected final NotificationAlertingManager mNotificationAlertingManager =
             Dependency.get(NotificationAlertingManager.class);
 
+    //Lockscreen Notifications
+    private int mMaxKeyguardNotifConfig;
+
     // for disabling the status bar
     private int mDisabled1 = 0;
     private int mDisabled2 = 0;
@@ -4465,6 +4468,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                          Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG),
+                          false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4486,6 +4492,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE))) {
                 setLockscreenDoubleTapToSleep();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG))) {
+                setMaxKeyguardNotifConfig();
             }
             update();
         }
@@ -4497,6 +4506,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
             setLockscreenDoubleTapToSleep();
+            setMaxKeyguardNotifConfig();
         }
     }
 
@@ -4535,6 +4545,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         if (mStatusBarWindow != null) {
             mStatusBarWindow.setLockscreenDoubleTapToSleep();
         }
+    }
+
+    private void setMaxKeyguardNotifConfig() {
+        mMaxKeyguardNotifConfig = Settings.System.getIntForUser(mContext.getContentResolver(),
+                 Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG, 3, UserHandle.USER_CURRENT);
+        mPresenter.setMaxAllowedNotifUser(mMaxKeyguardNotifConfig);
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
@@ -4875,5 +4891,4 @@ public class StatusBar extends SystemUI implements DemoMode,
     public @TransitionMode int getStatusBarMode() {
         return mStatusBarMode;
     }
-
 }
