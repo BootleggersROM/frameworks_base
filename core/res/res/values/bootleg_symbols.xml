@@ -151,4 +151,7 @@
        this value will apply on Launcher3 quickstep view and also the normal recents -->
   <java-symbol type="dimen" name="recents_task_view_rounded_corners_radius" />
 
+  <!-- Oreo's recents component activity -->
+  <java-symbol type="string" name="config_recentsComponentNameOreo" />
+
 </resources>
