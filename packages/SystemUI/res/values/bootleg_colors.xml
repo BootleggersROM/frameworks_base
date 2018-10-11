@@ -53,5 +53,8 @@
     <color name="quick_settings_theme_tile_burningred">#f21a48</color>
     <color name="quick_settings_theme_tile_whythisgrey">#91919b</color>
 
+    <!-- Quicksettings main QS background-->
+    <color name="quick_settings_status_bar_background_color">#ff000000</color>
+
 </resources>
 
