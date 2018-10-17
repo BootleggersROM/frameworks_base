@@ -18,6 +18,8 @@ package com.android.internal.util.bootleggers;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -33,6 +35,7 @@ import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.DisplayInfo;
 import android.view.IWindowManager;
 import android.view.WindowManager;
@@ -51,6 +54,7 @@ public class BootlegUtils {
     public static final String INTENT_SCREENSHOT = "action_take_screenshot";
     public static final String INTENT_REGION_SCREENSHOT = "action_take_region_screenshot";
     private static IStatusBarService mStatusBarService = null;
+    private static final String TAG = "BootlegUtils";
 
     public static boolean isChineseLanguage() {
        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
@@ -216,6 +220,34 @@ public class BootlegUtils {
                         ServiceManager.getService("statusbar"));
             }
             return mStatusBarService;
+        }
+    }
+
+    // Switches qs tile style to user selected.
+    public static void updateTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
+        if (qsTileStyle == 0) {
+            stockTileStyle(om, userId);
+        } else {
+            try {
+                om.setEnabled(ThemesUtils.QS_TILE_THEMES[qsTileStyle],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change qs tile icon", e);
+            }
+        }
+    }
+
+    // Switches qs tile style back to stock.
+    public static void stockTileStyle(IOverlayManager om, int userId) {
+        // skip index 0
+        for (int i = 0; i < ThemesUtils.QS_TILE_THEMES.length; i++) {
+            String qstiletheme = ThemesUtils.QS_TILE_THEMES[i];
+            try {
+                om.setEnabled(qstiletheme,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
     }
 
