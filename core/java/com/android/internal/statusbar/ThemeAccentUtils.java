@@ -58,6 +58,17 @@ public class ThemeAccentUtils {
         "com.google.android.theme.whythisgrey", // 30
     };
 
+    private static final String[] QS_TILE_THEMES = {
+        "default_qstile", // 0
+        "com.bootleggers.qstile.deletround", // 1
+        "com.bootleggers.qstile.inktober", // 2
+        "com.bootleggers.qstile.shishunights", // 3
+        "com.bootleggers.qstile.circlegradient", // 4
+        "com.bootleggers.qstile.wavey", // 5
+        "com.bootleggers.qstile.circledualtone", // 6
+        "com.bootleggers.qstile.squaremedo", // 7
+    };
+
     private static final String[] DARK_THEMES = {
         "com.android.system.theme.dark", // 0
         "com.android.settings.theme.dark", // 1
@@ -294,6 +305,34 @@ public class ThemeAccentUtils {
                 } catch (RemoteException e) {
                     Log.w(TAG, "Can't change theme", e);
                 }
+        }
+    }
+
+    // Switches qs tile style to user selected.
+    public static void updateTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
+        if (qsTileStyle == 0) {
+            stockTileStyle(om, userId);
+        } else {
+            try {
+                om.setEnabled(QS_TILE_THEMES[qsTileStyle],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change qs tile icon", e);
+            }
+        }
+    }
+
+    // Switches qs tile style back to stock.
+    public static void stockTileStyle(IOverlayManager om, int userId) {
+        // skip index 0
+        for (int i = 1; i < QS_TILE_THEMES.length; i++) {
+            String qstiletheme = QS_TILE_THEMES[i];
+            try {
+                om.setEnabled(qstiletheme,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
