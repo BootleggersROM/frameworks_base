@@ -72,30 +72,35 @@ public class ThemeAccentUtils {
         "com.android.system.theme.shishu", // 0
         "com.android.settings.theme.shishu", // 1
         "com.android.systemui.theme.shishu", // 2
+        "com.google.android.gms.theme.shishu", // 3
     };
 
     private static final String[] SHISHUNIGHTS_THEMES = {
         "com.android.system.theme.shishunights", // 0
         "com.android.settings.theme.shishunights", // 1
         "com.android.systemui.theme.shishunights", // 2
+        "com.google.android.gms.theme.shishunights", // 3
     };
 
     private static final String[] SHISHUILLUSIONS_THEMES = {
         "com.android.system.theme.shishuillusions", // 0
         "com.android.settings.theme.shishuillusions", // 1
         "com.android.systemui.theme.shishuillusions", // 2
+        "com.google.android.gms.theme.shishuillusions", // 3
     };
 
     private static final String[] SHISHUIMMENSITY_THEMES = {
         "com.android.system.theme.shishuimmensity", // 0
         "com.android.settings.theme.shishuimmensity", // 1
         "com.android.systemui.theme.shishuimmensity", // 2
+        "com.google.android.gms.theme.shishuimmensity", // 3
     };
 
     private static final String[] SHISHUAMALGAMATION_THEMES = {
         "com.android.system.theme.shishuamalgamation", // 0
         "com.android.settings.theme.shishuamalgamation", // 1
         "com.android.systemui.theme.shishuamalgamation", // 2
+        "com.google.android.gms.theme.shishuamalgamation", // 3
     };
 
     // Switches theme accent from to another or back to stock
