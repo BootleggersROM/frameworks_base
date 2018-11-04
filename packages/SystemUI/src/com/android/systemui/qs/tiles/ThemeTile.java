@@ -70,62 +70,62 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                 R.string.quick_settings_theme_tile_color_default));
         sThemeItems.add(new ThemeTileItem(1, R.color.quick_settings_theme_tile_newhouseorange,
                 R.string.quick_settings_theme_tile_color_newhouseorange));
-        sThemeItems.add(new ThemeTileItem(2, R.color.quick_settings_theme_tile_warmthorange,
+        sThemeItems.add(new ThemeTileItem(2, R.color.quick_settings_theme_tile_sunsetorange,
+                R.string.quick_settings_theme_tile_color_sunsetorange));
+        sThemeItems.add(new ThemeTileItem(3, R.color.quick_settings_theme_tile_warmthorange,
                 R.string.quick_settings_theme_tile_color_warmthorange));
-        sThemeItems.add(new ThemeTileItem(3, R.color.quick_settings_theme_tile_awmawyorange,
-                R.string.quick_settings_theme_tile_color_awmawyorange));
-        sThemeItems.add(new ThemeTileItem(4, R.color.quick_settings_theme_tile_coldsummeryellow,
-                R.string.quick_settings_theme_tile_color_coldsummeryellow));
-        sThemeItems.add(new ThemeTileItem(5, R.color.quick_settings_theme_tile_maniayellow,
+        sThemeItems.add(new ThemeTileItem(4, R.color.quick_settings_theme_tile_maniayellow,
                 R.string.quick_settings_theme_tile_color_maniayellow));
-        sThemeItems.add(new ThemeTileItem(6, R.color.quick_settings_theme_tile_limedgreen,
+        sThemeItems.add(new ThemeTileItem(5, R.color.quick_settings_theme_tile_limedgreen,
                 R.string.quick_settings_theme_tile_color_limedgreen));
-        sThemeItems.add(new ThemeTileItem(7, R.color.quick_settings_theme_tile_diffdaygreen,
+        sThemeItems.add(new ThemeTileItem(6, R.color.quick_settings_theme_tile_diffdaygreen,
                 R.string.quick_settings_theme_tile_color_diffdaygreen));
+        sThemeItems.add(new ThemeTileItem(7, R.color.quick_settings_theme_tile_spoofygreen,
+                R.string.quick_settings_theme_tile_color_spoofygreen));
         sThemeItems.add(new ThemeTileItem(8, R.color.quick_settings_theme_tile_movemint,
                 R.string.quick_settings_theme_tile_color_movemint));
-        sThemeItems.add(new ThemeTileItem(9, R.color.quick_settings_theme_tile_seasidemint,
-                R.string.quick_settings_theme_tile_color_seasidemint));
-        sThemeItems.add(new ThemeTileItem(10, R.color.quick_settings_theme_tile_naturedgreen,
+        sThemeItems.add(new ThemeTileItem(9, R.color.quick_settings_theme_tile_naturedgreen,
                 R.string.quick_settings_theme_tile_color_naturedgreen));
-        sThemeItems.add(new ThemeTileItem(11, R.color.quick_settings_theme_tile_aospteal,
+        sThemeItems.add(new ThemeTileItem(10, R.color.quick_settings_theme_tile_aospteal,
                 R.string.quick_settings_theme_tile_color_aospteal));
-        sThemeItems.add(new ThemeTileItem(12, R.color.quick_settings_theme_tile_kablue,
-                R.string.quick_settings_theme_tile_color_kablue));
-        sThemeItems.add(new ThemeTileItem(13, R.color.quick_settings_theme_tile_holillusion,
+        sThemeItems.add(new ThemeTileItem(11, R.color.quick_settings_theme_tile_drownedaqua,
+                R.string.quick_settings_theme_tile_color_drownedaqua));
+        sThemeItems.add(new ThemeTileItem(12, R.color.quick_settings_theme_tile_holillusion,
                 R.string.quick_settings_theme_tile_color_holillusion));
+        sThemeItems.add(new ThemeTileItem(13, R.color.quick_settings_theme_tile_coldeveningbleu,
+                R.string.quick_settings_theme_tile_color_coldeveningbleu));
         sThemeItems.add(new ThemeTileItem(14, R.color.quick_settings_theme_tile_heirloom,
                 R.string.quick_settings_theme_tile_color_heirloom));
-        sThemeItems.add(new ThemeTileItem(15, R.color.quick_settings_theme_tile_coldeveningbleu,
-                R.string.quick_settings_theme_tile_color_coldeveningbleu));
-        sThemeItems.add(new ThemeTileItem(16, R.color.quick_settings_theme_tile_obfusbleu,
+        sThemeItems.add(new ThemeTileItem(15, R.color.quick_settings_theme_tile_obfusbleu,
                 R.string.quick_settings_theme_tile_color_obfusbleu));
-        sThemeItems.add(new ThemeTileItem(17, R.color.quick_settings_theme_tile_frenchbleu,
+        sThemeItems.add(new ThemeTileItem(16, R.color.quick_settings_theme_tile_almostproblue,
+                R.string.quick_settings_theme_tile_color_almostproblue));
+        sThemeItems.add(new ThemeTileItem(17, R.color.quick_settings_theme_tile_lunablue,
+                R.string.quick_settings_theme_tile_color_lunablue));
+        sThemeItems.add(new ThemeTileItem(18, R.color.quick_settings_theme_tile_frenchbleu,
                 R.string.quick_settings_theme_tile_color_frenchbleu));
-        sThemeItems.add(new ThemeTileItem(18, R.color.quick_settings_theme_tile_footprintpurple,
-                R.string.quick_settings_theme_tile_color_footprintpurple));
         sThemeItems.add(new ThemeTileItem(19, R.color.quick_settings_theme_tile_dreamypurple,
                 R.string.quick_settings_theme_tile_color_dreamypurple));
         sThemeItems.add(new ThemeTileItem(20, R.color.quick_settings_theme_tile_notimpurple,
                 R.string.quick_settings_theme_tile_color_notimpurple));
-        sThemeItems.add(new ThemeTileItem(21, R.color.quick_settings_theme_tile_spookedpurple,
+        sThemeItems.add(new ThemeTileItem(21, R.color.quick_settings_theme_tile_grapespurple,
+                R.string.quick_settings_theme_tile_color_grapespurple));
+        sThemeItems.add(new ThemeTileItem(22, R.color.quick_settings_theme_tile_spookedpurple,
                 R.string.quick_settings_theme_tile_color_spookedpurple));
-        sThemeItems.add(new ThemeTileItem(22, R.color.quick_settings_theme_tile_illusionspurple,
-                R.string.quick_settings_theme_tile_color_illusionspurple));
-        sThemeItems.add(new ThemeTileItem(23, R.color.quick_settings_theme_tile_trufilpink,
-                R.string.quick_settings_theme_tile_color_trufilpink));
+        sThemeItems.add(new ThemeTileItem(23, R.color.quick_settings_theme_tile_dimigouig,
+                R.string.quick_settings_theme_tile_color_dimigouig));
         sThemeItems.add(new ThemeTileItem(24, R.color.quick_settings_theme_tile_duskpurple,
                 R.string.quick_settings_theme_tile_color_duskpurple));
-        sThemeItems.add(new ThemeTileItem(25, R.color.quick_settings_theme_tile_labouchered,
-                R.string.quick_settings_theme_tile_color_labouchered));
-        sThemeItems.add(new ThemeTileItem(26, R.color.quick_settings_theme_tile_bubblegumpink,
+        sThemeItems.add(new ThemeTileItem(25, R.color.quick_settings_theme_tile_bubblegumpink,
                 R.string.quick_settings_theme_tile_color_bubblegumpink));
-        sThemeItems.add(new ThemeTileItem(27, R.color.quick_settings_theme_tile_misleadingred,
-                R.string.quick_settings_theme_tile_color_misleadingred));
-        sThemeItems.add(new ThemeTileItem(28, R.color.quick_settings_theme_tile_hazedpink,
-                R.string.quick_settings_theme_tile_color_hazedpink));
-        sThemeItems.add(new ThemeTileItem(29, R.color.quick_settings_theme_tile_burningred,
+        sThemeItems.add(new ThemeTileItem(26, R.color.quick_settings_theme_tile_dawnred,
+                R.string.quick_settings_theme_tile_color_dawnred));
+        sThemeItems.add(new ThemeTileItem(27, R.color.quick_settings_theme_tile_burningred,
                 R.string.quick_settings_theme_tile_color_burningred));
+        sThemeItems.add(new ThemeTileItem(28, R.color.quick_settings_theme_tile_labouchered,
+                R.string.quick_settings_theme_tile_color_labouchered));
+        sThemeItems.add(new ThemeTileItem(29, R.color.quick_settings_theme_tile_misleadingred,
+                R.string.quick_settings_theme_tile_color_misleadingred));
         sThemeItems.add(new ThemeTileItem(30, R.color.quick_settings_theme_tile_whythisgrey,
                 R.string.quick_settings_theme_tile_color_whythisgrey));
     }

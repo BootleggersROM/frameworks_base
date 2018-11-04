@@ -116,34 +116,34 @@
     <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
     <string name="quick_settings_theme_tile_color_default">Default Accent</string>
     <string name="quick_settings_theme_tile_color_newhouseorange" translatable="false">New House Orange</string>
+    <string name="quick_settings_theme_tile_color_sunsetorange" translatable="false">Sunset Orange</string>
     <string name="quick_settings_theme_tile_color_warmthorange" translatable="false">Warmth Orange</string>
-    <string name="quick_settings_theme_tile_color_awmawyorange" translatable="false">AWMAWY Orange</string>
-    <string name="quick_settings_theme_tile_color_coldsummeryellow" translatable="false">Cold Summer Yellow</string>
     <string name="quick_settings_theme_tile_color_maniayellow" translatable="false">Mania Yellow</string>
     <string name="quick_settings_theme_tile_color_limedgreen" translatable="false">Limed Green</string>
     <string name="quick_settings_theme_tile_color_diffdaygreen" translatable="false">A Different Day Green</string>
+    <string name="quick_settings_theme_tile_color_spoofygreen" translatable="false">Spoofy Green</string>
     <string name="quick_settings_theme_tile_color_movemint" translatable="false">Move Mint</string>
-    <string name="quick_settings_theme_tile_color_seasidemint" translatable="false">Seaside Mint</string>
     <string name="quick_settings_theme_tile_color_naturedgreen" translatable="false">Nature Taken Green</string>
     <string name="quick_settings_theme_tile_color_aospteal" translatable="false">AOSP Stock Teal</string>
-    <string name="quick_settings_theme_tile_color_kablue" translatable="false">A Kernel Adiutor Blue</string>
+    <string name="quick_settings_theme_tile_color_drownedaqua" translatable="false">Drowned Aqua Blue</string>
     <string name="quick_settings_theme_tile_color_holillusion" translatable="false">Holillusion Cyan</string>
-    <string name="quick_settings_theme_tile_color_heirloom" translatable="false">Heirloom Hydrangea Bleu</string>
     <string name="quick_settings_theme_tile_color_coldeveningbleu" translatable="false">Cold Evening Blue</string>
+    <string name="quick_settings_theme_tile_color_heirloom" translatable="false">Heirloom Hydrangea Bleu</string>
     <string name="quick_settings_theme_tile_color_obfusbleu" translatable="false">Obfuscated Bleu</string>
+    <string name="quick_settings_theme_tile_color_almostproblue" translatable="false">Almost Professional Blue</string>
+    <string name="quick_settings_theme_tile_color_lunablue" translatable="false">Luna Blue</string>
     <string name="quick_settings_theme_tile_color_frenchbleu" translatable="false">French Bleu</string>
-    <string name="quick_settings_theme_tile_color_footprintpurple" translatable="false">Footprint Purple</string>
     <string name="quick_settings_theme_tile_color_dreamypurple" translatable="false">By the way here\'s a dreamy purple</string>
     <string name="quick_settings_theme_tile_color_notimpurple" translatable="false">Not Impressive Purple</string>
+    <string name="quick_settings_theme_tile_color_grapespurple" translatable="false">Deprecated Grapes Purple</string>
     <string name="quick_settings_theme_tile_color_spookedpurple" translatable="false">Spooked Purple</string>
-    <string name="quick_settings_theme_tile_color_illusionspurple" translatable="false">Illusions Purple</string>
-    <string name="quick_settings_theme_tile_color_trufilpink" translatable="false">True Feel Pink</string>
+    <string name="quick_settings_theme_tile_color_dimigouig" translatable="false">DIMIGO (totally not stolen from UIGradients)</string>
     <string name="quick_settings_theme_tile_color_duskpurple" translatable="false">Dusk Purple</string>
-    <string name="quick_settings_theme_tile_color_labouchered" translatable="false">La Bouche Red</string>
     <string name="quick_settings_theme_tile_color_bubblegumpink" translatable="false">Bubblegum Pink</string>
-    <string name="quick_settings_theme_tile_color_misleadingred" translatable="false">Misleading Red</string>
-    <string name="quick_settings_theme_tile_color_hazedpink" translatable="false">Hazed Pink</string>
+    <string name="quick_settings_theme_tile_color_dawnred" translatable="false">A Similar Dawn Red</string>
     <string name="quick_settings_theme_tile_color_burningred" translatable="false">Burning Red</string>
+    <string name="quick_settings_theme_tile_color_labouchered" translatable="false">La Bouche Red</string>
+    <string name="quick_settings_theme_tile_color_misleadingred" translatable="false">Misleading Red</string>
     <string name="quick_settings_theme_tile_color_whythisgrey" translatable="false">For some reason here\'s a grey</string>
 
     <!-- Theme QS -->

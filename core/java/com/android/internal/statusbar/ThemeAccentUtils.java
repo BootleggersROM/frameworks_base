@@ -27,34 +27,34 @@ public class ThemeAccentUtils {
     private static final String[] ACCENTS = {
         "default_accent", // 0
         "com.google.android.theme.newhouseorange", // 1
-        "com.google.android.theme.warmthorange", // 2
-        "com.google.android.theme.awmawy", // 3
-        "com.google.android.theme.coldyellow", // 4
-        "com.google.android.theme.maniamber", // 5
-        "com.google.android.theme.limedgreen", // 6
-        "com.google.android.theme.diffdaygreen", // 7
+        "com.google.android.theme.sunsetorange", // 2
+        "com.google.android.theme.warmthorange", // 3
+        "com.google.android.theme.maniamber", // 4
+        "com.google.android.theme.limedgreen", // 5
+        "com.google.android.theme.diffdaygreen", // 6
+        "com.google.android.theme.spoofygreen", // 7
         "com.google.android.theme.movemint", // 8
-        "com.google.android.theme.seasidemint", // 9
-        "com.google.android.theme.naturedgreen", // 10
-        "com.google.android.theme.stock", // 11
-        "com.google.android.theme.kablue", // 12
-        "com.google.android.theme.holillusion", // 13
+        "com.google.android.theme.naturedgreen", // 9
+        "com.google.android.theme.stock", // 10
+        "com.google.android.theme.drownedaqua", // 11
+        "com.google.android.theme.holillusion", // 12
+        "com.google.android.theme.coldbleu", // 13
         "com.google.android.theme.heirloombleu", // 14
-        "com.google.android.theme.coldbleu", // 15
-        "com.google.android.theme.obfusbleu", // 16
-        "com.google.android.theme.frenchbleu", // 17
-        "com.google.android.theme.footprintpurple", // 18
+        "com.google.android.theme.obfusbleu", // 15
+        "com.google.android.theme.almostproblue", // 16
+        "com.google.android.theme.lunablue", // 17
+        "com.google.android.theme.frenchbleu", // 18
         "com.google.android.theme.dreamypurple", // 19
         "com.google.android.theme.notimppurple", // 20
-        "com.google.android.theme.spookedpurple", // 21
-        "com.google.android.theme.illusionspurple", // 22
-        "com.google.android.theme.trufilpink", // 23
+        "com.google.android.theme.grapespurple", // 21
+        "com.google.android.theme.spookedpurple", // 22
+        "com.google.android.theme.dimigouig", // 23
         "com.google.android.theme.duskpurple", // 24
-        "com.google.android.theme.labouchered", // 25
-        "com.google.android.theme.bubblegumpink", // 26
-        "com.google.android.theme.misleadingred", // 27
-        "com.google.android.theme.hazedpink", // 28
-        "com.google.android.theme.burningred", // 29
+        "com.google.android.theme.bubblegumpink", // 25
+        "com.google.android.theme.dawnred", // 26
+        "com.google.android.theme.burningred", // 27
+        "com.google.android.theme.labouchered", // 28
+        "com.google.android.theme.misleadingred", // 29
         "com.google.android.theme.whythisgrey", // 30
     };
 
