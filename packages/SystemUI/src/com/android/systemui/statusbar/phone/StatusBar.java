@@ -2221,6 +2221,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         return ThemeAccentUtils.isUsingShishuAmalgamationTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
+    public boolean isUsingShishuCosmosTheme() {
+        return ThemeAccentUtils.isUsingShishuCosmosTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    }
+
 
     @Nullable
     public View getAmbientIndicationContainer() {
@@ -4064,6 +4068,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         boolean useShishuIllusionsTheme = false;
         boolean useShishuImmensityTheme = false;
         boolean useShishuAmalgamationTheme = false;
+        boolean useShishuCosmosTheme = false;
         if (mCurrentTheme == 0) {
             // The system wallpaper defines if QS should be light or dark.
             WallpaperColors systemColors = mColorExtractor
@@ -4083,6 +4088,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             useShishuIllusionsTheme = mCurrentTheme == 6;
             useShishuImmensityTheme = mCurrentTheme == 7;
             useShishuAmalgamationTheme = mCurrentTheme == 8;
+            useShishuCosmosTheme = mCurrentTheme == 9;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
@@ -4104,6 +4110,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
         if (isUsingShishuAmalgamationTheme() != useShishuAmalgamationTheme) {
             ThemeAccentUtils.setLightShishuAmalgamationTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuAmalgamationTheme);
+        }
+        if (isUsingShishuCosmosTheme() != useShishuCosmosTheme) {
+            ThemeAccentUtils.setLightShishuCosmosTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuCosmosTheme);
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
