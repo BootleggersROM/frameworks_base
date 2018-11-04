@@ -67,6 +67,11 @@ public class ThemeAccentUtils {
         "com.bootleggers.qstile.wavey", // 5
         "com.bootleggers.qstile.circledualtone", // 6
         "com.bootleggers.qstile.squaremedo", // 7
+        "com.bootleggers.qstile.pokesign", // 8
+        "com.bootleggers.qstile.ninja", // 9
+        "com.bootleggers.qstile.dottedcircle", // 10
+        "com.bootleggers.qstile.shishuink", // 11
+        "com.bootleggers.qstile.attemptmountain", // 12
     };
 
     private static final String[] DARK_THEMES = {
