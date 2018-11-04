@@ -4889,6 +4889,13 @@ public final class Settings {
         private static final Validator VOLUME_KEYS_CONTROL_RING_TONE_VALIDATOR =
                BOOLEAN_VALIDATOR;
 
+
+        /**
+         * Apps to skip for Pulse
+         * @hide
+         */
+        public static final String PULSE_APPS_BLACKLIST = "pulse_apps_blacklist";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
