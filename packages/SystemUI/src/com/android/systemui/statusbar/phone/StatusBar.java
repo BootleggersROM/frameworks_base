@@ -2225,6 +2225,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         return ThemeAccentUtils.isUsingShishuCosmosTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
+    public boolean isUsingShishuProtostarTheme() {
+        return ThemeAccentUtils.isUsingShishuProtostarTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    }
+
 
     @Nullable
     public View getAmbientIndicationContainer() {
@@ -4069,6 +4073,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         boolean useShishuImmensityTheme = false;
         boolean useShishuAmalgamationTheme = false;
         boolean useShishuCosmosTheme = false;
+        boolean useShishuProtostarTheme = false;
         if (mCurrentTheme == 0) {
             // The system wallpaper defines if QS should be light or dark.
             WallpaperColors systemColors = mColorExtractor
@@ -4089,6 +4094,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             useShishuImmensityTheme = mCurrentTheme == 7;
             useShishuAmalgamationTheme = mCurrentTheme == 8;
             useShishuCosmosTheme = mCurrentTheme == 9;
+            useShishuProtostarTheme = mCurrentTheme == 10;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
             ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
@@ -4113,6 +4119,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
         if (isUsingShishuCosmosTheme() != useShishuCosmosTheme) {
             ThemeAccentUtils.setLightShishuCosmosTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuCosmosTheme);
+        }
+        if (isUsingShishuProtostarTheme() != useShishuProtostarTheme) {
+            ThemeAccentUtils.setLightShishuProtostarTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuProtostarTheme);
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
