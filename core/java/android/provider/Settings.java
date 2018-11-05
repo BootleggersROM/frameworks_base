@@ -4397,6 +4397,12 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
 
 
+        /*
+         * Whether to use smart clock or not
+         * @hide
+         */
+        public static final String SMART_CLOCK_ENABLE = "smart_clock_enable";
+
         /**
          * Select which lockscreen clock style to display
          * @hide
