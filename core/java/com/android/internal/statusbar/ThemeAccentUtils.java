@@ -60,18 +60,20 @@ public class ThemeAccentUtils {
 
     private static final String[] QS_TILE_THEMES = {
         "default_qstile", // 0
-        "com.bootleggers.qstile.deletround", // 1
-        "com.bootleggers.qstile.inktober", // 2
-        "com.bootleggers.qstile.shishunights", // 3
-        "com.bootleggers.qstile.circlegradient", // 4
-        "com.bootleggers.qstile.wavey", // 5
-        "com.bootleggers.qstile.circledualtone", // 6
-        "com.bootleggers.qstile.squaremedo", // 7
-        "com.bootleggers.qstile.pokesign", // 8
-        "com.bootleggers.qstile.ninja", // 9
-        "com.bootleggers.qstile.dottedcircle", // 10
-        "com.bootleggers.qstile.shishuink", // 11
-        "com.bootleggers.qstile.attemptmountain", // 12
+        "com.bootleggers.qstile.squircle", // 1
+        "com.bootleggers.qstile.teardrop", // 2
+        "com.bootleggers.qstile.deletround", // 3
+        "com.bootleggers.qstile.inktober", // 4
+        "com.bootleggers.qstile.shishunights", // 5
+        "com.bootleggers.qstile.circlegradient", // 6
+        "com.bootleggers.qstile.wavey", // 7
+        "com.bootleggers.qstile.circledualtone", // 8
+        "com.bootleggers.qstile.squaremedo", // 9
+        "com.bootleggers.qstile.pokesign", // 10
+        "com.bootleggers.qstile.ninja", // 11
+        "com.bootleggers.qstile.dottedcircle", // 12
+        "com.bootleggers.qstile.shishuink", // 13
+        "com.bootleggers.qstile.attemptmountain", // 14
     };
 
     private static final String[] DARK_THEMES = {
