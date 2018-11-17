@@ -1581,6 +1581,20 @@ public final class Settings {
     public static final String ACTION_STORAGE_VOLUME_ACCESS_SETTINGS =
             "android.settings.STORAGE_VOLUME_ACCESS_SETTINGS";
 
+    /**
+     * Activity Action: Show first time device intro
+     * <p>
+     * In some cases, a matching Activity may not exist, so ensure you
+     * safeguard against this.
+     * <p>
+     * Input: Nothing.
+     * <p>
+     * Output: Nothing
+     */
+    @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
+    public static final String ACTION_DEVICE_INTRODUCTION =
+        "android.settings.DEVICE_INTRODUCTION";
+
     // End of Intent actions for Settings
 
     /**
@@ -5497,6 +5511,15 @@ public final class Settings {
         private static final Validator SLIM_RECENTS_BLACKLIST_VALUES_VALIDATOR = ANY_STRING_VALIDATOR;
 
         /**
+         * Weather the device introduction is completed
+         * @hide
+         */
+        public static final String DEVICE_INTRODUCTION_COMPLETED = "device_introduction_completed";
+
+        /** @hide */
+        private static final Validator DEVICE_INTRODUCTION_COMPLETED_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5790,6 +5813,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SLIM_MEM_TEXT_COLOR);
             PRIVATE_SETTINGS.add(SLIM_RECENTS_CORNER_RADIUS);
             PRIVATE_SETTINGS.add(SLIM_RECENTS_BLACKLIST_VALUES);
+            PRIVATE_SETTINGS.add(DEVICE_INTRODUCTION_COMPLETED);
         }
 
         /**
@@ -5942,6 +5966,7 @@ public final class Settings {
             VALIDATORS.put(SLIM_MEM_TEXT_COLOR, SLIM_MEM_TEXT_COLOR_VALIDATOR);
             VALIDATORS.put(SLIM_RECENTS_CORNER_RADIUS, SLIM_RECENTS_CORNER_RADIUS_VALIDATOR);
             VALIDATORS.put(SLIM_RECENTS_BLACKLIST_VALUES, SLIM_RECENTS_BLACKLIST_VALUES_VALIDATOR);
+            VALIDATORS.put(DEVICE_INTRODUCTION_COMPLETED, DEVICE_INTRODUCTION_COMPLETED_VALIDATOR);
         }
 
         /**
