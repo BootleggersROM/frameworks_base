@@ -1819,6 +1819,20 @@ public final class Settings {
             "android.settings.ENABLE_MMS_DATA_REQUEST";
 
     /**
+     * Activity Action: Show first time device intro
+     * <p>
+     * In some cases, a matching Activity may not exist, so ensure you
+     * safeguard against this.
+     * <p>
+     * Input: Nothing.
+     * <p>
+     * Output: Nothing
+     */
+    @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
+    public static final String ACTION_DEVICE_INTRODUCTION =
+        "android.settings.DEVICE_INTRODUCTION";
+
+    /**
      * Integer value that specifies the reason triggering enable MMS data notification.
      * This must be passed as an extra field to the {@link #ACTION_ENABLE_MMS_DATA_REQUEST}.
      * Extra with value of EnableMmsDataReason interface.
@@ -5334,6 +5348,16 @@ public final class Settings {
         public static final String LOCK_DATE_FONTS = "lock_date_fonts";
 
         /**
+         * Whether the device introduction is completed
+         * @hide
+         */
+        public static final String DEVICE_INTRODUCTION_COMPLETED = "device_introduction_completed";
+
+        /** @hide */
+        private static final Validator DEVICE_INTRODUCTION_COMPLETED_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5634,6 +5658,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
             PRIVATE_SETTINGS.add(GESTURE_PILL_TOGGLE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
+            PRIVATE_SETTINGS.add(DEVICE_INTRODUCTION_COMPLETED);
         }
 
         /**
@@ -5778,6 +5803,7 @@ public final class Settings {
             VALIDATORS.put(CUSTOM_DEVICE_PROXI_CHECK_ENABLED, CUSTOM_DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);
             VALIDATORS.put(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED, CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);
             VALIDATORS.put(CUSTOM_DEVICE_FEATURE_SETTINGS, CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR);
+            VALIDATORS.put(DEVICE_INTRODUCTION_COMPLETED, DEVICE_INTRODUCTION_COMPLETED_VALIDATOR);
         }
 
         /**
