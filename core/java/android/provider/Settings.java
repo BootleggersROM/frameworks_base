@@ -6094,6 +6094,13 @@ public final class Settings {
         public static final String LOCKSCREEN_WEATHER_SHOW_CITY = "lockscreen_weather_show_city";
 
         /**
+         * Whether to display set of animations when prompting the power menu
+         *
+         * @hide
+         */
+        public static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+
+        /**
          * Bottom screen shortcuts on keyguard
          * Two lists of strings delimeted by ;
          * Each list of string is delimited by ,
