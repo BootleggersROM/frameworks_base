@@ -4953,6 +4953,12 @@ public final class Settings {
         private static final Validator QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
 	/**
+         * Whether to show VoLTE icon or not
+         * @hide
+         */
+        public static final String SHOW_VOLTE_ICON = "volte_icon";
+
+	/**
          * Whether the battery light should be enabled (if hardware supports it)
          * The value is boolean (1 or 0).
          * @hide
