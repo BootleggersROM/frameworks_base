@@ -73,6 +73,8 @@ public class BatteryMeterView extends LinearLayout implements
     private int mTextColor;
     private int mLevel;
     private boolean mForceShowPercent;
+    private boolean misQsbHeader;
+    private int mShowPercent;
     private boolean mShowPercentAvailable;
     private boolean mCharging;
 
@@ -240,7 +242,9 @@ public class BatteryMeterView extends LinearLayout implements
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
 
         if (isCircleBattery() || mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT) {
+            if (!alwaysShowPercentage()) {
             setForceShowPercent(pluggedIn);
+            }
         }
 
         mDrawable.setBatteryLevel(level);
@@ -288,6 +292,12 @@ public class BatteryMeterView extends LinearLayout implements
         }
     }
 
+    private boolean alwaysShowPercentage() {
+        return misQsbHeader
+                && (mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN
+                || (mStyle != BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN && mShowPercent == 0/*hidden*/));
+    }
+
     private void updateShowPercent() {
         final boolean hideText = Settings.Secure.getIntForUser(
                 getContext().getContentResolver(), STATUS_BAR_BATTERY_STYLE, 0, mUser) == 4;
@@ -297,7 +307,7 @@ public class BatteryMeterView extends LinearLayout implements
                 getContext().getContentResolver(), SHOW_BATTERY_PERCENT, 0, mUser) == 2;
         final boolean showingOutside = mBatteryPercentView != null;
         if (0 != Settings.System.getIntForUser(getContext().getContentResolver(),
-                SHOW_BATTERY_PERCENT, 0, mUser) || mForceShowPercent || showingText || hideText) {
+                SHOW_BATTERY_PERCENT, 0, mUser) || mForceShowPercent || showingText || hideText || alwaysShowPercentage()) {
             if (!showingOutside) {
                 mDrawable.setShowPercent(false);
                 mBatteryPercentView = loadPercentView();
@@ -402,6 +412,10 @@ public class BatteryMeterView extends LinearLayout implements
             super.onChange(selfChange, uri);
             updateShowPercent();
         }
+    }
+
+    public void isQsbHeader() {
+        misQsbHeader = true;
     }
 
     private void updateBatteryStyle(String styleStr) {
