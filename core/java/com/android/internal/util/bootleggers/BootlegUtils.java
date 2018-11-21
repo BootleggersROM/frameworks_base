@@ -44,6 +44,7 @@ import android.view.IWindowManager;
 import android.view.WindowManager;
 import android.view.WindowManagerGlobal;
 
+import com.android.internal.R;
 import com.android.internal.statusbar.IStatusBarService;
 
 import java.util.List;
@@ -189,6 +190,11 @@ public class BootlegUtils {
 
     public static boolean isTablet(Context context) {
         return getScreenType(context) == DEVICE_TABLET;
+    }
+
+    // Check to see if device supports an alterative ambient display package
+    public static boolean hasAltAmbientDisplay(Context context) {
+        return context.getResources().getBoolean(com.android.internal.R.bool.config_alt_ambient_display);
     }
 
     private static final class FireActions {
