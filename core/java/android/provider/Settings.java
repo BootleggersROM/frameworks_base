@@ -5257,6 +5257,14 @@ public final class Settings {
                 ANY_STRING_VALIDATOR;
 
         /**
+         * Whether to show the kill app button in notification guts
+         *
+         * @hide
+         */
+        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
+                "notification_guts_kill_app_button";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
