@@ -4326,6 +4326,13 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_FLASHLIGHT = "global_actions_flashlight";
 
         /**
+         * Three Finger Gesture from Oppo
+         *
+         * @hide
+         */
+        public static final String THREE_FINGER_GESTURE = "three_finger_gesture";
+
+        /**
          * Allow all rotations.
          * @hide
          */
