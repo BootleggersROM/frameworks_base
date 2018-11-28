@@ -315,7 +315,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     public void hideCarrierName(boolean animate) {
         if (mCustomCarrierLabel != null) {
-            animateHide(mCustomCarrierLabel, animate);
+            animateGone(mCustomCarrierLabel);
         }
     }
 
@@ -352,6 +352,13 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
      */
     private void animateHide(final View v, boolean animate) {
         animateHiddenState(v, View.INVISIBLE, animate);
+    }
+
+    /**
+     * Remove a view.
+     */
+    private void animateGone(final View v) {
+        animateHiddenState(v, View.GONE, false);
     }
 
     /**
@@ -423,7 +430,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         if (mShowCarrierLabel == 2 || mShowCarrierLabel == 3) {
             animateShow(mCustomCarrierLabel, animate);
         } else {
-            animateHide(mCustomCarrierLabel, animate);
+            animateGone(mCustomCarrierLabel);
         }
     }
 
