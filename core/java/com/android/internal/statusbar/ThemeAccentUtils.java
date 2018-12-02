@@ -77,15 +77,15 @@ public class ThemeAccentUtils {
     };
 
     private static final String[] DARK_THEMES = {
-        "com.android.system.theme.dark", // 0
-        "com.android.settings.theme.dark", // 1
-        "com.android.systemui.theme.dark", // 2
+        "com.android.system.theme.darktheem", // 0
+        "com.android.settings.theme.darktheem", // 1
+        "com.android.systemui.theme.darktheem", // 2
     };
 
     private static final String[] BLACK_THEMES = {
-        "com.android.system.theme.black", // 0
-        "com.android.settings.theme.black", // 1
-        "com.android.systemui.theme.black", // 2
+        "com.android.system.theme.blacktheem", // 0
+        "com.android.settings.theme.blacktheem", // 1
+        "com.android.systemui.theme.blacktheem", // 2
     };
 
     private static final String[] SHISHU_THEMES = {
