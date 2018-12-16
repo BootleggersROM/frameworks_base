@@ -6008,7 +6008,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.USE_SLIM_RECENTS),
                   false, this, UserHandle.USER_ALL);
-            update();
         }
 
         @Override
