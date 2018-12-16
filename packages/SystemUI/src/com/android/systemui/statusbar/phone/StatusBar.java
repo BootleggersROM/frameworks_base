@@ -6008,13 +6008,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.USE_SLIM_RECENTS),
                   false, this, UserHandle.USER_ALL);
-            update();
         }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            update();
             if (uri.equals(Settings.System.getUriFor(
                         Settings.System.ACCENT_PICKER))) {
                     // Unload the accents and update the accent only when the user asks.
