@@ -65,12 +65,11 @@
 
 namespace android {
 
-static const char RANDOM_BOOTANIMATION_FILE1[] = "/system/media/bootanimation1.zip";
-static const char RANDOM_BOOTANIMATION_FILE2[] = "/system/media/bootanimation2.zip";
-static const char RANDOM_BOOTANIMATION_FILE3[] = "/system/media/bootanimation3.zip";
 static const char OEM_BOOTANIMATION_FILE[] = "/oem/media/bootanimation.zip";
 static const char PRODUCT_BOOTANIMATION_FILE[] = "/product/media/bootanimation.zip";
 static const char SYSTEM_BOOTANIMATION_FILE[] = "/system/media/bootanimation.zip";
+static const char SYSTEM_BOOTANIMATION_FILE2[] = "/system/media/bootanimation2.zip";
+static const char SYSTEM_BOOTANIMATION_FILE3[] = "/system/media/bootanimation3.zip";
 static const char PRODUCT_ENCRYPTED_BOOTANIMATION_FILE[] = "/product/media/bootanimation-encrypted.zip";
 static const char SYSTEM_ENCRYPTED_BOOTANIMATION_FILE[] = "/system/media/bootanimation-encrypted.zip";
 static const char OEM_SHUTDOWNANIMATION_FILE[] = "/oem/media/shutdownanimation.zip";
@@ -325,6 +324,8 @@ status_t BootAnimation::readyToRun() {
             }
         }
     }
+    static const char* systemBootFiles[] =
+        {SYSTEM_BOOTANIMATION_FILE, SYSTEM_BOOTANIMATION_FILE2, SYSTEM_BOOTANIMATION_FILE3};
     static const char* bootFiles[] =
         {PRODUCT_BOOTANIMATION_FILE, OEM_BOOTANIMATION_FILE, SYSTEM_BOOTANIMATION_FILE};
     static const char* shutdownFiles[] =
@@ -332,15 +333,10 @@ status_t BootAnimation::readyToRun() {
 
     if (!mShuttingDown) {
         srand (time(NULL));
-        int animNum = rand()%3+1;
-        if (animNum == 1 && access(RANDOM_BOOTANIMATION_FILE1, R_OK) == 0) {
-            mZipFileName = RANDOM_BOOTANIMATION_FILE1;
-            return NO_ERROR;
-        } else if (animNum == 2 && access(RANDOM_BOOTANIMATION_FILE2, R_OK) == 0) {
-            mZipFileName = RANDOM_BOOTANIMATION_FILE2;
-            return NO_ERROR;
-        } else if (animNum == 3 && access(RANDOM_BOOTANIMATION_FILE3, R_OK) == 0) {
-            mZipFileName = RANDOM_BOOTANIMATION_FILE3;
+        int randomInt = rand()%3;
+        const char* randBootanimFile = systemBootFiles[randomInt];
+        if (access(randBootanimFile, R_OK) == 0) {
+            mZipFileName = randBootanimFile;
             return NO_ERROR;
         }
     }
