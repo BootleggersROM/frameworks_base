@@ -47,6 +47,7 @@ import android.media.ToneGenerator;
 import android.media.session.MediaSessionLegacyHelper;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -82,6 +83,7 @@ import java.util.Set;
 
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.utils.Config.ActionConfig;
+import com.android.internal.util.bootleggers.BootlegUtils;
 
 public class ActionHandler {
     public static String TAG = ActionHandler.class.getSimpleName();
@@ -1150,10 +1152,37 @@ public class ActionHandler {
     */
 
     public static void startAssistantSoundSearch(Context context) {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        context.startActivity(intent);
+        // Shazam 
+        if (BootlegUtils.isPackageInstalled(context, "com.shazam.android") || BootlegUtils.isPackageInstalled(context, "com.shazam.encore.android")) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setAction("com.shazam.android.intent.actions.START_TAGGING");
+        	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(intent);
+        // Soundhound
+        } else if (BootlegUtils.isPackageInstalled(context, "com.melodis.midomiMusicIdentifier.freemium") || BootlegUtils.isPackageInstalled(context, "com.melodis.midomiMusicIdentifier")) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setAction("com.soundhound.android.ID_NOW_EXTERNAL");
+        	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(intent);
+        // Google Search Music
+        } else if (BootlegUtils.isPackageInstalled(context, "com.google.android.googlequicksearchbox")) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.setAction("com.google.android.googlequicksearchbox.MUSIC_SEARCH");
+        	intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            context.startActivity(intent);
+        } else {
+            PackageManager packageManager = context.getPackageManager();
+            String pkgName;
+            Resources systemUIRes = ActionUtils.getResourcesForPackage(context,
+  		    	    ActionUtils.PACKAGE_SYSTEMUI);
+            int ident = systemUIRes.getIdentifier("quick_settings_sound_search_no_app", ActionUtils.STRING,
+                    ActionUtils.PACKAGE_SYSTEMUI);
+            String toastMsg = systemUIRes.getString(ident, ActionUtils.PACKAGE_SYSTEMUI);
+            Context ctx = getPackageContext(context, ActionUtils.PACKAGE_SYSTEMUI);
+            Toast.makeText(ctx != null ? ctx : context, toastMsg, Toast.LENGTH_SHORT)
+            		.show();
+            return;
+        }
     }
 }
 
