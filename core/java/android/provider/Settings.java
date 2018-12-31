@@ -4359,8 +4359,18 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
 
         /**
+<<<<<<< HEAD
          * Whether to display lock in the power menu
          *
+=======
+         * Select which lockscreen clock style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+
+        /**
+         * Whether to hide the items underneath the lockscreen clock
+>>>>>>> 1c60490... Introduce lockscreen clock/date styles [1/2]
          * @hide
          */
         public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
