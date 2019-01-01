@@ -329,7 +329,7 @@ public class NotificationMediaManager implements Dumpable {
         return PlaybackState.STATE_NONE;
     }
 
-    private boolean isMediaNotification(NotificationData.Entry entry) {
+    protected boolean isMediaNotification(NotificationData.Entry entry) {
         // TODO: confirm that there's a valid media key
         return entry.getExpandedContentView() != null &&
                 entry.getExpandedContentView()
