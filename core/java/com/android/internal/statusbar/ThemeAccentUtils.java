@@ -74,6 +74,7 @@ public class ThemeAccentUtils {
         "com.bootleggers.qstile.dottedcircle", // 12
         "com.bootleggers.qstile.shishuink", // 13
         "com.bootleggers.qstile.attemptmountain", // 14
+        "com.bootleggers.qstile.cookie", // 15
     };
 
     private static final String[] DARK_THEMES = {
