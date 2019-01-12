@@ -105,7 +105,7 @@
   <java-symbol type="anim" name="slow_fade_in" />
   <java-symbol type="anim" name="slow_fade_out" />
   <java-symbol type="anim" name="slide_in_up_ribbon" />
-  <java-symbol type="anim" name="slide_out_down_ribbon" /> 
+  <java-symbol type="anim" name="slide_out_down_ribbon" />
   <java-symbol type="anim" name="slide_in_right_no_fade" />
   <java-symbol type="anim" name="slide_out_left_no_fade" />
   <java-symbol type="anim" name="slide_in_left_no_fade" />
@@ -243,5 +243,18 @@
   <java-symbol type="drawable" name="ic_shortcut_action_ring_vib_silent" />
   <java-symbol type="drawable" name="ic_shortcut_action_screenshot" />
   <java-symbol type="drawable" name="ic_shortcut_action_search" />
+
+  <!-- Power menu items -->
+  <java-symbol type="color" name="power_menu_power_off" />
+  <java-symbol type="color" name="power_menu_restart" />
+  <java-symbol type="color" name="power_menu_advanced_bootloader" />
+  <java-symbol type="color" name="power_menu_advanced_recovery" />
+  <java-symbol type="color" name="power_menu_advanced_system_restart_ui" />
+  <java-symbol type="color" name="power_menu_screenshot" />
+  <java-symbol type="color" name="power_menu_screenrecord" />
+  <java-symbol type="color" name="power_menu_torch" />
+  <java-symbol type="color" name="power_menu_settings" />
+  <java-symbol type="color" name="power_menu_lock" />
+  <java-symbol type="color" name="power_menu_volume" />
 
 </resources>

@@ -21,4 +21,18 @@
     <!-- Bootleg unneccesary gradient declaration | Just for our shishu bars -->
     <color name="bootleg_accent_gradient_end_color">#00000000</color>
 
+    <!-- Power menu items -->
+    <color name="power_menu_power_off">#ff202020</color>
+    <color name="power_menu_restart">#ff202020</color>
+    <color name="power_menu_advanced_bootloader">#ff202020</color>
+    <color name="power_menu_advanced_recovery">#ff202020</color>
+    <color name="power_menu_advanced_system_restart_ui">#ff202020</color>
+    <color name="power_menu_screenshot">#ff202020</color>
+    <color name="power_menu_airplane">#ff202020</color>
+    <color name="power_menu_screenrecord">#ff202020</color>
+    <color name="power_menu_torch">#ff202020</color>
+    <color name="power_menu_settings">#ff202020</color>
+    <color name="power_menu_lock">#ff202020</color>
+    <color name="power_menu_volume">#ff202020</color>    
+
 </resources>
