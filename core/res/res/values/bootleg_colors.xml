@@ -22,17 +22,17 @@
     <color name="bootleg_accent_gradient_end_color">#00000000</color>
 
     <!-- Power menu items -->
-    <color name="power_menu_power_off">#ff202020</color>
-    <color name="power_menu_restart">#ff202020</color>
-    <color name="power_menu_advanced_bootloader">#ff202020</color>
-    <color name="power_menu_advanced_recovery">#ff202020</color>
-    <color name="power_menu_advanced_system_restart_ui">#ff202020</color>
-    <color name="power_menu_screenshot">#ff202020</color>
-    <color name="power_menu_airplane">#ff202020</color>
-    <color name="power_menu_screenrecord">#ff202020</color>
-    <color name="power_menu_torch">#ff202020</color>
-    <color name="power_menu_settings">#ff202020</color>
-    <color name="power_menu_lock">#ff202020</color>
-    <color name="power_menu_volume">#ff202020</color>    
+    <color name="power_menu_power_off">@color/accent_material_dark</color>
+    <color name="power_menu_restart">@color/accent_material_dark</color>
+    <color name="power_menu_advanced_bootloader">@color/accent_material_dark</color>
+    <color name="power_menu_advanced_recovery">@color/accent_material_dark</color>
+    <color name="power_menu_advanced_system_restart_ui">@color/accent_material_dark</color>
+    <color name="power_menu_screenshot">@color/accent_material_dark</color>
+    <color name="power_menu_airplane">@color/accent_material_dark</color>
+    <color name="power_menu_screenrecord">@color/accent_material_dark</color>
+    <color name="power_menu_torch">@color/accent_material_dark</color>
+    <color name="power_menu_settings">@color/accent_material_dark</color>
+    <color name="power_menu_lock">@color/accent_material_dark</color>
+    <color name="power_menu_volume">@color/accent_material_dark</color>    
 
 </resources>
