@@ -464,6 +464,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 1: // digital (bold)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -477,6 +478,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 2: // custom analog
                 mCustomClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -490,6 +492,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 3: // sammy
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -503,6 +506,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 4: // sammy (bold)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -514,6 +518,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 5: // sammy accent
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -525,6 +530,7 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 6: // sammy accent (alt)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -538,6 +544,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,0,0,0);
                 break;
             case 7: // shishu normal 01
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -551,6 +558,10 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_shishu_accent_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
+        getResources().getDisplayMetrics()),0,0
+                );
                 break;
             case 8: // shishu immensity
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -563,6 +574,10 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_shishu_inmensity_font_size));
                 mClockView.setPadding(20,20,20,20);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
+        getResources().getDisplayMetrics()),0,0
+                );
                 break;
             case 9: // shishu nerves
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -575,6 +590,10 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_nerves_font_size));
                 mClockView.setPadding(0,20,0,20);
                 mCustomClockView.setVisibility(View.GONE);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
+        getResources().getDisplayMetrics()),0,0
+                );
                 break;
         }
     }
