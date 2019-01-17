@@ -63,6 +63,8 @@ import com.android.systemui.statusbar.policy.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.policy.DateView;
 import com.android.systemui.statusbar.policy.NextAlarmController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.tuner.TunerService;
+import com.android.systemui.tuner.TunerService.Tunable;
 
 import java.util.Locale;
 import java.util.Objects;
@@ -631,6 +633,13 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) v.getLayoutParams();
             lp.leftMargin = sideMargins;
             lp.rightMargin = sideMargins;
+        }
+    }
+
+    public void onTuningChanged(String key, String newValue) {
+        if (StatusBarIconController.ICON_BLACKLIST.equals(key)) {
+            mClockView.setClockVisibleByUser(!StatusBarIconController.getIconBlacklist(newValue)
+                    .contains("clock"));
         }
     }
 }
