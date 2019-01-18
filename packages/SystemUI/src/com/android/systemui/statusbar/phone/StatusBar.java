@@ -488,6 +488,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected NotificationRemoteInputManager mRemoteInputManager;
     private boolean mWallpaperSupported;
 
+    private boolean mWallpaperSupportsAmbientMode;
     private final BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -509,8 +510,13 @@ public class StatusBar extends SystemUI implements DemoMode,
 
             mStatusBarWindowController.setWallpaperSupportsAmbientMode(supportsAmbientMode);
             mScrimController.setWallpaperSupportsAmbientMode(supportsAmbientMode);
+            mWallpaperSupportsAmbientMode = supportsAmbientMode;
         }
     };
+
+    public boolean wallpaperSupportsAmbientMode(){
+        return mWallpaperSupportsAmbientMode;
+    }
 
     private Runnable mLaunchTransitionEndRunnable;
     private NotificationEntry mDraggedDownEntry;
