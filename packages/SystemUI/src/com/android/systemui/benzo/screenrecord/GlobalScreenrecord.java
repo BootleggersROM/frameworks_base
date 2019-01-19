@@ -84,7 +84,9 @@ class GlobalScreenrecord {
     private static final int MSG_TASK_ENDED = 1;
     private static final int MSG_TASK_ERROR = 2;
 
-    private static final String TMP_PATH = Environment.getExternalStorageDirectory()
+    private static final String TMP_FOLDER = Environment.getExternalStorageDirectory()
+            + File.separator + ".screenrec_tmp";
+    private static final String TMP_PATH = TMP_FOLDER
             + File.separator + "__tmp_screenrecord.mp4";
 
     private static final String SCREENRECORD_SHARE_SUBJECT_TEMPLATE = "Screenrecord (%s)";
@@ -522,16 +524,27 @@ class GlobalScreenrecord {
 
         Notification.Builder builder = new Notification.Builder(mContext, NotificationChannels.SCREENRECORDS)
             .setTicker(r.getString(R.string.screenrecord_notif_final_ticker))
-            .setContentTitle(r.getString(R.string.screenrecord_notif_completed) + " - "
-                    + r.getString(R.string.screenrecord_notif_duration) + " " + totalTime + ", " + size + "MB")
+            .setContentTitle(r.getString(R.string.screenrecord_notif_completed)+ " ("
+                    + totalTime + ", " + size + "MB" + ")")
+            .setContentText(r.getString(R.string.screenrecord_notif_description))
             .setSmallIcon(R.drawable.ic_capture_video)
             .setWhen(System.currentTimeMillis())
-            .setAutoCancel(true);
+            .setShowWhen(true)
+            .setAutoCancel(true)
+            .setColor(r.getColor(com.android.internal.R.color.system_notification_accent_color));
+        com.android.systemui.SystemUI.overrideNotificationAppName(mContext, builder, true);
         builder
             .addAction(R.drawable.ic_screenshot_share,
                 r.getString(com.android.internal.R.string.share), shareAction)
             .addAction(R.drawable.ic_screenshot_delete,
                 r.getString(com.android.internal.R.string.delete), deleteAction);
+
+        Intent launchIntent = new Intent(Intent.ACTION_VIEW);
+        launchIntent.setDataAndType(uri, "video/mp4");
+        launchIntent.setFlags(
+                Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        builder.setContentIntent(PendingIntent.getActivity(mContext, 0, launchIntent, 0));
+
         Notification notif = builder.build();
         mNotificationManager.notify(SCREENRECORD_NOTIFICATION_ID, notif);
 
