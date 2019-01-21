@@ -16,41 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Vendor image của bạn không phù hợp với hệ thống. Vui lòng cài đặt <xliff:g id="string">%s</xliff:g> vendor image cho thiết bị của bạn</string>
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Khởi động lại</string>
-  <string name="reboot_message">Đang khởi động lại</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">điều khiển trình chỉnh sửa thanh điều hướng</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Cho phép ứng dụng điều khiển trình chỉnh sửa thanh điều hướng.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_slide_right">Trượt sang phải</string>
-  <string name="animation_slide_left">Trượt sang trái</string>
-  <string name="animation_slide_right_no_fade">Trượt sang phải (Không mờ dần)</string>
-  <string name="animation_slide_left_no_fade">Trượt sang trái (Không mờ dần)</string>
-  <string name="animation_slide_up">Trượt xuống dưới</string>
-  <string name="animation_slide_down">Trượt lên trên</string>
-  <string name="animation_default">Mặc định</string>
-  <string name="animation_translucent">Mờ</string>
-  <string name="animation_grow_shrink">Lớn dần (Trên)</string>
-  <string name="animation_grow_shrink_center">Lớn dần (Giữa)</string>
-  <string name="animation_grow_shrink_bottom">Lớn dần (Dưới)</string>
-  <string name="animation_grow_shrink_left">Lớn dần (Bên trái)</string>
-  <string name="animation_grow_shrink_right">Lớn dần (Bên phải)</string>
-  <string name="animation_random">Ngẫu nhiên</string>
-  <string name="action_null">Trống</string>
-  <!-- SU Shell -->
-  <string name="cannot_get_su">Rất tiếc, nhưng quyền truy cập root chưa được cấp phép. Hãy root thiết bị của bạn hoặc kiểm tra ứng dụng quản lý quyền truy cập root.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">truy cập trình quản lý font chữ</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Cho phép ứng dụng truy cập trình quản lý font chữ.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Đã sạc đầy pin</string>
-  <string name="notify_battery_fully_charged_text">Ngắt kết nối bộ sạc để cải thiện tuổi thọ pin.</string>
-  <string name="battery_charged_channel_name">Đã sạc đầy pin</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Nhấn giữ nút nguồn để tương tác</string>
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Vendor image của bạn không phù hợp với hệ thống. Vui lòng cài đặt <xliff:g id="string">%s</xliff:g> vendor image cho thiết bị của bạn</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Khởi động lại</string>
+    <string name="reboot_message">Đang khởi động lại</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">điều khiển trình chỉnh sửa thanh điều hướng</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Cho phép ứng dụng điều khiển trình chỉnh sửa thanh điều hướng.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Mờ dần</string>
+    <string name="animation_slide_right">Trượt sang phải</string>
+    <string name="animation_slide_left">Trượt sang trái</string>
+    <string name="animation_slide_right_no_fade">Trượt sang phải (Không mờ dần)</string>
+    <string name="animation_slide_left_no_fade">Trượt sang trái (Không mờ dần)</string>
+    <string name="animation_slide_up">Trượt xuống dưới</string>
+    <string name="animation_slide_down">Trượt lên trên</string>
+    <string name="animation_default">Mặc định</string>
+    <string name="animation_translucent">Mờ</string>
+    <string name="animation_grow_shrink">Lớn dần (Trên)</string>
+    <string name="animation_grow_shrink_center">Lớn dần (Giữa)</string>
+    <string name="animation_grow_shrink_bottom">Lớn dần (Dưới)</string>
+    <string name="animation_grow_shrink_left">Lớn dần (Bên trái)</string>
+    <string name="animation_grow_shrink_right">Lớn dần (Bên phải)</string>
+    <string name="animation_random">Ngẫu nhiên</string>
+    <string name="action_null">Trống</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Rất tiếc, nhưng quyền truy cập root chưa được cấp phép. Hãy root thiết bị của bạn hoặc kiểm tra ứng dụng quản lý quyền truy cập root.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">truy cập trình quản lý font chữ</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Cho phép ứng dụng truy cập trình quản lý font chữ.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Đã sạc đầy pin</string>
+    <string name="notify_battery_fully_charged_text">Ngắt kết nối bộ sạc để cải thiện tuổi thọ pin.</string>
+    <string name="battery_charged_channel_name">Đã sạc đầy pin</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Nhấn giữ nút nguồn để tương tác</string>
 </resources>

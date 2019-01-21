@@ -16,42 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Vendor img anda tidak cocok dengan sistem. Tolong flash <xliff:g id="string">%s</xliff:g> vendor img untuk perangkat anda</string>
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Mulai ulang</string>
-  <string name="reboot_message">Memulai ulang sistem</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">editor kontrol navigasi</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Mengizinkan sebuah aplikasi untul mengontrol editor navbar.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">Memudar</string>
-  <string name="animation_slide_right">Geser masuk kanan</string>
-  <string name="animation_slide_left">Geser masuk kiri</string>
-  <string name="animation_slide_right_no_fade">Geser masuk kanan (Tidak memudar)</string>
-  <string name="animation_slide_left_no_fade">Geser masuk kiri (Tidak memudar)</string>
-  <string name="animation_slide_up">Geser masuk bawah</string>
-  <string name="animation_slide_down">Geser masuk atas</string>
-  <string name="animation_default">Standar</string>
-  <string name="animation_translucent">Tembus pandang</string>
-  <string name="animation_grow_shrink">Membesar dalam (Atas)</string>
-  <string name="animation_grow_shrink_center">Membesar dalam (Tengah)</string>
-  <string name="animation_grow_shrink_bottom">Membesar dalam (Bawah)</string>
-  <string name="animation_grow_shrink_left">Membesar dalam (Kiri)</string>
-  <string name="animation_grow_shrink_right">Membesar dalam (Kanan)</string>
-  <string name="animation_random">Acak</string>
-  <string name="action_null">Kosong</string>
-  <!-- SU Shell -->
-  <string name="cannot_get_su">Maaf, tapi perizinan superuser tidak memperbolehkan. Silahkan root perangkat anda atau periksa aplikasi manajemen root anda.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">akses manajer font</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Mengizinkan aplikasi untuk mengakses manajer font.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Baterai sudah terisi penuh</string>
-  <string name="notify_battery_fully_charged_text">Lepaskan perangkat anda dari charger untuk memperpanjang usia baterai.</string>
-  <string name="battery_charged_channel_name">Pengisian baterai</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Tekan secara lama tombol daya untuk berinteraksi</string>
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Vendor img anda tidak cocok dengan sistem. Tolong flash <xliff:g id="string">%s</xliff:g> vendor img untuk perangkat anda</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Mulai ulang</string>
+    <string name="reboot_message">Memulai ulang sistem</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">editor kontrol navigasi</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Mengizinkan sebuah aplikasi untul mengontrol editor navbar.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Memudar</string>
+    <string name="animation_slide_right">Geser masuk kanan</string>
+    <string name="animation_slide_left">Geser masuk kiri</string>
+    <string name="animation_slide_right_no_fade">Geser masuk kanan (Tidak memudar)</string>
+    <string name="animation_slide_left_no_fade">Geser masuk kiri (Tidak memudar)</string>
+    <string name="animation_slide_up">Geser masuk bawah</string>
+    <string name="animation_slide_down">Geser masuk atas</string>
+    <string name="animation_default">Standar</string>
+    <string name="animation_translucent">Tembus pandang</string>
+    <string name="animation_grow_shrink">Membesar dalam (Atas)</string>
+    <string name="animation_grow_shrink_center">Membesar dalam (Tengah)</string>
+    <string name="animation_grow_shrink_bottom">Membesar dalam (Bawah)</string>
+    <string name="animation_grow_shrink_left">Membesar dalam (Kiri)</string>
+    <string name="animation_grow_shrink_right">Membesar dalam (Kanan)</string>
+    <string name="animation_random">Acak</string>
+    <string name="action_null">Kosong</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Maaf, tapi perizinan superuser tidak memperbolehkan. Silahkan root perangkat anda atau periksa aplikasi manajemen root anda.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">akses manajer font</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Mengizinkan aplikasi untuk mengakses manajer font.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Baterai sudah terisi penuh</string>
+    <string name="notify_battery_fully_charged_text">Lepaskan perangkat anda dari charger untuk memperpanjang usia baterai.</string>
+    <string name="battery_charged_channel_name">Pengisian baterai</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Tekan secara lama tombol daya untuk berinteraksi</string>
 </resources>

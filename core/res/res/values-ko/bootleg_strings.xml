@@ -16,33 +16,41 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">다시 시작</string>
-  <string name="reboot_message">다시 시작 중</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">네비게이션 바 편집</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">어플리케이션에서 내비게이션 바 편집기 제어를 허용합니다.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_slide_right">오른쪽으로 슬라이드</string>
-  <string name="animation_slide_left">왼쪽으로 슬라이드</string>
-  <string name="animation_slide_right_no_fade">오른쪽으로 슬라이드 (페이드 없음)</string>
-  <string name="animation_slide_left_no_fade">왼쪽으로 슬라이드 (페이드 없음)</string>
-  <string name="animation_slide_up">아래로 슬라이드</string>
-  <string name="animation_slide_down">위로 슬라이드</string>
-  <string name="animation_default">기본값</string>
-  <string name="animation_translucent">반투명</string>
-  <string name="animation_grow_shrink">커지기 (위에서)</string>
-  <string name="animation_grow_shrink_center">커지기 (중앙에서)</string>
-  <string name="animation_grow_shrink_bottom">커지기(아래에서)</string>
-  <string name="animation_grow_shrink_left">커지기 (왼쪽에서)</string>
-  <string name="animation_grow_shrink_right">커지기 (오른쪽에서)</string>
-  <string name="animation_random">랜덤</string>
-  <string name="action_null">비어있음</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">시스템과 벤더 이미지가 일치하지 않습니다. 해당 기기에 맞는 <xliff:g id="string">%s</xliff:g> 벤더 이미지를 설치해주세요.</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">다시 시작</string>
+    <string name="reboot_message">다시 시작 중</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">네비게이션 바 편집</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">어플리케이션에서 내비게이션 바 편집기 제어를 허용합니다.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_slide_right">오른쪽으로 슬라이드</string>
+    <string name="animation_slide_left">왼쪽으로 슬라이드</string>
+    <string name="animation_slide_right_no_fade">오른쪽으로 슬라이드 (페이드 없음)</string>
+    <string name="animation_slide_left_no_fade">왼쪽으로 슬라이드 (페이드 없음)</string>
+    <string name="animation_slide_up">아래로 슬라이드</string>
+    <string name="animation_slide_down">위로 슬라이드</string>
+    <string name="animation_default">기본값</string>
+    <string name="animation_translucent">반투명</string>
+    <string name="animation_grow_shrink">커지기 (위에서)</string>
+    <string name="animation_grow_shrink_center">커지기 (중앙에서)</string>
+    <string name="animation_grow_shrink_bottom">커지기 (아래에서)</string>
+    <string name="animation_grow_shrink_left">커지기 (왼쪽에서)</string>
+    <string name="animation_grow_shrink_right">커지기 (오른쪽에서)</string>
+    <string name="animation_random">무작위</string>
+    <string name="action_null">비어 있음</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">죄송합니다만 SU 권한이 허용되지 않았습니다. 기기를 루팅하거나 루팅 관리 앱으로 확인해주세요.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">폰트 관리자 접속</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">어떤 앱이 폰트 관리자에 접속하는 것을 허용</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">배터리 충전 완료</string>
+    <string name="notify_battery_fully_charged_text">배터리의 수명을 향상시키기 위하여 충전기를 장치에서 분리하세요.</string>
+    <string name="battery_charged_channel_name">배터리 충전됨</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">전원 버튼을 길게 눌러 이용</string>
 </resources>

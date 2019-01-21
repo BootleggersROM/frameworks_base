@@ -17,5 +17,7 @@
 -->
 <resources>
   <!--OmniJaws -->
+  <string name="weather_info_not_available">వాతావరణ సమాచారం అందుబాటులో లేదు</string>
   <!-- Ambient Display Pixel-Like string -->
+  <string name="ambientmusic_songinfo">%s x %s</string>
 </resources>

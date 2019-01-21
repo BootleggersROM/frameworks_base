@@ -20,176 +20,176 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Brzo punjenje (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do napunjenosti)</string>
-  <string name="keyguard_plugged_in_dash_charging">Brzo punjenje</string>
-  <!-- Empty summary workaround -->
-  <!-- Power Menu -->
-  <string name="global_action_restart_system">Ponovno pokretanje</string>
-  <string name="global_action_restart_recovery">Recovery</string>
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">SystemUI</string>
-  <string name="global_action_restart_hot">Brzo ponovno pok.</string>
-  <string name="global_action_screenshot">Snimka zaslona</string>
-  <string name="global_action_screenrecord">Snimanje zaslona</string>
-  <!-- Caffeine QS Tile -->
-  <string name="quick_settings_caffeine_label">Kofein</string>
-  <string name="accessibility_quick_settings_caffeine_off">Kofein je isključen</string>
-  <string name="accessibility_quick_settings_caffeine_on">Kofein je uključen</string>
-  <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">Slika u slici</string>
-  <string name="quick_settings_pip_tile_app_na">Ispričavamo se, izgleda da ova aplikacija ne podržava nativni PiP.</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <string name="accessibility_lock_task">Spriječite <xliff:g id="task">%1$s</xliff:g> od odbacivanja</string>
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <string name="accessibility_unlock_task">Dopustite da se <xliff:g id="task">%1$s</xliff:g> odbaci</string>
-  <!-- SystemUITuner stuff -->
-  <string name="statusbar_items_title">Ikone u statusnoj traci</string>
-  <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Donji prečaci</string>
-  <string name="lockscreen_default">Zadano</string>
-  <string name="lockscreen_hidden">Nijedan</string>
-  <string name="custom_hint">Prijeđite prstom preko ikone za pokretanje</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Snimka zaslona</string>
-  <string name="quick_settings_region_screenshot_label">Djelomična snimka zaslona</string>
-  <!-- Screenshot delete toast -->
-  <string name="delete_screenshot_toast">Snimka zaslona je izbrisana</string>
-  <!-- RAM available string -->
-  <string name="recents_free_ram">%1$dMB RAMa je dostupno</string>
-  <!-- VoLTE icon switch -->
-  <string name="status_bar_volte">VoLTE</string>
-  <!-- Roaming icon switch -->
-  <string name="status_bar_vpn">VPN</string>
-  <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Zvuk</string>
-  <string name="quick_settings_sound_ring">Zvono</string>
-  <string name="quick_settings_sound_vibrate">Vibracija</string>
-  <string name="quick_settings_sound_dnd">Ne ometaj</string>
-  <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
-  <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće obavijesti su isključene.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće obavijesti su uključene.</string>
-  <!-- Heads up snooze toast -->
-  <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Vireće obavijesti su utišane na 1 minutu.</string>
-  <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Vireće obavijesti su utišane na <xliff:g id="number">%d</xliff:g> minuta.</string>
-  <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Zaslon se snima</string>
-  <string name="screenrecord_notif_final_ticker">Zaslon je uspješno snimljen</string>
-  <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Snimanje zaslona</string>
-  <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Zaustavi</string>
-  <string name="screenrecord_notif_completed">Zaslon je uspješno snimljen</string>
-  <string name="screenrecord_notif_description">Dodirnite za prikaz vaše snimke zaslona</string>
-  <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Prikaži pokazivač</string>
-  <string name="screenrecord_notif_pointer_off">Sakrij pokazivač</string>
-  <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Snimanje zaslona nije moguće</string>
-  <string name="notification_channel_screenrecord">Snimci zaslona</string>
-  <string name="screenrecord_hide_hint">Sakrij savjet</string>
-  <string name="screenrecord_show_hint">Prikaži savjet</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenrecord_label">Snimanje zaslona</string>
-  <string name="quick_settings_screenrecord_lq_label">Snimanje zaslona u 480p</string>
-  <string name="quick_settings_screenrecord_mq_label">Snimanje zaslona u 720p</string>
-  <string name="quick_settings_screenrecord_hq_label">Snimanje zaslona u 720p+</string>
-  <string name="systemui_tuner_navbar_title">Zadane postavke</string>
-  <!-- Volume QS Tile -->
-  <string name="accessibility_quick_settings_volume_panel">Glasnoća</string>
-  <string name="quick_settings_volume_panel_label">Glasnoća</string>
-  <!-- Music tile -->
-  <string name="quick_settings_music_label">Glazba</string>
-  <string name="quick_settings_music_play">Reprodukcija</string>
-  <string name="quick_settings_music_pause">Pauza</string>
-  <!-- Expanded Desktop QS Tile -->
-  <string name="quick_settings_expanded_desktop_label">Proširena radna površina</string>
-  <string name="quick_settings_expanded_desktop">Prošireno</string>
-  <string name="quick_settings_expanded_desktop_off">Normalno</string>
-  <string name="quick_settings_expanded_navigation_off">Sakrij navigacijsku traku</string>
-  <string name="quick_settings_expanded_statusbar_off">Sakrij statusnu traku</string>
-  <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Povucite ili dodirnite za dodavanje pločica</string>
-  <!-- Bootleg Dumpster Tile -->
-  <string name="quick_settings_bootlegdump_label">Kontejner</string>
-  <string name="quick_settings_bootlegdump_toast">Wew, zbog nekog razloga je mrtav, pokidan, ne radi.</string>
-  <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">Hardverske tipke uključene</string>
-  <string name="accessibility_quick_settings_hwkeys_off">Hardverske tipke isključene</string>
-  <string name="quick_settings_hwkeys_label">Hardverske tipke</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower je povezan (<xliff:g id="charging_time_left">%s</xliff:g> do napunjenosti)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je povezan</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbo punjenje</string>
-  <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Zvučna pretraga</string>
-  <string name="quick_settings_sound_search_no_app">Ispričavamo se, ali ovo neće raditi ako nemate aplikaciju za zvučnu pretragu.</string>
-  <!-- OmniJaws -->
-  <string name="omnijaws_service_error">Pogreška</string>
-  <string name="omnijaws_service_unkown">Nema podataka o vremenu</string>
-  <string name="omnijaws_service_error_long">Greška pri učitavanju podataka o vremenu</string>
-  <string name="omnijaws_service_disabled">Usluga je onemogućena</string>
-  <string name="omnijaws_detail_header">Vrijeme</string>
-  <string name="omnijaws_label_default">Vrijeme</string>
-  <string name="omnijaws_current_text">Sada</string>
-  <string name="omnijaws_package_not_available">OmniJaws nije dostupan</string>
-  <string name="omnijaws_service_last_update">Posljednje ažuriranje:</string>
-  <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Ponovno pokretanje</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <!-- Theme tile -->
-  <string name="systemui_theme_style_title">Stil korisničkog sučelja</string>
-  <string name="systemui_theme_style_auto">Automatski</string>
-  <string name="systemui_theme_style_light">Svijetlo</string>
-  <string name="systemui_theme_style_dark">Tamno</string>
-  <string name="systemui_theme_style_black">Crno</string>
-  <string name="quick_settings_theme_tile_title">Naglašena boja</string>
-  <string name="quick_settings_theme_tile_accent_detail_title">Odabir boje</string>
-  <string name="quick_settings_theme_tile_style_detail_title">Odabir stila</string>
-  <string name="quick_settings_theme_tile_color_default">Zadana naglašena boja</string>
-  <!-- Theme QS -->
-  <string name="theme_info_title">Što je ovo?</string>
-  <string name="theme_info_message">Pločica za teme je jedinstvena no jednostavna za korištenje, ona dopušta korisniku da mijenja naglašenu boju sustava ili stil.\n\nKako bi promijenili između naglašenih boja i stilova, jednostavno dugo dodirnite na pločicu te dodirnite ponovno za odabir između ponuđenih opcija.</string>
-  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_running_services">Otvaranje zaslona pokrenutih usluga.</string>
-  <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Sinkronizacija</string>
-  <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena</string>
-  <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena</string>
-  <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Pametni pikseli</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Auto. omogućeni pametni pikseli</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Brzo punjenje (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do napunjenosti)</string>
+    <string name="keyguard_plugged_in_dash_charging">Brzo punjenje</string>
+    <!-- Empty summary workaround -->
+    <!-- Power Menu -->
+    <string name="global_action_restart_system">Ponovno pokretanje</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_hot">Brzo ponovno pok.</string>
+    <string name="global_action_screenshot">Snimka zaslona</string>
+    <string name="global_action_screenrecord">Snimanje zaslona</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein je isključen</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein je uključen</string>
+    <!-- PiP Tile -->
+    <string name="quick_settings_pip_label">Slika u slici</string>
+    <string name="quick_settings_pip_tile_app_na">Ispričavamo se, izgleda da ova aplikacija ne podržava nativni PiP.</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task">Spriječite <xliff:g id="task">%1$s</xliff:g> od odbacivanja</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task">Dopustite da se <xliff:g id="task">%1$s</xliff:g> odbaci</string>
+    <!-- SystemUITuner stuff -->
+    <string name="statusbar_items_title">Ikone u statusnoj traci</string>
+    <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Donji prečaci</string>
+    <string name="lockscreen_default">Zadano</string>
+    <string name="lockscreen_hidden">Nijedan</string>
+    <string name="custom_hint">Prijeđite prstom preko ikone za pokretanje</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Snimka zaslona</string>
+    <string name="quick_settings_region_screenshot_label">Djelomična snimka zaslona</string>
+    <!-- Screenshot delete toast -->
+    <string name="delete_screenshot_toast">Snimka zaslona je izbrisana</string>
+    <!-- RAM available string -->
+    <string name="recents_free_ram">%1$dMB RAMa je dostupno</string>
+    <!-- VoLTE icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
+    <!-- Roaming icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Zvono</string>
+    <string name="quick_settings_sound_vibrate">Vibracija</string>
+    <string name="quick_settings_sound_dnd">Ne ometaj</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plutajuće obavijesti su isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plutajuće obavijesti su uključene.</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Vireće obavijesti su utišane na 1 minutu.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Vireće obavijesti su utišane na <xliff:g id="number">%d</xliff:g> minuta.</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Zaslon se snima</string>
+    <string name="screenrecord_notif_final_ticker">Zaslon je uspješno snimljen</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Snimanje zaslona</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Zaustavi</string>
+    <string name="screenrecord_notif_completed">Zaslon je uspješno snimljen</string>
+    <string name="screenrecord_notif_description">Dodirnite za prikaz vaše snimke zaslona</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Prikaži pokazivač</string>
+    <string name="screenrecord_notif_pointer_off">Sakrij pokazivač</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Snimanje zaslona nije moguće</string>
+    <string name="notification_channel_screenrecord">Snimci zaslona</string>
+    <string name="screenrecord_hide_hint">Sakrij savjet</string>
+    <string name="screenrecord_show_hint">Prikaži savjet</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Snimanje zaslona</string>
+    <string name="quick_settings_screenrecord_lq_label">Snimanje zaslona u 480p</string>
+    <string name="quick_settings_screenrecord_mq_label">Snimanje zaslona u 720p</string>
+    <string name="quick_settings_screenrecord_hq_label">Snimanje zaslona u 720p+</string>
+    <string name="systemui_tuner_navbar_title">Zadane postavke</string>
+    <!-- Volume QS Tile -->
+    <string name="accessibility_quick_settings_volume_panel">Glasnoća</string>
+    <string name="quick_settings_volume_panel_label">Glasnoća</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Glazba</string>
+    <string name="quick_settings_music_play">Reprodukcija</string>
+    <string name="quick_settings_music_pause">Pauza</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Proširena radna površina</string>
+    <string name="quick_settings_expanded_desktop">Prošireno</string>
+    <string name="quick_settings_expanded_desktop_off">Normalno</string>
+    <string name="quick_settings_expanded_navigation_off">Sakrij navigacijsku traku</string>
+    <string name="quick_settings_expanded_statusbar_off">Sakrij statusnu traku</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Povucite ili dodirnite za dodavanje pločica</string>
+    <!-- Bootleg Dumpster Tile -->
+    <string name="quick_settings_bootlegdump_label">Kontejner</string>
+    <string name="quick_settings_bootlegdump_toast">Wew, zbog nekog razloga je mrtav, pokidan, ne radi.</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Hardverske tipke uključene</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Hardverske tipke isključene</string>
+    <string name="quick_settings_hwkeys_label">Hardverske tipke</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower je povezan (<xliff:g id="charging_time_left">%s</xliff:g> do napunjenosti)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je povezan</string>
+    <string name="keyguard_plugged_in_turbo_charging">Turbo punjenje</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Zvučna pretraga</string>
+    <string name="quick_settings_sound_search_no_app">Ispričavamo se, ali ovo neće raditi ako nemate aplikaciju za zvučnu pretragu.</string>
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Pogreška</string>
+    <string name="omnijaws_service_unkown">Nema podataka o vremenu</string>
+    <string name="omnijaws_service_error_long">Greška pri učitavanju podataka o vremenu</string>
+    <string name="omnijaws_service_disabled">Usluga je onemogućena</string>
+    <string name="omnijaws_detail_header">Vrijeme</string>
+    <string name="omnijaws_label_default">Vrijeme</string>
+    <string name="omnijaws_current_text">Sada</string>
+    <string name="omnijaws_package_not_available">OmniJaws nije dostupan</string>
+    <string name="omnijaws_service_last_update">Posljednje ažuriranje:</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Ponovno pokretanje</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Theme tile -->
+    <string name="systemui_theme_style_title">Stil korisničkog sučelja</string>
+    <string name="systemui_theme_style_auto">Automatski</string>
+    <string name="systemui_theme_style_light">Svijetlo</string>
+    <string name="systemui_theme_style_dark">Tamno</string>
+    <string name="systemui_theme_style_black">Crno</string>
+    <string name="quick_settings_theme_tile_title">Naglašena boja</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Odabir boje</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Odabir stila</string>
+    <string name="quick_settings_theme_tile_color_default">Zadana naglašena boja</string>
+    <!-- Theme QS -->
+    <string name="theme_info_title">Što je ovo?</string>
+    <string name="theme_info_message">Pločica za teme je jedinstvena no jednostavna za korištenje, ona dopušta korisniku da mijenja naglašenu boju sustava ili stil.\n\nKako bi promijenili između naglašenih boja i stilova, jednostavno dugo dodirnite na pločicu te dodirnite ponovno za odabir između ponuđenih opcija.</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Otvaranje zaslona pokrenutih usluga.</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Sinkronizacija</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronizacija isključena</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronizacija uključena</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronizacija je isključena</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronizacija je uključena</string>
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Pametni pikseli</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto. omogućeni pametni pikseli</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Kill button in notification guts -->
-  <string name="force_stop_dlg_title">Prisilno zaustaviti?</string>
-  <string name="force_stop_dlg_text">Ako prisilno zaustavite aplikaciju, može se čudno ponašati.</string>
-  <string name="kill">Zatvori</string>
-  <!-- Gaming Mode -->
-  <string name="gaming_mode_tile_title">Način za igranje</string>
-  <string name="gaming_mode_tile_toast">Način za igranje je omogućen</string>
-  <string name="gaming_mode_tile_toast_disabled">Način za igranje je onemogućen</string>
-  <string name="gaming_mode_dialog_title">Način za igranje</string>
-  <string name="gaming_mode_dialog_message">Kada je način za igranju omogućen, način zvona se mijenja na vibraciju, sve plutajuće obavijesti će biti onemogućene i hardverske tipke će se isključiti. Glasnoća medija će biti povećana na maksimalnu vrijednost. Sve onemogućene postavke će se vratiti na zadano kada izađete iz načina za igranje.</string>
-  <string name="accessibility_quick_settings_gaming_mode_on">Način za igranje je uključen</string>
-  <string name="accessibility_quick_settings_gaming_mode_off">Način za igranje je isključen</string>
-  <!-- Log Tile -->
-  <string name="quick_settings_logcat_label">Logcat</string>
-  <string name="quick_settings_logcatradio_label">LogCatRadio</string>
-  <string name="quick_settings_kmsg_label">Kmsg</string>
-  <string name="quick_settings_dmesg_label">Dmsg</string>
-  <!-- LTE QS Tile -->
-  <string name="qs_lte_label">LTE</string>
-  <string name="lte_on">LTE uključen </string>
-  <string name="lte_off">LTE isključen</string>
-  <!-- Weather string format in expanded statusbar header -->
-  <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Prisilno zaustaviti?</string>
+    <string name="force_stop_dlg_text">Ako prisilno zaustavite aplikaciju, može se čudno ponašati.</string>
+    <string name="kill">Zatvori</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Način za igranje</string>
+    <string name="gaming_mode_tile_toast">Način za igranje je omogućen</string>
+    <string name="gaming_mode_tile_toast_disabled">Način za igranje je onemogućen</string>
+    <string name="gaming_mode_dialog_title">Način za igranje</string>
+    <string name="gaming_mode_dialog_message">Kada je način za igranju omogućen, način zvona se mijenja na vibraciju, sve plutajuće obavijesti će biti onemogućene i hardverske tipke će se isključiti. Glasnoća medija će biti povećana na maksimalnu vrijednost. Sve onemogućene postavke će se vratiti na zadano kada izađete iz načina za igranje.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Način za igranje je uključen</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Način za igranje je isključen</string>
+    <!-- Log Tile -->
+    <string name="quick_settings_logcat_label">Logcat</string>
+    <string name="quick_settings_logcatradio_label">LogCatRadio</string>
+    <string name="quick_settings_kmsg_label">Kmsg</string>
+    <string name="quick_settings_dmesg_label">Dmsg</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE uključen </string>
+    <string name="lte_off">LTE isključen</string>
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
 </resources>

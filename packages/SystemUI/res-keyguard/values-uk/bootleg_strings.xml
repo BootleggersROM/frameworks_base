@@ -17,5 +17,7 @@
 -->
 <resources>
   <!--OmniJaws -->
+  <string name="weather_info_not_available">Інформація про погоду недоступна</string>
   <!-- Ambient Display Pixel-Like string -->
+  <string name="ambientmusic_songinfo">%s: %s</string>
 </resources>

@@ -16,34 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">重新启动</string>
-  <string name="reboot_message">正在重启...</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">控制导航栏编辑器</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">允许应用控制导航栏编辑器</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">淡出</string>
-  <string name="animation_slide_right">右侧滑动</string>
-  <string name="animation_slide_left">左侧滑动</string>
-  <string name="animation_slide_right_no_fade">右侧滑动 (无渐变)</string>
-  <string name="animation_slide_left_no_fade">左侧滑动 (无渐变)</string>
-  <string name="animation_slide_up">底部滑动</string>
-  <string name="animation_slide_down">顶部滑动</string>
-  <string name="animation_default">默认</string>
-  <string name="animation_translucent">半透明</string>
-  <string name="animation_grow_shrink">缩放(顶部)</string>
-  <string name="animation_grow_shrink_center">缩放 (中心)</string>
-  <string name="animation_grow_shrink_bottom">缩放(底部)</string>
-  <string name="animation_grow_shrink_left">缩放(左侧)</string>
-  <string name="animation_grow_shrink_right">缩放(右侧)</string>
-  <string name="animation_random">随机</string>
-  <string name="action_null">空白</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">您的设备制造商镜像与系统不匹配。请为您的设备刷入 <xliff:g id="string">%s </xliff:g> 设备制造商镜像</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">重启</string>
+    <string name="reboot_message">正在重启...</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">控制导航栏编辑器</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">允许应用控制导航栏编辑器</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">淡出</string>
+    <string name="animation_slide_right">右侧滑动</string>
+    <string name="animation_slide_left">左侧滑动</string>
+    <string name="animation_slide_right_no_fade">右侧滑动 (无渐变)</string>
+    <string name="animation_slide_left_no_fade">左侧滑动 (无渐变)</string>
+    <string name="animation_slide_up">底部滑动</string>
+    <string name="animation_slide_down">顶部滑动</string>
+    <string name="animation_default">默认</string>
+    <string name="animation_translucent">半透明</string>
+    <string name="animation_grow_shrink">缩放(顶部)</string>
+    <string name="animation_grow_shrink_center">缩放 (中心)</string>
+    <string name="animation_grow_shrink_bottom">缩放(底部)</string>
+    <string name="animation_grow_shrink_left">缩放(左侧)</string>
+    <string name="animation_grow_shrink_right">缩放(右侧)</string>
+    <string name="animation_random">随机</string>
+    <string name="action_null">空白</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">对不起, 不允许超级用户权限。请root您的设备或检查您的root管理应用程序。</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">访问字体管理器</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">允许应用程序访问字体管理器</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">电池已充满</string>
+    <string name="notify_battery_fully_charged_text">断开设备与充电器的连接以提高电池寿命</string>
+    <string name="battery_charged_channel_name">电池充电</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">长按电源键来交互</string>
 </resources>

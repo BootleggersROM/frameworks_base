@@ -16,18 +16,41 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Restart</string>
-  <string name="reboot_message">Repornire sistem</string>
-  <!-- DUI permission of control navbar editor -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Permiteți unei aplicații sa controleze editarea barei de navigație.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_default">Implicit</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Imaginea vendor nu se potrivește cu sistemul. Te rog să instalezi imaginea vendor <xliff:g id="string">%s</xliff:g> pentru dispozitivul tău</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Restart</string>
+    <string name="reboot_message">Repornire sistem</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">controlează editorul de navigație</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Permiteți unei aplicații sa controleze editarea barei de navigație.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_slide_right">Intrare din dreapta</string>
+    <string name="animation_slide_left">Intrare din stânga</string>
+    <string name="animation_slide_right_no_fade">Intrare din dreapta (Fără disipare)</string>
+    <string name="animation_slide_left_no_fade">Intrare din stânga (Fără disipare)</string>
+    <string name="animation_slide_up">Intrare de jos</string>
+    <string name="animation_slide_down">Intrare de sus</string>
+    <string name="animation_default">Implicit</string>
+    <string name="animation_translucent">Transparent</string>
+    <string name="animation_grow_shrink">Creștere (Sus)</string>
+    <string name="animation_grow_shrink_center">Creștere (Centru)</string>
+    <string name="animation_grow_shrink_bottom">Creștere (Jos)</string>
+    <string name="animation_grow_shrink_left">Creștere (Stânga)</string>
+    <string name="animation_grow_shrink_right">Creștere (Dreapta)</string>
+    <string name="animation_random">Aleatoriu</string>
+    <string name="action_null">Gol</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Ne pare rău, permisiunile root nu au fost acceptate. Te rog să rootezi dispozitivul sau verifică aplicația root.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">accesează managerul de font</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Permite unei aplicații să acceseze managerul de font.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Baterie complet încărcată</string>
+    <string name="notify_battery_fully_charged_text">Deconectează dispozitivul pentru a îmbunătăți durata de viață a bateriei.</string>
+    <string name="battery_charged_channel_name">Baterie încărcată</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Apasă lung pe butonul de pornire pentru a interacționa</string>
 </resources>

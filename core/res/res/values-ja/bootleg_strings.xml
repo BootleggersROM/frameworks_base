@@ -16,38 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">ベンダーイメージがシステムと一致しません。お使いの端末に <xliff:g id="string">%s</xliff:g> ベンダーイメージを導入してください。</string>
-  <!-- Power Menu strings -->
-  <string name="reboot_title">再起動</string>
-  <string name="reboot_message">システムを再起動中...</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">ナビゲーションエディターの制御</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">アプリのナビゲーションバーエディターの制御を許可する</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">フェード</string>
-  <string name="animation_slide_right">右からスライド</string>
-  <string name="animation_slide_left">左からスライド</string>
-  <string name="animation_slide_right_no_fade">右からスライド（フェードなし）</string>
-  <string name="animation_slide_left_no_fade">左からスライド（フェードなし）</string>
-  <string name="animation_slide_up">下からスライド</string>
-  <string name="animation_slide_down">上からスライド</string>
-  <string name="animation_default">既定</string>
-  <string name="animation_translucent">半透明</string>
-  <string name="animation_grow_shrink">拡大縮小（上）</string>
-  <string name="animation_grow_shrink_center">拡大縮小（中央）</string>
-  <string name="animation_grow_shrink_bottom">拡大縮小（下）</string>
-  <string name="animation_grow_shrink_left">拡大縮小（左）</string>
-  <string name="animation_grow_shrink_right">拡大縮小（右）</string>
-  <string name="animation_random">ランダム</string>
-  <string name="action_null">空白</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">フォントマネージャーにアクセス</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">アプリのフォントマネージャーへのアクセスを許可する</string>
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">電源ボタンを長押しで操作</string>
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">ベンダーイメージがシステムと一致しません。お使いの端末に <xliff:g id="string">%s</xliff:g> ベンダーイメージを導入してください。</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">再起動</string>
+    <string name="reboot_message">システムを再起動中...</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">ナビゲーションエディターの制御</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">アプリのナビゲーションバーエディターの制御を許可する</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">フェード</string>
+    <string name="animation_slide_right">右からスライド</string>
+    <string name="animation_slide_left">左からスライド</string>
+    <string name="animation_slide_right_no_fade">右からスライド（フェードなし）</string>
+    <string name="animation_slide_left_no_fade">左からスライド（フェードなし）</string>
+    <string name="animation_slide_up">下からスライド</string>
+    <string name="animation_slide_down">上からスライド</string>
+    <string name="animation_default">既定</string>
+    <string name="animation_translucent">半透明</string>
+    <string name="animation_grow_shrink">拡大縮小（上）</string>
+    <string name="animation_grow_shrink_center">拡大縮小（中央）</string>
+    <string name="animation_grow_shrink_bottom">拡大縮小（下）</string>
+    <string name="animation_grow_shrink_left">拡大縮小（左）</string>
+    <string name="animation_grow_shrink_right">拡大縮小（右）</string>
+    <string name="animation_random">ランダム</string>
+    <string name="action_null">空白</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">申し訳ありませんが、SUパーミッションが許可されれいませんでしら。お使いの端末をルートまたはルート管理アプリを確認してください。</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">フォントマネージャーにアクセス</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">アプリのフォントマネージャーへのアクセスを許可する</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">充電完了</string>
+    <string name="notify_battery_fully_charged_text">バッテリーの寿命を改善するために充電器から端末を切断する</string>
+    <string name="battery_charged_channel_name">充電完了</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">電源ボタンを長押しで操作</string>
 </resources>

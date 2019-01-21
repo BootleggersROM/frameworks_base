@@ -16,42 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">نسخة vendor الخاصة بك لا تتوافق مع النظام. الرجاء تثبيت <xliff:g id="string">%s</xliff:g> الخاص بجهازك</string>
-  <!-- Power Menu strings -->
-  <string name="reboot_title">إعادة التشغيل</string>
-  <string name="reboot_message">إعادة تشغيل النظام</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">التحكم في محرر التنقل</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">يسمح لتطبيق ما بالتحكم في محرر شريط التنقل.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">تلاشي</string>
-  <string name="animation_slide_right">السحب من الجهة اليمنى</string>
-  <string name="animation_slide_left">السحب من الجهة اليسرى</string>
-  <string name="animation_slide_right_no_fade">اسحب في الجهة اليمنى (بدون تلاشي)</string>
-  <string name="animation_slide_left_no_fade">اسحب في الجهة اليسرى (بدون تلاشي)</string>
-  <string name="animation_slide_up">الإنزلاق نحو الأسفل</string>
-  <string name="animation_slide_down">الانزلاق إلى الأعلى</string>
-  <string name="animation_default">الافتراضي</string>
-  <string name="animation_translucent">الشفافية</string>
-  <string name="animation_grow_shrink">نمو نحو (الأعلى)</string>
-  <string name="animation_grow_shrink_center">النمو من (الوسط)</string>
-  <string name="animation_grow_shrink_bottom">النمو من (الاسفل)</string>
-  <string name="animation_grow_shrink_left">النمو من (اليسار)</string>
-  <string name="animation_grow_shrink_right">النمو من (اليمين)</string>
-  <string name="animation_random">عشوائي</string>
-  <string name="action_null">فارغ</string>
-  <!-- SU Shell -->
-  <string name="cannot_get_su">عذراً، لكن صلاحيات الروت غير ممنوحة. الرجاء قم بعمل روت للجهاز الخاص بك أو التحقق من تطبيق إدارة الروت الخاص بك.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">الوصول لإدارة الخطوط</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">يسمح لتطبيق ما بالوصول إلى ادارة الخطوط.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">البطارية مشحونة بالكامل</string>
-  <string name="notify_battery_fully_charged_text">أفصل الجهاز من الشاحن لتحسين طول عمر البطارية.</string>
-  <string name="battery_charged_channel_name">البطارية مشحونة</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">اضغط زر الطاقة مطولاً للتفاعل</string>
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">نسخة vendor الخاصة بك لا تتوافق مع النظام. الرجاء تثبيت <xliff:g id="string">%s</xliff:g> الخاص بجهازك</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">إعادة التشغيل</string>
+    <string name="reboot_message">إعادة تشغيل النظام</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">التحكم في محرر التنقل</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">يسمح لتطبيق ما بالتحكم في محرر شريط التنقل.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">تلاشي</string>
+    <string name="animation_slide_right">السحب من الجهة اليمنى</string>
+    <string name="animation_slide_left">السحب من الجهة اليسرى</string>
+    <string name="animation_slide_right_no_fade">اسحب في الجهة اليمنى (بدون تلاشي)</string>
+    <string name="animation_slide_left_no_fade">اسحب في الجهة اليسرى (بدون تلاشي)</string>
+    <string name="animation_slide_up">الإنزلاق نحو الأسفل</string>
+    <string name="animation_slide_down">الانزلاق إلى الأعلى</string>
+    <string name="animation_default">الافتراضي</string>
+    <string name="animation_translucent">الشفافية</string>
+    <string name="animation_grow_shrink">نمو نحو (الأعلى)</string>
+    <string name="animation_grow_shrink_center">النمو من (الوسط)</string>
+    <string name="animation_grow_shrink_bottom">النمو من (الاسفل)</string>
+    <string name="animation_grow_shrink_left">النمو من (اليسار)</string>
+    <string name="animation_grow_shrink_right">النمو من (اليمين)</string>
+    <string name="animation_random">عشوائي</string>
+    <string name="action_null">فارغ</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">عذراً، لكن صلاحيات الروت غير ممنوحة. الرجاء قم بعمل روت للجهاز الخاص بك أو التحقق من تطبيق إدارة الروت الخاص بك.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">الوصول لإدارة الخطوط</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">يسمح لتطبيق ما بالوصول إلى ادارة الخطوط.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">البطارية مشحونة بالكامل</string>
+    <string name="notify_battery_fully_charged_text">أفصل الجهاز من الشاحن لتحسين طول عمر البطارية.</string>
+    <string name="battery_charged_channel_name">البطارية مشحونة</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">اضغط زر الطاقة مطولاً للتفاعل</string>
 </resources>

@@ -16,36 +16,44 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_to_recovery_message">Riavvio in recovery</string>
-  <string name="reboot_to_bootloader_message">Riavvio in bootloader</string>
-  <string name="reboot_title">Riavvio</string>
-  <string name="reboot_message">Riavvio del sistema</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">controllo modifica di navigazione</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Consente ad un\'applicazione di controllare le modifiche della barra di navigazione.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">Dissolvenza</string>
-  <string name="animation_slide_right">Scorri verso destra</string>
-  <string name="animation_slide_left">Scorri verso sinistra</string>
-  <string name="animation_slide_right_no_fade">Scorri verso destra (nessuna dissolvenza)</string>
-  <string name="animation_slide_left_no_fade">Scorri verso sinistra (senza dissolvenza)</string>
-  <string name="animation_slide_up">Scorri verso il basso</string>
-  <string name="animation_slide_down">Scorri verso l\'alto</string>
-  <string name="animation_default">Predefinito</string>
-  <string name="animation_translucent">Traslucido</string>
-  <string name="animation_grow_shrink">Espandi (verso l\'alto)</string>
-  <string name="animation_grow_shrink_center">Espandi (dal centro)</string>
-  <string name="animation_grow_shrink_bottom">Espandi (verso il basso)</string>
-  <string name="animation_grow_shrink_left">Espandi (a sinistra)</string>
-  <string name="animation_grow_shrink_right">Espandi (a destra)</string>
-  <string name="animation_random">Casuale</string>
-  <string name="action_null">Vuoto</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">L\'immagine del produttore non corrisponde a quella del sistema. Si prega di aggiornare <xliff:g id="string">%s</xliff:g> immagine del produttore per il tuo dispositivo</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_to_recovery_message">Riavvio in recovery</string>
+    <string name="reboot_to_bootloader_message">Riavvio in bootloader</string>
+    <string name="reboot_title">Riavvio</string>
+    <string name="reboot_message">Riavvio del sistema</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">controllo modifica di navigazione</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Consente ad un\'applicazione di controllare le modifiche della barra di navigazione.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Dissolvenza</string>
+    <string name="animation_slide_right">Scorri verso destra</string>
+    <string name="animation_slide_left">Scorri verso sinistra</string>
+    <string name="animation_slide_right_no_fade">Scorri verso destra (nessuna dissolvenza)</string>
+    <string name="animation_slide_left_no_fade">Scorri verso sinistra (senza dissolvenza)</string>
+    <string name="animation_slide_up">Scorri verso il basso</string>
+    <string name="animation_slide_down">Scorri verso l\'alto</string>
+    <string name="animation_default">Predefinito</string>
+    <string name="animation_translucent">Traslucido</string>
+    <string name="animation_grow_shrink">Espandi (verso l\'alto)</string>
+    <string name="animation_grow_shrink_center">Espandi (dal centro)</string>
+    <string name="animation_grow_shrink_bottom">Espandi (verso il basso)</string>
+    <string name="animation_grow_shrink_left">Espandi (a sinistra)</string>
+    <string name="animation_grow_shrink_right">Espandi (a destra)</string>
+    <string name="animation_random">Casuale</string>
+    <string name="action_null">Vuoto</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Ci dispiace, ma non erano consentite le autorizzazioni SU. Si prega di installare la gestione dei permessi di root del vostro dispositivo o verifica l\'app di gestione dei permessi di root.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">accesso alla gestione caratteri</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Consenti ad un\'applicazione di accedere alla gestione dei caratteri.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Batteria completamente ricaricata</string>
+    <string name="notify_battery_fully_charged_text">Scollegare il dispositivo dal caricatore per migliorare la longevità della batteria.</string>
+    <string name="battery_charged_channel_name">Carica completa</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Premi a lungo il tasto di accensione per interagire</string>
 </resources>

@@ -20,147 +20,178 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
-  <string name="accessibility_data_connection_hspap">HSPA+</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_dash_charging_time">Dash töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes töltöttségig)</string>
-  <string name="keyguard_plugged_in_dash_charging">Dash töltés</string>
-  <!-- Empty summary workaround -->
-  <!-- Power Menu -->
-  <string name="global_action_restart_system">Újraindítás</string>
-  <string name="global_action_restart_advanced">Haladó</string>
-  <string name="global_action_restart_recovery">Recovery</string>
-  <string name="global_action_restart_bootloader">Bootloader</string>
-  <string name="global_action_restart_ui">Felhasználói felület</string>
-  <string name="global_action_restart_hot">Gyors</string>
-  <string name="global_action_screenshot">Képernyőmentés</string>
-  <string name="global_action_screenrecord">Képernyőfelvétel</string>
-  <!-- Caffeine QS Tile -->
-  <string name="quick_settings_caffeine_label">Caffeine</string>
-  <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
-  <string name="accessibility_quick_settings_caffeine_on">Caffeine be</string>
-  <!-- PiP Tile -->
-  <string name="quick_settings_pip_label">Kép-a-képben</string>
-  <string name="quick_settings_pip_tile_app_na">Sajnáljuk, de úgy tűnik, hogy az alkalmazás nem támogatja a kép-a-képben lehetőséget.</string>
-  <!-- Content description for Accessibility on unlocked tasks in recents -->
-  <!-- Content description for Accessibility on locked tasks in recents -->
-  <!-- SystemUITuner stuff -->
-  <string name="statusbar_items_title">Állapotsor-ikonok</string>
-  <string name="lockscreen_default">Alapértelmezett</string>
-  <string name="lockscreen_hidden">Nincs</string>
-  <string name="custom_hint">Megnyitáshoz csúsztasson az ikonról</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenshot_label">Képernyőmentés</string>
-  <string name="quick_settings_region_screenshot_label">Részleges képernyőmentés</string>
-  <!-- Screenshot delete toast -->
-  <!-- RAM available string -->
-  <string name="recents_free_ram">%1$dMB RAM érhető el</string>
-  <!-- VoLTE icon switch -->
-  <string name="status_bar_volte">VoLTE</string>
-  <!-- Roaming icon switch -->
-  <!-- Sound QS Tile -->
-  <string name="quick_settings_sound_label">Hangok</string>
-  <string name="quick_settings_sound_ring">Csengés</string>
-  <string name="quick_settings_sound_vibrate">Rezgés</string>
-  <string name="quick_settings_sound_dnd">Ne zavarjanak (DND)</string>
-  <!-- Heads Up QS Tile -->
-  <string name="quick_settings_heads_up_label">Lebegő értesítés</string>
-  <string name="accessibility_quick_settings_heads_up_off">Lebegő értesítés ki.</string>
-  <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítés be.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítés kikapcsolva.</string>
-  <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítés bekapcsolva.</string>
-  <!-- Heads up snooze toast -->
-  <!-- Screenrecord Notification Ticker -->
-  <string name="screenrecord_notif_ticker">Képernyőfelvétel elkészült</string>
-  <!-- Screenrecord notification title -->
-  <string name="screenrecord_notif_title">Képernyőfelvétel folyamatban</string>
-  <!-- Screenrecord notification action: Stop -->
-  <string name="screenrecord_notif_stop">Leállítás</string>
-  <!-- Screenrecord notification action: show/hide pointer -->
-  <string name="screenrecord_notif_pointer_on">Mutató megjelenítése</string>
-  <string name="screenrecord_notif_pointer_off">Mutató elrejtése</string>
-  <!-- Screen record notification error title -->
-  <string name="screenrecord_notif_error">Nem lehet a képernyőfelvételt elindítani</string>
-  <string name="notification_channel_screenrecord">Képernyőfelvételek</string>
-  <!-- Screenshot QS tile -->
-  <string name="quick_settings_screenrecord_label">Képernyőfelvétel</string>
-  <string name="systemui_tuner_navbar_title">Gyári beállítások</string>
-  <!-- Volume QS Tile -->
-  <string name="accessibility_quick_settings_volume_panel">Hangerő</string>
-  <string name="quick_settings_volume_panel_label">Hangerő</string>
-  <!-- Music tile -->
-  <string name="quick_settings_music_label">Zene</string>
-  <string name="quick_settings_music_play">Lejátszás</string>
-  <string name="quick_settings_music_pause">Megállítás</string>
-  <!-- Expanded Desktop QS Tile -->
-  <string name="quick_settings_expanded_desktop_label">Kiterjesztett képernyő</string>
-  <string name="quick_settings_expanded_desktop">Kiterjesztett</string>
-  <string name="quick_settings_expanded_desktop_off">Normális</string>
-  <string name="quick_settings_expanded_navigation_off">Navigációs sáv elrejtése</string>
-  <string name="quick_settings_expanded_statusbar_off">Állapotsor elrejtése</string>
-  <!-- QS customizer -->
-  <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempe hozzáadásához</string>
-  <!-- Bootleg Dumpster Tile -->
-  <string name="quick_settings_bootlegdump_label">A Csempészraktár</string>
-  <string name="quick_settings_bootlegdump_toast">Jajj, valamilyen oknál fogva ez \"halott\", ez tégla, ez nem működik.</string>
-  <!-- HW Keys Tile -->
-  <string name="accessibility_quick_settings_hwkeys_on">Hardvergombok be</string>
-  <string name="accessibility_quick_settings_hwkeys_off">Hardvergombok ki</string>
-  <string name="quick_settings_hwkeys_label">Hardvergombok</string>
-  <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-  <string name="keyguard_indication_turbo_power_time">TurboPower csatlakoztatva (<xliff:g id="charging_time_left">%s</xliff:g> a teljes töltöttségig)</string>
-  <string name="keyguard_plugged_in_turbo_power_charging">TurboPower csatlakoztatva</string>
-  <string name="keyguard_plugged_in_turbo_charging">Turbótöltés</string>
-  <!-- Sound Search tile -->
-  <string name="quick_settings_sound_search">Hangalapú keresés</string>
-  <string name="quick_settings_sound_search_no_app">Sajnáljuk, de ez nem működhet, ha nincs alkalmazás telepítve a hangalapú kereséshez.</string>
-  <!-- OmniJaws -->
-  <string name="omnijaws_service_error">Hiba</string>
-  <string name="omnijaws_service_unkown">Nincs időjárásadat</string>
-  <string name="omnijaws_service_error_long">Hiba az időjárásadat betöltésekor</string>
-  <string name="omnijaws_service_disabled">A szolgáltatás nincs engedélyezve</string>
-  <string name="omnijaws_detail_header">Időjárás</string>
-  <string name="omnijaws_label_default">Időjárás</string>
-  <string name="omnijaws_current_text">Most</string>
-  <string name="omnijaws_package_not_available">Az OmniJaws nem elérhető</string>
-  <string name="omnijaws_service_last_update">Utoljára frissítve:</string>
-  <!-- Reboot/Recovery QS Tile -->
-  <string name="quick_settings_reboot_label">Újraindítás</string>
-  <string name="quick_settings_reboot_recovery_label">Recovery</string>
-  <!-- Theme tile -->
-  <string name="systemui_theme_style_title">Felhasználói felület stílusa</string>
-  <string name="systemui_theme_style_auto">Automatikus</string>
-  <string name="systemui_theme_style_light">Világos felhasználói felület</string>
-  <string name="systemui_theme_style_dark">Sötét felhasználói felület</string>
-  <string name="systemui_theme_style_black">Fekete felhasználói felület</string>
-  <string name="quick_settings_theme_tile_title">Kiemelés</string>
-  <string name="quick_settings_theme_tile_accent_detail_title">Színválasztás</string>
-  <string name="quick_settings_theme_tile_color_default">Alapértelmezett kiemelés</string>
-  <!-- Theme QS -->
-  <string name="theme_info_title">Mi is ez tulajdonképpen?</string>
-  <string name="theme_info_message">A Témák csempe egy egyedi, de könnyen használható elem, amely lehetővé teszi, hogy a felhasználó megváltoztathassa a rendszer kiemelőszínét és stílusát.\n\nA kiemelőszínek és stílusok módosításához nyomja hosszan a csempét, majd válasszon a megjelenő lehetőségek közül.</string>
-  <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
-  <string name="accessibility_quick_settings_running_services">A Futó szolgálatások képernyőjének megnyitása.</string>
-  <!-- Sync QS Tile -->
-  <string name="quick_settings_sync_label">Szinkronizálás</string>
-  <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki</string>
-  <string name="accessibility_quick_settings_sync_on">Szinkronizálás be</string>
-  <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva</string>
-  <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva</string>
-  <!-- Smart pixels QS tile -->
-  <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
-  <string name="quick_settings_smart_pixels_on_power_save">Intelligens pixelek automatikus engedélyezése</string>
-  <!-- Text to use when the number in a notification info is too large
+    <!-- Content description of the data connection type HSPA+ for accessibility (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="accessibility_data_connection_hspap">HSPA+</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash töltés (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash töltés</string>
+    <!-- Empty summary workaround -->
+    <!-- Power Menu -->
+    <string name="global_action_restart_system">Újraindítás</string>
+    <string name="global_action_restart_advanced">Haladó</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Felhasználói felület</string>
+    <string name="global_action_restart_hot">Gyors</string>
+    <string name="global_action_screenshot">Képernyőmentés</string>
+    <string name="global_action_screenrecord">Képernyőfelvétel</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine be</string>
+    <!-- PiP Tile -->
+    <string name="quick_settings_pip_label">Kép-a-képben</string>
+    <string name="quick_settings_pip_tile_app_na">Sajnáljuk, de úgy tűnik, hogy az alkalmazás nem támogatja a kép-a-képben lehetőséget.</string>
+    <!-- Content description for Accessibility on unlocked tasks in recents -->
+    <string name="accessibility_lock_task"><xliff:g id="task">%1$s</xliff:g> elvetésének megakadályozása</string>
+    <!-- Content description for Accessibility on locked tasks in recents -->
+    <string name="accessibility_unlock_task"><xliff:g id="task">%1$s</xliff:g> elvetésének engedélyezése</string>
+    <!-- SystemUITuner stuff -->
+    <string name="statusbar_items_title">Állapotsor-ikonok</string>
+    <string name="systemui_tuner_lockscreen_bottom_shortcuts_title">Alsó parancsikonok</string>
+    <string name="lockscreen_default">Alapértelmezett</string>
+    <string name="lockscreen_hidden">Nincs</string>
+    <string name="custom_hint">Megnyitáshoz csúsztasson az ikonról</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Képernyőmentés</string>
+    <string name="quick_settings_region_screenshot_label">Részleges képernyőmentés</string>
+    <!-- Screenshot delete toast -->
+    <string name="delete_screenshot_toast">Képernyőkép törölve</string>
+    <!-- RAM available string -->
+    <string name="recents_free_ram">%1$dMB RAM érhető el</string>
+    <!-- VoLTE icon switch -->
+    <string name="status_bar_volte">VoLTE</string>
+    <!-- Roaming icon switch -->
+    <string name="status_bar_vpn">VPN</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Hangok</string>
+    <string name="quick_settings_sound_ring">Csengés</string>
+    <string name="quick_settings_sound_vibrate">Rezgés</string>
+    <string name="quick_settings_sound_dnd">Ne zavarjanak (DND)</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Lebegő értesítés</string>
+    <string name="accessibility_quick_settings_heads_up_off">Lebegő értesítés ki.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítés be.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítés kikapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítés bekapcsolva.</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - lebegő értesítései 1 percig elhalasztásra kerülnek.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - lebegő értesítései <xliff:g id="number">%d</xliff:g> percig elhalasztásra kerülnek.</string>
+    <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Képernyőfelvétel elkészült</string>
+    <string name="screenrecord_notif_final_ticker">A képernyőfelvétel elkészült</string>
+    <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Képernyőfelvétel folyamatban</string>
+    <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Leállítás</string>
+    <string name="screenrecord_notif_completed">A képernyőfelvétel elkészült</string>
+    <string name="screenrecord_notif_description">Érintse meg a képernyőfelvétel megtekintéséhez</string>
+    <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Mutató megjelenítése</string>
+    <string name="screenrecord_notif_pointer_off">Mutató elrejtése</string>
+    <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Nem lehet a képernyőfelvételt elindítani</string>
+    <string name="notification_channel_screenrecord">Képernyőfelvételek</string>
+    <string name="screenrecord_hide_hint">Tanács elrejtése</string>
+    <string name="screenrecord_show_hint">Tanács megjelenítése</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Képernyőfelvétel</string>
+    <string name="quick_settings_screenrecord_lq_label">Képernyőfelvétel 480p</string>
+    <string name="quick_settings_screenrecord_mq_label">Képernyőfelvétel 720p</string>
+    <string name="quick_settings_screenrecord_hq_label">Képernyőfelvétel 720p+</string>
+    <string name="systemui_tuner_navbar_title">Gyári beállítások</string>
+    <!-- Volume QS Tile -->
+    <string name="accessibility_quick_settings_volume_panel">Hangerő</string>
+    <string name="quick_settings_volume_panel_label">Hangerő</string>
+    <!-- Music tile -->
+    <string name="quick_settings_music_label">Zene</string>
+    <string name="quick_settings_music_play">Lejátszás</string>
+    <string name="quick_settings_music_pause">Megállítás</string>
+    <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Kiterjesztett képernyő</string>
+    <string name="quick_settings_expanded_desktop">Kiterjesztett</string>
+    <string name="quick_settings_expanded_desktop_off">Normális</string>
+    <string name="quick_settings_expanded_navigation_off">Navigációs sáv elrejtése</string>
+    <string name="quick_settings_expanded_statusbar_off">Állapotsor elrejtése</string>
+    <!-- QS customizer -->
+    <string name="drag_or_tap_to_add_tiles">Húzza, vagy érintse meg csempe hozzáadásához</string>
+    <!-- Bootleg Dumpster Tile -->
+    <string name="quick_settings_bootlegdump_label">A Csempészraktár</string>
+    <string name="quick_settings_bootlegdump_toast">Jajj, valamilyen oknál fogva ez \"halott\", ez tégla, ez nem működik.</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Hardvergombok be</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Hardvergombok ki</string>
+    <string name="quick_settings_hwkeys_label">Hardvergombok</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower csatlakoztatva (<xliff:g id="charging_time_left">%s</xliff:g> a teljes töltöttségig)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower csatlakoztatva</string>
+    <string name="keyguard_plugged_in_turbo_charging">Turbótöltés</string>
+    <!-- Sound Search tile -->
+    <string name="quick_settings_sound_search">Hangalapú keresés</string>
+    <string name="quick_settings_sound_search_no_app">Sajnáljuk, de ez nem működhet, ha nincs alkalmazás telepítve a hangalapú kereséshez.</string>
+    <!-- OmniJaws -->
+    <string name="omnijaws_service_error">Hiba</string>
+    <string name="omnijaws_service_unkown">Nincs időjárásadat</string>
+    <string name="omnijaws_service_error_long">Hiba az időjárásadat betöltésekor</string>
+    <string name="omnijaws_service_disabled">A szolgáltatás nincs engedélyezve</string>
+    <string name="omnijaws_detail_header">Időjárás</string>
+    <string name="omnijaws_label_default">Időjárás</string>
+    <string name="omnijaws_current_text">Most</string>
+    <string name="omnijaws_package_not_available">Az OmniJaws nem elérhető</string>
+    <string name="omnijaws_service_last_update">Utoljára frissítve:</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Újraindítás</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Theme tile -->
+    <string name="systemui_theme_style_title">Felhasználói felület stílusa</string>
+    <string name="systemui_theme_style_auto">Automatikus</string>
+    <string name="systemui_theme_style_light">Világos felhasználói felület</string>
+    <string name="systemui_theme_style_dark">Sötét felhasználói felület</string>
+    <string name="systemui_theme_style_black">Fekete felhasználói felület</string>
+    <string name="quick_settings_theme_tile_title">Kiemelés</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Színválasztás</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Stílusválasztás</string>
+    <string name="quick_settings_theme_tile_color_default">Alapértelmezett kiemelés</string>
+    <!-- Theme QS -->
+    <string name="theme_info_title">Mi is ez tulajdonképpen?</string>
+    <string name="theme_info_message">A Témák csempe egy egyedi, de könnyen használható elem, amely lehetővé teszi, hogy a felhasználó megváltoztathassa a rendszer kiemelőszínét és stílusát.\n\nA kiemelőszínek és stílusok módosításához nyomja hosszan a csempét, majd válasszon a megjelenő lehetőségek közül.</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">A Futó szolgálatások képernyőjének megnyitása.</string>
+    <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Szinkronizálás</string>
+    <string name="accessibility_quick_settings_sync_off">Szinkronizálás ki</string>
+    <string name="accessibility_quick_settings_sync_on">Szinkronizálás be</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva</string>
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Intelligens pixelek</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Intelligens pixelek automatikus engedélyezése</string>
+    <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
          [CHAR LIMIT=4] -->
-  <!-- Kill button in notification guts -->
-  <string name="force_stop_dlg_title">Kényszeríti a leállítást?</string>
-  <string name="force_stop_dlg_text">Ha egy alkalmazást leállásra kényszerít, az hibásan működhet.</string>
-  <string name="kill">Bezárás</string>
-  <!-- Gaming Mode -->
-  <!-- Log Tile -->
-  <string name="cannot_get_su">Sikertelen művelet, hiányzó rendszergazdai hozzáférés miatt</string>
-  <!-- LTE QS Tile -->
-  <!-- Weather string format in expanded statusbar header -->
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Kényszeríti a leállítást?</string>
+    <string name="force_stop_dlg_text">Ha egy alkalmazást leállásra kényszerít, az hibásan működhet.</string>
+    <string name="kill">Bezárás</string>
+    <!-- Gaming Mode -->
+    <string name="gaming_mode_tile_title">Játékmód</string>
+    <string name="gaming_mode_tile_toast">Játékmód engedélyezve</string>
+    <string name="gaming_mode_tile_toast_disabled">Játékmód letiltva</string>
+    <string name="gaming_mode_dialog_title">Játékmód</string>
+    <string name="gaming_mode_dialog_message">Amikor a Játékmód engedélyezett, a készülék csengésről rezgő hivásjelzésre vált, az összes felugró értesítés letiltásra kerül és a hardvergombok kikapcsolódnak. A média hangereje a maximumra állítódik. Minden beállítás gyári állapotba áll vissza, amint kilép a Játékmódból.</string>
+    <string name="accessibility_quick_settings_gaming_mode_on">Játékmód be</string>
+    <string name="accessibility_quick_settings_gaming_mode_off">Játékmód ki</string>
+    <!-- Log Tile -->
+    <string name="quick_settings_logcat_label">Logcat</string>
+    <string name="quick_settings_logcatradio_label">LogCatRadio</string>
+    <string name="quick_settings_kmsg_label">Kmsg</string>
+    <string name="quick_settings_dmesg_label">Dmsg</string>
+    <string name="cannot_get_su">Sikertelen művelet, hiányzó rendszergazdai hozzáférés miatt</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE BE </string>
+    <string name="lte_off">LTE KI</string>
+    <!-- Weather string format in expanded statusbar header -->
+    <string name="status_bar_weather_format"><xliff:g id="temp">%1$s</xliff:g></string>
 </resources>

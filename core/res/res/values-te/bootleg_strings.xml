@@ -16,15 +16,41 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">రీబూట్</string>
-  <!-- DUI permission of control navbar editor -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- AOKP custom system animations -->
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">మీ వెండార్ చిత్రం సిస్టమ్ తో సరిపోలడం లేదు. దయచేసి <xliff:g id="string">%s</xliff:g> వెండార్ చిత్రాన్ని మీ పరికరానికి ఫ్లాష్ చేయండి</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">రీబూట్</string>
+    <string name="reboot_message">సిస్టమ్ తిరిగి ప్రారంభిస్తోంది</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">నావిగేషన్ ఎడిటర్ నియంత్రణ</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">నావిగేషన్ బార్ ఎడిటర్ ని నియంత్రించటానికి ఒక అప్లికేషన్ ను అనుమతిస్తుంది.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_slide_right">కుడి వైపుకు జారు</string>
+    <string name="animation_slide_left">ఎడమ వైపుకు జారు</string>
+    <string name="animation_slide_right_no_fade">కుడి వైపుకు జారు (మాసి పోదు)</string>
+    <string name="animation_slide_left_no_fade">ఎడమ వైపుకు జారు (మాసి పోదు)</string>
+    <string name="animation_slide_up">క్రింద వైపుకు జారు</string>
+    <string name="animation_slide_down">పైన వైపుకు జారు</string>
+    <string name="animation_default">డిఫాల్ట్</string>
+    <string name="animation_translucent">అపారదర్శకం</string>
+    <string name="animation_grow_shrink">ఎదుగు (పైన)</string>
+    <string name="animation_grow_shrink_center">ఎదుగు (కేంద్రం)</string>
+    <string name="animation_grow_shrink_bottom">ఎదుగు (క్రింద)</string>
+    <string name="animation_grow_shrink_left">ఎదుగు (ఎడమ)</string>
+    <string name="animation_grow_shrink_right">ఎదుగు (కుడి)</string>
+    <string name="animation_random">పద్ధతి లేదు</string>
+    <string name="action_null">ఖాళీ</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">క్షమించండి, సూపర్ యూజర్ అనుమతులు అంగీకరించబడలేదు. దయచేసి మీ పరికరం ని రూట్ చేయండి లేదా మీ రూట్ నిర్వహణ యాప్ ని పరీక్షించండి.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">ఫాంట్ మేనేజర్ కి ప్రవేశిస్తుంది</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">ఒక అప్లికేషను ఫాంట్ మేనేజర్ ని ప్రవేశించడానికి అనుమతిస్తుంది.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">బ్యాటరీ పూర్తిగా ఛార్జ్ అయింది</string>
+    <string name="notify_battery_fully_charged_text">బ్యాటరీ సామర్థ్యం పెంపొందడానికి మీ పరికరం నుండి ఛార్జర్ ని తొలగించండి.</string>
+    <string name="battery_charged_channel_name">బ్యాటరీ ఛార్జ్ అయింది</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">సంకర్షించటానికి పవర్ బటన్ ని నొక్కి పట్టుకోండి</string>
 </resources>

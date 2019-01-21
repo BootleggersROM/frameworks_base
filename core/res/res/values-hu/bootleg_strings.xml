@@ -16,34 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Újraindítás</string>
-  <string name="reboot_message">A Rendszer újraindítása</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">navigációssáv-szerkesztő kezelése</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Lehetővé teszi egy alkalmazás számára, hogy kezelje a navigációssáv-szerkesztőt.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">Áttűnés</string>
-  <string name="animation_slide_right">Beúszás jobbról</string>
-  <string name="animation_slide_left">Beúszás balról</string>
-  <string name="animation_slide_right_no_fade">Beúszás jobbról (nincs halványítás)</string>
-  <string name="animation_slide_left_no_fade">Beúszás balról (nincs halványítás)</string>
-  <string name="animation_slide_up">Beúszás alulról</string>
-  <string name="animation_slide_down">Beúszás felűlről</string>
-  <string name="animation_default">Alapértelmezett</string>
-  <string name="animation_translucent">Áttetsző</string>
-  <string name="animation_grow_shrink">Növekvő (fent)</string>
-  <string name="animation_grow_shrink_center">Növekvő (középen)</string>
-  <string name="animation_grow_shrink_bottom">Növekvő (lent)</string>
-  <string name="animation_grow_shrink_left">Növekvő (balra)</string>
-  <string name="animation_grow_shrink_right">Növekvő (jobbra)</string>
-  <string name="animation_random">Véletlenszerű</string>
-  <string name="action_null">Üres</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Úgy tűnik a gyártói képe elavult, nem egyezik a rendszerrel. Kérjük, frissítse a <xliff:g id="string">%s</xliff:g> gyártói képre a készülékét</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Újraindítás</string>
+    <string name="reboot_message">A Rendszer újraindítása</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">navigációssáv-szerkesztő kezelése</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Lehetővé teszi egy alkalmazás számára, hogy kezelje a navigációssáv-szerkesztőt.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Áttűnés</string>
+    <string name="animation_slide_right">Beúszás jobbról</string>
+    <string name="animation_slide_left">Beúszás balról</string>
+    <string name="animation_slide_right_no_fade">Beúszás jobbról (nincs halványítás)</string>
+    <string name="animation_slide_left_no_fade">Beúszás balról (nincs halványítás)</string>
+    <string name="animation_slide_up">Beúszás alulról</string>
+    <string name="animation_slide_down">Beúszás felűlről</string>
+    <string name="animation_default">Alapértelmezett</string>
+    <string name="animation_translucent">Áttetsző</string>
+    <string name="animation_grow_shrink">Növekvő (fent)</string>
+    <string name="animation_grow_shrink_center">Növekvő (középen)</string>
+    <string name="animation_grow_shrink_bottom">Növekvő (lent)</string>
+    <string name="animation_grow_shrink_left">Növekvő (balra)</string>
+    <string name="animation_grow_shrink_right">Növekvő (jobbra)</string>
+    <string name="animation_random">Véletlenszerű</string>
+    <string name="action_null">Üres</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Sajnáljuk, de a SU jogosultságon nem engedélyzettek. Kérjük, rootolja készülékét vagy nyissa meg a root-vezérlő alkalmazást.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">hozzáférés a betűtípus-kezelőhöz</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Lehetővé teszi egy alkalmazás számára, hogy hozzáférjen a betűtípus-kezelőhöz.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Az akkumulátor teljesen feltöltve</string>
+    <string name="notify_battery_fully_charged_text">Vegye le a készüléket a töltőről, hogy növelje az akkumulátor élettartamát.</string>
+    <string name="battery_charged_channel_name">Az akkumulátor feltöltve</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">A hatás eléréséhez nyomja hosszan a bekapcsoló gombot</string>
 </resources>

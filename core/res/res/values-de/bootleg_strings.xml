@@ -16,42 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Das Vendor-Image passt nicht zum System. Installiere bitte das <xliff:g id="string">%s</xliff:g> Vendor-Image für dein Gerät</string>
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Neustart</string>
-  <string name="reboot_message">Neustart</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">kontrolliere Navigationseditor</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Erlaubt es einer App, den Navigationsleisteneditor zu kontrollieren.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">Überblenden</string>
-  <string name="animation_slide_right">Von rechts einblenden</string>
-  <string name="animation_slide_left">Von links einblenden</string>
-  <string name="animation_slide_right_no_fade">Von rechts einblenden (ohne überblenden)</string>
-  <string name="animation_slide_left_no_fade">Von links einblenden (ohne überblenden)</string>
-  <string name="animation_slide_up">Von unten einblenden</string>
-  <string name="animation_slide_down">Von oben einblenden</string>
-  <string name="animation_default">Standard</string>
-  <string name="animation_translucent">Durchscheinend</string>
-  <string name="animation_grow_shrink">Einblenden (von oben)</string>
-  <string name="animation_grow_shrink_center">Einblenden (aus der Mitte)</string>
-  <string name="animation_grow_shrink_bottom">Einblenden (von unten)</string>
-  <string name="animation_grow_shrink_left">Einblenden (von links)</string>
-  <string name="animation_grow_shrink_right">Einblenden (von rechts)</string>
-  <string name="animation_random">Zufällig</string>
-  <string name="action_null">Leer</string>
-  <!-- SU Shell -->
-  <string name="cannot_get_su">Keine SU- Berechtigung erhalten. Bitte roote dein Gerät oder überprüfe die root-Verwaltungs app.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">auf Schriftverwaltung zugreifen</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Erlaubt der Anwendung, auf die Schriftverwaltung zuzugreifen.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Akku vollständig geladen</string>
-  <string name="notify_battery_fully_charged_text">Trenne Dein Gerät vom Ladegerät, um die Lebensdauer des Akkus zu verbessern.</string>
-  <string name="battery_charged_channel_name">Aufladen abgeschlossen</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Ein-/Aus-Taste lange gedrückt halten, um mit dem Gerät zu interagieren</string>
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Das Vendor-Image passt nicht zum System. Installiere bitte das <xliff:g id="string">%s</xliff:g> Vendor-Image für dein Gerät</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Neustart</string>
+    <string name="reboot_message">Neustart</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">Navigations-Editor steuern</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Erlaubt es einer App, den Navigationsleisteneditor zu steuern.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Überblenden</string>
+    <string name="animation_slide_right">Von rechts einblenden</string>
+    <string name="animation_slide_left">Von links einblenden</string>
+    <string name="animation_slide_right_no_fade">Von rechts einblenden (ohne überblenden)</string>
+    <string name="animation_slide_left_no_fade">Von links einblenden (ohne überblenden)</string>
+    <string name="animation_slide_up">Von unten einblenden</string>
+    <string name="animation_slide_down">Von oben einblenden</string>
+    <string name="animation_default">Standard</string>
+    <string name="animation_translucent">Durchscheinend</string>
+    <string name="animation_grow_shrink">Einblenden (von oben)</string>
+    <string name="animation_grow_shrink_center">Einblenden (aus der Mitte)</string>
+    <string name="animation_grow_shrink_bottom">Einblenden (von unten)</string>
+    <string name="animation_grow_shrink_left">Einblenden (von links)</string>
+    <string name="animation_grow_shrink_right">Einblenden (von rechts)</string>
+    <string name="animation_random">Zufällig</string>
+    <string name="action_null">Leer</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Keine SU- Berechtigung erhalten. Bitte roote dein Gerät oder überprüfe die root-Verwaltungs app.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">auf Schriftverwaltung zugreifen</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Erlaubt der Anwendung, auf die Schriftverwaltung zuzugreifen.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Akku vollständig geladen</string>
+    <string name="notify_battery_fully_charged_text">Trenne Dein Gerät vom Ladegerät, um die Lebensdauer des Akkus zu verbessern.</string>
+    <string name="battery_charged_channel_name">Aufladen abgeschlossen</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Ein-/Aus-Taste lange gedrückt halten, um mit dem Gerät zu interagieren</string>
 </resources>

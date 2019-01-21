@@ -17,5 +17,7 @@
 -->
 <resources>
   <!--OmniJaws -->
+  <string name="weather_info_not_available">Informații despre vreme indisponibile</string>
   <!-- Ambient Display Pixel-Like string -->
+  <string name="ambientmusic_songinfo">%s pe %s</string>
 </resources>

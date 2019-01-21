@@ -16,34 +16,42 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Перезагрузка</string>
-  <string name="reboot_message">Перезагрузка системы</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">Управление редактором панели навигации</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Разрешать приложению управлять редактированием панели навигации.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">Затухание</string>
-  <string name="animation_slide_right">Слайд вправо</string>
-  <string name="animation_slide_left">Слайд влево</string>
-  <string name="animation_slide_right_no_fade">Сдвиг вправо (Без затухания)</string>
-  <string name="animation_slide_left_no_fade">Сдвиг слева (без затухания)</string>
-  <string name="animation_slide_up">Сдвинуть вниз</string>
-  <string name="animation_slide_down">Сдвинуть вверх</string>
-  <string name="animation_default">По умолчанию</string>
-  <string name="animation_translucent">Полупрозрачный</string>
-  <string name="animation_grow_shrink">Увеличение (верх)</string>
-  <string name="animation_grow_shrink_center">Увеличение (центр)</string>
-  <string name="animation_grow_shrink_bottom">Увеличение (вниз)</string>
-  <string name="animation_grow_shrink_left">Увеличение (слева)</string>
-  <string name="animation_grow_shrink_right">Вырастать (справа)</string>
-  <string name="animation_random">Случайный</string>
-  <string name="action_null">Пусто</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Ваш образ ПO производителя не соответствует системе. Пожалуйста, прошейте <xliff:g id="string">%s</xliff:g> образ ПO  производителя для вашего устройства</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Перезагрузка</string>
+    <string name="reboot_message">Перезагрузка системы</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">Управление редактором панели навигации</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Разрешать приложению управлять редактированием панели навигации.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">Затухание</string>
+    <string name="animation_slide_right">Слайд вправо</string>
+    <string name="animation_slide_left">Слайд влево</string>
+    <string name="animation_slide_right_no_fade">Сдвиг вправо (Без затухания)</string>
+    <string name="animation_slide_left_no_fade">Сдвиг слева (без затухания)</string>
+    <string name="animation_slide_up">Сдвинуть вниз</string>
+    <string name="animation_slide_down">Сдвинуть вверх</string>
+    <string name="animation_default">По умолчанию</string>
+    <string name="animation_translucent">Полупрозрачный</string>
+    <string name="animation_grow_shrink">Увеличение (верх)</string>
+    <string name="animation_grow_shrink_center">Увеличение (центр)</string>
+    <string name="animation_grow_shrink_bottom">Увеличение (вниз)</string>
+    <string name="animation_grow_shrink_left">Увеличение (слева)</string>
+    <string name="animation_grow_shrink_right">Вырастать (справа)</string>
+    <string name="animation_random">Случайный</string>
+    <string name="action_null">Пусто</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Извините, но SU права не установлены. Пожалуйста рутируйте устройство или проверьте приложение для рута</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">доступ к менеджеру шрифтов</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Позволяет приложению получить доступ к менеджеру шрифтов.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Батарея полностью заряжена</string>
+    <string name="notify_battery_fully_charged_text">Отключите девайс от зарядного устройства для увеличения срока службы батареи</string>
+    <string name="battery_charged_channel_name">Заряд батареи</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Нажмите и удерживайте кнопку питания для взаимодействия</string>
 </resources>

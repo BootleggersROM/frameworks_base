@@ -16,41 +16,41 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <string name="system_error_vendorprint">Vaš vendor image ne odgovara imageu sustava. Molimo flashajte <xliff:g id="string">%s</xliff:g> image vendora za vaš uređaj</string>
-  <!-- Power Menu strings -->
-  <string name="reboot_title">Ponovno pokretanje</string>
-  <string name="reboot_message">Sustav se ponovno pokreće</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">kontrola uređivača navigacije</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">Dopušta aplikaciji da kontrolira uređivač navigscijske trake.</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_slide_right">Klizanje u desno</string>
-  <string name="animation_slide_left">Klizanje u lijevo</string>
-  <string name="animation_slide_right_no_fade">Klizanje udesno (bez blijeđenja)</string>
-  <string name="animation_slide_left_no_fade">Klizanje ulijevo (bez blijeđenja)</string>
-  <string name="animation_slide_up">Klizanje prema dolje</string>
-  <string name="animation_slide_down">Klizanje prema gore</string>
-  <string name="animation_default">Zadano</string>
-  <string name="animation_translucent">Prozirno</string>
-  <string name="animation_grow_shrink">Širenje (gore)</string>
-  <string name="animation_grow_shrink_center">Širenje (sredina)</string>
-  <string name="animation_grow_shrink_bottom">Širenje (dno)</string>
-  <string name="animation_grow_shrink_left">Širenje (lijevo)</string>
-  <string name="animation_grow_shrink_right">Širenje (desno)</string>
-  <string name="animation_random">Nasumično</string>
-  <string name="action_null">Prazno</string>
-  <!-- SU Shell -->
-  <string name="cannot_get_su">Žao nam je, ali SU dozvole nisu dopuštene. Molimo rootajte svoj uređaj ili provjerite vašu aplikaciju za upravljanje rootom.</string>
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permlab_accessFontManager">pristup upravitelju fonta</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_accessFontManager">Dopušta aplikaciji pristup upravitelju fonta.</string>
-  <!-- Battery fully charged notification -->
-  <string name="notify_battery_fully_charged_title">Baterija je potpuno napunjena</string>
-  <string name="notify_battery_fully_charged_text">Odspojite punjač kako bi ste poboljšali životni vijek baterije.</string>
-  <string name="battery_charged_channel_name">Baterija je napunjena</string>
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Pritisnite i držite power tipku za interakciju</string>
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Vaš vendor image ne odgovara imageu sustava. Molimo flashajte <xliff:g id="string">%s</xliff:g> image vendora za vaš uređaj</string>
+    <!-- Power Menu strings -->
+    <string name="reboot_title">Ponovno pokretanje</string>
+    <string name="reboot_message">Sustav se ponovno pokreće</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">kontrola uređivača navigacije</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Dopušta aplikaciji da kontrolira uređivač navigscijske trake.</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_slide_right">Klizanje u desno</string>
+    <string name="animation_slide_left">Klizanje u lijevo</string>
+    <string name="animation_slide_right_no_fade">Klizanje udesno (bez blijeđenja)</string>
+    <string name="animation_slide_left_no_fade">Klizanje ulijevo (bez blijeđenja)</string>
+    <string name="animation_slide_up">Klizanje prema dolje</string>
+    <string name="animation_slide_down">Klizanje prema gore</string>
+    <string name="animation_default">Zadano</string>
+    <string name="animation_translucent">Prozirno</string>
+    <string name="animation_grow_shrink">Širenje (gore)</string>
+    <string name="animation_grow_shrink_center">Širenje (sredina)</string>
+    <string name="animation_grow_shrink_bottom">Širenje (dno)</string>
+    <string name="animation_grow_shrink_left">Širenje (lijevo)</string>
+    <string name="animation_grow_shrink_right">Širenje (desno)</string>
+    <string name="animation_random">Nasumično</string>
+    <string name="action_null">Prazno</string>
+    <!-- SU Shell -->
+    <string name="cannot_get_su">Žao nam je, ali SU dozvole nisu dopuštene. Molimo rootajte svoj uređaj ili provjerite vašu aplikaciju za upravljanje rootom.</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">pristup upravitelju fonta</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Dopušta aplikaciji pristup upravitelju fonta.</string>
+    <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Baterija je potpuno napunjena</string>
+    <string name="notify_battery_fully_charged_text">Odspojite punjač kako bi ste poboljšali životni vijek baterije.</string>
+    <string name="battery_charged_channel_name">Baterija je napunjena</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pritisnite i držite power tipku za interakciju</string>
 </resources>

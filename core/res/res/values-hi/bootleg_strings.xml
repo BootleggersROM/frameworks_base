@@ -16,22 +16,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-  <!-- Power Menu strings -->
-  <string name="reboot_title">रिबूट</string>
-  <string name="reboot_message">एंड्राइड वापिस चालू हो रहा है</string>
-  <!-- DUI permission of control navbar editor -->
-  <string name="permlab_toggleNavigationEditor">नेविगेशन बदलावकारक को संभाले</string>
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <string name="permdesc_toggleNavigationEditor">दूसरे एप्लीकेशन को नेविगेशन बार में बदलाव करने की छूट</string>
-  <!-- AOKP custom system animations -->
-  <string name="animation_fade">धुंधला करें</string>
-  <string name="animation_slide_right">दायें से स्लाइड</string>
-  <string name="animation_slide_left">बाएं से खींचे</string>
-  <string name="animation_default">डिफॉल्ट</string>
-  <!-- SU Shell -->
-  <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-  <!-- Battery fully charged notification -->
-  <!-- Pocket Lock -->
+    <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <!-- Power Menu strings -->
+    <string name="reboot_title">रिबूट</string>
+    <string name="reboot_message">एंड्राइड वापिस चालू हो रहा है</string>
+    <!-- DUI permission of control navbar editor -->
+    <string name="permlab_toggleNavigationEditor">नेविगेशन बदलावकारक को संभाले</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">दूसरे एप्लीकेशन को नेविगेशन बार में बदलाव करने की छूट</string>
+    <!-- AOKP custom system animations -->
+    <string name="animation_fade">धुंधला करें</string>
+    <string name="animation_slide_right">दायें से स्लाइड</string>
+    <string name="animation_slide_left">बाएं से खींचे</string>
+    <string name="animation_default">डिफॉल्ट</string>
+    <!-- SU Shell -->
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <!-- Battery fully charged notification -->
+    <!-- Pocket Lock -->
 </resources>
