@@ -56,4 +56,8 @@
    <!-- Ambient clock padding workaround -->
   <dimen name="ambient_clock_forced_top_padding">10dp</dimen>
   <dimen name="ambient_clock_forced_bottom_padding">0dp</dimen>
+
+    <!-- OmniStyle -->
+    <dimen name="qs_header_image_offset">0dp</dimen>
+    <dimen name="qs_header_image_side_margin">0dp</dimen>
 </resources>
