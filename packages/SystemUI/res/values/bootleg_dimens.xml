@@ -58,6 +58,8 @@
   <dimen name="ambient_clock_forced_bottom_padding">0dp</dimen>
 
     <!-- OmniStyle -->
-    <dimen name="qs_header_image_offset">0dp</dimen>
-    <dimen name="qs_header_image_side_margin">0dp</dimen>
+    <dimen name="qs_header_image_offset">25dp</dimen>
+    <dimen name="qs_header_image_side_margin">4dp</dimen>
+    <dimen name="qs_header_image_bottom_margin">4dp</dimen>
+
 </resources>
