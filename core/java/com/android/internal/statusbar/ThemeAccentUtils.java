@@ -81,6 +81,7 @@ public class ThemeAccentUtils {
         "com.android.settings.theme.darktheem", // 1
         "com.android.systemui.theme.darktheem", // 2
         "com.bootleggers.shishuota.theme.darktheem", // 3
+        "com.google.android.apps.wellbeing.theme.darktheem", // 4
     };
 
     private static final String[] BLACK_THEMES = {
@@ -88,6 +89,7 @@ public class ThemeAccentUtils {
         "com.android.settings.theme.blacktheem", // 1
         "com.android.systemui.theme.blacktheem", // 2
         "com.bootleggers.shishuota.theme.blacktheem", // 3
+        "com.google.android.apps.wellbeing.theme.blacktheem", // 3
     };
 
     private static final String[] SHISHU_THEMES = {
