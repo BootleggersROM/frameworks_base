@@ -4351,6 +4351,7 @@ public final class Settings {
          */
         public static final String GLOBAL_ACTIONS_SCREENRECORD = "global_actions_screenrecord";
 
+
         /**
          * Whether to display settings in the power menu
          *
@@ -4359,18 +4360,14 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
 
         /**
-<<<<<<< HEAD
-         * Whether to display lock in the power menu
-         *
-=======
          * Select which lockscreen clock style to display
          * @hide
          */
         public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
 
         /**
-         * Whether to hide the items underneath the lockscreen clock
->>>>>>> 1c60490... Introduce lockscreen clock/date styles [1/2]
+         * Whether to display lock in the power menu
+         *
          * @hide
          */
         public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
@@ -5394,7 +5391,8 @@ public final class Settings {
             STATUS_BAR_DAYLIGHT_HEADER_PACK,
             STATUS_BAR_CUSTOM_HEADER_PROVIDER,
             STATUS_BAR_CUSTOM_HEADER_IMAGE,
-            STATUS_BAR_FILE_HEADER_IMAGE
+            STATUS_BAR_FILE_HEADER_IMAGE,
+            NOTIFICATION_LIGHT_PULSE
         };
 
         /**
@@ -5692,6 +5690,7 @@ public final class Settings {
                     STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_FILE_HEADER_IMAGE,
                     STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -10024,6 +10023,8 @@ public final class Settings {
             VALIDATORS.put(LOCK_POWER_MENU_DISABLED, LOCK_POWER_MENU_DISABLED_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_BATTERY_STYLE, STATUS_BAR_BATTERY_STYLE_VALIDATOR);
             VALIDATORS.put(VOLUME_LINK_NOTIFICATION, VOLUME_LINK_NOTIFICATION_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_SHOW_NOTIFICATIONS, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -14684,6 +14685,7 @@ public final class Settings {
          * Supported keys:
          * compatibility_wal_supported      (boolean)
          * wal_syncmode       (String)
+         * truncate_size      (int)
          *
          * @hide
          */
