@@ -4729,6 +4729,11 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mVisualizerView.setDozing(mDozing);
         updateQsExpansionEnabled();
         mKeyguardShortcuts.setDozing(mDozing);
+        if (isAmbientContainerAvailable()) {
+            ((AmbientIndicationContainer)mAmbientIndicationContainer)
+                    .updateDozingState(mDozing);
+        }
+
         Trace.endSection();
     }
 
