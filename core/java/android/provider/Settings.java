@@ -4594,6 +4594,16 @@ public final class Settings {
         public static final String ACCENT_PICKER = "accent_picker";
 
         /**
+        * @hide
+        */
+       public static final String OMNI_USE_BOTTOM_GESTURE_NAVIGATION =
+               "use_bottom_gesture_navigation";
+
+       /** @hide */
+       private static final Validator OMNI_USE_BOTTOM_GESTURE_NAVIGATION_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+
+        /**
          * Show four g instead of LTE
          * @hide
          */
@@ -5478,6 +5488,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_PROVIDER);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(STATUS_BAR_FILE_HEADER_IMAGE);
+            PRIVATE_SETTINGS.add(OMNI_USE_BOTTOM_GESTURE_NAVIGATION);
         }
 
         /**
@@ -5603,6 +5614,8 @@ public final class Settings {
                     STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_FILE_HEADER_IMAGE,
                     STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(OMNI_USE_BOTTOM_GESTURE_NAVIGATION,
+                    OMNI_USE_BOTTOM_GESTURE_NAVIGATION_VALIDATOR);
         }
 
         /**

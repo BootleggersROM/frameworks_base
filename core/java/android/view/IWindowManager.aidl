@@ -447,6 +447,10 @@ interface IWindowManager
      */
     void dontOverrideDisplayInfo(int displayId);
 
+    boolean isGestureButtonEnabled();
+
+    boolean isGestureButtonRegion(int i, int i2);
+
     /**
      * Call screen record from WindowManager.
      */
