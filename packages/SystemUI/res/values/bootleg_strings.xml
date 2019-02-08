@@ -277,8 +277,4 @@
     <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">Close App</string>
 
-    <!-- Elmyra -->
-    <string name="elmyra_raw_sensor_string_type" translatable="false">com.google.sensor.elmyra.raw</string>
-    <string name="google_camera_app_package_name"translatable="false">com.google.android.GoogleCamera</string>
-
 </resources>
