@@ -1028,7 +1028,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                     mHeadsUpAppearanceController.readFrom(oldController);
                     setAreThereNotifications();
                     checkBarModes();
- 		            mStatusBarContent = (LinearLayout) mStatusBarView.findViewById(R.id.status_bar_contents);
+                    mStatusBarContent = (LinearLayout) mStatusBarView.findViewById(R.id.status_bar_contents);
                     mCenterClockLayout = mStatusBarView.findViewById(R.id.center_clock_layout);
                 }).getFragmentManager()
                 .beginTransaction()
@@ -6092,8 +6092,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 Settings.System.FORCE_AMBIENT_FOR_MEDIA, 1,
                 UserHandle.USER_CURRENT) != 0;
         if (isAmbientContainerAvailable()) {
-            ((AmbientIndicationContainer)mAmbientIndicationContainer).setIndication(
-                    mMediaManager.getMediaMetadata(), null, false);
+            ((AmbientIndicationContainer)mAmbientIndicationContainer).setIndication(null, false);
         }
     }
 
@@ -6103,10 +6102,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 UserHandle.USER_CURRENT) == 1;
     }
 
-    public void setAmbientMusicInfo(MediaMetadata mediaMetadata, String notificationText, boolean nowPlaying) {
+    public void setAmbientMusicInfo(String notificationText, boolean nowPlaying) {
         if (isAmbientContainerAvailable()) {
             ((AmbientIndicationContainer)mAmbientIndicationContainer).setIndication(
-                    mediaMetadata, notificationText, nowPlaying);
+                    notificationText, nowPlaying);
         }
     }
 
