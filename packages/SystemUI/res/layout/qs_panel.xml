@@ -45,26 +45,12 @@
         android:layout_height="@*android:dimen/quick_qs_offset_height"
         android:background="@color/quick_settings_status_bar_background_color" >
 
-        <RelativeLayout
-            android:id="@+id/qs_header_image_view_base"
+        <ImageView android:id="@+id/qs_header_image_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:clipChildren="true"
-            android:background="@drawable/qs_header_image_view_outline" >
-
-            <ImageView android:id="@+id/qs_header_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:visibility="gone" />
-
-            <View
-                android:id="@+id/quick_settings_header_shadow"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#000" />
-
-        </RelativeLayout>
+            android:scaleType="centerCrop"
+            android:visibility="gone"
+            android:background="@drawable/qs_header_image_view_outline" />
     </LinearLayout>
 
     <com.android.systemui.qs.QSPanel
