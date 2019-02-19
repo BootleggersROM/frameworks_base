@@ -257,6 +257,9 @@
 
   <!-- Whether the device supports Active Edge -->
   <java-symbol type="bool" name="config_hasActiveEdge" />
+  
+  <!-- Whether to allow sending active app broadcast -->
+  <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 
   <!-- Whether device has a physical display cutout -->
   <java-symbol type="bool" name="config_physicalDisplayCutout" />
