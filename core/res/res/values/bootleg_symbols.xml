@@ -257,5 +257,8 @@
 
   <!-- Whether the device supports Active Edge -->
   <java-symbol type="bool" name="config_hasActiveEdge" />
+  
+  <!-- Whether to allow sending active app broadcast -->
+  <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 
 </resources>
