@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
+import com.android.internal.util.bootleggers.BootlegUtils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.SysUIToast;
@@ -39,14 +40,14 @@ public class BootlegDumpsterTile extends QSTileImpl<BooleanState> {
     private static final String TAG = "BootlegDumpsterTile";
 
     private static final String BTLG_PKG_NAME = "com.android.settings";
-//    private static final String OTA_PKG_NAME = "com.bootleggers.ota";
+    private static final String OTA_PKG_NAME = "com.bootleggers.shishuota";
 
     private static final Intent BTLG_CONF = new Intent()
         .setComponent(new ComponentName(BTLG_PKG_NAME,
         "com.android.settings.Settings$BootlegDumpsterActivity"));
-//    private static final Intent OTA_INTENT = new Intent()
-//        .setComponent(new ComponentName(OTA_PKG_NAME,
-//        "com.bootleggers.ota.MainActivity"));
+    private static final Intent OTA_INTENT = new Intent()
+        .setComponent(new ComponentName(OTA_PKG_NAME,
+        "com.bootleggers.shishuota.UpdatesActivity"));
 
     public BootlegDumpsterTile(QSHost host) {
         super(host);
@@ -75,13 +76,15 @@ public class BootlegDumpsterTile extends QSTileImpl<BooleanState> {
         return null;
     }
 
-//    @Override
-//    public void handleLongClick() {
-//        // Collapse the panels, so the user can see the toast.
-//        mHost.collapsePanels();
-//        startBootlegOTA();
-//        refreshState();
-//    }
+    @Override
+    public void handleLongClick() {
+        if (BootlegUtils.isPackageAvailable(OTA_PKG_NAME, mContext)) {
+            // Collapse the panels, so the user can see the toast.
+            mHost.collapsePanels();
+            startBootlegOTA();
+            refreshState();
+        }
+    }
 
     @Override
     public CharSequence getTileLabel() {
@@ -92,9 +95,9 @@ public class BootlegDumpsterTile extends QSTileImpl<BooleanState> {
         mActivityStarter.postStartActivityDismissingKeyguard(BTLG_CONF, 0);
     }
 
-//    protected void startBootlegOTA() {
-//        mActivityStarter.postStartActivityDismissingKeyguard(OTA_INTENT, 0);
-//    }
+    protected void startBootlegOTA() {
+        mActivityStarter.postStartActivityDismissingKeyguard(OTA_INTENT, 0);
+    }
 
     @Override
     protected void handleUpdateState(BooleanState state, Object arg) {
