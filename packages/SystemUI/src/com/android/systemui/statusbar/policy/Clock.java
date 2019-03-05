@@ -22,6 +22,7 @@ import static android.provider.Settings.Secure.STATUSBAR_CLOCK_DATE_DISPLAY;
 import static android.provider.Settings.Secure.STATUSBAR_CLOCK_DATE_STYLE;
 import static android.provider.Settings.Secure.STATUSBAR_CLOCK_DATE_FORMAT;
 import static android.provider.Settings.Secure.STATUSBAR_CLOCK_DATE_POSITION;
+import static android.provider.Settings.Secure.STATUS_BAR_CLOCK_SECONDS;
 
 import android.app.StatusBarManager;
 import android.content.BroadcastReceiver;
@@ -33,6 +34,7 @@ import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
+import android.os.SystemClock;
 import android.os.UserHandle;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
@@ -120,6 +122,8 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
     private int mAmPmStyle;
 
     private final boolean mShowDark;
+    private boolean mShowSeconds;
+    private Handler mSecondsHandler;
     private boolean mQsHeader;
 
     /**
@@ -215,7 +219,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
             getContext().registerReceiverAsUser(mIntentReceiver, UserHandle.ALL, filter,
                     null, Dependency.get(Dependency.TIME_TICK_HANDLER));
             Dependency.get(TunerService.class).addTunable(this,
-                    STATUS_BAR_CLOCK, STATUSBAR_CLOCK_AM_PM_STYLE, STATUSBAR_CLOCK_DATE_DISPLAY,
+                    STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_SECONDS, STATUSBAR_CLOCK_AM_PM_STYLE, STATUSBAR_CLOCK_DATE_DISPLAY,
                     STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_POSITION);
             SysUiServiceProvider.getComponent(getContext(), CommandQueue.class).addCallback(this);
             if (mShowDark) {
@@ -233,6 +237,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
 
         // Make sure we update to the current time
         updateClock();
+        updateShowSeconds();
         updateClockVisibility();
     }
 
@@ -337,7 +342,8 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
                 || STATUSBAR_CLOCK_DATE_STYLE.equals(key)
                 || STATUSBAR_CLOCK_DATE_FORMAT.equals(key)
                 || STATUSBAR_CLOCK_DATE_POSITION.equals(key)
-                || STATUS_BAR_CLOCK.equals(key)) {
+                || STATUS_BAR_CLOCK.equals(key)
+                || STATUS_BAR_CLOCK_SECONDS.equals(key)) {
             updateSettings(key, newValue);
         }
     }
@@ -392,6 +398,29 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         }
     }
 
+    private void updateShowSeconds() {
+        if (mShowSeconds) {
+            // Wait until we have a display to start trying to show seconds.
+            if (mSecondsHandler == null && getDisplay() != null) {
+                mSecondsHandler = new Handler();
+                if (getDisplay().getState() == Display.STATE_ON) {
+                    mSecondsHandler.postAtTime(mSecondTick,
+                            SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
+                }
+                IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
+                filter.addAction(Intent.ACTION_SCREEN_ON);
+                mContext.registerReceiver(mScreenReceiver, filter);
+            }
+        } else {
+            if (mSecondsHandler != null) {
+                mContext.unregisterReceiver(mScreenReceiver);
+                mSecondsHandler.removeCallbacks(mSecondTick);
+                mSecondsHandler = null;
+                updateClock();
+            }
+        }
+    }
+
     private final CharSequence getSmallTime() {
         Context context = getContext();
         boolean is24 = DateFormat.is24HourFormat(context, mCurrentUserId);
@@ -401,7 +430,11 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         final char MAGIC2 = '\uEF01';
 
         SimpleDateFormat sdf;
-        String format = is24 ? d.timeFormat_Hm : d.timeFormat_hm;
+
+        String format = mShowSeconds
+                 ? is24 ? d.timeFormat_Hms : d.timeFormat_hms
+                 : is24 ? d.timeFormat_Hm : d.timeFormat_hm;
+
         if (!format.equals(mClockFormatString)) {
             mContentDescriptionFormat = new SimpleDateFormat(format);
             /*
@@ -584,11 +617,45 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
                 }
                 setClockVisibleByUser(Integer.parseInt(newValue) != 0);
                 break;
+
+            case (STATUS_BAR_CLOCK_SECONDS):
+                if (newValue == null) {
+                    newValue = "0"; // hide seconds
+                }
+                mShowSeconds = Integer.parseInt(newValue) == 1;
+                break;
         }
         if (mCalendar != null) {
             updateClock();
         }
     }
+
+    private final BroadcastReceiver mScreenReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String action = intent.getAction();
+            if (Intent.ACTION_SCREEN_OFF.equals(action)) {
+                if (mSecondsHandler != null) {
+                    mSecondsHandler.removeCallbacks(mSecondTick);
+                }
+            } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
+                if (mSecondsHandler != null) {
+                    mSecondsHandler.postAtTime(mSecondTick,
+                            SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
+                }
+            }
+        }
+    };
+
+    private final Runnable mSecondTick = new Runnable() {
+        @Override
+        public void run() {
+            if (mCalendar != null) {
+                updateClock();
+            }
+            mSecondsHandler.postAtTime(this, SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
+        }
+    };
 
     public boolean isClockDateEnabled() {
         return shouldBeVisible() && mClockDateDisplay != CLOCK_DATE_DISPLAY_GONE;
