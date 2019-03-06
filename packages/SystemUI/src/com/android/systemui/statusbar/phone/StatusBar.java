@@ -4594,6 +4594,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
      */
     protected void updateTheme() {
         final boolean inflated = mStackScroller != null && mStatusBarWindowManager != null;
+        final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
 
         haltTicker();
         boolean useDarkTheme = false;
@@ -4627,32 +4628,73 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             useShishuCosmosTheme = mCurrentTheme == 9;
             useShishuProtostarTheme = mCurrentTheme == 10;
         }
+        if (mCurrentTheme == 1) {
+            mUiOffloadThread.submit(() -> {
+            umm.setNightMode(UiModeManager.MODE_NIGHT_NO);
+            });
+        }
         if (isUsingDarkTheme() != useDarkTheme) {
-            ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
+            final boolean useDark = useDarkTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDark);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingBlackTheme() != useBlackTheme) {
-            ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlackTheme);
+            final boolean useBlack = useBlackTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlack);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuTheme() != useShishuTheme) {
-            ThemeAccentUtils.setLightShishuTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuTheme);
+            final boolean useShishu = useShishuTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishu);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuNightsTheme() != useShishuNightsTheme) {
-            ThemeAccentUtils.setLightShishuNightsTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuNightsTheme);
+            final boolean useShishuNight = useShishuNightsTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuNightsTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuNight);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuIllusionsTheme() != useShishuIllusionsTheme) {
-            ThemeAccentUtils.setLightShishuIllusionsTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuIllusionsTheme);
+            final boolean useShishuIllusions = useShishuIllusionsTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuIllusionsTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuIllusions);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuImmensityTheme() != useShishuImmensityTheme) {
-            ThemeAccentUtils.setLightShishuImmensityTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuImmensityTheme);
+            final boolean useShishuImmensity = useShishuImmensityTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuImmensityTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuImmensity);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuAmalgamationTheme() != useShishuAmalgamationTheme) {
-            ThemeAccentUtils.setLightShishuAmalgamationTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuAmalgamationTheme);
+            final boolean useShishuAmalgamation = useShishuAmalgamationTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuAmalgamationTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuAmalgamation);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuCosmosTheme() != useShishuCosmosTheme) {
-            ThemeAccentUtils.setLightShishuCosmosTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuCosmosTheme);
+            final boolean useShishuCosmos = useShishuCosmosTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuCosmosTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuCosmos);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
         if (isUsingShishuProtostarTheme() != useShishuProtostarTheme) {
-            ThemeAccentUtils.setLightShishuProtostarTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuProtostarTheme);
+            final boolean useShishuProtostar = useShishuProtostarTheme;
+            mUiOffloadThread.submit(() -> {
+                ThemeAccentUtils.setLightShishuProtostarTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useShishuProtostar);
+                umm.setNightMode(UiModeManager.MODE_NIGHT_YES);
+            });
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
