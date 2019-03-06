@@ -96,6 +96,10 @@ public class ClockController implements TunerService.Tunable {
         }
     }
 
+    public boolean isClockBlacklistened() {
+        return mBlackListed;
+    }
+
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (DEBUG) Log.d(TAG, "onTuningChanged key=" + key + " value=" + newValue);
