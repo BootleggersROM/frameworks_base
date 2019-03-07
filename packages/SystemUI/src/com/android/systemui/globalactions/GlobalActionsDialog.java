@@ -510,11 +510,12 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 Log.e(TAG, "Invalid global action key " + actionKey);
             }
 
-            if (mEmergencyAffordanceManager.needsEmergencyAffordance()) {
-                mItems.add(getEmergencyAction());
-            }
             // Add here so we don't add more than one.
             addedKeys.add(actionKey);
+        }
+
+        if (mEmergencyAffordanceManager.needsEmergencyAffordance()) {
+            mItems.add(getEmergencyAction());
         }
     }
 
