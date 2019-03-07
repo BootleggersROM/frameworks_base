@@ -19,32 +19,32 @@ package com.android.internal.util.bootleggers;
 public class AmbientTickerUtil {
 
     // Declare some variables to be modified later
-    public boolean mIsTickerEnabled;
-    public boolean mIsInfoFromPNP;
-    public int DISPLAY_TIME_INTERVAL_SEC = 120000;
-    public String mTickerInfo
+    public static boolean mIsTickerShowing = false;
+    public static boolean mIsInfoFromPNP = false;
+    public static int DISPLAY_TIME_INTERVAL_SEC = 120000;
+    public static String mTickerInfo;
 
-    public boolean getTickerStatus() {
-        return mIsTickerEnabled;
+    public static boolean getTickerDisplayStatus() {
+        return mIsTickerShowing;
     }
 
-    public void setTickerStatus(boolean value) {
-        mIsTickerEnabled = value;
+    public static void setTickerDisplayStatus(boolean value) {
+        mIsTickerShowing = value;
     }
 
-    public boolean getTickerFromPNP() {
+    public static boolean getTickerFromPNP() {
         return mIsInfoFromPNP;
     }
 
-    public void setTickerFromPNP(boolean value) {
+    public static void setTickerFromPNP(boolean value) {
         mIsInfoFromPNP = value;
     }
 
-    public String getTickerInfo() {
+    public static String getTickerInfo() {
         return mTickerInfo;
     }
 
-    public void setTickerInfo(String value) {
+    public static void setTickerInfo(String value) {
         mTickerInfo = value;
     }
 }
