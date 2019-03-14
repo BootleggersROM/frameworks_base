@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import bootleggers.support.lottie.LottieAnimationView;
-import com.android.internal.util.bootleggers.AmbientTickerUtil;
 
 import com.android.systemui.AutoReinflateContainer;
 import com.android.systemui.R;
@@ -53,7 +52,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
 
     public void hideIndication() {
         setIndication(null, false);
-        AmbientTickerUtil.setTickerDisplayStatus(false);
     }
 
     public void initializeView(StatusBar statusBar, Handler handler) {
@@ -96,10 +94,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
                 mStatusBar.getNotificationLockscreenUserManager();
         boolean filtered = lockscreenManager.shouldHideNotifications(lockscreenManager.getCurrentUserId())
                 || lockscreenManager.shouldHideNotifications(mStatusBar.getMediaManager().getMediaNotificationKey());
-        AmbientTickerUtil.setTickerDisplayStatus(mKeyguard
-                && ((mDozing && (mInfoAvailable || mNpInfoAvailable))
-                || (!mDozing && mNpInfoAvailable && !mInfoAvailable)
-                || (!mDozing && mInfoAvailable && filtered)));
         return mKeyguard
                 && ((mDozing && (mInfoAvailable || mNpInfoAvailable))
                 || (!mDozing && mNpInfoAvailable && !mInfoAvailable)
@@ -149,8 +143,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
         if (nowPlaying && notificationText == null) {
             mMediaText = null;
             mNpInfoAvailable = false;
-            AmbientTickerUtil.setTickerFromPNP(false);
-            AmbientTickerUtil.setTickerInfo(null);
         }
         if (nowPlaying && mInfoAvailable) return;
 
@@ -168,10 +160,8 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
 
         if (nowPlaying) {
             mNpInfoAvailable = mInfoToSet != null;
-            AmbientTickerUtil.setTickerFromPNP(true);
         } else {
             mInfoAvailable = mInfoToSet != null;
-            AmbientTickerUtil.setTickerFromPNP(false);
         }
 
         if (mInfoAvailable || mNpInfoAvailable) {
@@ -185,7 +175,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
                 mLastInfo = mInfoToSet;
             }
         }
-        AmbientTickerUtil.setTickerInfo(mInfoToSet);
         mText.setText(mInfoToSet);
         mIcon.setAnimation(R.raw.ambient_music_note);
         mIcon.playAnimation();
