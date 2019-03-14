@@ -241,7 +241,7 @@
     <string name="accessibility_quick_settings_cpuinfo_changed_on">CPU Info turned on</string>
 
     <!-- Ambient Display Pixel-Like string -->
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo"><![CDATA[<b>%s</b> by %s]]></string>
 
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Heads up</string>
