@@ -100,6 +100,26 @@ public class TickerUtils {
         return r.nextInt((20000000 - 10000000) + 1) + 10000000;
     }
 
+    public void addObserver() {
+        if (isRunning) {
+            return;
+        }
+        isRunning = true;
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                updateTickerInfo();
+            }
+        });
+        thread.setPriority(Process.THREAD_PRIORITY_BACKGROUND);
+        thread.start();
+    }
+
+    public void removeObserver() {
+        mTrackInfo = null;
+        mIsFromNowPlaying = false;
+    }
+
     public void destroy(){
         mTrackInfo = null;
         mIsFromNowPlaying = false;
@@ -159,11 +179,14 @@ public class TickerUtils {
     }
 
     private void updateTickerInfo () {
-        boolean isAnotherTrack = !mTrackInfo.isEmpty();
-        if (!isAvailable(mContext) || !isAnotherTrack) {
+        if (!isAvailable(mContext) || mTrackInfo == null || mTrackInfo.isEmpty()) {
             isRunning = false;
             return;
         }
+        //if (mTrackInfo.isEmpty()) {
+        //    isRunning = false;
+        //    return;
+        //}
         isRunning = true;
         if (DEBUG) Log.d(TAG, mTrackInfo.toString());
         isRunning = false;
@@ -187,11 +210,11 @@ public class TickerUtils {
     }
 
 
-    public boolean getIsFromNowPlaying() {
+    public static boolean getIsFromNowPlaying() {
         return mIsFromNowPlaying;
     }
 
-    public String getTickerInfo() {
+    public static String getTickerInfo() {
         return mTrackInfo;
     }
 }

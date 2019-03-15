@@ -29,7 +29,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 
-import com.android.internal.util.bootleggers.TickerUtils.java
+import com.android.internal.util.bootleggers.TickerUtils;
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.Dumpable;
 import com.android.systemui.SysUiServiceProvider;
