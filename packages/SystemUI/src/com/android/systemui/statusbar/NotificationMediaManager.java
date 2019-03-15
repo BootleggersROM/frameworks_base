@@ -29,6 +29,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
 
+import com.android.internal.util.bootleggers.TickerUtils.java
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.Dumpable;
 import com.android.systemui.SysUiServiceProvider;
@@ -432,6 +433,7 @@ public class NotificationMediaManager implements Dumpable {
 
     public void setMediaNotificationText(String notificationText, boolean nowPlaying) {
         mPresenter.setAmbientMusicInfo(notificationText, nowPlaying);
+        TickerUtils.setTickerInfo(notificationText, nowPlaying);
     }
 
     public void setPulseColors(boolean isColorizedMEdia, int[] colors) {
