@@ -72,4 +72,7 @@
     <!-- Membar spacing -->
     <dimen name="recents_membar_spacing">12dp</dimen>
 
+    <!-- Ambient indication -->
+    <dimen name="ambient_indication_icon_size">20.0dip</dimen>
+
 </resources>
