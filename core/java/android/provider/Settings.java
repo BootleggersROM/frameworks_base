@@ -4719,6 +4719,16 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Display cutout
+         * @hide
+         */
+        public static final String DISPLAY_CUTOUT_HIDDEN = "display_cutout_hidden";
+
+        /** @hide */
+        private static final Validator DISPLAY_CUTOUT_HIDDEN_VALIDATOR = new
+                SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
+
+        /**
          * These are all public system settings
          *
          * @hide
@@ -4830,6 +4840,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FINGERPRINT_SUCCESS_VIB);
             PRIVATE_SETTINGS.add(SCREEN_OFF_ANIMATION);
             PRIVATE_SETTINGS.add(NOTIFICATION_SOUND_VIB_SCREEN_ON);
+            PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
         }
 
         /**
@@ -4931,6 +4942,7 @@ public final class Settings {
             VALIDATORS.put(SCREEN_OFF_ANIMATION, SCREEN_OFF_ANIMATION_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_SOUND_VIB_SCREEN_ON,
                     NOTIFICATION_SOUND_VIB_SCREEN_ON_VALIDATOR);
+            VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
         }
 
         /**
