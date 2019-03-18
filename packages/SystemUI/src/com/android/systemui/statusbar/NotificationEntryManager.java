@@ -37,8 +37,6 @@ import android.provider.Settings;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.NotificationStats;
 import android.service.notification.StatusBarNotification;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.ArraySet;
 import android.util.EventLog;
@@ -497,8 +495,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
                 //CharSequence album = data.getText(MediaMetadata.METADATA_KEY_ALBUM);
                 CharSequence title = data.getText(MediaMetadata.METADATA_KEY_TITLE);
                 if (artist != null && title != null) {
-                    String formattedInfo = String.format(mTrackInfoSeparator, title.toString(), artist.toString());
-                    notificationText = Html.fromHtml(formattedInfo).toString();
+                    notificationText = String.format(mTrackInfoSeparator, title.toString(), artist.toString());
                 }
             }
             mMediaManager.setMediaNotificationText(notificationText, false);
