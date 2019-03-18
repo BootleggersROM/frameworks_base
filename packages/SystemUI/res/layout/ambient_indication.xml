@@ -22,4 +22,5 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:forceHasOverlappingRendering="false"
+    android:animateLayoutChanges="true"
     xmlns:android="http://schemas.android.com/apk/res/android" />
