@@ -6074,7 +6074,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            update();
             if (uri.equals(Settings.System.getUriFor(
                         Settings.System.ACCENT_PICKER))) {
                     // Unload the accents and update the accent only when the user asks.
