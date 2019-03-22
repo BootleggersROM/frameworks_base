@@ -80,12 +80,14 @@ public class ThemeAccentUtils {
         "com.android.system.theme.darktheem", // 0
         "com.android.settings.theme.darktheem", // 1
         "com.android.systemui.theme.darktheem", // 2
+        "com.bootleggers.shishuota.theme.darktheem", // 3
     };
 
     private static final String[] BLACK_THEMES = {
         "com.android.system.theme.blacktheem", // 0
         "com.android.settings.theme.blacktheem", // 1
         "com.android.systemui.theme.blacktheem", // 2
+        "com.bootleggers.shishuota.theme.blacktheem", // 3
     };
 
     private static final String[] SHISHU_THEMES = {
@@ -94,6 +96,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishu", // 2
         "com.google.android.gms.theme.shishu", // 3
         "com.google.android.apps.wellbeing.theme.shishu", // 4
+        "com.bootleggers.shishuota.theme.shishu", // 5
     };
 
     private static final String[] SHISHUNIGHTS_THEMES = {
@@ -102,6 +105,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishunights", // 2
         "com.google.android.gms.theme.shishunights", // 3
         "com.google.android.apps.wellbeing.theme.shishunights", // 4
+        "com.bootleggers.shishuota.theme.shishunights", // 5
     };
 
     private static final String[] SHISHUILLUSIONS_THEMES = {
@@ -110,6 +114,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishuillusions", // 2
         "com.google.android.gms.theme.shishuillusions", // 3
         "com.google.android.apps.wellbeing.theme.shishuillusions", // 4
+        "com.bootleggers.shishuota.theme.shishuillusions", // 5
     };
 
     private static final String[] SHISHUIMMENSITY_THEMES = {
@@ -118,6 +123,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishuimmensity", // 2
         "com.google.android.gms.theme.shishuimmensity", // 3
         "com.google.android.apps.wellbeing.theme.shishuimmensity", // 4
+        "com.bootleggers.shishuota.theme.shishuimmensity", // 5
     };
 
     private static final String[] SHISHUAMALGAMATION_THEMES = {
@@ -126,6 +132,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishuamalgamation", // 2
         "com.google.android.gms.theme.shishuamalgamation", // 3
         "com.google.android.apps.wellbeing.theme.shishuamalgamation", // 4
+        "com.bootleggers.shishuota.theme.shishuamalgamation", // 5
     };
 
     private static final String[] SHISHUCOSMOS_THEMES = {
@@ -134,6 +141,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishucosmos", // 2
         "com.google.android.gms.theme.shishucosmos", // 3
         "com.google.android.apps.wellbeing.theme.shishucosmos", // 4
+        "com.bootleggers.shishuota.theme.shishucosmos", // 5
     };
 
     private static final String[] SHISHUPROTOSTAR_THEMES = {
@@ -142,6 +150,7 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishuprotostar", // 2
         "com.google.android.gms.theme.shishuprotostar", // 3
         "com.google.android.apps.wellbeing.theme.shishuprotostar", // 4
+        "com.bootleggers.shishuota.theme.shishuprotostar", // 5
     };
 
     // Switches theme accent from to another or back to stock
