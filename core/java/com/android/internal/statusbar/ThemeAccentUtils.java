@@ -82,6 +82,10 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.darktheem", // 2
         "com.bootleggers.shishuota.theme.darktheem", // 3
         "com.google.android.apps.wellbeing.theme.darktheem", // 4
+        "com.android.contacts.theme.darktheem", // 5
+        "com.android.dialer.theme.darktheem", // 6
+        "com.android.documentsui.theme.darktheem", // 7
+        "org.omnirom.gramophone.theme.darktheem", // 8
     };
 
     private static final String[] BLACK_THEMES = {
@@ -89,7 +93,11 @@ public class ThemeAccentUtils {
         "com.android.settings.theme.blacktheem", // 1
         "com.android.systemui.theme.blacktheem", // 2
         "com.bootleggers.shishuota.theme.blacktheem", // 3
-        "com.google.android.apps.wellbeing.theme.blacktheem", // 3
+        "com.google.android.apps.wellbeing.theme.blacktheem", // 4
+        "com.android.contacts.theme.blacktheem", // 5
+        "com.android.dialer.theme.blacktheem", // 6
+        "com.android.documentsui.theme.blacktheem", // 7
+        "org.omnirom.gramophone.theme.blacktheem", // 8
     };
 
     private static final String[] SHISHU_THEMES = {
@@ -99,6 +107,10 @@ public class ThemeAccentUtils {
         "com.google.android.gms.theme.shishu", // 3
         "com.google.android.apps.wellbeing.theme.shishu", // 4
         "com.bootleggers.shishuota.theme.shishu", // 5
+        "com.android.contacts.theme.shishu", // 6
+        "com.android.dialer.theme.shishu", // 7
+        "com.android.documentsui.theme.shishu", // 8
+        "org.omnirom.gramophone.theme.shishu", // 9
     };
 
     private static final String[] SHISHUNIGHTS_THEMES = {
@@ -108,6 +120,10 @@ public class ThemeAccentUtils {
         "com.google.android.gms.theme.shishunights", // 3
         "com.google.android.apps.wellbeing.theme.shishunights", // 4
         "com.bootleggers.shishuota.theme.shishunights", // 5
+        "com.android.contacts.theme.shishunights", // 6
+        "com.android.dialer.theme.shishunights", // 7
+        "com.android.documentsui.theme.shishunights", // 8
+        "org.omnirom.gramophone.theme.shishunights", // 9
     };
 
     private static final String[] SHISHUILLUSIONS_THEMES = {
@@ -117,6 +133,10 @@ public class ThemeAccentUtils {
         "com.google.android.gms.theme.shishuillusions", // 3
         "com.google.android.apps.wellbeing.theme.shishuillusions", // 4
         "com.bootleggers.shishuota.theme.shishuillusions", // 5
+        "com.android.contacts.theme.shishuillusions", // 6
+        "com.android.dialer.theme.shishuillusions", // 7
+        "com.android.documentsui.theme.shishuillusions", // 8
+        "org.omnirom.gramophone.theme.shishuillusions", // 9
     };
 
     private static final String[] SHISHUIMMENSITY_THEMES = {
@@ -126,6 +146,10 @@ public class ThemeAccentUtils {
         "com.google.android.gms.theme.shishuimmensity", // 3
         "com.google.android.apps.wellbeing.theme.shishuimmensity", // 4
         "com.bootleggers.shishuota.theme.shishuimmensity", // 5
+        "com.android.contacts.theme.shishuimmensity", // 6
+        "com.android.dialer.theme.shishuimmensity", // 7
+        "com.android.documentsui.theme.shishuimmensity", // 8
+        "org.omnirom.gramophone.theme.shishuimmensity", // 9
     };
 
     private static final String[] SHISHUAMALGAMATION_THEMES = {
@@ -134,7 +158,11 @@ public class ThemeAccentUtils {
         "com.android.systemui.theme.shishuamalgamation", // 2
         "com.google.android.gms.theme.shishuamalgamation", // 3
         "com.google.android.apps.wellbeing.theme.shishuamalgamation", // 4
-        "com.bootleggers.shishuota.theme.shishuamalgamation", // 5
+        "com.bootleggers.shishuota.theme.shishuamalgamation", // 
+        "com.android.contacts.theme.shishuamalgamation", // 6
+        "com.android.dialer.theme.shishuamalgamation", // 7
+        "com.android.documentsui.theme.shishuamalgamation", // 8
+        "org.omnirom.gramophone.theme.shishuamalgamation", // 9
     };
 
     private static final String[] SHISHUCOSMOS_THEMES = {
@@ -144,6 +172,10 @@ public class ThemeAccentUtils {
         "com.google.android.gms.theme.shishucosmos", // 3
         "com.google.android.apps.wellbeing.theme.shishucosmos", // 4
         "com.bootleggers.shishuota.theme.shishucosmos", // 5
+        "com.android.contacts.theme.shishucosmos", // 6
+        "com.android.dialer.theme.shishucosmos", // 7
+        "com.android.documentsui.theme.shishucosmos", // 8
+        "org.omnirom.gramophone.theme.shishucosmos", // 9
     };
 
     private static final String[] SHISHUPROTOSTAR_THEMES = {
@@ -153,6 +185,10 @@ public class ThemeAccentUtils {
         "com.google.android.gms.theme.shishuprotostar", // 3
         "com.google.android.apps.wellbeing.theme.shishuprotostar", // 4
         "com.bootleggers.shishuota.theme.shishuprotostar", // 5
+        "com.android.contacts.theme.shishuprotostar", // 6
+        "com.android.dialer.theme.shishuprotostar", // 7
+        "com.android.documentsui.theme.shishuprotostar", // 8
+        "org.omnirom.gramophone.theme.shishuprotostar", // 9
     };
 
     // Switches theme accent from to another or back to stock
