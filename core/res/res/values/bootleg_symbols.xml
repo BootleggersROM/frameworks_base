@@ -266,4 +266,8 @@
 
   <!-- Whether devices supports Qualcomm Boost Framework -->
   <java-symbol type="bool" name="config_enableQcCpuBoost" />
+
+  <!-- FoD -->
+  <java-symbol type="bool" name="config_needCustomFODView" />
+  <java-symbol type="bool" name="config_usesOnePlusFOD" />
 </resources>
