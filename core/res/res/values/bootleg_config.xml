@@ -146,4 +146,7 @@
   <!-- Whether device has a physical display cutout -->
   <bool name="config_physicalDisplayCutout">false</bool>
 
+  <!-- Whether to enable Qualcomm Boost Framework -->
+  <bool name="config_enableQcCpuBoost">false</bool>
+
 </resources>

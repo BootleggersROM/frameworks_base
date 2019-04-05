@@ -263,4 +263,7 @@
 
   <!-- Whether device has a physical display cutout -->
   <java-symbol type="bool" name="config_physicalDisplayCutout" />
+
+  <!-- Whether devices supports Qualcomm Boost Framework -->
+  <java-symbol type="bool" name="config_enableQcCpuBoost" />
 </resources>
