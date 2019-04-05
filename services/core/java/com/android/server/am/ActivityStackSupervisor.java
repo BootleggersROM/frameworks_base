@@ -452,6 +452,9 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     // Whether tasks have moved and we need to rank the tasks before next OOM scoring
     private boolean mTaskLayersChanged = true;
 
+    // Boost framework
+    private boolean mIsPerfBoostEnabled;
+
     private ActivityMetricsLogger mActivityMetricsLogger;
 
     private final ArrayList<ActivityRecord> mTmpActivityList = new ArrayList<>();
@@ -627,6 +630,9 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
         mActivityMetricsLogger = new ActivityMetricsLogger(this, mService.mContext,
                 mHandler.getLooper());
         mKeyguardController = new KeyguardController(mService, this);
+        /* Is perf lock for cpu-boost enabled during App 1st launch */
+        mIsPerfBoostEnabled = mService.mContext.getResources().getBoolean(
+                   com.android.internal.R.bool.config_enableQcCpuBoost);
 
         mLaunchParamsController = new LaunchParamsController(mService);
         mLaunchParamsController.registerDefaultModifiers(this);
@@ -3430,7 +3436,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
 
     void acquireAppLaunchPerfLock(ActivityRecord r) {
        /* Acquire perf lock during new app launch */
-       if (mPerfBoost == null) {
+       if (mPerfBoost == null && mIsPerfBoostEnabled) {
            mPerfBoost = new BoostFramework();
        }
        if (mPerfBoost != null) {
@@ -3454,6 +3460,7 @@ public class ActivityStackSupervisor extends ConfigurationContainer implements D
     }
 
     void acquireUxPerfLock(int opcode, String packageName) {
+        if (!mIsPerfBoostEnabled) return;
         mUxPerf = new BoostFramework();
         if (mUxPerf != null) {
             mUxPerf.perfUXEngine_events(opcode, 0, packageName, 0);
