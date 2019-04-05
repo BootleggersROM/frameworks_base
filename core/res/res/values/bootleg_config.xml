@@ -149,4 +149,7 @@
   <!-- Whether to enable Qualcomm Boost Framework -->
   <bool name="config_enableQcCpuBoost">false</bool>
 
+   <!-- Whether to show a custom view for FOD -->
+   <bool name="config_needCustomFODView">false</bool>
+
 </resources>
