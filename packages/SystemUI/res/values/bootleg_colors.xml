@@ -71,5 +71,7 @@
     <color name="recents_memory_progress_overall">@*android:color/resize_shadow_start_color</color>
     <color name="recents_memory_progress_free">@*android:color/accent_device_default_light</color>
 
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
 </resources>
 
