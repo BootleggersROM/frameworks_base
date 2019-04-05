@@ -10,4 +10,7 @@
     <!-- Skeleton string format for displaying the day of the month. -->
     <string name="abbrev_wday_month_no_year">MMMMd</string>
 
+    <!-- Q clock strings -->
+	<string name="custom_text_clock_top_text_default">It\'s</string>
+
 </resources>
