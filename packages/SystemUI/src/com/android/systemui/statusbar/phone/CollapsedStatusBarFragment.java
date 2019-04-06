@@ -456,10 +456,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1,
                 UserHandle.USER_CURRENT);
         mTickerEnabled = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_SHOW_TICKER, 0,
+                mContentResolver, Settings.System.STATUS_BAR_SHOW_TICKER, 0,
                 UserHandle.USER_CURRENT);
         mShowLogo = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                mContentResolver, Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
         setCarrierLabel(animate);
         updateStatusBarLogo(animate);
@@ -497,10 +497,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
 
         mShowLogo = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                mContentResolver, Settings.System.STATUS_BAR_LOGO, 0,
                 UserHandle.USER_CURRENT) == 1;
         mLogoStyle = Settings.System.getIntForUser(
-                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                mContentResolver, Settings.System.STATUS_BAR_LOGO_STYLE, 0,
                 UserHandle.USER_CURRENT);
 
         switch(mLogoStyle) {
