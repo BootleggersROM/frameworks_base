@@ -41,4 +41,9 @@
     <!-- Ambient Display Pixel-Like string -->
     <!-- Heads Up QS Tile -->
     <!-- Smart Pixels QS Tile -->
+    <!-- Advance location quick setting tile -->
+    <!-- Sync QS Tile -->
+    <!-- Kill button in notification guts -->
+    <!-- Recents membar -->
+    <!-- Ambient display QS tile -->
 </resources>

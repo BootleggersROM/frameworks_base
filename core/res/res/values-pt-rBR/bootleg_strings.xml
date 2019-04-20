@@ -25,10 +25,10 @@
     <!-- Path to the library that contains a alternative device specific key handler -->
     <!-- Name of that alternative key handler class -->
     <!-- advanced reboot to bootloader. -->
-    <string name="reboot_to_bootloader_title">Reiniciar em bootloader</string>
-    <string name="reboot_to_bootloader_message">Reiniciando em bootloader</string>
+    <string name="reboot_to_bootloader_title">Reiniciar para o Bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando em Bootloader</string>
     <!-- advanced reboot to recovery. -->
-    <string name="reboot_to_recovery_title">Reiniciar em recovery</string>
+    <string name="reboot_to_recovery_title">Reiniciar em TWRP</string>
     <string name="reboot_to_recovery_message">Reiniciando em recovery</string>
     <!-- advanced reboot system -->
     <string name="reboot_system_title">Reiniciar sistema</string>

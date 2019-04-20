@@ -45,9 +45,9 @@
     <string name="animation_translucent">Tembus pandang</string>
     <string name="animation_grow_shrink">Membesar dalam (Atas)</string>
     <string name="animation_grow_shrink_center">Membesar dalam (Tengah)</string>
-    <string name="animation_grow_shrink_bottom">Membesar dalam (Bawah)</string>
-    <string name="animation_grow_shrink_left">Membesar dalam (Kiri)</string>
-    <string name="animation_grow_shrink_right">Membesar dalam (Kanan)</string>
+    <string name="animation_grow_shrink_bottom">Membesar (Bawah)</string>
+    <string name="animation_grow_shrink_left">Membesar (Kiri)</string>
+    <string name="animation_grow_shrink_right">Membesar (Kanan)</string>
     <string name="animation_random">Acak</string>
     <string name="action_null">Kosong</string>
     <!-- Button that copies the url to the log of a crashed application -->

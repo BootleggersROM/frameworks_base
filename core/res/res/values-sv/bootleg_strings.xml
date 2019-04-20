@@ -34,7 +34,21 @@
     <string name="reboot_system_title">Starta om systemet</string>
     <string name="reboot_system_message">Startar om systemet\u2026</string>
     <!-- AOKP custom system animations -->
+    <string name="animation_slide_right">Glida in från höger</string>
+    <string name="animation_slide_left">Glid in från vänster</string>
+    <string name="animation_slide_right_no_fade">Glid in från höger (tona inte ut)</string>
+    <string name="animation_slide_left_no_fade">Glida in vänster (Inte tona ut)</string>
+    <string name="animation_slide_up">Glida in från botten</string>
+    <string name="animation_slide_down">Glida in från toppen</string>
     <string name="animation_default">Standard</string>
+    <string name="animation_translucent">Genomskinlig</string>
+    <string name="animation_grow_shrink">Växa in (Topp)</string>
+    <string name="animation_grow_shrink_center">Växa in (Mitten)</string>
+    <string name="animation_grow_shrink_bottom">Växa in (Botten)</string>
+    <string name="animation_grow_shrink_left">Växa in (Vänster)</string>
+    <string name="animation_grow_shrink_right">Växa in (Höger)</string>
+    <string name="animation_random">Slumpmässig</string>
+    <string name="action_null">Tom</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Kopiera krasch logg URL</string>
     <string name="url_copy_success">URL kopierats</string>
@@ -49,7 +63,9 @@
     <string name="permdesc_toggleNavigationEditor">Tillåter en applikation att ta kontroll över navigationsfältredigeraren.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">komma åt typsnittshanteraren</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Ger en app åtkomst till typsnittshanteraren.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
     <string name="default_string">Standard</string>
 </resources>

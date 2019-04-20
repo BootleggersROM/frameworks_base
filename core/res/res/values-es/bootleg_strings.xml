@@ -25,8 +25,14 @@
     <!-- Path to the library that contains a alternative device specific key handler -->
     <!-- Name of that alternative key handler class -->
     <!-- advanced reboot to bootloader. -->
+    <string name="reboot_to_bootloader_title">Reiniciar al bootloader</string>
+    <string name="reboot_to_bootloader_message">Reiniciando al bootloader</string>
     <!-- advanced reboot to recovery. -->
+    <string name="reboot_to_recovery_title">Reiniciar en modo recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando al recovery</string>
     <!-- advanced reboot system -->
+    <string name="reboot_system_title">Reiniciar sistema</string>
+    <string name="reboot_system_message">Reiniciando el sistema</string>
     <!-- AOKP custom system animations -->
     <string name="animation_fade">Desvanecer</string>
     <string name="animation_slide_right">Deslizar a la derecha</string>
@@ -45,10 +51,16 @@
     <string name="animation_random">Aleatorio</string>
     <string name="action_null">En blanco</string>
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Copiar URL del registro de errores</string>
+    <string name="url_copy_success">URL copiada satisfactoriamente</string>
+    <string name="url_copy_failed">Se ha producido un error al cargar el registro en dogbin</string>
     <!-- The list of vendor package signatures that should also be considered
        platform signatures, specifically for use on devices with a vendor partition. -->
     <string-array name="config_vendorPlatformSignatures"></string-array>
     <!-- ADB over network -->
+    <string name="adb_net_active_notification_title">ADB habilitado</string>
+    <string name="adb_both_active_notification_title">ADB y red habilitados</string>
+    <string name="adb_active_generic_notification_message">Toca para deshabilitar depuración.</string>
     <!-- SmartNav -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_toggleNavigationEditor">editor de control de navegación</string>
@@ -60,5 +72,6 @@
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessFontManager">Permite una aplicación para acceder al gestor de fuentes.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">El paquete de fuentes que ha instalado no es compatible debido a la falta de fonts.xml en sus archivos. Póngase en contacto con el desarrollador del paquete para obtener asistencia.</string>
     <string name="default_string">Por defecto</string>
 </resources>
