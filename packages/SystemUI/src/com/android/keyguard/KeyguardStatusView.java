@@ -92,7 +92,13 @@ public class KeyguardStatusView extends GridLayout implements
     private boolean mForcedMediaDoze;
 
     private boolean mShowClock;
+    private boolean mShowInfo;
     private int mClockSelection;
+    private int mDateSelection;
+
+    // Date styles paddings
+    private int mDateVerPadding;
+    private int mDateHorPadding;
 
     private boolean mWasLatestViewSmall;
 
@@ -102,6 +108,7 @@ public class KeyguardStatusView extends GridLayout implements
         public void onTimeChanged() {
             refreshTime();
             refreshLockFont();
+            updateDateStyles();
         }
 
         @Override
@@ -355,6 +362,7 @@ public class KeyguardStatusView extends GridLayout implements
         refreshTime();
         mKeyguardSlice.refresh();
         refreshLockFont();
+        updateDateStyles();
     }
 
     private void refreshTime() {
@@ -470,7 +478,9 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 1: // digital (bold)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -484,7 +494,9 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 2: // custom analog
                 mCustomClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -498,7 +510,9 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 3: // sammy
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -512,7 +526,9 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 4: // sammy (bold)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -524,7 +540,9 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 5: // sammy accent
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -536,7 +554,9 @@ public class KeyguardStatusView extends GridLayout implements
                 getResources().getDimensionPixelSize(R.dimen.widget_sammy_accent_font_size));
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 6: // sammy accent (alt)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -550,7 +570,9 @@ public class KeyguardStatusView extends GridLayout implements
                 mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
                 mClockView.setLineSpacing(0,1f);
                 mCustomClockView.setVisibility(View.GONE);
-                mKeyguardSlice.setPadding(0,0,0,0);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 7: // shishu normal 01
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -566,8 +588,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 8: // shishu immensity
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -582,8 +603,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 9: // shishu nerves
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -598,8 +618,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 10: // shishu gradient (normal)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -614,8 +633,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 11: // shishu gradient (With shishu color)
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -630,8 +648,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 12: // Gradient with dark clock
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -646,8 +663,7 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
                 break;
             case 13: // Monochrome gradient, like the qs tile
                 mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
@@ -662,8 +678,37 @@ public class KeyguardStatusView extends GridLayout implements
                 mCustomClockView.setVisibility(View.GONE);
                 mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
         getResources().getDimensionPixelSize(R.dimen.widget_clock_shishu_date_padding), 
-        getResources().getDisplayMetrics()),0,0
-                );
+        getResources().getDisplayMetrics()),0,0);
+                break;
+        }
+    }
+
+    private void updateDateStyles() {
+        switch (mDateSelection) {
+            case 0: // default
+            default:
+                mKeyguardSlice.setVisibility(mDarkAmount != 1 ? (mShowInfo ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mKeyguardSlice.setViewBackgroundResource(0);
+                mKeyguardSlice.setViewsTypeface(Typeface.DEFAULT);
+                mDateVerPadding = 0;
+                mDateHorPadding = 0;
+                mKeyguardSlice.setViewPadding(mDateHorPadding,mDateVerPadding,mDateHorPadding,mDateVerPadding);
+                break;
+            case 1: // semi-transparent box
+                mKeyguardSlice.setVisibility(mDarkAmount != 1 ? (mShowInfo ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mKeyguardSlice.setViewBackground(getResources().getDrawable(R.drawable.date_box_str_border));
+                mKeyguardSlice.setViewsTypeface(Typeface.DEFAULT_BOLD);
+                mDateHorPadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.widget_date_box_padding_hor),getResources().getDisplayMetrics()));
+                mDateVerPadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.widget_date_box_padding_ver),getResources().getDisplayMetrics()));
+                mKeyguardSlice.setViewPadding(mDateHorPadding,mDateVerPadding,mDateHorPadding,mDateVerPadding);
+                break;
+            case 2: // semi-transparent box (round)
+                mKeyguardSlice.setVisibility(mDarkAmount != 1 ? (mShowInfo ? View.VISIBLE : View.GONE) : View.VISIBLE);
+                mKeyguardSlice.setViewBackground(getResources().getDrawable(R.drawable.date_str_border));
+                mKeyguardSlice.setViewsTypeface(Typeface.DEFAULT_BOLD);
+                mDateHorPadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.widget_date_box_padding_hor),getResources().getDisplayMetrics()));
+                mDateVerPadding = Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.widget_date_box_padding_ver),getResources().getDisplayMetrics()));
+                mKeyguardSlice.setViewPadding(mDateHorPadding,mDateVerPadding,mDateHorPadding,mDateVerPadding);
                 break;
         }
     }
@@ -673,8 +718,12 @@ public class KeyguardStatusView extends GridLayout implements
 
         mShowClock = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK, 1, UserHandle.USER_CURRENT) == 1;
+        mShowInfo = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_INFO, 1, UserHandle.USER_CURRENT) == 1;
         mClockSelection = Settings.System.getIntForUser(resolver,
                 Settings.System.LOCKSCREEN_CLOCK_SELECTION, 0, UserHandle.USER_CURRENT);
+        mDateSelection = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
 
         setStyle();
     }
@@ -770,6 +819,7 @@ public class KeyguardStatusView extends GridLayout implements
             mClockView.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
                     View.GONE) : View.VISIBLE);
             mCustomClockView.setVisibility(View.GONE);
+            mKeyguardSlice.setViewBackgroundResource(0);
         } else {
             setStyle();
             refreshTime();
