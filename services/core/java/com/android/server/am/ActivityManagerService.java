@@ -398,6 +398,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.function.BiFunction;
 
+import com.android.internal.util.custom.cutout.CutoutFullscreenController;
+
 public class ActivityManagerService extends IActivityManager.Stub
         implements Watchdog.Monitor, BatteryStatsImpl.BatteryCallback {
 
@@ -1570,6 +1572,8 @@ public class ActivityManagerService extends IActivityManager.Stub
     private static String sTheRealBuildSerial = Build.UNKNOWN;
 
     private ParcelFileDescriptor[] mLifeMonitorFds;
+
+    private CutoutFullscreenController mCutoutFullscreenController;
 
     static final HostingRecord sNullHostingRecord = new HostingRecord(null);
     /**
@@ -7567,6 +7571,9 @@ public class ActivityManagerService extends IActivityManager.Stub
         RescueParty.onSettingsProviderPublished(mContext);
 
         //mUsageStatsService.monitorPackages();
+
+        // Force full screen for devices with cutout
+        mCutoutFullscreenController = new CutoutFullscreenController(mContext);
     }
 
     void startPersistentApps(int matchFlags) {
@@ -19011,6 +19018,13 @@ public class ActivityManagerService extends IActivityManager.Stub
                 Slog.w(TAG, "Unable to create pipe", e);
                 return null;
             }
+        }
+    }
+
+    @Override
+    public boolean shouldForceCutoutFullscreen(String packageName) {
+        synchronized (this) {
+            return mCutoutFullscreenController.shouldForceCutoutFullscreen(packageName);
         }
     }
 }
