@@ -72,10 +72,12 @@ import java.util.TimeZone;
 public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.Callbacks,
         DarkReceiver, ConfigurationListener {
 
+    public static final String CLOCK_SECONDS = "clock_seconds";
     private static final String CLOCK_SUPER_PARCELABLE = "clock_super_parcelable";
     private static final String CURRENT_USER_ID = "current_user_id";
     private static final String VISIBLE_BY_POLICY = "visible_by_policy";
     private static final String VISIBLE_BY_USER = "visible_by_user";
+    private static final String SHOW_SECONDS = "show_seconds";
     private static final String VISIBILITY = "visibility";
 
     private final CurrentUserTracker mCurrentUserTracker;
@@ -167,6 +169,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         bundle.putInt(CURRENT_USER_ID, mCurrentUserId);
         bundle.putBoolean(VISIBLE_BY_POLICY, mClockVisibleByPolicy);
         bundle.putBoolean(VISIBLE_BY_USER, mClockVisibleByUser);
+        bundle.putBoolean(SHOW_SECONDS, mShowSeconds);
         bundle.putInt(VISIBILITY, getVisibility());
 
         return bundle;
@@ -187,6 +190,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
         }
         mClockVisibleByPolicy = bundle.getBoolean(VISIBLE_BY_POLICY, true);
         mClockVisibleByUser = bundle.getBoolean(VISIBLE_BY_USER, true);
+        mShowSeconds = bundle.getBoolean(SHOW_SECONDS, false);
         if (bundle.containsKey(VISIBILITY)) {
             setVisibility(bundle.getInt(VISIBILITY));
         }

@@ -1024,6 +1024,12 @@
          that just start below the notch. -->
     <dimen name="display_cutout_touchable_region_size">12dp</dimen>
 
+    <!-- Padding for overheat alarm dialog message of content -->
+    <dimen name="alarm_dialog_panel_padding">24dp</dimen>
+
+    <!-- Padding for overheat alarm dialog message of content -->
+    <dimen name="alarm_dialog_message_space">28dp</dimen>
+
     <!-- Floating action button -->
     <dimen name="floating_action_button_height">54dp</dimen>
     <dimen name="floating_action_button_width">54dp</dimen>
