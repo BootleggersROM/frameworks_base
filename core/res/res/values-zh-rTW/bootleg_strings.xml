@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">您的vendor鏡像檔案與系統不相符。 請刷入適用於您的裝置 <xliff:g id="string">%s</xliff:g> 的vendor映像檔。</string>
     <!-- Proximity check on screen on -->
     <!-- Proximity check timeout -->
     <!-- Proximity check on screen on default -->
@@ -27,6 +28,12 @@
     <!-- advanced reboot to recovery. -->
     <!-- advanced reboot system -->
     <!-- AOKP custom system animations -->
+    <string name="animation_slide_right">從右側滑入</string>
+    <string name="animation_slide_left">從左側滑入</string>
+    <string name="animation_slide_right_no_fade">從右側滑入(無淡化效果)</string>
+    <string name="animation_slide_left_no_fade">從左側滑入 (無淡化效果)</string>
+    <string name="animation_slide_up">從上滑入</string>
+    <string name="animation_slide_down">向下滑入</string>
     <string name="animation_default">預設</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <!-- The list of vendor package signatures that should also be considered

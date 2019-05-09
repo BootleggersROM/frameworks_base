@@ -29,7 +29,7 @@
     <string name="reboot_to_bootloader_message">Riavvio in bootloader</string>
     <!-- advanced reboot to recovery. -->
     <string name="reboot_to_recovery_title">Riavvia in recovery</string>
-    <string name="reboot_to_recovery_message">Riavvio in Recovery</string>
+    <string name="reboot_to_recovery_message">Riavvio in recovery</string>
     <!-- advanced reboot system -->
     <string name="reboot_system_title">Riavvia il sistema</string>
     <string name="reboot_system_message">Riavvio del sistema</string>

@@ -24,15 +24,27 @@
     <!-- Path to the library that contains a alternative device specific key handler -->
     <!-- Name of that alternative key handler class -->
     <!-- advanced reboot to bootloader. -->
+    <string name="reboot_to_bootloader_title">Перезавантажити завантажувач</string>
+    <string name="reboot_to_bootloader_message">Перезавантаження у Bootloader\u2026</string>
     <!-- advanced reboot to recovery. -->
+    <string name="reboot_to_recovery_title">Перевантажитися у Recovery</string>
+    <string name="reboot_to_recovery_message">Перезавантаження у Recovery\u2026</string>
     <!-- advanced reboot system -->
+    <string name="reboot_system_title">Перезапустити систему</string>
+    <string name="reboot_system_message">Перезавантаження системи\u2026</string>
     <!-- AOKP custom system animations -->
     <string name="animation_default">За замовчанням</string>
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Скопіювати URL логу збою</string>
+    <string name="url_copy_success">URL успішно скопійовано</string>
+    <string name="url_copy_failed">Помилка під час завантаження файла звіту до dogbin</string>
     <!-- The list of vendor package signatures that should also be considered
        platform signatures, specifically for use on devices with a vendor partition. -->
     <string-array name="config_vendorPlatformSignatures"></string-array>
     <!-- ADB over network -->
+    <string name="adb_net_active_notification_title">Увімкнено функцію ADB по мережі</string>
+    <string name="adb_both_active_notification_title">Увімкнено функцію ADB по USB та мережі</string>
+    <string name="adb_active_generic_notification_message">Торкніться, аби вимкнути налагодження.</string>
     <!-- SmartNav -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
@@ -40,5 +52,6 @@
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Пакет шрифтів, який ви встановили, не сумісний через відсутність файлів fonts.xml. Зверніться до розробника пакету для підтримки.</string>
     <string name="default_string">За замовчанням</string>
 </resources>
