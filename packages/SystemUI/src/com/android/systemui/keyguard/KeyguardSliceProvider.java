@@ -91,6 +91,8 @@ public class KeyguardSliceProvider extends SliceProvider implements
     private String mLastText;
     private boolean mRegistered;
     private String mNextAlarm;
+    private int mLsDateSel;
+    private String mLsDateSPattern;
     private NextAlarmController mNextAlarmController;
     protected AlarmManager mAlarmManager;
     protected ContentResolver mContentResolver;
@@ -234,6 +236,9 @@ public class KeyguardSliceProvider extends SliceProvider implements
             mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.WEATHER_LOCKSCREEN_UNIT),
                     false, this, UserHandle.USER_ALL);
+            mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LOCKSCREEN_DATE_SELECTION),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -242,11 +247,33 @@ public class KeyguardSliceProvider extends SliceProvider implements
             if (uri.equals(Settings.System.getUriFor(Settings.System.WEATHER_LOCKSCREEN_UNIT))) {
                 updateLockscreenUnit();
                 mContentResolver.notifyChange(mSliceUri, null /* observer */);
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_DATE_SELECTION))) {
+                updateDateSkeleton();
+                mContentResolver.notifyChange(mSliceUri, null /* observer */);
             }
         }
 
         public void updateLockscreenUnit() {
             useMetricUnit = Settings.System.getIntForUser(mContentResolver, Settings.System.WEATHER_LOCKSCREEN_UNIT, 0, UserHandle.USER_CURRENT) == 0;
+        }
+
+        public void updateDateSkeleton() {
+            mLsDateSel = Settings.System.getIntForUser(mContentResolver, Settings.System.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
+            switch (mLsDateSel) {
+            case 4: case 6: case 8:
+                mDatePattern = getContext().getString(R.string.abbrev_wday_day_no_year);
+                break;
+            case 5: case 7: case 9:
+                mDatePattern = getContext().getString(R.string.abbrev_wday_no_year);
+                break;
+            case 10:
+                mDatePattern = getContext().getString(R.string.abbrev_wday_month_no_year);
+                break;
+            default:
+                mDatePattern = getContext().getString(R.string.system_ui_aod_date_pattern);
+                break;
+            }
+            updateClock();
         }
     }
 
@@ -261,9 +288,9 @@ public class KeyguardSliceProvider extends SliceProvider implements
         mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
         mWeatherSettingsObserver.observe();
         mWeatherSettingsObserver.updateLockscreenUnit();
+        mWeatherSettingsObserver.updateDateSkeleton();
         mWeatherClient = new WeatherClient(getContext());
         mWeatherClient.addObserver(this, false /*withQuery*/);
-        mDatePattern = getContext().getString(R.string.system_ui_aod_date_pattern);
         registerClockUpdate();
         updateClock();
         return true;
@@ -333,12 +360,10 @@ public class KeyguardSliceProvider extends SliceProvider implements
     }
 
     protected String getFormattedDate() {
-        if (mDateFormat == null) {
-            final Locale l = Locale.getDefault();
-            DateFormat format = DateFormat.getInstanceForSkeleton(mDatePattern, l);
-            format.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
-            mDateFormat = format;
-        }
+        final Locale l = Locale.getDefault();
+        DateFormat format = DateFormat.getInstanceForSkeleton(mDatePattern, l);
+        format.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
+        mDateFormat = format;
         mCurrentTime.setTime(System.currentTimeMillis());
         return mDateFormat.format(mCurrentTime);
     }
