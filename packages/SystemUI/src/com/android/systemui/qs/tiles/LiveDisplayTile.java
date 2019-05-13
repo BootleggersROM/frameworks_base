@@ -138,6 +138,11 @@ public class LiveDisplayTile extends QSTileImpl<LiveDisplayState> {
     }
 
     @Override
+    public boolean isAvailable() {
+        return mContext.getResources().getBoolean(R.bool.config_liveDisplayAvailable);
+    }
+
+    @Override
     public int getMetricsCategory() {
         return MetricsEvent.BOOTLEG;
     }
