@@ -118,4 +118,5 @@ interface IStatusBarService
      * Extra features functions
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 }
