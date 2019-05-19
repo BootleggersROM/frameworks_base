@@ -157,6 +157,7 @@ oneway interface IStatusBar
      * Bootleggers
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 
     // Start SmartNav API
     void screenPinningStateChanged(boolean enabled);

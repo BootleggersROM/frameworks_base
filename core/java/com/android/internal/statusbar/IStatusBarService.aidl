@@ -107,6 +107,7 @@ interface IStatusBarService
      * Bootleggers
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 
     // Start SmartNav methods
     void toggleRecentApps();

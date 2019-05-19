@@ -241,7 +241,7 @@ public class BootlegUtils {
         return context.getResources().getBoolean(com.android.internal.R.bool.config_alt_ambient_display);
     }
 
-    private static final class FireActions {
+    public static final class FireActions {
         private static IStatusBarService mStatusBarService = null;
         private static IStatusBarService getStatusBarService() {
             synchronized (FireActions.class) {
@@ -262,6 +262,16 @@ public class BootlegUtils {
                 }
             }
         }
+    public static void toggleCameraFlashState(boolean enable) {
+        IStatusBarService service = getStatusBarService();
+        if (service != null) {
+            try {
+                service.toggleCameraFlashState(enable);
+            } catch (RemoteException e) {
+                // do nothing.s
+            }
+        }
+    }
     }
 
     // Omni Switch Constants
