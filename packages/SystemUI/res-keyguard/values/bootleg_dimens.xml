@@ -21,8 +21,8 @@
     <dimen name="widget_clock_shishu_nerves_font_size">52dp</dimen>
 
     <!-- padding for date view -->
-    <dimen name="widget_clock_normal_clock_padding">4dp</dimen>
-    <dimen name="widget_clock_shishu_date_padding">12dp</dimen>
+    <dimen name="widget_clock_normal_clock_padding">2dp</dimen>
+    <dimen name="widget_clock_shishu_date_padding">10dp</dimen>
 
     <!-- Date styles padding-->
     <dimen name="widget_date_box_padding_hor">12dp</dimen>
