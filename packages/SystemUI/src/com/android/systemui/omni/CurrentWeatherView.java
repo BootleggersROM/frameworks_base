@@ -54,6 +54,7 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
 
+import com.android.internal.util.omni.OmniJawsClient;
 import com.android.systemui.R;
 import com.android.settingslib.Utils;
 
