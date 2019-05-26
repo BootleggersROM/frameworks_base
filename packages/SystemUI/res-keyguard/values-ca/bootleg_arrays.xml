@@ -15,4 +15,19 @@
      the documentation output. To suppress comment lines from the documentation
      output, insert an eat-comment element after the comment lines.
 -->
-<resources></resources>
+<resources>
+    <string-array name="type_clock_hours">
+        <item>i dotze</item>
+        <item>Una</item>
+        <item>Dues</item>
+        <item>Tres</item>
+        <item>Quatre</item>
+        <item>Cinc</item>
+        <item>Sis</item>
+        <item>Set</item>
+        <item>Vuit</item>
+        <item>Nou</item>
+        <item>Deu</item>
+        <item>i onze</item>
+    </string-array>
+</resources>
