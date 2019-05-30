@@ -260,11 +260,14 @@ public class KeyguardSliceProvider extends SliceProvider implements
         public void updateDateSkeleton() {
             mLsDateSel = Settings.System.getIntForUser(mContentResolver, Settings.System.LOCKSCREEN_DATE_SELECTION, 0, UserHandle.USER_CURRENT);
             switch (mLsDateSel) {
-            case 4: case 6:
+            case 4: case 6: case 8:
                 mDatePattern = getContext().getString(R.string.abbrev_wday_day_no_year);
                 break;
-            case 5: case 7:
+            case 5: case 7: case 9:
                 mDatePattern = getContext().getString(R.string.abbrev_wday_no_year);
+                break;
+            case 10:
+                mDatePattern = getContext().getString(R.string.abbrev_wday_month_no_year);
                 break;
             default:
                 mDatePattern = getContext().getString(R.string.system_ui_aod_date_pattern);
