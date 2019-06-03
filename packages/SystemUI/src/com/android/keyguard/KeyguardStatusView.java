@@ -839,74 +839,104 @@ public class KeyguardStatusView extends GridLayout implements
             case 0: // default digital
             default:
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(true);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 1: // digital (bold)
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(true);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 2: // custom analog
                 params.addRule(RelativeLayout.BELOW, R.id.custom_clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 break;
             case 3: // sammy
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 4: // sammy (bold)
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 5: // sammy accent
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 6: // sammy accent
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 7: // Shishu normal
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 8: // shishu diamond
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 9: // shishu nerves
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 10: // shishu gradient (normal)
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 11: // shishu gradient (With shishu color)
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 12: // Gradient with dark clock
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 13: // Monochrome gradient, like the qs tile
                 params.addRule(RelativeLayout.BELOW, R.id.clock_view);
+                mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.CENTER_HORIZONTAL);
                 mClockView.setSingleLine(false);
                 mClockView.setGravity(Gravity.CENTER);
                 break;
             case 14: // custom text clock
                 params.addRule(RelativeLayout.BELOW, R.id.custom_textclock_view);
+                mOwnerInfo.setPaddingRelative((int) mContext.getResources().getDimension(R.dimen.custom_clock_left_padding), 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.START);
                 break;
         }
 
