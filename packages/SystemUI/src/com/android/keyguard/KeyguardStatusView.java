@@ -725,14 +725,9 @@ public class KeyguardStatusView extends GridLayout implements
             case 14: // custom text clock
                 mTextClock.setVisibility(mDarkAmount != 1 ? (mShowClock ? View.VISIBLE :
                        View.GONE) : View.VISIBLE);
-                mClockView.setBackgroundResource(0);
-                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
-                mClockView.getLayoutParams().width = ViewGroup.LayoutParams.WRAP_CONTENT;
-                mClockView.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
-                mClockView.setTextSize(TypedValue.COMPLEX_UNIT_PX,
-                getResources().getDimensionPixelSize(R.dimen.widget_big_font_size));
-                mClockView.setLineSpacing(0,1f);
+                mKeyguardSlice.setPadding(0,(int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+        getResources().getDimensionPixelSize(R.dimen.widget_clock_normal_clock_padding), 
+        getResources().getDisplayMetrics()),0,0);
                 mCustomClockView.setVisibility(View.GONE);
                 mClockView.setVisibility(View.GONE);
         }
