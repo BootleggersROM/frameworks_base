@@ -2259,10 +2259,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             return false;
         }
 
-        if (gamingModeOn && isGameAppDialer(sbn.getPackageName())) {
-            return true;
-        }
-
         if (mIsOccluded && !isDozing()) {
             boolean devicePublic = mLockscreenUserManager.
                     isLockscreenPublicMode(mLockscreenUserManager.getCurrentUserId());
@@ -2295,11 +2291,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             }
         }
         return true;
-    }
-
-    private boolean isGameAppDialer(String packageName) {
-        return packageName.equals("com.android.dialer")
-            || packageName.equals("com.google.android.dialer");
     }
 
     @Override  // NotificationData.Environment
