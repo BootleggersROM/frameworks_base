@@ -184,6 +184,8 @@
     <!-- Smart Pixels QS Tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <!-- Advance location quick setting tile -->
+    <string name="quick_settings_location_secondary_gps_only">Nur Gerat</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Hohe Genauigkeit</string>
     <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">Synchronisation</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisieren aus</string>
@@ -193,6 +195,7 @@
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Stoppen erzwingen?</string>
     <string name="force_stop_dlg_text">Das Beenden der App zu erzwingen kann zu unerwünschtem Verhalten führen.</string>
+    <string name="guts_force_close_app">App schließen</string>
     <!-- Recents membar -->
     <string name="recents_free_ram">%1$dMB RAM verfügbar</string>
     <!-- Ambient display QS tile -->

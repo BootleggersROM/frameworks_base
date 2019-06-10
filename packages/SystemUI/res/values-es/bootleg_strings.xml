@@ -140,7 +140,7 @@
     <string name="quick_settings_expanded_desktop_label">Escritorio expandido</string>
     <string name="quick_settings_expanded_desktop">Expandido</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
-    <string name="quick_settings_expanded_navigation_off">Esconder barra navegacion</string>
+    <string name="quick_settings_expanded_navigation_off">Esconder barra de navegación</string>
     <string name="quick_settings_expanded_statusbar_off">Esconder barra estado</string>
     <!-- Screenshot tile -->
     <string name="screenshot_abort_title">No se realizo la captura de pantalla</string>

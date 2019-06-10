@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Образ не відповідає системі. Будь ласка, прошийте <xliff:g id="string">%s</xliff:g> образ для вашого пристрою</string>
     <!-- Proximity check on screen on -->
     <!-- Proximity check timeout -->
     <!-- Proximity check on screen on default -->
@@ -33,7 +34,22 @@
     <string name="reboot_system_title">Перезапустити систему</string>
     <string name="reboot_system_message">Перезавантаження системи\u2026</string>
     <!-- AOKP custom system animations -->
+    <string name="animation_fade">Затухання</string>
+    <string name="animation_slide_right">Зсунути праворуч</string>
+    <string name="animation_slide_left">Зсунути ліворуч</string>
+    <string name="animation_slide_right_no_fade">Зсунути праворуч (без згасання)</string>
+    <string name="animation_slide_left_no_fade">Зсунути ліворуч (без згасання)</string>
+    <string name="animation_slide_up">Зсунути вниз</string>
+    <string name="animation_slide_down">Зсунути вверх</string>
     <string name="animation_default">За замовчанням</string>
+    <string name="animation_translucent">Напівпрозорий</string>
+    <string name="animation_grow_shrink">Збільшення (догори)</string>
+    <string name="animation_grow_shrink_center">Збільшення (центр)</string>
+    <string name="animation_grow_shrink_bottom">Збільшення (донизу)</string>
+    <string name="animation_grow_shrink_left">Збільшення (ліворуч)</string>
+    <string name="animation_grow_shrink_right">Збільшення (праворуч)</string>
+    <string name="animation_random">Випадковий</string>
+    <string name="action_null">Пустий</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Скопіювати URL логу збою</string>
     <string name="url_copy_success">URL успішно скопійовано</string>
@@ -47,10 +63,14 @@
     <string name="adb_active_generic_notification_message">Торкніться, аби вимкнути налагодження.</string>
     <!-- SmartNav -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_toggleNavigationEditor">керування редактором панелі навігації</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Дозволити додатку редагувати панель навігації.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">доступ до менеджера шрифтів</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Дозволяє додатку отримати доступ до менеджера шрифтів.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
     <string name="fontservice_incompatible_font">Пакет шрифтів, який ви встановили, не сумісний через відсутність файлів fonts.xml. Зверніться до розробника пакету для підтримки.</string>
     <string name="default_string">За замовчанням</string>

@@ -25,8 +25,14 @@
     <!-- Path to the library that contains a alternative device specific key handler -->
     <!-- Name of that alternative key handler class -->
     <!-- advanced reboot to bootloader. -->
+    <string name="reboot_to_bootloader_title">Khởi động vào trình nạp khởi động</string>
+    <string name="reboot_to_bootloader_message">Đang khởi động vào trình nạp khởi động\u2026</string>
     <!-- advanced reboot to recovery. -->
+    <string name="reboot_to_recovery_title">Khởi động vào trình phục hồi</string>
+    <string name="reboot_to_recovery_message">Đang khởi động vào trình phục hồi\u2026</string>
     <!-- advanced reboot system -->
+    <string name="reboot_system_title">Khởi động lại hệ thống</string>
+    <string name="reboot_system_message">Đang khởi động lại\u2026</string>
     <!-- AOKP custom system animations -->
     <string name="animation_fade">Mờ dần</string>
     <string name="animation_slide_right">Trượt sang phải</string>
@@ -45,10 +51,16 @@
     <string name="animation_random">Ngẫu nhiên</string>
     <string name="action_null">Trống</string>
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Sao chép URL nhật ký sự cố</string>
+    <string name="url_copy_success">Đã sao chép URL thành công</string>
+    <string name="url_copy_failed">Đã xảy ra lỗi khi tải nhật ký lên dogbin</string>
     <!-- The list of vendor package signatures that should also be considered
        platform signatures, specifically for use on devices with a vendor partition. -->
     <string-array name="config_vendorPlatformSignatures"></string-array>
     <!-- ADB over network -->
+    <string name="adb_net_active_notification_title">Đã bật ADB qua mạng</string>
+    <string name="adb_both_active_notification_title">Đã bật ADB qua USB &amp; mạng</string>
+    <string name="adb_active_generic_notification_message">Chạm để tắt chế độ gỡ lỗi.</string>
     <!-- SmartNav -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_toggleNavigationEditor">điều khiển trình chỉnh sửa thanh điều hướng</string>
@@ -60,5 +72,6 @@
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessFontManager">Cho phép ứng dụng truy cập trình quản lý font chữ.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Gói phông chữ bạn đã cài đặt không tương thích do thiếu fonts.xml trong tập tin. Vui lòng liên hệ với nhà phát triển gói để được hỗ trợ.</string>
     <string name="default_string">Mặc định</string>
 </resources>

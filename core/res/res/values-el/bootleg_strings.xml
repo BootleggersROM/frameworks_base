@@ -27,6 +27,7 @@
     <!-- advanced reboot to bootloader. -->
     <!-- advanced reboot to recovery. -->
     <!-- advanced reboot system -->
+    <string name="reboot_system_title">Επανεκκίνηση συστήματος</string>
     <!-- AOKP custom system animations -->
     <string name="animation_slide_right">Σύρετε Δεξιά</string>
     <string name="animation_slide_left">Σύρετε Αριστερά</string>
@@ -44,10 +45,12 @@
     <string name="animation_random">Τυχαία</string>
     <string name="action_null">Κανένα</string>
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="url_copy_success">Αντιγραφή του URL με επιτυχία</string>
     <!-- The list of vendor package signatures that should also be considered
        platform signatures, specifically for use on devices with a vendor partition. -->
     <string-array name="config_vendorPlatformSignatures"></string-array>
     <!-- ADB over network -->
+    <string name="adb_active_generic_notification_message">Αγγίξτε για απενεργοποίηση του εντοπισμού σφαλμάτων.</string>
     <!-- SmartNav -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_toggleNavigationEditor">επεξεργαστής ελέγχου πλοήγησης</string>
