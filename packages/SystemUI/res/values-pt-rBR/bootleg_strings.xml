@@ -207,4 +207,9 @@
     <!-- Recents membar -->
     <string name="recents_free_ram">%1$dMB de RAM Disponível</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Display ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Display ambiente desligado.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Display ambiente ligado.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Display ambiente foi desligado.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Display ambiente foi ligado.</string>
 </resources>
