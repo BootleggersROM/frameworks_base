@@ -6286,7 +6286,10 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     }
 
     private void handleCutout(Configuration newConfig) {
+		boolean cutEnabled = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_physicalDisplayCutout);
         boolean immerseMode;
+        if (!cutEnabled) return;
         if (newConfig == null || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
             immerseMode = Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.DISPLAY_CUTOUT_MODE, 0, UserHandle.USER_CURRENT) == 1;
