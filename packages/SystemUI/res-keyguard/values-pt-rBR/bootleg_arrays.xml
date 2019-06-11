@@ -17,18 +17,18 @@
 -->
 <resources>
     <string-array name="type_clock_hours">
-        <item>Doze e</item>
-        <item>Uma e</item>
-        <item>Duas e</item>
-        <item>Três</item>
-        <item>Quatro</item>
-        <item>Cinco</item>
-        <item>Seis</item>
-        <item>Sete</item>
-        <item>Oito e</item>
-        <item>Nove e</item>
-        <item>Dez e</item>
-        <item>Onze e</item>
+        <item>"Doze e"</item>
+        <item>"Uma e"</item>
+        <item>"Duas e"</item>
+        <item>"Três e"</item>
+        <item>"Quatro e"</item>
+        <item>"Cinco e"</item>
+        <item>"Seis e"</item>
+        <item>"Sete e"</item>
+        <item>"Oito e"</item>
+        <item>"Nove e"</item>
+        <item>"Dez e"</item>
+        <item>"Onze e"</item>
     </string-array>
     <string-array name="type_clock_minutes">
         <item>Ponto</item>
@@ -41,9 +41,9 @@
         <item>Sete</item>
         <item>Oito</item>
         <item>Nove</item>
-        <item>Dez e</item>
-        <item>Onze e</item>
-        <item>Doze e</item>
+        <item>Dez</item>
+        <item>Onze</item>
+        <item>Doze</item>
         <item>Treze</item>
         <item>Quatorze</item>
         <item>Quinze</item>
