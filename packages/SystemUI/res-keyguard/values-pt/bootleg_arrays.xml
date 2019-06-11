@@ -10,10 +10,12 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
+
 <!-- Formatting note: terminate all comments with a period, to avoid breaking
      the documentation output. To suppress comment lines from the documentation
      output, insert an eat-comment element after the comment lines.
 -->
+
 <resources>
     <string-array name="type_clock_hours">
         <item>"Doze e"</item>
