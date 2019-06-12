@@ -1,17 +1,79 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <resources>
     <string-array name="type_clock_hours">
-        <item>zwölf Uhr</item>
-        <item>ein Uhr</item>
-        <item>zwei Uhr</item>
-        <item>drei Uhr</item>
-        <item>vier Uhr</item>
-        <item>fünf Uhr</item>
-        <item>sechs Uhr</item>
-        <item>sieben Uhr</item>
-        <item>acht Uhr</item>
-        <item>neun Uhr</item>
-        <item>zehn Uhr</item>
-        <item>elf Uhr</item>
+        <item>Zwölf Uhr</item>
+        <item>Ein Uhr</item>
+        <item>Zwei Uhr</item>
+        <item>Drei Uhr</item>
+        <item>Vier Uhr</item>
+        <item>Fünf Uhr</item>
+        <item>Sechs Uhr</item>
+        <item>Sieben Uhr</item>
+        <item>Acht Uhr</item>
+        <item>Neun Uhr</item>
+        <item>Zehn Uhr</item>
+        <item>Elf Uhr</item>
+    </string-array>
+    <string-array name="type_clock_minutes">
+        <item></item>
+        <item>Eins</item>
+        <item>Zwei</item>
+        <item>Drei</item>
+        <item>Vier</item>
+        <item>Fünf</item>
+        <item>Sechs</item>
+        <item>Sieben</item>
+        <item>Acht</item>
+        <item>Neun</item>
+        <item>Zehn</item>
+        <item>Elf</item>
+        <item>Zwölf</item>
+        <item>Dreizehn</item>
+        <item>Vierzehn</item>
+        <item>Fünfzehn</item>
+        <item>Sechzehn</item>
+        <item>Siebzehn</item>
+        <item>Achtzehn</item>
+        <item>Neunzehn</item>
+        <item>Zwanzig</item>
+        <item>Ein und Zwanzig</item>
+        <item>Zweiundzwanzig</item>
+        <item>Dreiundzwanzig</item>
+        <item>Vierundzwanzig</item>
+        <item>Fünfundzwanzig</item>
+        <item>Sechsundzwanzig</item>
+        <item>Siebenundzwanzig</item>
+        <item>Achtundzwanzig</item>
+        <item>Neunundzwanzig</item>
+        <item>Dreißig</item>
+        <item>Einunddreißig</item>
+        <item>Zweiunddreißig</item>
+        <item>Dreiunddreißig</item>
+        <item>Vierunddreißig</item>
+        <item>Fünfunddreißig</item>
+        <item>Sechsunddreißig</item>
+        <item>Siebenunddreißig</item>
+        <item>Achtunddreißig</item>
+        <item>Neununddreißig</item>
+        <item>Vierzig</item>
+        <item>Einuundvierzig</item>
+        <item>Zweiundvierzig</item>
+        <item>Dreiundvierzig</item>
+        <item>Vierundvierzig</item>
+        <item>Fünfundvierzig</item>
+        <item>Sechsundvierzig</item>
+        <item>Siebenundvierzig</item>
+        <item>Achtundvierzig</item>
+        <item>Neunundvierzig</item>
+        <item>Fünfzig</item>
+        <item>Einuundfünfzig</item>
+        <item>Zweiundfünfzig</item>
+        <item>Dreiundfünfzig</item>
+        <item>Vierundfünfzig</item>
+        <item>Fünfundfünfzig</item>
+        <item>Sechsundfünfzig</item>
+        <item>Siebenundfünfzig</item>
+        <item>Achtundfünfzig</item>
+        <item>Neunundfünfzig</item>
     </string-array>
 </resources>
