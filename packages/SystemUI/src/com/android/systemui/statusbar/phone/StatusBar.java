@@ -1404,7 +1404,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     @Override
     public void onOverlayChanged() {
-        updateNotificationViews();
         mStackScroller.onOverlayChanged();
         mNotificationShelf.onOverlayChanged();
         Dependency.get(DarkIconDispatcher.class).onOverlayChanged(mContext);
@@ -1412,6 +1411,8 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         if (mBrightnessMirrorController != null) {
             mBrightnessMirrorController.onOverlayChanged();
         }
+        requestNotificationUpdate();
+        updateNotificationViews();
     }
 
     private void inflateEmptyShadeView() {
