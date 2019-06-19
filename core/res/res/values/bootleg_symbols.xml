@@ -314,8 +314,7 @@
   <java-symbol type="bool" name="config_liveDisplayAvailable" />
   <java-symbol type="array" name="config_displayModeMappings" />
 
-  <!-- FireHound Gaming -->
-  <java-symbol type="string" name="gaming_notif_title" />
+  <!-- Gaming mode -->
   <java-symbol type="string" name="gaming_notif_ticker" />
   <java-symbol type="string" name="notification_channel_gaming" />
   <java-symbol type="drawable" name="ic_gaming_notif" />
