@@ -182,9 +182,14 @@ public class NavigationBarInflaterView extends FrameLayout
             inflateLayout(mCurrentLayout);
         } else if (NAV_BAR_INVERSE.equals(key)) {
             mInverseLayout = newValue != null && Integer.parseInt(newValue) != 0;
-            clearViews();
-            inflateLayout(mCurrentLayout);
+            updateLayoutInversion();
         }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateLayoutInversion();
     }
 
     public void onLikelyDefaultLayoutChange() {
@@ -291,6 +296,19 @@ public class NavigationBarInflaterView extends FrameLayout
         inflateButtons(end, mRot90.findViewById(R.id.ends_group), !isRot0Landscape, false);
 
         updateButtonDispatchersCurrentView();
+    }
+
+    private void updateLayoutInversion() {
+        if (mInverseLayout) {
+            Configuration config = mContext.getResources().getConfiguration();
+            if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            } else {
+                setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            }
+        } else {
+            setLayoutDirection(View.LAYOUT_DIRECTION_INHERIT);
+        }
     }
 
     private void addGravitySpacer(LinearLayout layout) {
