@@ -17,6 +17,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">आपका विक्रेता छवि प्रणाली से मेल नहीं खाता। कृपया अपने डिवाइस के लिए <xliff:g id="string">%s</xliff:g> विक्रेता छवि फ़्लैश करे</string>
     <!-- Proximity check on screen on -->
     <!-- Proximity check timeout -->
     <!-- Proximity check on screen on default -->
@@ -30,6 +31,7 @@
     <string name="animation_fade">धुंधला करें</string>
     <string name="animation_slide_right">दायें से स्लाइड</string>
     <string name="animation_slide_left">बाएं से खींचे</string>
+    <string name="animation_slide_right_no_fade">दायें में स्लाइड (फीके के बिना)</string>
     <string name="animation_default">डिफॉल्ट</string>
     <!-- Button that copies the url to the log of a crashed application -->
     <!-- The list of vendor package signatures that should also be considered

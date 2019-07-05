@@ -36,7 +36,7 @@
     <!-- Screenrecord Notification Ticker -->
     <string name="screenrecord_notif_ticker">画面は録画されています</string>
     <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">画面の録画</string>
+    <string name="screenrecord_notif_title">画面を録画中</string>
     <!-- Screenrecord notification action: Stop -->
     <string name="screenrecord_notif_stop">停止</string>
     <!-- Screenrecord notification action: show/hide pointer -->
@@ -46,7 +46,7 @@
     <string name="screenrecord_notif_error">画面の録画に失敗しました</string>
     <string name="notification_channel_screenrecord">画面録画</string>
     <!-- Screenrecord QS tile -->
-    <string name="quick_settings_screenrecord_label">スクリーンレコード</string>
+    <string name="quick_settings_screenrecord_label">画面録画</string>
     <string name="screenrecord_hide_hint">ヒントを隠す</string>
     <string name="screenrecord_show_hint">ヒントを表示</string>
     <string name="screenrecord_notif_description">タップすると録画が再生されます</string>
@@ -58,7 +58,7 @@
     <string name="global_action_restart_recovery">Recovery</string>
     <string name="global_action_restart_bootloader">Bootloader</string-->
     <string name="global_action_screenshot">スクリーンショット</string>
-    <string name="global_action_screenrecord">スクリーンレコード</string>
+    <string name="global_action_screenrecord">画面録画</string>
     <string name="global_action_flashlight">フラッシュライト</string>
     <!-- Navbar Tuner -->
     <string name="preview">プレビュー</string>
@@ -84,12 +84,12 @@
     <!-- NavBar Tuner -->
     <string name="menu_ime_always_show">メニューとキーボードの切り替え (常時表示)</string>
     <string name="search">検索</string>
-    <string name="nav_bar_layout_inverse">バックとアプリ履歴を入れ替える</string>
+    <string name="nav_bar_layout_inverse">戻るとアプリ履歴を入れ替える</string>
     <!-- SysUI Tuner -->
-    <string name="statusbar_items_title">ステータスバーアイコン</string>
+    <string name="statusbar_items_title">ステータスバーのアイコン</string>
     <string name="statusbar_icons_blacklist">ステータスバーのアイコン</string>
     <string name="navbar_tuner_activity">ナビゲーションバーのボタン</string>
-    <string name="lockscreen_tuner_activity">ロック画面のショートカット</string>
+    <string name="lockscreen_tuner_activity">ショートカット</string>
     <string name="powernotif_tuner_activity">電源の通知</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 通知の表示は1分間一時停止します</string>
@@ -133,12 +133,12 @@
     <string name="quick_settings_sound_search">音声検索</string>
     <string name="quick_settings_sound_search_no_app">申し訳ありませんが、音声検索アプリをお持ちでない場合は動作しません。</string>
     <!-- ADB over network QS tile -->
-    <string name="quick_settings_network_adb_label">ネットワーク経由の ADB</string>
+    <string name="quick_settings_network_adb_label">ネット経由の ADB</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
     <string name="accessibility_quick_settings_running_services">実行中のサービスを開く</string>
     <!-- Expanded Desktop QS Tile -->
     <string name="quick_settings_expanded_desktop_label">拡張デスクトップ</string>
-    <string name="quick_settings_expanded_desktop">展開中</string>
+    <string name="quick_settings_expanded_desktop">拡張済み</string>
     <string name="quick_settings_expanded_desktop_off">標準</string>
     <string name="quick_settings_expanded_navigation_off">ナビゲーションバーを隠す</string>
     <string name="quick_settings_expanded_statusbar_off">ステータスバーを隠す</string>
@@ -147,7 +147,7 @@
     <string name="screenshot_abort_text">操作を中止しました</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">音声</string>
-    <string name="quick_settings_sound_ring">鳴動</string>
+    <string name="quick_settings_sound_ring">通常</string>
     <string name="quick_settings_sound_vibrate">振動</string>
     <string name="quick_settings_sound_dnd">サイレント</string>
     <!-- Caffeine QS Tile -->
@@ -191,7 +191,7 @@
     <string name="quick_settings_location_secondary_battery_saving">バッテリー節約</string>
     <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モード</string>
     <string name="quick_settings_location_secondary_gps_only">センサーのみ</string>
-    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: センサーのみ</string>
+    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: センサーのみモード</string>
     <string name="quick_settings_location_secondary_high_accuracy">高精度</string>
     <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モード</string>
     <!-- Sync QS Tile -->
