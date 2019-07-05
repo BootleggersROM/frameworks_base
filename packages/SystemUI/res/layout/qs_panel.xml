@@ -34,7 +34,6 @@
         android:id="@+id/quick_settings_gradient_view"
         android:layout_width="match_parent"
         android:layout_height="166dp"
-        android:layout_marginTop="@*android:dimen/quick_qs_offset_height"
         android:clipToPadding="false"
         android:clipChildren="false"
         android:background="@drawable/qs_bg_gradient" />
