@@ -44,4 +44,9 @@
         <item name="android:alpha">0.0</item>
     </style>
 
+    <style name="TriStateUiText">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+    </style>
+
 </resources>
