@@ -134,6 +134,10 @@
     <integer name="config_sliderTopCode">0</integer>
     <integer name="config_sliderMiddleCode">0</integer>
     <integer name="config_sliderBottomCode">0</integer>
+    <!-- The location of the devices physical tri state switch
+         0: Left side
+         1: Right side -->
+    <integer name="config_alertSliderLocation">0</integer>
 
   <!-- minimal way before long swipe will get accepted - in dp -->
   <integer name="nav_gesture_swipe_min_length">60</integer>
