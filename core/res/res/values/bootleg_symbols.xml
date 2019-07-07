@@ -211,6 +211,11 @@
   <!-- Ambient display music ticker -->
   <java-symbol type="bool" name="config_canForceDozeNotifications" />
 
+  <!-- Alert slider. -->
+  <java-symbol type="string" name="alert_slider_state_path" />
+  <java-symbol type="string" name="alert_slider_uevent_match_path" />
+  <java-symbol type="bool" name="config_hasAlertSlider" />
+
   <!-- SlimSeekBarPreference -->
   <java-symbol type="layout" name="seek_bar_preference" />
   <java-symbol type="id" name="seekBarPrefBarContainer" />

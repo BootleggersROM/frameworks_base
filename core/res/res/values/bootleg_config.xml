@@ -127,6 +127,9 @@
   <!-- Ambient display music ticker -->
   <bool name="config_canForceDozeNotifications">true</bool>
 
+    <!-- Whether device has physical tri state switch -->
+    <bool name="config_hasAlertSlider">false</bool>
+
   <!-- minimal way before long swipe will get accepted - in dp -->
   <integer name="nav_gesture_swipe_min_length">60</integer>
 
