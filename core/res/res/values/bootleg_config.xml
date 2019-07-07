@@ -130,6 +130,11 @@
     <!-- Whether device has physical tri state switch -->
     <bool name="config_hasAlertSlider">false</bool>
 
+    <!-- Key codes of physical tri state switch if supported -->
+    <integer name="config_sliderTopCode">0</integer>
+    <integer name="config_sliderMiddleCode">0</integer>
+    <integer name="config_sliderBottomCode">0</integer>
+
   <!-- minimal way before long swipe will get accepted - in dp -->
   <integer name="nav_gesture_swipe_min_length">60</integer>
 
