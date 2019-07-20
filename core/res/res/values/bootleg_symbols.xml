@@ -267,10 +267,6 @@
   <!-- Whether devices supports Qualcomm Boost Framework -->
   <java-symbol type="bool" name="config_enableQcCpuBoost" />
 
-  <!-- FoD -->
-  <java-symbol type="bool" name="config_needCustomFODView" />
-  <java-symbol type="bool" name="config_usesOnePlusFOD" />
-
    <!-- Media notification seekbar control -->
    <java-symbol type="id" name="notification_media_seekbar_container" />
    <java-symbol type="layout" name="notification_material_media_seekbar" />
