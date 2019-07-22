@@ -17,17 +17,79 @@
 -->
 <resources>
     <string-array name="type_clock_hours">
-        <item>Twelve</item>
-        <item>One</item>
-        <item>Two</item>
-        <item>Drei</item>
-        <item>Vier</item>
-        <item>Fünf</item>
-        <item>Sechs</item>
-        <item>Sieben</item>
-        <item>Eight</item>
-        <item>Nine</item>
-        <item>Ten</item>
-        <item>Eleven</item>
+        <item>ZWÖLF UHR</item>
+        <item>EIN UHR</item>
+        <item>ZWEI UHR</item>
+        <item>DREI UHR</item>
+        <item>VIER UHR</item>
+        <item>FÜNF UHR</item>
+        <item>SECHS UHR</item>
+        <item>SIEBEN UHR</item>
+        <item>ACHT UHR</item>
+        <item>NEUN UHR</item>
+        <item>ZEHN UHR</item>
+        <item>ELF UHR</item>
     </string-array>
+    <string-array name="type_clock_minutes">
+        <item></item>
+        <item>EINS</item>
+        <item>ZWEI</item>
+        <item>DREI</item>
+        <item>VIER</item>
+        <item>FÜNF</item>
+        <item>SECHS</item>
+        <item>SIEBEN</item>
+        <item>ACHT</item>
+        <item>NEUN</item>
+        <item>ZEHN</item>
+        <item>ELF</item>
+        <item>ZWÖLF</item>
+        <item>DREIZEHN</item>
+        <item>VIERZEHN</item>
+        <item>FÜNFZEHN</item>
+        <item>SECHZEHN</item>
+        <item>SIEBZEHN</item>
+        <item>ACHTZEHN</item>
+        <item>NEUNZEHN</item>
+        <item>ZWANZIG</item>
+        <item>EINUNDZWANZIG</item>
+        <item>ZWEIUNDZWANZIG</item>
+        <item>DREIUNDZWANZIG</item>
+        <item>VIERUNDZWANZIG</item>
+        <item>FÜNFUNDZWANZIG</item>
+        <item>SECHSUNDZWANZIG</item>
+        <item>SIEBENUNDZWANZIG</item>
+        <item>ACHTUNDZWANZIG</item>
+        <item>NEUNUNDZWANZIG</item>
+        <item>DREISSIG</item>
+        <item>EINUNDDREISSIG</item>
+        <item>ZWEIUNDDREISSIG</item>
+        <item>DREIUNDDREISSIG</item>
+        <item>VIERUNDDREISSIG</item>
+        <item>FÜNFUNDDREISSIG</item>
+        <item>SECHSUNDDREISSIG</item>
+        <item>SIEBENUNDDREISSIG</item>
+        <item>ACHTUNDDREISSIG</item>
+        <item>NEUNUNDDREISSIG</item>
+        <item>VIERZIG</item>
+        <item>EINUNDVIERZIG</item>
+        <item>ZWEIUNDVIERZIG</item>
+        <item>DREIUNDVIERZIG</item>
+        <item>VIERUNDVIERZIG</item>
+        <item>FÜNFUNDVIERZIG</item>
+        <item>SECHSUNDVIERZIG</item>
+        <item>SIEBENUNDVIERZIG</item>
+        <item>ACHTUNDVIERZIG</item>
+        <item>NEUNUNDVIERZIG</item>
+        <item>FÜNFZIG</item>
+        <item>EINUNDFÜNFZIG</item>
+        <item>ZWEIUNDFÜNFZIG</item>
+        <item>DREIUNDFÜNFZIG</item>
+        <item>VIERUNDFÜNFZIG</item>
+        <item>FÜNFUNDFÜNFZIG</item>
+        <item>SECHSUNDFÜNFZIG</item>
+        <item>SIEBENUNDFÜNFZIG</item>
+        <item>ACHTUNDFÜNFZIG</item>
+        <item>NEUNUNDFÜNFZIG</item>
+     </string-array>
 </resources>

@@ -5,4 +5,16 @@
     <!-- Skeleton string format for displaying the date. -->
     <!-- Skeleton string format for displaying the day of the month. -->
     <!-- Q clock strings -->
+    <plurals name="type_clock_header">
+        <item quantity="other"><annotation name="color">ES IST</annotation>"
+^1
+^2"</item>
+        <item quantity="one"><annotation name="color">ES IST</annotation>"
+^1
+^2"</item>
+        <item quantity="few"><annotation name="color">ES IST</annotation>"
+^1
+^2"</item>
+     </plurals>
+
 </resources>
