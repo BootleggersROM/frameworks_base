@@ -4579,6 +4579,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_BLUR_RADIUS),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LESS_BORING_HEADS_UP),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4605,6 +4608,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                 setMaxKeyguardNotifConfig();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_RADIUS))) {
                 setQSblurRadius();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LESS_BORING_HEADS_UP))) {
+                setUseLessBoringHeadsUp();
             }
             update();
         }
@@ -4619,12 +4624,20 @@ public class StatusBar extends SystemUI implements DemoMode,
             setMaxKeyguardNotifConfig();
             setHideArrowForBackGesture();
             setQSblurRadius();
+            setUseLessBoringHeadsUp();
         }
     }
 
     private void setQSblurRadius() {
         mBlurRadius = Settings.System.getIntForUser(mContext.getContentResolver(), 
                 Settings.System.QS_BLUR_RADIUS, 5, UserHandle.USER_CURRENT);
+    }
+
+    private void setUseLessBoringHeadsUp() {
+        boolean lessBoringHeadsUp = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LESS_BORING_HEADS_UP, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mNotificationInterruptionStateProvider.setUseLessBoringHeadsUp(lessBoringHeadsUp);
     }
 
     private void setFpToDismissNotifications() {
