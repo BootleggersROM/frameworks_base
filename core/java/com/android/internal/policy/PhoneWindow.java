@@ -2499,7 +2499,7 @@ public class PhoneWindow extends Window implements MenuBuilder.Callback {
             params.layoutInDisplayCutoutMode = mode;
         }
 
-        if (ActivityManager.isSystemReady() {
+        if (ActivityManager.isSystemReady()) {
             try {
                 String packageName = context.getBasePackageName();
                 if (ActivityManager.getService().shouldForceCutoutFullscreen(packageName)){
