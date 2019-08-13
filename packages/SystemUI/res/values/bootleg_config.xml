@@ -25,4 +25,7 @@
 
     <!-- The CPUs to display in CPUInfoService view -->
     <string name="config_displayCpus" translatable="false"></string>
+
+    <!-- Asus stitch editor component name -->
+    <string name="config_stitchEditor">com.asus.stitchimage/com.asus.stitchimage.editor.ScreenshotEditorActivity</string>
 </resources>
