@@ -999,6 +999,12 @@ public final class DefaultPermissionGrantPolicy {
         if (googleSoundPackage != null) {
             grantRuntimePermissions(googleSoundPackage, STORAGE_PERMISSIONS, true, userId);
         }
+
+        // Google Markup
+        PackageParser.Package googlemarkupPackage = getSystemPackage("com.google.android.markup");
+        if (googlemarkupPackage != null && doesPackageSupportRuntimePermissions(googlemarkupPackage)) {
+            grantRuntimePermissions(googlemarkupPackage, STORAGE_PERMISSIONS, userId);
+        }
     }
 
     private void grantDefaultPermissionsToDefaultSystemDialerApp(
