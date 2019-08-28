@@ -58,10 +58,10 @@ public class TypographicClock extends TextView {
         mResources = context.getResources();
         mHours = mResources.getStringArray(R.array.type_clock_hours);
         mMinutes = mResources.getStringArray(R.array.type_clock_minutes);
-        mAccentColor = mResources.getColor(R.color.custom_text_clock_top_color, null);
     }
 
     public void onTimeChanged() {
+        mAccentColor = mResources.getColor(R.color.custom_text_clock_top_color, null);
         mTime.setTimeInMillis(System.currentTimeMillis());
         setContentDescription(DateFormat.format(mDescFormat, mTime));
         int hours = mTime.get(Calendar.HOUR) % 12;
