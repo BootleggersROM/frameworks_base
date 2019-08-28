@@ -7,8 +7,4 @@
     <string name="abbrev_wday_no_year">eeee</string>
     <!-- Skeleton string format for displaying the day of the month. -->
     <string name="abbrev_wday_month_no_year">MMMMd</string>
-    <!-- Q clock strings -->
-    <plurals name="type_clock_header">
-        <item quantity="other"><annotation name="color">ただ今</annotation>\" ^1 ^2\"</item>
-    </plurals>
 </resources>
