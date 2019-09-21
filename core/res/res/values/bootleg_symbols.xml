@@ -99,4 +99,7 @@
     <java-symbol type="string" name="config_SmartChargingSysfsNode" />
     <java-symbol type="string" name="config_SmartChargingSupspendValue" />
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
+
+    <!-- Whether to use scaled brightness (set -1 to disable) -->
+    <java-symbol type="integer" name="config_useScaleBrightness" />
 </resources>
