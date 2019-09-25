@@ -5038,6 +5038,12 @@ public final class Settings {
         private static final Validator STATUS_BAR_CUSTOM_HEADER_PROVIDER_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+        /** @hide */
+        public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
+
+        /** @hide */
+        private static final Validator BACK_GESTURE_HEIGHT_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
         /**
          * Manual override picture to use
          * @hide
@@ -5223,7 +5229,8 @@ public final class Settings {
             FOOTER_TEXT_SHOW,
             FOOTER_TEXT_STRING,
             LOCKSCREEN_WEATHER_SHOW_TEMP,
-            LOCKSCREEN_WEATHER_SHOW_CITY
+            LOCKSCREEN_WEATHER_SHOW_CITY,
+            BACK_GESTURE_HEIGHT,
         };
 
         /**
@@ -5419,6 +5426,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_TEMP);
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_CITY);
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
         }
 
         /**
@@ -5558,6 +5566,7 @@ public final class Settings {
             VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_TEMP, LOCKSCREEN_WEATHER_SHOW_TEMP_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_WEATHER_SHOW_CITY, LOCKSCREEN_WEATHER_SHOW_CITY_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
+            VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
         }
 
         /**
