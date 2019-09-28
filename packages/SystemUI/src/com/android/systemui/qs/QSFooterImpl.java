@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.os.UserManager;
 import android.provider.Settings;
@@ -172,12 +173,10 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private void setBuildText() {
         TextView v = findViewById(R.id.build);
+        String buildType = SystemProperties.get("ro.bootleggers.releasetype", "KeepTheBootleg");
         if (v == null) return;
         if (DevelopmentSettingsEnabler.isDevelopmentSettingsEnabled(mContext)) {
-            v.setText(mContext.getString(
-                    com.android.internal.R.string.bugreport_status,
-                    Build.VERSION.RELEASE,
-                    Build.ID));
+            v.setText("#" + buildType);
             v.setVisibility(View.VISIBLE);
         } else {
             v.setVisibility(View.GONE);
