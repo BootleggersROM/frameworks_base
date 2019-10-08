@@ -26,4 +26,8 @@
 
 	<!-- QS tile height without label -->
 	<dimen name="qs_tile_height_wo_label">48dp</dimen>
+
+	<!-- OmniStyle custom headers -->
+    <dimen name="qs_header_image_offset">0dp</dimen>
+    <dimen name="qs_header_image_side_margin">0dp</dimen>
 </resources>
