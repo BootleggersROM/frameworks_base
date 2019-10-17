@@ -5063,7 +5063,17 @@ public final class Settings {
 
         /** @hide */
         private static final Validator LOCKSCREEN_WEATHER_STYLE_VALIDATOR =
-               new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);;
+               new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
+
+
+        /**
+         * Whether footer text shows the build type
+         * @hide
+         */
+        public static final String FOOTER_TEXT_SHOW = "footer_text_show";
+         /** @hide */
+        private static final Validator FOOTER_TEXT_SHOW_VALIDATOR =
+                BOOLEAN_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -5154,7 +5164,8 @@ public final class Settings {
             STATUS_BAR_FILE_HEADER_IMAGE,
             OMNIJAWS_WEATHER_ICON_PACK,
             OMNI_LOCKSCREEN_WEATHER_ENABLED,
-            LOCKSCREEN_WEATHER_STYLE
+            LOCKSCREEN_WEATHER_STYLE,
+            FOOTER_TEXT_SHOW
         };
 
         /**
@@ -5344,6 +5355,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
             PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_STYLE);
+            PRIVATE_SETTINGS.add(FOOTER_TEXT_SHOW);
         }
 
         /**
@@ -5477,6 +5489,7 @@ public final class Settings {
             VALIDATORS.put(OMNIJAWS_WEATHER_ICON_PACK,OMNIJAWS_WEATHER_ICON_PACK_VALIDATOR);
             VALIDATORS.put(OMNI_LOCKSCREEN_WEATHER_ENABLED,OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_WEATHER_STYLE,LOCKSCREEN_WEATHER_STYLE_VALIDATOR);
+            VALIDATORS.put(FOOTER_TEXT_SHOW, FOOTER_TEXT_SHOW_VALIDATOR);
         }
 
         /**
