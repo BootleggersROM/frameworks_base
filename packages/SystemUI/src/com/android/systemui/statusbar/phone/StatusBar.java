@@ -237,6 +237,7 @@ import com.android.systemui.statusbar.policy.UserInfoController;
 import com.android.systemui.statusbar.policy.UserInfoControllerImpl;
 import com.android.systemui.statusbar.policy.UserSwitcherController;
 import com.android.systemui.statusbar.policy.ZenModeController;
+import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.InjectionInflationController;
 import com.android.systemui.volume.VolumeComponent;
 
