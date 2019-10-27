@@ -74,4 +74,9 @@
     <dimen name="tri_state_up_bottom_right_radius">0.0px</dimen>
     <dimen name="tri_state_up_top_left_radius">63.0px</dimen>
     <dimen name="tri_state_up_top_right_radius">63.0px</dimen>
+
+    <!-- Height of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_height">12.5dp</dimen>
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">12.5dp</dimen>
 </resources>
