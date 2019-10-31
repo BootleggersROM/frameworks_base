@@ -143,4 +143,7 @@
     <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
+
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Screenrecord</string>
 </resources>
