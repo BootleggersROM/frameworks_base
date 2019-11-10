@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Bootleg colors for some other sections -->
+    <color name="system_light_bg">@*android:color/background_material_light</color>
+    <color name="system_dark_bg">@*android:color/background_material_dark</color>
+    <color name="system_light_accent">@*android:color/accent_device_default_light</color>
+    <color name="system_dark_accent">@*android:color/accent_device_default_dark</color>
+    <color name="system_gradient_followup">@*android:color/bootleg_accent_gradient_end_color</color>
+
     <!-- Color of the FOD view -->
     <color name="config_fodColor">#00ff00</color>
 </resources>
