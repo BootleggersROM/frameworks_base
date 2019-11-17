@@ -27,9 +27,14 @@ import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
 import android.net.ConnectivityManager;
 import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.RemoteException;
+import android.os.ServiceManager;
 import android.util.DisplayMetrics;
 import android.view.DisplayInfo;
 import android.view.WindowManager;
+
+import com.android.internal.statusbar.IStatusBarService;
 
 import java.util.Locale;
 
@@ -90,6 +95,39 @@ public class BootlegUtils {
 
     public static boolean isPackageInstalled(Context context, String pkg) {
         return isPackageInstalled(context, pkg, true);
+    }
+
+    public static boolean deviceHasFlashlight(Context ctx) {
+        return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
+    }
+
+    public static void toggleCameraFlash() {
+        FireActions.toggleCameraFlash();
+    }
+
+    private static final class FireActions {
+        private static IStatusBarService mStatusBarService = null;
+
+        private static IStatusBarService getStatusBarService() {
+            synchronized (FireActions.class) {
+                if (mStatusBarService == null) {
+                    mStatusBarService = IStatusBarService.Stub.asInterface(
+                            ServiceManager.getService("statusbar"));
+                }
+                return mStatusBarService;
+            }
+        }
+
+        public static void toggleCameraFlash() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.toggleCameraFlash();
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
+            }
+        }
     }
 
     private static int getScreenType(Context context) {
