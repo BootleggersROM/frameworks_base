@@ -11,7 +11,7 @@
 
     <!-- The default tiles to display in QuickSettings -->
     <string name="quick_settings_tiles_extra" translatable="false">
-        caffeine,heads_up,screenrecord,smartpixels,sound,sync,music,weather,soundsearch
+        caffeine,dataswitch,heads_up,screenrecord,smartpixels,sound,soundsearch,sync,music,weather
     </string>
 
     <!-- The CPU temperature sensor path, defaults to empty -->
