@@ -177,8 +177,12 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         boolean showFooterText = Settings.System.getIntForUser(mContext.getContentResolver(),
                         Settings.System.FOOTER_TEXT_SHOW, 0,
                         UserHandle.USER_CURRENT) == 1;
+        String footerText = Settings.System.getStringForUser(mContext.getContentResolver(),
+                        Settings.System.FOOTER_TEXT_STRING, UserHandle.USER_CURRENT);
+
         if (showFooterText) {
-            v.setText("#" + buildType);
+            String btFooterText = "#" + buildType;
+            v.setText((footerText != null && !footerText.isEmpty()) ? footerText : btFooterText);
             v.setVisibility(View.VISIBLE);
         } else {
             v.setVisibility(View.GONE);
@@ -264,6 +268,9 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         super.onAttachedToWindow();
         mContext.getContentResolver().registerContentObserver(
                 Settings.System.getUriFor(Settings.System.FOOTER_TEXT_SHOW), false,
+                mFootextSettingsObserver, UserHandle.USER_ALL);
+        mContext.getContentResolver().registerContentObserver(
+                Settings.System.getUriFor(Settings.System.FOOTER_TEXT_STRING), false,
                 mFootextSettingsObserver, UserHandle.USER_ALL);
     }
 
