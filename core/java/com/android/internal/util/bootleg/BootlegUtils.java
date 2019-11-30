@@ -19,6 +19,7 @@ package com.android.internal.util.bootleg;
 import android.content.Context;
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 
 import com.android.internal.R;
@@ -27,21 +28,10 @@ public class BootlegUtils {
 
     // Check if device has a notch
     public static boolean hasNotch(Context context) {
-        int result = 0;
-        int resid;
-        int resourceId = context.getResources().getIdentifier(
-                "status_bar_height", "dimen", "android");
-        resid = context.getResources().getIdentifier("config_fillMainBuiltInDisplayCutout",
-                "bool", "android");
-        if (resid > 0) {
-            return context.getResources().getBoolean(resid);
-        }
-        if (resourceId > 0) {
-            result = context.getResources().getDimensionPixelSize(resourceId);
-        }
-        DisplayMetrics metrics = Resources.getSystem().getDisplayMetrics();
-        float px = 24 * (metrics.densityDpi / 160f);
-        return result > Math.round(px);
+        String displayCutout = context.getResources().getString(R.string.config_mainBuiltInDisplayCutout);
+        boolean maskDisplayCutout = context.getResources().getBoolean(R.bool.config_maskMainBuiltInDisplayCutout);
+        boolean displayCutoutExists = (!TextUtils.isEmpty(displayCutout) && !maskDisplayCutout);
+        return displayCutoutExists;
     }
 
 }
