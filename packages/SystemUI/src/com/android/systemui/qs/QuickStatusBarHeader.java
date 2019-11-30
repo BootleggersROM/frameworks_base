@@ -16,6 +16,9 @@ package com.android.systemui.qs;
 
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
+import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_CIRCLE;
+import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE;
+import static com.android.systemui.battery.BatteryMeterView.BATTERY_STYLE_FULL_CIRCLE;
 
 import android.content.Context;
 import android.content.res.Configuration;
@@ -160,6 +163,7 @@ public class QuickStatusBarHeader extends FrameLayout {
         Configuration config = mContext.getResources().getConfiguration();
         setDatePrivacyContainersWidth(config.orientation == Configuration.ORIENTATION_LANDSCAPE);
 
+        mBatteryRemainingIcon.setIsQsHeader(true);
         // QS will always show the estimate, and BatteryMeterView handles the case where
         // it's unavailable or charging
         mBatteryRemainingIcon.setPercentShowMode(BatteryMeterView.MODE_ESTIMATE);
@@ -300,6 +304,11 @@ public class QuickStatusBarHeader extends FrameLayout {
             if (mTintedIconManager != null) {
                 mTintedIconManager.setTint(textColor);
             }
+            if (mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_CIRCLE
+                    || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_DOTTED_CIRCLE
+                    || mBatteryRemainingIcon.getBatteryStyle() == BATTERY_STYLE_FULL_CIRCLE) {
+                textColorSecondary = reduceColorAlpha(textColor, 0.3f);
+            }
             mBatteryRemainingIcon.updateColors(mTextColorPrimary, textColorSecondary,
                     mTextColorPrimary);
         }
@@ -315,6 +324,14 @@ public class QuickStatusBarHeader extends FrameLayout {
         updateAnimators();
 
         updateClockDatePadding();
+    }
+
+    private static int reduceColorAlpha(int color, float factor) {
+        final int a = Math.round(Color.alpha(color) * factor);
+        final int r = Color.red(color);
+        final int g = Color.green(color);
+        final int b = Color.blue(color);
+        return Color.argb(a, r, g, b);
     }
 
     private void updateClockDatePadding() {
