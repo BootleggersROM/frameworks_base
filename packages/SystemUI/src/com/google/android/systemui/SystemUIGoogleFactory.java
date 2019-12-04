@@ -17,16 +17,7 @@ import com.android.systemui.statusbar.policy.KeyguardMonitor;
 
 import java.util.function.Consumer;
 
-import com.android.systemui.statusbar.notification.NotificationEntryManager;
-
-import com.google.android.systemui.statusbar.NotificationEntryManagerGoogle;
-
 public class SystemUIGoogleFactory extends SystemUIFactory {
-    @Override
-    public NotificationEntryManager provideNotificationEntryManager(Context context) {
-        return new NotificationEntryManagerGoogle(context);
-    }
-
     @Override
     public ScrimController createScrimController(ScrimView scrimBehind, ScrimView scrimInFront,
             LockscreenWallpaper lockscreenWallpaper,
