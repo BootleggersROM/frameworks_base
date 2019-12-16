@@ -91,5 +91,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.USE_OLD_MOBILETYPE,
         Settings.System.FULLSCREEN_GESTURES,
+        Settings.System.FLASHLIGHT_ON_CALL,
     };
 }
