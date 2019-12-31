@@ -14,5 +14,5 @@
      limitations under the License.
 -->
 <resources>
-    <color name="bootleg_accent_gradient_end_color">@color/accent_device_default_dark</color>
+    <color name="bootleg_accent_gradient_end_color">#DFDFDF</color>
 </resources>
