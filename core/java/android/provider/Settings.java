@@ -4163,7 +4163,7 @@ public final class Settings {
         public static final String ANIMATOR_DURATION_SCALE = Global.ANIMATOR_DURATION_SCALE;
 
 
-	/**
+        /**
          * Whether or not to vibrate when a touchscreen gesture is detected
          * @hide
          */
