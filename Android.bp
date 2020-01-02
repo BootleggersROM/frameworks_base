@@ -237,11 +237,11 @@ java_library {
         "android.se.omapi-V1-java",
         "android.system.suspend.control.internal-java",
         "devicepolicyprotosnano",
-
         "com.android.sysprop.apex",
         "com.android.sysprop.init",
         "com.android.sysprop.localization",
         "PlatformProperties",
+        "vendor.lineage.touch-V1.0-java",
     ],
     sdk_version: "core_platform",
     installable: false,
