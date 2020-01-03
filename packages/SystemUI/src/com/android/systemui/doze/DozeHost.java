@@ -89,6 +89,8 @@ public interface DozeHost {
         default void onPowerSaveChanged(boolean active) {}
 
         default void wakeUpFromDoubleTap() {}
+
+        default void toggleCameraFlash() {}
     }
 
     interface PulseCallback {

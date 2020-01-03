@@ -58,9 +58,6 @@
     <!-- Whether the device supports Smart Pixels -->
     <bool name="config_enableSmartPixels">false</bool>
 
-    <!-- Timer in ms to trigger the proximity timeout on flashlight -->
-    <integer name="config_flashlightProximityTimeout">300</integer>
-
     <!-- The list of components which should be automatically disabled for a specific device.
          Note: this MUST not be used to randomly disable components, ask for approval first! -->
     <string-array name="config_deviceDisabledComponents" translatable="false">
