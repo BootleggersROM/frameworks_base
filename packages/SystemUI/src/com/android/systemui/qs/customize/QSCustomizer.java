@@ -99,6 +99,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private Menu mColumnsLandscapeSubMenu;
     private Menu mQsColumnsSubMenu;
     private boolean mHeaderImageEnabled;
+    private int mHeaderImageHeight;
     private Menu mRowsSubMenu;
     private Menu mRowsLandscapeSubMenu;
 
@@ -191,8 +192,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         lp.height = mContext.getResources().getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height);
         if (mHeaderImageEnabled) {
-            lp.height += mContext.getResources().getDimensionPixelSize(
-                    R.dimen.qs_header_image_offset);
+            lp.height += mHeaderImageHeight;
         }
         mTransparentView.setLayoutParams(lp);
     }
@@ -515,14 +515,15 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         boolean showTitles = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.QS_TILE_TITLE_VISIBILITY, 1,
                 UserHandle.USER_CURRENT) == 1;
+        mHeaderImageEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
+                UserHandle.USER_CURRENT) == 1;
         mTileAdapter.setColumnCount(isPortrait ? columns : columnsLandscape);
         mTileAdapter.setRowsCount(isPortrait ? rows : rowsLandscape);
         mTileAdapter.setHideLabel(!showTitles);
         mLayout.setSpanCount(isPortrait ? columns : columnsLandscape);
         updateColumnsMenu(defaultColumns);
-        mHeaderImageEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
-                UserHandle.USER_CURRENT) == 1;
+        updateHeaderImage();
         updateRowsMenu();
     }
 
@@ -590,5 +591,16 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         menuItemOne.setChecked(rowsLandscape == 1);
         menuItemTwo = mToolbar.getMenu().findItem(R.id.menu_item_rows_landscape_two);
         menuItemTwo.setChecked(rowsLandscape == 2);
+    }
+
+
+    private void updateHeaderImage() {
+        mHeaderImageEnabled = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mHeaderImageHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 
+            Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 25,
+                UserHandle.USER_CURRENT), getContext().getResources().getDisplayMetrics());
     }
 }

@@ -48,6 +48,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.util.Pair;
 import android.util.StatsLog;
+import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.view.DisplayCutout;
 import android.view.View;
@@ -137,6 +138,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     private int mRingerMode = AudioManager.RINGER_MODE_NORMAL;
     private AlarmManager.AlarmClockInfo mNextAlarm;
 
+    private int mHeaderImageHeight;
+
     private ImageView mNextAlarmIcon;
     /** {@link TextView} containing the actual text indicating when the next alarm will go off. */
     private TextView mNextAlarmTextView;
@@ -167,6 +170,9 @@ public class QuickStatusBarHeader extends RelativeLayout implements
             ContentResolver resolver = getContext().getContentResolver();
             resolver.registerContentObserver(Settings.System
                     .getUriFor(Settings.System.STATUS_BAR_CUSTOM_HEADER), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT), false,
                     this, UserHandle.USER_ALL);
             }
 
@@ -423,7 +429,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
 
         int topMargin = resources.getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height) + (mHeaderImageEnabled ?
-                resources.getDimensionPixelSize(R.dimen.qs_header_image_offset) : 0);
+                mHeaderImageHeight : 0);
 
         int statusBarBottomMargin = resources.getDimensionPixelSize(
                 R.dimen.qs_header_image_bottom_margin);
@@ -439,7 +445,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                     com.android.internal.R.dimen.quick_qs_total_height);
 
             if (mHeaderImageEnabled) {
-                qsHeight += resources.getDimensionPixelSize(R.dimen.qs_header_image_offset);
+                qsHeight += mHeaderImageHeight;
             }
             // always add the margin below the statusbar with or without image
             qsHeight += statusBarBottomMargin;
@@ -719,6 +725,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderImageEnabled = Settings.System.getIntForUser(getContext().getContentResolver(),
                 Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
                 UserHandle.USER_CURRENT) == 1;
+        updateHeaderImage();
         updateResources();
         updateStatusbarProperties();
         updateBatteryStyle();
@@ -755,5 +762,15 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         public void onChange(boolean selfChange) {
             updateSettings();
         }
+    }
+
+    private void updateHeaderImage() {
+        mHeaderImageEnabled = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mHeaderImageHeight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 
+            Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER_HEIGHT, 25,
+                UserHandle.USER_CURRENT), getContext().getResources().getDisplayMetrics());
     }
 }
