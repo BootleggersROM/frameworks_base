@@ -1,6 +1,5 @@
 /*
  * Copyright (C) 2011 The Android Open Source Project
- * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -72,6 +71,7 @@ public class NtpTrustedTime implements TrustedTime {
             final long timeout = Settings.Global.getLong(
                     resolver, Settings.Global.NTP_TIMEOUT, defaultTimeout);
 
+            final String server = secureServer != null ? secureServer : defaultServer;
             sSingleton = new NtpTrustedTime(server, timeout);
             sContext = context;
         }
@@ -113,7 +113,7 @@ public class NtpTrustedTime implements TrustedTime {
 
         if (LOGD) Log.d(TAG, "forceRefresh() from cache miss");
         final SntpClient client = new SntpClient();
-        if (client.requestTime(realServer, (int) mTimeout, network)) {
+        if (client.requestTime(mServer, (int) mTimeout, network)) {
             mHasCache = true;
             mCachedNtpTime = client.getNtpTime();
             mCachedNtpElapsedRealtime = client.getNtpTimeReference();
