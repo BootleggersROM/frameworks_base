@@ -78,4 +78,9 @@
     <dimen name="status_bar_battery_icon_circle_height">12.5dp</dimen>
     <!-- Width of the battery icon in the status bar when set to circle style. -->
     <dimen name="status_bar_battery_icon_circle_width">12.5dp</dimen>
+
+    <!-- Partial screenshot -->
+    <dimen name="global_screenshot_selector_border_width">4dp</dimen>
+    <dimen name="global_screenshot_selector_corner_width">8dp</dimen>
+    <dimen name="global_screenshot_selector_touch_width">30dp</dimen>
 </resources>
