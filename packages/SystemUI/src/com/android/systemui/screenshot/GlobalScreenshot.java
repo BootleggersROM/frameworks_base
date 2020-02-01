@@ -796,6 +796,11 @@ class GlobalScreenshot {
     }
 
     void takeScreenshot(Consumer<Uri> finisher, boolean statusBarVisible, boolean navBarVisible) {
+        if (mScreenshotLayout.getParent() != null) {
+            finisher.accept(null);
+            return;
+        }
+
         mDisplay.getRealMetrics(mDisplayMetrics);
         takeScreenshot(finisher, statusBarVisible, navBarVisible,
                 new Rect(0, 0, mDisplayMetrics.widthPixels, mDisplayMetrics.heightPixels));
@@ -806,6 +811,10 @@ class GlobalScreenshot {
      */
     void takeScreenshotPartial(final Consumer<Uri> finisher, final boolean statusBarVisible,
             final boolean navBarVisible) {
+        if (mScreenshotLayout.getParent() != null) {
+            finisher.accept(null);
+            return;
+        }
         mWindowManager.addView(mScreenshotLayout, mWindowLayoutParams);
         BootlegUtils.setPartialScreenshot(true);
         mScreenshotSelectorView.setSelectionListener(
