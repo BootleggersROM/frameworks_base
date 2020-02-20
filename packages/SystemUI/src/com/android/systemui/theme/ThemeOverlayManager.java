@@ -73,6 +73,9 @@ class ThemeOverlayManager {
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_ICON_THEME_PICKER =
             "android.theme.customization.icon_pack.themepicker";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_ICON_QS =
+            "android.theme.customization.qs_style";
 
     /*
      * All theme customization categories used by the system, in order that they should be applied,
@@ -89,7 +92,8 @@ class ThemeOverlayManager {
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
             OVERLAY_CATEGORY_ICON_SETTINGS,
-            OVERLAY_CATEGORY_ICON_THEME_PICKER);
+            OVERLAY_CATEGORY_ICON_THEME_PICKER,
+            OVERLAY_CATEGORY_ICON_QS);
 
     /* Categories that need to applied to the current user as well as the system user. */
     @VisibleForTesting
@@ -100,7 +104,8 @@ class ThemeOverlayManager {
             OVERLAY_CATEGORY_STYLE_ANDROID,
             OVERLAY_CATEGORY_STYLE_SYSUI,
             OVERLAY_CATEGORY_ICON_ANDROID,
-            OVERLAY_CATEGORY_ICON_SYSUI);
+            OVERLAY_CATEGORY_ICON_SYSUI,
+            OVERLAY_CATEGORY_ICON_QS);
 
     /* Allowed overlay categories for each target package. */
     private final Map<String, Set<String>> mTargetPackageToCategories = new ArrayMap<>();
@@ -123,7 +128,8 @@ class ThemeOverlayManager {
                 OVERLAY_CATEGORY_STYLE_ANDROID));
         mTargetPackageToCategories.put(SYSUI_PACKAGE,
                 Sets.newHashSet(OVERLAY_CATEGORY_ICON_SYSUI,
-                OVERLAY_CATEGORY_STYLE_SYSUI));
+                OVERLAY_CATEGORY_STYLE_SYSUI,
+                OVERLAY_CATEGORY_ICON_QS));
         mTargetPackageToCategories.put(SETTINGS_PACKAGE,
                 Sets.newHashSet(OVERLAY_CATEGORY_ICON_SETTINGS,
                 OVERLAY_CATEGORY_STYLE_SETTINGS));
@@ -142,6 +148,7 @@ class ThemeOverlayManager {
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SETTINGS, SETTINGS_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_LAUNCHER, mLauncherPackage);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_THEME_PICKER, mThemePickerPackage);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_QS, SYSUI_PACKAGE);
     }
 
     /**
