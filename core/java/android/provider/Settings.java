@@ -5273,6 +5273,9 @@ public final class Settings {
         private static final Validator CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+        /** @hide */
+        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
