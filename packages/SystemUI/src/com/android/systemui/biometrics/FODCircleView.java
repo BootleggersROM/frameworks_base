@@ -101,7 +101,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         R.drawable.fod_icon_cpt_america_flat,
         R.drawable.fod_icon_cpt_america_flat_gray,
         R.drawable.fod_icon_dragon_black_flat,
-        R.drawable.fod_icon_evo1,
         R.drawable.fod_icon_glow_circle,
         R.drawable.fod_icon_neon_arc,
         R.drawable.fod_icon_neon_arc_gray,
@@ -588,7 +587,9 @@ class FODAnimation extends ImageView {
         R.drawable.fod_pureview_future_recognizing_anim,
         R.drawable.fod_pureview_halo_ring_recognizing_anim,
         R.drawable.fod_pureview_molecular_recognizing_anim,
-        R.drawable.fod_blue_firework_recognizing_anim
+        R.drawable.fod_blue_firework_recognizing_anim,
+        R.drawable.fod_coloros7_1_recognizing_anim,
+        R.drawable.fod_coloros7_2_recognizing_anim
     };
 
     public FODAnimation(Context context, int mPositionX, int mPositionY) {
