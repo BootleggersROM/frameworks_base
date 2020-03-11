@@ -49,7 +49,7 @@ public class ImageUtilities {
 
 /* blur routine */
     public static Bitmap blurImage(Context context, Bitmap image) {
-        float BITMAP_SCALE = 0.4f;
+        float BITMAP_SCALE = 0.35f;
         float BLUR_RADIUS = 25f;
 
         int width = Math.round(image.getWidth() * BITMAP_SCALE);       
