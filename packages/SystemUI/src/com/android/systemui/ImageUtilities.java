@@ -17,12 +17,8 @@
 package com.android.systemui;
 
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable.Orientation;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.Rect;
-import android.view.View;
 import android.renderscript.Element;
 import android.renderscript.Allocation;
 import android.renderscript.ScriptIntrinsicBlur;
@@ -37,32 +33,18 @@ public class ImageUtilities {
 
 /* screenShot routine */
     public static Bitmap screenshotSurface(Context context) {
-        WindowManager mWindowManager;
-        Display mDisplay;
-        DisplayMetrics mDisplayMetrics;
-        mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        mDisplay = mWindowManager.getDefaultDisplay();
-        mDisplayMetrics = new DisplayMetrics();
-        mDisplay.getRealMetrics(mDisplayMetrics);
-        int displayHeight = mDisplayMetrics.heightPixels;
-        int displayWidth = mDisplayMetrics.widthPixels;
-        Rect displayRect = new Rect(0, 0, displayWidth, displayHeight);
-        int rot = mDisplay.getRotation();
-        Bitmap mScreenBitmap;
-        try {
-            mScreenBitmap = SurfaceControl.screenshot(displayRect, displayWidth, displayHeight, rot);
-            // Crop the screenshot to selected region
-            Bitmap swBitmap = mScreenBitmap.copy(Bitmap.Config.ARGB_8888, true);
-            Bitmap cropped = Bitmap.createBitmap(swBitmap, Math.max(0, displayRect.left), Math.max(0, displayRect.top),
-                    displayRect.width(), displayRect.height());
-            swBitmap.recycle();
-            mScreenBitmap.recycle();
-            mScreenBitmap = cropped;
-            } catch (Exception e) {
-                Log.d ("Descendant", "Screenshot service: FB is protected, falling back to an empty Bitmap");
-                mScreenBitmap = Bitmap.createBitmap(displayWidth, displayHeight, Bitmap.Config.ARGB_8888);
+        Bitmap bitmap;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
+        defaultDisplay.getRealMetrics(displayMetrics);
+        int rotation = defaultDisplay.getRotation();
+        bitmap = SurfaceControl.screenshot(new Rect(), displayMetrics.widthPixels, displayMetrics.heightPixels, false, rotation);
+        if (bitmap == null) {
+            Log.e("ScreenShotHelper", "screenShotBitmap error bitmap is null");
+            return null;
         }
-        return mScreenBitmap;
+        bitmap.prepareToDraw();
+        return bitmap.copy(Bitmap.Config.ARGB_8888, true);
     }
 
 /* blur routine */
