@@ -404,6 +404,13 @@ public class NotificationPanelView extends PanelView implements
             .setDuration(200)
             .setAnimationFinishListener(mAnimatorListenerAdapter)
             .setCustomInterpolator(PANEL_ALPHA.getProperty(), Interpolators.ALPHA_IN);
+    private final AnimationProperties PANEL_ALPHA_OUT_FAST_PROPERTIES = new AnimationProperties()
+            .setDuration(100)
+            .setCustomInterpolator(PANEL_ALPHA.getProperty(), Interpolators.ALPHA_OUT);
+    private final AnimationProperties PANEL_ALPHA_IN_FAST_PROPERTIES = new AnimationProperties()
+            .setDuration(100)
+            .setAnimationFinishListener(mAnimatorListenerAdapter)
+            .setCustomInterpolator(PANEL_ALPHA.getProperty(), Interpolators.ALPHA_IN);
     private final NotificationEntryManager mEntryManager =
             Dependency.get(NotificationEntryManager.class);
 
@@ -2894,6 +2901,16 @@ public class NotificationPanelView extends PanelView implements
             mPanelAlpha = alpha;
             PropertyAnimator.setProperty(this, PANEL_ALPHA, alpha,
                     alpha == 255 ? PANEL_ALPHA_IN_PROPERTIES : PANEL_ALPHA_OUT_PROPERTIES, animate);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setPanelAlphaFast(int alpha, boolean animate) {
+        if (mPanelAlpha != alpha) {
+            mPanelAlpha = alpha;
+            PropertyAnimator.setProperty(this, PANEL_ALPHA, alpha,
+                    alpha == 255 ? PANEL_ALPHA_IN_FAST_PROPERTIES : PANEL_ALPHA_OUT_FAST_PROPERTIES, animate);
             return true;
         }
         return false;

@@ -1082,15 +1082,19 @@ public class StatusBar extends SystemUI implements DemoMode,
         float QSBlurAlpha = mNotificationPanel.getExpandedFraction();
 
         if (QSBlurAlpha > 0f && !blurperformed && !mIsKeyguard) {
-            Bitmap blurBitmap = ImageUtilities.blurImage(mContext, ImageUtilities.screenshotSurface(mContext));
+            drawBlurView();
             blurperformed = true;
-            mQSBlurView.setImageBitmap(blurBitmap);
             mQSBlurView.setVisibility(View.VISIBLE);
         } else if (QSBlurAlpha == 0f || mState == StatusBarState.KEYGUARD) {
             blurperformed = false;
             mQSBlurView.setVisibility(View.GONE);
         }
         mQSBlurView.setAlpha(QSBlurAlpha);
+    }
+
+    private void drawBlurView() {
+        Bitmap blurBitmap = ImageUtilities.blurImage(mContext, ImageUtilities.screenshotSurface(mContext));
+        mQSBlurView.setImageBitmap(blurBitmap);
     }
 
     protected QS createDefaultQSFragment() {
@@ -2873,6 +2877,18 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mViewHierarchyManager.updateRowStates();
         mScreenPinningRequest.onConfigurationChanged();
+
+        if (blurperformed) {
+            mNotificationPanel.setPanelAlpha(0, false);
+            mHandler.postDelayed(new Runnable() {
+                public void run() {
+                    drawBlurView();
+                    mNotificationPanel.setPanelAlphaFast(255, true);
+                }
+            }, Math.max(390, Math.round(455f * Settings.Global.getFloat(
+                    mContext.getContentResolver(),
+                    Settings.Global.TRANSITION_ANIMATION_SCALE, 1.0f))));
+        }
     }
 
     @Override
