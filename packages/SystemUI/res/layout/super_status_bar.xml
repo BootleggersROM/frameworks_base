@@ -53,9 +53,9 @@
 
     <ImageView
         android:id="@+id/qs_blur"
-        android:background="#000000"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:visibility="gone" />
 
     <com.android.systemui.statusbar.VisualizerView
         android:id="@+id/visualizerview"
