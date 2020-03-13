@@ -33,12 +33,14 @@ public class ImageUtilities {
 
 /* screenShot routine */
     public static Bitmap screenshotSurface(Context context) {
+        float BITMAP_SCALE = 0.35f;
         Bitmap bitmap;
         DisplayMetrics displayMetrics = new DisplayMetrics();
         Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
         defaultDisplay.getRealMetrics(displayMetrics);
         int rotation = defaultDisplay.getRotation();
-        bitmap = SurfaceControl.screenshot(new Rect(), displayMetrics.widthPixels, displayMetrics.heightPixels, false, rotation);
+        bitmap = SurfaceControl.screenshot(new Rect(), Math.round(displayMetrics.widthPixels * BITMAP_SCALE),
+                Math.round(displayMetrics.heightPixels * BITMAP_SCALE), false, rotation);
         if (bitmap == null) {
             Log.e("ScreenShotHelper", "screenShotBitmap error bitmap is null");
             return null;
@@ -48,14 +50,9 @@ public class ImageUtilities {
     }
 
 /* blur routine */
-    public static Bitmap blurImage(Context context, Bitmap image) {
-        float BITMAP_SCALE = 0.35f;
+    public static Bitmap blurImage(Context context, Bitmap inputBitmap) {
         float BLUR_RADIUS = 25f;
 
-        int width = Math.round(image.getWidth() * BITMAP_SCALE);       
-        int height = Math.round(image.getHeight() * BITMAP_SCALE);
-
-        Bitmap inputBitmap = Bitmap.createScaledBitmap(image, width, height, false);
         Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap);
 
         RenderScript rs = RenderScript.create(context);
