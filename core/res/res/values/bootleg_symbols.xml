@@ -58,4 +58,6 @@
     <!-- Whether device has SuperDart charging support -->
     <java-symbol type="bool" name="config_hasSuperDartCharger" />
 
+    <!-- Enable face auth only when swiping security view -->
+    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 </resources>
