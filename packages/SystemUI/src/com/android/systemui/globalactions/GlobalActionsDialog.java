@@ -95,7 +95,6 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.telephony.TelephonyIntents;
 import com.android.internal.telephony.TelephonyProperties;
-import com.android.internal.util.bootleggers.BootlegUtils;
 import com.android.internal.util.EmergencyAffordanceManager;
 import com.android.internal.util.ScreenRecordHelper;
 import com.android.internal.util.ScreenshotHelper;
@@ -955,12 +954,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public void onPress() {
-            if (BootlegUtils.isPackageAvailable("org.lineageos.recorder", mContext)) {
-                final Intent recIntent = new Intent();
-                recIntent.setComponent(new ComponentName("org.lineageos.recorder", "org.lineageos.recorder.screen.ScreencastOverlayHelper"));
-                recIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(recIntent);
-            }
+            mScreenRecordHelper.launchRecordPrompt();
         }
 
         @Override
@@ -975,13 +969,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
 
         @Override
         public boolean onLongPress() {
-            if (BootlegUtils.isPackageAvailable("org.lineageos.recorder", mContext)) {
-                final Intent recIntent = new Intent();
-                recIntent.setComponent(new ComponentName("org.lineageos.recorder", "org.lineageos.recorder.RecorderActivity"));
-                recIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(recIntent);
-                return true;
-            }
             return false;
         }
     }
