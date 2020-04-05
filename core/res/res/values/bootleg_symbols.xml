@@ -2,6 +2,7 @@
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
     <!-- Button backlight -->
     <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
@@ -121,4 +122,12 @@
     <!-- HW keys binding -->
     <java-symbol type="anim" name="custom_app_in" />
     <java-symbol type="anim" name="custom_app_out" />
+
+    <!-- Gaming mode -->
+    <java-symbol type="drawable" name="ic_gaming_notif" />
+    <java-symbol type="string" name="notification_channel_gaming" />
+    <java-symbol type="string" name="gaming_mode_notification_title" />
+    <java-symbol type="string" name="gaming_mode_notification_content" />
+    <java-symbol type="string" name="gaming_mode_enabled_toast" />
+    <java-symbol type="string" name="gaming_mode_disabled_toast" />
 </resources>

@@ -78,6 +78,7 @@ public class NotificationInterruptionStateProvider {
 
     private boolean mPartialScreenshot;
     private boolean mLessBoringHeadsUp;
+    private boolean mSkipHeadsUp;
 
     @Inject
     public NotificationInterruptionStateProvider(Context context, NotificationFilter filter,
@@ -367,6 +368,11 @@ public class NotificationInterruptionStateProvider {
         mLessBoringHeadsUp = lessBoring;
     }
 
+
+    public void setGamingPeekMode(boolean skipHeadsUp) {
+        mSkipHeadsUp = skipHeadsUp;
+    }
+
     public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
         boolean isImportantHeadsUp = false;
         String notificationPackageName = sbn.getPackageName().toLowerCase();
@@ -386,9 +392,9 @@ public class NotificationInterruptionStateProvider {
     public boolean canAlertAwakeCommon(NotificationEntry entry) {
         StatusBarNotification sbn = entry.notification;
 
-        if (mPresenter.isDeviceInVrMode() || shouldSkipHeadsUp(sbn)) {
+        if (!mUseHeadsUp || mPresenter.isDeviceInVrMode() || shouldSkipHeadsUp(sbn)) {
             if (DEBUG_HEADS_UP) {
-                Log.d(TAG, "No alerting: no huns or vr mode or less boring headsup enabled or gaming mode");
+                Log.d(TAG, "No alerting: no huns or vr mode or less boring headsup or gaming mode enabled");
             }
             return false;
         }
