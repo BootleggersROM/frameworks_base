@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-/* //device/apps/common/assets/res/any/strings.xml
+/* //device/apps/common/assets/res/any/dimens.xml
 **
 ** Copyright 2006, The Android Open Source Project
 **
@@ -17,11 +17,9 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="clock_title_default_bold">Default (bold)</string>
-    <string name="clock_title_samsung" translatable="false">Sammy</string>
-    <string name="clock_title_samsung_bold">Sammy (bold)</string>
-    <plurals name="type_square_clock_header">
-        <item quantity="other"><annotation name="color">^1\n^2\n^3</annotation></item>
-    </plurals>
+<resources>
+
+    <!-- Padding to add to the typeface background  -->
+    <dimen name="typeClockBoxPadding">4dp</dimen>
+
 </resources>
