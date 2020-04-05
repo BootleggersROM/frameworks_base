@@ -5387,6 +5387,14 @@ public final class Settings {
          */
         public static final String SCREENRECORD_VIDEO_BITRATE = "screenrecord_video_bitrate";
 
+       /**
+         * QS blur
+         * @hide
+         */
+        public static final String QS_BLUR = "qs_blur";
+        /** @hide */
+        private static final Validator QS_BLUR_VALIDATOR = BOOLEAN_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5488,6 +5496,7 @@ public final class Settings {
             CUSTOM_DEVICE_PROXI_CHECK_ENABLED,
             CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED,
             CUSTOM_DEVICE_FEATURE_SETTINGS,
+            QS_BLUR,
         };
 
         /**
@@ -5834,6 +5843,7 @@ public final class Settings {
             VALIDATORS.put(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED, CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);
             VALIDATORS.put(CUSTOM_DEVICE_FEATURE_SETTINGS, CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR);
             VALIDATORS.put(DEVICE_INTRODUCTION_COMPLETED, DEVICE_INTRODUCTION_COMPLETED_VALIDATOR);
+            VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
         }
 
         /**
