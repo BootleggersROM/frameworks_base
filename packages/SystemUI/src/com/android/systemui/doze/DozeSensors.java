@@ -265,14 +265,15 @@ public class DozeSensors {
                         false /* requiresProx */,
                         true /* immediatelyReRegister */),
         };
-        setProxListening(false);  // Don't immediately start listening when we register.
-        mProximitySensor.register(
-                proximityEvent -> {
-                    if (proximityEvent != null) {
-                        mProxCallback.accept(!proximityEvent.getBelow());
-                    }
-                });
-
+        if (resources.getBoolean(R.bool.doze_proximity_sensor_supported)) {
+            setProxListening(false);  // Don't immediately start listening when we register.
+            mProximitySensor.register(
+                    proximityEvent -> {
+                        if (proximityEvent != null) {
+                            mProxCallback.accept(!proximityEvent.getBelow());
+                        }
+                    });
+        }
         mDevicePostureController.addCallback(mDevicePostureCallback);
     }
 

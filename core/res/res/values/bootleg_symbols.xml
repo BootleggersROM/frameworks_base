@@ -7,4 +7,7 @@
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+
+    <!-- Whether usage of the proximity sensor during doze is supported -->
+    <java-symbol type="bool" name="doze_proximity_sensor_supported" />
 </resources>
