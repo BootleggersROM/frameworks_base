@@ -5026,12 +5026,6 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
         /**
-         * Whether to show Brightness Icon On Brightness Slider
-         * @hide
-         */
-        public static final String QS_SHOW_BRIGHTNESS_ICON = "qs_show_brightness_icon";
-
-        /**
          * Three Finger Gesture from Oppo
          * @hide
          */
