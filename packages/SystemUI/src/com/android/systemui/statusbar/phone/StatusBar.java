@@ -515,6 +515,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     // Blur
     private ImageView mQSBlurView;
     private boolean blurperformed = false;
+    private int mBlurRadius;
 
     private final BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
@@ -1094,10 +1095,11 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private void drawBlurView() {
         Bitmap surfaceBitmap = ImageUtilities.screenshotSurface(mContext);
-        if (surfaceBitmap == null) {
+        float blurRadius = (float) mBlurRadius;
+        if (surfaceBitmap == null || mBlurRadius == 0) {
             mQSBlurView.setImageDrawable(null);
         } else {
-            mQSBlurView.setImageBitmap(ImageUtilities.blurImage(mContext, surfaceBitmap));
+            mQSBlurView.setImageBitmap(ImageUtilities.blurImage(mContext, surfaceBitmap, blurRadius));
         }
     }
 
@@ -4518,9 +4520,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.AMBIENT_VISUALIZER_ENABLED),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
+                    Settings.System.HEADS_UP_STOPLIST_VALUES), 
+                    false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES), 
+                    false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
                     false, this, UserHandle.USER_ALL);
@@ -4528,8 +4532,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                          Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG),
-                          false, this, UserHandle.USER_ALL);
+                    Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG),
+                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_LAYOUT_ROWS),
                     false, this, UserHandle.USER_ALL);
@@ -4538,6 +4542,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                     Settings.Secure.SHOW_BACK_ARROW_GESTURE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_BLUR_RADIUS),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -4563,6 +4570,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MAX_NOTIF_CONFIG))) {
                 setMaxKeyguardNotifConfig();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_RADIUS))) {
+                setQSblurRadius();
             }
             update();
         }
@@ -4576,7 +4585,13 @@ public class StatusBar extends SystemUI implements DemoMode,
             setLockscreenDoubleTapToSleep();
             setMaxKeyguardNotifConfig();
             setHideArrowForBackGesture();
+            setQSblurRadius();
         }
+    }
+
+    private void setQSblurRadius() {
+        mBlurRadius = Settings.System.getIntForUser(mContext.getContentResolver(), 
+                Settings.System.QS_BLUR_RADIUS, 5, UserHandle.USER_CURRENT);
     }
 
     private void setFpToDismissNotifications() {
