@@ -25,6 +25,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
 import static org.mockito.ArgumentMatchers.anyInt;
@@ -40,6 +41,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import android.app.ActivityManagerInternal;
+import android.app.AppOpsManager;
 import android.attention.AttentionManagerInternal;
 import android.content.Context;
 import android.content.ContextWrapper;
@@ -66,6 +68,7 @@ import android.view.Display;
 
 import androidx.test.InstrumentationRegistry;
 
+import com.android.internal.app.IAppOpsService;
 import com.android.internal.app.IBatteryStats;
 import com.android.server.LocalServices;
 import com.android.server.SystemService;
@@ -108,6 +111,7 @@ public class PowerManagerServiceTest {
     @Mock private Notifier mNotifierMock;
     @Mock private WirelessChargerDetector mWirelessChargerDetectorMock;
     @Mock private AmbientDisplayConfiguration mAmbientDisplayConfigurationMock;
+    @Mock private IAppOpsService mIAppOpsServiceMock;
 
     private PowerManagerService mService;
     private PowerSaveState mPowerSaveState;
@@ -221,7 +225,7 @@ public class PowerManagerServiceTest {
     }
 
     private void startSystem() throws Exception {
-        mService.systemReady(null);
+        mService.systemReady(mIAppOpsServiceMock);
 
         // Grab the BatteryReceiver
         ArgumentCaptor<BatteryReceiver> batCaptor = ArgumentCaptor.forClass(BatteryReceiver.class);
@@ -493,7 +497,7 @@ public class PowerManagerServiceTest {
     @Test
     public void testForceSuspend_putsDeviceToSleep() {
         createService();
-        mService.systemReady(null);
+        mService.systemReady(mIAppOpsServiceMock);
         mService.onBootPhase(SystemService.PHASE_BOOT_COMPLETED);
 
         // Verify that we start awake
@@ -539,7 +543,7 @@ public class PowerManagerServiceTest {
         //
         // TEST STARTS HERE
         //
-        mService.systemReady(null);
+        mService.systemReady(mIAppOpsServiceMock);
         mService.onBootPhase(SystemService.PHASE_BOOT_COMPLETED);
 
         // Verify that we start awake
@@ -614,5 +618,36 @@ public class PowerManagerServiceTest {
         mService.getLocalServiceInstance()
                 .setDozeOverrideFromDreamManager(Display.STATE_ON, PowerManager.BRIGHTNESS_DEFAULT);
         assertTrue(isAcquired[0]);
+    }
+
+    @Test
+    public void testWakeLock_acquireFailedIfAppOpsDisallow() throws Exception {
+        createService();
+        startSystem();
+
+        final IBinder token = new Binder();
+        final int flags = PowerManager.PARTIAL_WAKE_LOCK;
+        final String tag = "cpu_wakeup";
+        final String packageName = "pkg.name";
+
+        when(mIAppOpsServiceMock.checkOperation(anyInt(), anyInt(), anyString()))
+                .thenReturn(AppOpsManager.MODE_ERRORED);
+        try {
+            mService.getBinderServiceInstance().acquireWakeLock(token, flags, tag, packageName,
+                    null /* workSource */, null /* historyTag */);
+            fail("acquireWakeLock() shouldn't complete successfully");
+        } catch (SecurityException expected) {
+            // expected
+        }
+
+        when(mIAppOpsServiceMock.checkOperation(anyInt(), anyInt(), anyString()))
+                .thenReturn(AppOpsManager.MODE_IGNORED);
+        mService.getBinderServiceInstance().acquireWakeLock(token, flags, tag, packageName,
+                null /* workSource */, null /* historyTag */);
+        assertThat(mService.findWakeLockIndexLocked(token)).isEqualTo(-1);
+
+        mService.getBinderServiceInstance().updateWakeLockWorkSource(token,
+                null /* workSource */, null /* historyTag */);
+        // no exception thrown is expected
     }
 }

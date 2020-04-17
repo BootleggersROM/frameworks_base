@@ -25,6 +25,7 @@ import android.annotation.IntDef;
 import android.annotation.NonNull;
 import android.annotation.UserIdInt;
 import android.app.ActivityManager;
+import android.app.AppOpsManager;
 import android.app.SynchronousUserSwitchObserver;
 import android.content.BroadcastReceiver;
 import android.content.ContentResolver;
@@ -1349,8 +1350,11 @@ public final class PowerManagerService extends SystemService
                     Slog.d(TAG, "updateWakeLockWorkSourceInternal: lock=" + Objects.hashCode(lock)
                             + " [not found], ws=" + ws);
                 }
-                throw new IllegalArgumentException("Wake lock not active: " + lock
-                        + " from uid " + callingUid);
+                // If the WakeLock was "acquired" when the AppOps state was MODE_IGNORED and
+                // updateWakeLockWorkSource() is called later, we don't have an actual WakeLock
+                // here in the system_server, so don't punish app if it's not its fault.
+                Slog.w(TAG, "Wake lock not active: " + lock + " from uid " + callingUid);
+                return;
             }
 
             WakeLock wakeLock = mWakeLocks.get(index);
@@ -1369,7 +1373,8 @@ public final class PowerManagerService extends SystemService
         }
     }
 
-    private int findWakeLockIndexLocked(IBinder lock) {
+    @VisibleForTesting
+    int findWakeLockIndexLocked(IBinder lock) {
         final int count = mWakeLocks.size();
         for (int i = 0; i < count; i++) {
             if (mWakeLocks.get(i).mLock == lock) {
@@ -4101,6 +4106,27 @@ public final class PowerManagerService extends SystemService
         }
     }
 
+    private boolean checkAppOps(int uid, String packageName, String operation) {
+        try {
+            final int mode = mAppOps.checkOperation(AppOpsManager.OP_WAKE_LOCK, uid, packageName);
+            switch (mode) {
+                case AppOpsManager.MODE_IGNORED:
+                    Slog.w(TAG, "Package " + packageName
+                            + " is not allowed to " + operation + ", ignoring.");
+                    return false;
+                case AppOpsManager.MODE_ERRORED:
+                    throw new SecurityException("Package " + packageName
+                            + " is not allowed to " + operation);
+                case AppOpsManager.MODE_ALLOWED:
+                default:
+                    break;
+            }
+        } catch (RemoteException e) {
+            // This will never happen since AppOpsService is local
+        }
+        return true;
+    }
+
     private static WorkSource copyWorkSource(WorkSource workSource) {
         return workSource != null ? new WorkSource(workSource) : null;
     }
@@ -4512,6 +4538,11 @@ public final class PowerManagerService extends SystemService
             }
 
             final int uid = Binder.getCallingUid();
+
+            if (!checkAppOps(uid, packageName, "acquireWakeLock")) {
+                return;
+            }
+
             final int pid = Binder.getCallingPid();
             final long ident = Binder.clearCallingIdentity();
             try {
