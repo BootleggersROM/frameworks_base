@@ -21,7 +21,4 @@
     <string name="clock_title_default_bold">Default (bold)</string>
     <string name="clock_title_samsung" translatable="false">Sammy</string>
     <string name="clock_title_samsung_bold">Sammy (bold)</string>
-    <plurals name="type_square_clock_header">
-        <item quantity="other"><annotation name="color">^1\n^2\n^3</annotation></item>
-    </plurals>
 </resources>
