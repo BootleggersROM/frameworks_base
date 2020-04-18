@@ -363,6 +363,87 @@ public class KeyguardStatusView extends GridLayout implements
                 case 13:
                     view.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
                     break;
+                case 14:
+                    view.setViewsTypeface(Typeface.create("abelreg", Typeface.NORMAL));
+                    break;
+                case 15:
+                    view.setViewsTypeface(Typeface.create("adamcg-pro", Typeface.NORMAL));
+                    break;
+                case 16:
+                    view.setViewsTypeface(Typeface.create("adventpro", Typeface.NORMAL));
+                    break;
+                case 17:
+                    view.setViewsTypeface(Typeface.create("alien-league", Typeface.NORMAL));
+                    break;
+                case 18:
+                    view.setViewsTypeface(Typeface.create("archivonar", Typeface.NORMAL));
+                    break;
+                case 19:
+                    view.setViewsTypeface(Typeface.create("autourone", Typeface.NORMAL));
+                    break;
+                case 20:
+                    view.setViewsTypeface(Typeface.create("badscript", Typeface.NORMAL));
+                    break;
+                case 21:
+                    view.setViewsTypeface(Typeface.create("bignoodle-regular", Typeface.NORMAL));
+                    break;
+                case 22:
+                    view.setViewsTypeface(Typeface.create("biko", Typeface.NORMAL));
+                    break;
+                case 23:
+                    view.setViewsTypeface(Typeface.create("cherryswash", Typeface.NORMAL));
+                    break;
+                case 24:
+                    view.setViewsTypeface(Typeface.create("ginora-sans", Typeface.NORMAL));
+                    break;
+                case 25:
+                    view.setViewsTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
+                    break;
+                case 26:
+                    view.setViewsTypeface(Typeface.create("ibmplex-mono", Typeface.NORMAL));
+                    break;
+                case 27:
+                    view.setViewsTypeface(Typeface.create("inkferno", Typeface.NORMAL));
+                    break;
+                case 28:
+                    view.setViewsTypeface(Typeface.create("instruction", Typeface.NORMAL));
+                    break;
+                case 29:
+                    view.setViewsTypeface(Typeface.create("jack-lane", Typeface.NORMAL));
+                    break;
+                case 30:
+                    view.setViewsTypeface(Typeface.create("kellyslab", Typeface.NORMAL));
+                    break;
+                case 31:
+                    view.setViewsTypeface(Typeface.create("monad", Typeface.NORMAL));
+                    break;
+                case 32:
+                    view.setViewsTypeface(Typeface.create("noir", Typeface.NORMAL));
+                    break;
+                case 33:
+                    view.setViewsTypeface(Typeface.create("outrun-future", Typeface.NORMAL));
+                    break;
+                case 34:
+                    view.setViewsTypeface(Typeface.create("pompiere", Typeface.NORMAL));
+                    break;
+                case 35:
+                    view.setViewsTypeface(Typeface.create("reemkufi", Typeface.NORMAL));
+                    break;
+                case 36:
+                    view.setViewsTypeface(Typeface.create("riviera", Typeface.NORMAL));
+                    break;
+                case 37:
+                    view.setViewsTypeface(Typeface.create("the-outbox", Typeface.NORMAL));
+                    break;
+                case 38:
+                    view.setViewsTypeface(Typeface.create("themeable-date", Typeface.NORMAL));
+                    break;
+                case 39:
+                    view.setViewsTypeface(Typeface.create("vibur", Typeface.NORMAL));
+                    break;
+                case 40:
+                    view.setViewsTypeface(Typeface.create("voltaire", Typeface.NORMAL));
+                    break;
             }
         }
     }
