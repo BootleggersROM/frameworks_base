@@ -407,6 +407,84 @@ public class KeyguardStatusView extends GridLayout implements
     			case 13:
     				view.setTextFont(Typeface.create("sans-serif-medium", Typeface.ITALIC));
     				break;
+                case 14:
+                    view.setTextFont(Typeface.create("abelreg", Typeface.NORMAL));
+                    break;
+                case 15:
+                    view.setTextFont(Typeface.create("adventpro", Typeface.NORMAL));
+                    break;
+                case 16:
+                    view.setTextFont(Typeface.create("alien-league", Typeface.NORMAL));
+                    break;
+                case 17:
+                    view.setTextFont(Typeface.create("bignoodle-italic", Typeface.NORMAL));
+                    break;
+                case 18:
+                    view.setTextFont(Typeface.create("biko", Typeface.NORMAL));
+                    break;
+                case 19:
+                    view.setTextFont(Typeface.create("blern", Typeface.NORMAL));
+                    break;
+                case 20:
+                    view.setTextFont(Typeface.create("cherryswash", Typeface.NORMAL));
+                    break;
+                case 21:
+                    view.setTextFont(Typeface.create("codystar", Typeface.NORMAL));
+                    break;
+                case 22:
+                    view.setTextFont(Typeface.create("ginora-sans", Typeface.NORMAL));
+                    break;
+                case 23:
+                    view.setTextFont(Typeface.create("gobold-light-sys", Typeface.NORMAL));
+                    break;
+                case 24:
+                    view.setTextFont(Typeface.create("googlesans-sys", Typeface.NORMAL));
+                    break;
+                case 25:
+                    view.setTextFont(Typeface.create("inkferno", Typeface.NORMAL));
+                    break;
+                case 26:
+                    view.setTextFont(Typeface.create("jura-reg", Typeface.NORMAL));
+                    break;
+                case 27:
+                    view.setTextFont(Typeface.create("kellyslab", Typeface.NORMAL));
+                    break;
+                case 28:
+                    view.setTextFont(Typeface.create("metropolis1920", Typeface.NORMAL));
+                    break;
+                case 29:
+                    view.setTextFont(Typeface.create("neonneon", Typeface.NORMAL));
+                    break;
+                case 30:
+                    view.setTextFont(Typeface.create("pompiere", Typeface.NORMAL));
+                    break;
+                case 31:
+                    view.setTextFont(Typeface.create("reemkufi", Typeface.NORMAL));
+                    break;
+                case 32:
+                    view.setTextFont(Typeface.create("riviera", Typeface.NORMAL));
+                    break;
+                case 33:
+                    view.setTextFont(Typeface.create("roadrage-sys", Typeface.NORMAL));
+                    break;
+                case 34:
+                    view.setTextFont(Typeface.create("sedgwick-ave", Typeface.NORMAL));
+                    break;
+                case 35:
+                    view.setTextFont(Typeface.create("snowstorm-sys", Typeface.NORMAL));
+                    break;
+                case 36:
+                    view.setTextFont(Typeface.create("themeable-clock", Typeface.NORMAL));
+                    break;
+                case 37:
+                    view.setTextFont(Typeface.create("unionfont", Typeface.NORMAL));
+                    break;
+                case 38:
+                    view.setTextFont(Typeface.create("vibur", Typeface.NORMAL));
+                    break;
+                case 39:
+                    view.setTextFont(Typeface.create("voltaire", Typeface.NORMAL));
+                    break;
     		}
     	}
     }
