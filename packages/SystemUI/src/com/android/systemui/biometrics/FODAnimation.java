@@ -58,7 +58,6 @@ public class FODAnimation extends ImageView {
         R.drawable.fod_pureview_halo_ring_recognizing_anim,
         R.drawable.fod_pureview_molecular_recognizing_anim,
         R.drawable.fod_blue_firework_recognizing_anim,
-        R.drawable.fod_coloros7_1_recognizing_anim,
         R.drawable.fod_coloros7_2_recognizing_anim
     };
 
