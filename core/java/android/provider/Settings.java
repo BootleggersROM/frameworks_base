@@ -5504,7 +5504,7 @@ public final class Settings {
 
         /** @hide */
         private static final Validator FOD_ANIM_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 16);
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 15);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
