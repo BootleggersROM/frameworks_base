@@ -18,6 +18,7 @@ package android.graphics.fonts;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
+import android.content.res.Resources;
 import android.graphics.FontListParser;
 import android.text.FontConfig;
 import android.util.ArrayMap;
@@ -47,7 +48,7 @@ import java.util.Set;
  */
 public final class SystemFonts {
     private static final String TAG = "SystemFonts";
-    private static final String DEFAULT_FAMILY = "sans-serif";
+    private static final String DEFAULT_FAMILY = Resources.getSystem().getString(com.android.internal.R.string.config_bodyFontFamily);
 
     private SystemFonts() {}  // Do not instansiate.
 

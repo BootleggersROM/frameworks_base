@@ -316,6 +316,7 @@ public class ZygoteProcess {
                                                   int uid, int gid, @Nullable int[] gids,
                                                   int runtimeFlags, int mountExternal,
                                                   int targetSdkVersion,
+                                                  boolean refreshTheme,
                                                   @Nullable String seInfo,
                                                   @NonNull String abi,
                                                   @Nullable String instructionSet,
@@ -331,7 +332,7 @@ public class ZygoteProcess {
 
         try {
             return startViaZygote(processClass, niceName, uid, gid, gids,
-                    runtimeFlags, mountExternal, targetSdkVersion, seInfo,
+                    runtimeFlags, mountExternal, targetSdkVersion, refreshTheme, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, /*startChildZygote=*/ false,
                     packageName, useUsapPool, zygoteArgs);
         } catch (ZygoteStartFailedEx ex) {
@@ -544,6 +545,7 @@ public class ZygoteProcess {
                                                       @Nullable final int[] gids,
                                                       int runtimeFlags, int mountExternal,
                                                       int targetSdkVersion,
+                                                      boolean refreshTheme,
                                                       @Nullable String seInfo,
                                                       @NonNull String abi,
                                                       @Nullable String instructionSet,
@@ -608,6 +610,10 @@ public class ZygoteProcess {
 
         if (appDataDir != null) {
             argsForZygote.add("--app-data-dir=" + appDataDir);
+        }
+
+        if (refreshTheme) {
+            argsForZygote.add("--refresh-theme=" + refreshTheme);
         }
 
         if (invokeWith != null) {
@@ -1141,7 +1147,7 @@ public class ZygoteProcess {
         Process.ProcessStartResult result;
         try {
             result = startViaZygote(processClass, niceName, uid, gid,
-                    gids, runtimeFlags, 0 /* mountExternal */, 0 /* targetSdkVersion */, seInfo,
+                    gids, runtimeFlags, 0 /* mountExternal */, 0 /* targetSdkVersion */, true, seInfo,
                     abi, instructionSet, null /* appDataDir */, null /* invokeWith */,
                     true /* startChildZygote */, null /* packageName */,
                     false /* useUsapPool */, extraArgs);

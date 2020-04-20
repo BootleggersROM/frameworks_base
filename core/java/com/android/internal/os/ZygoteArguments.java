@@ -116,6 +116,11 @@ class ZygoteArguments {
      */
     String mInvokeWith;
 
+    /**
+     * from --refresh-theme
+     */
+    boolean mRefreshTheme;
+
     /** from --package-name */
     String mPackageName;
 
@@ -409,6 +414,8 @@ class ZygoteArguments {
                 mUsapPoolStatusSpecified = true;
                 mUsapPoolEnabled = Boolean.parseBoolean(arg.substring(arg.indexOf('=') + 1));
                 expectRuntimeArgs = false;
+            } else if (arg.equals("--refresh_theme")) {
+                mRefreshTheme = true;
             } else {
                 break;
             }
