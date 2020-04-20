@@ -27,6 +27,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UnsupportedAppUsage;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.graphics.fonts.Font;
 import android.graphics.fonts.FontFamily;
 import android.graphics.fonts.FontStyle;
@@ -78,19 +79,19 @@ public class Typeface {
             Typeface.class.getClassLoader(), nativeGetReleaseFunc());
 
     /** The default NORMAL typeface object */
-    public static final Typeface DEFAULT;
+    public static Typeface DEFAULT;
     /**
      * The default BOLD typeface object. Note: this may be not actually be
      * bold, depending on what fonts are installed. Call getStyle() to know
      * for sure.
      */
-    public static final Typeface DEFAULT_BOLD;
+    public static Typeface DEFAULT_BOLD;
     /** The NORMAL style of the default sans serif typeface. */
-    public static final Typeface SANS_SERIF;
+    public static Typeface SANS_SERIF;
     /** The NORMAL style of the default serif typeface. */
-    public static final Typeface SERIF;
+    public static Typeface SERIF;
     /** The NORMAL style of the default monospace typeface. */
-    public static final Typeface MONOSPACE;
+    public static Typeface MONOSPACE;
 
     /**
      * The default {@link Typeface}s for different text styles.
@@ -105,9 +106,9 @@ public class Typeface {
      * Cache for Typeface objects for style variant. Currently max size is 3.
      */
     @GuardedBy("sStyledCacheLock")
-    private static final LongSparseArray<SparseArray<Typeface>> sStyledTypefaceCache =
+    private static LongSparseArray<SparseArray<Typeface>> sStyledTypefaceCache =
             new LongSparseArray<>(3);
-    private static final Object sStyledCacheLock = new Object();
+    private static Object sStyledCacheLock = new Object();
 
     /**
      * Cache for Typeface objects for weight variant. Currently max size is 3.
@@ -170,7 +171,7 @@ public class Typeface {
     // Must be the same as the C++ constant in core/jni/android/graphics/FontFamily.cpp
     /** @hide */
     public static final int RESOLVE_BY_FONT_TABLE = -1;
-    private static final String DEFAULT_FAMILY = "sans-serif";
+    private static final String DEFAULT_FAMILY = Resources.getSystem().getString(com.android.internal.R.string.config_bodyFontFamily);
 
     // Style value for building typeface.
     private static final int STYLE_NORMAL = 0;
@@ -178,6 +179,12 @@ public class Typeface {
 
     private int[] mSupportedAxes;
     private static final int[] EMPTY_AXES = {};
+
+    private static Typeface DEFAULT_INTERNAL;
+    private static Typeface DEFAULT_BOLD_INTERNAL;
+    private static Typeface SANS_SERIF_INTERNAL;
+    private static Typeface SERIF_INTERNAL;
+    private static Typeface MONOSPACE_INTERNAL;
 
     /**
      * Please use font in xml and also your application global theme to change the default Typeface.
@@ -1134,6 +1141,23 @@ public class Typeface {
         if (typeface != null) {
             nativeRegisterGenericFamily(familyName, typeface.native_instance);
         }
+    }
+
+    public static void recreateDefaults() {
+        sDynamicTypefaceCache.evictAll();
+        sStyledTypefaceCache.clear();
+        DEFAULT_BOLD_INTERNAL = create((String) null, 0);
+        DEFAULT_BOLD_INTERNAL = create((String) null, Typeface.BOLD);
+        SANS_SERIF_INTERNAL = create((String) null, 0);
+        SERIF_INTERNAL = create("serif", 0);
+        MONOSPACE_INTERNAL = create("monospace", 0);
+        DEFAULT.native_instance = DEFAULT_INTERNAL.native_instance;
+        DEFAULT_BOLD.native_instance = DEFAULT_BOLD_INTERNAL.native_instance;
+        SANS_SERIF.native_instance = SANS_SERIF_INTERNAL.native_instance;
+        SERIF.native_instance = SERIF_INTERNAL.native_instance;
+        MONOSPACE.native_instance = MONOSPACE_INTERNAL.native_instance;
+        sDefaults[2] = create((String) null, Typeface.ITALIC);
+        sDefaults[3] = create((String) null, Typeface.BOLD_ITALIC);
     }
 
     static {
