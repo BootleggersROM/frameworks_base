@@ -27,6 +27,7 @@ import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UnsupportedAppUsage;
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.graphics.fonts.Font;
 import android.graphics.fonts.FontFamily;
 import android.graphics.fonts.FontStyle;
@@ -170,7 +171,7 @@ public class Typeface {
     // Must be the same as the C++ constant in core/jni/android/graphics/FontFamily.cpp
     /** @hide */
     public static final int RESOLVE_BY_FONT_TABLE = -1;
-    private static final String DEFAULT_FAMILY = "sans-serif";
+    private static final String DEFAULT_FAMILY = Resources.getSystem().getString(com.android.internal.R.string.config_bodyFontFamily);
 
     // Style value for building typeface.
     private static final int STYLE_NORMAL = 0;
@@ -1150,7 +1151,7 @@ public class Typeface {
         // Set up defaults and typefaces exposed in public API
         DEFAULT         = create((String) null, 0);
         DEFAULT_BOLD    = create((String) null, Typeface.BOLD);
-        SANS_SERIF      = create("sans-serif", 0);
+        SANS_SERIF      = create((String) null, 0);
         SERIF           = create("serif", 0);
         MONOSPACE       = create("monospace", 0);
 
