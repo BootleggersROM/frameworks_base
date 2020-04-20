@@ -254,6 +254,8 @@ public final class ProcessList {
     private static final String PROPERTY_USE_APP_IMAGE_STARTUP_CACHE =
             "persist.device_config.runtime_native.use_app_image_startup_cache";
 
+    static final String PROP_REFRESH_THEME = "sys.refresh_theme";
+
     // Low Memory Killer Daemon command codes.
     // These must be kept in sync with the definitions in lmkd.c
     //
@@ -1571,6 +1573,13 @@ public final class ProcessList {
                 runtimeFlags |= policyBits;
             }
 
+            // Check if zygote should refresh its fonts
+            boolean refreshTheme = false;
+            if (SystemProperties.getBoolean(PROP_REFRESH_THEME, false)) {
+                SystemProperties.set(PROP_REFRESH_THEME, "false");
+                refreshTheme = true;
+            }
+
             String useAppImageCache = SystemProperties.get(
                     PROPERTY_USE_APP_IMAGE_STARTUP_CACHE, "");
             // Property defaults to true currently.
@@ -1619,7 +1628,7 @@ public final class ProcessList {
             final String entryPoint = "android.app.ActivityThread";
 
             return startProcessLocked(hostingRecord, entryPoint, app, uid, gids,
-                    runtimeFlags, mountExternal, seInfo, requiredAbi, instructionSet, invokeWith,
+                    runtimeFlags, mountExternal, refreshTheme, seInfo, requiredAbi, instructionSet, invokeWith,
                     startTime);
         } catch (RuntimeException e) {
             Slog.e(ActivityManagerService.TAG, "Failure starting process " + app.processName, e);
@@ -1640,8 +1649,8 @@ public final class ProcessList {
     boolean startProcessLocked(HostingRecord hostingRecord,
             String entryPoint,
             ProcessRecord app, int uid, int[] gids, int runtimeFlags, int mountExternal,
-            String seInfo, String requiredAbi, String instructionSet, String invokeWith,
-            long startTime) {
+            boolean refreshTheme, String seInfo, String requiredAbi, String instructionSet,
+            String invokeWith, long startTime) {
         app.pendingStart = true;
         app.killedByAm = false;
         app.removed = false;
@@ -1667,7 +1676,7 @@ public final class ProcessList {
                 try {
                     final Process.ProcessStartResult startResult = startProcess(app.hostingRecord,
                             entryPoint, app, app.startUid, gids, runtimeFlags, mountExternal,
-                            app.seInfo, requiredAbi, instructionSet, invokeWith, app.startTime);
+                            refreshTheme, app.seInfo, requiredAbi, instructionSet, invokeWith, app.startTime);
                     synchronized (mService) {
                         handleProcessStartedLocked(app, startResult, startSeq);
                     }
@@ -1688,8 +1697,8 @@ public final class ProcessList {
             try {
                 final Process.ProcessStartResult startResult = startProcess(hostingRecord,
                         entryPoint, app,
-                        uid, gids, runtimeFlags, mountExternal, seInfo, requiredAbi, instructionSet,
-                        invokeWith, startTime);
+                        uid, gids, runtimeFlags, mountExternal, refreshTheme, seInfo, requiredAbi,
+                        instructionSet, invokeWith, startTime);
                 handleProcessStartedLocked(app, startResult.pid, startResult.usingWrapper,
                         startSeq, false);
             } catch (RuntimeException e) {
@@ -1797,8 +1806,8 @@ public final class ProcessList {
 
     private Process.ProcessStartResult startProcess(HostingRecord hostingRecord, String entryPoint,
             ProcessRecord app, int uid, int[] gids, int runtimeFlags, int mountExternal,
-            String seInfo, String requiredAbi, String instructionSet, String invokeWith,
-            long startTime) {
+            boolean refreshTheme, String seInfo, String requiredAbi, String instructionSet, 
+            String invokeWith, long startTime) {
         try {
             Trace.traceBegin(Trace.TRACE_TAG_ACTIVITY_MANAGER, "Start proc: " +
                     app.processName);
@@ -1807,7 +1816,7 @@ public final class ProcessList {
             if (hostingRecord.usesWebviewZygote()) {
                 startResult = startWebView(entryPoint,
                         app.processName, uid, uid, gids, runtimeFlags, mountExternal,
-                        app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,
+                        app.info.targetSdkVersion, true, seInfo, requiredAbi, instructionSet,
                         app.info.dataDir, null, app.info.packageName,
                         new String[] {PROC_START_SEQ_IDENT + app.startSeq});
             } else if (hostingRecord.usesAppZygote()) {
@@ -1815,14 +1824,14 @@ public final class ProcessList {
 
                 startResult = appZygote.getProcess().start(entryPoint,
                         app.processName, uid, uid, gids, runtimeFlags, mountExternal,
-                        app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,
+                        app.info.targetSdkVersion, true, seInfo, requiredAbi, instructionSet,
                         app.info.dataDir, null, app.info.packageName,
                         /*useUsapPool=*/ false,
                         new String[] {PROC_START_SEQ_IDENT + app.startSeq});
             } else {
                 startResult = Process.start(entryPoint,
                         app.processName, uid, uid, gids, runtimeFlags, mountExternal,
-                        app.info.targetSdkVersion, seInfo, requiredAbi, instructionSet,
+                        app.info.targetSdkVersion, true, seInfo, requiredAbi, instructionSet,
                         app.info.dataDir, invokeWith, app.info.packageName,
                         new String[] {PROC_START_SEQ_IDENT + app.startSeq});
             }

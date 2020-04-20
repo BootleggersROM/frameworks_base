@@ -524,6 +524,7 @@ public class Process {
                                            int runtimeFlags,
                                            int mountExternal,
                                            int targetSdkVersion,
+                                           boolean refreshTheme,
                                            @Nullable String seInfo,
                                            @NonNull String abi,
                                            @Nullable String instructionSet,
@@ -532,7 +533,7 @@ public class Process {
                                            @Nullable String packageName,
                                            @Nullable String[] zygoteArgs) {
         return ZYGOTE_PROCESS.start(processClass, niceName, uid, gid, gids,
-                    runtimeFlags, mountExternal, targetSdkVersion, seInfo,
+                    runtimeFlags, mountExternal, targetSdkVersion, refreshTheme, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
                     /*useUsapPool=*/ true, zygoteArgs);
     }
@@ -544,6 +545,7 @@ public class Process {
                                                   int runtimeFlags,
                                                   int mountExternal,
                                                   int targetSdkVersion,
+                                                  boolean refreshTheme,
                                                   @Nullable String seInfo,
                                                   @NonNull String abi,
                                                   @Nullable String instructionSet,
@@ -552,7 +554,7 @@ public class Process {
                                                   @Nullable String packageName,
                                                   @Nullable String[] zygoteArgs) {
         return WebViewZygote.getProcess().start(processClass, niceName, uid, gid, gids,
-                    runtimeFlags, mountExternal, targetSdkVersion, seInfo,
+                    runtimeFlags, mountExternal, targetSdkVersion, refreshTheme, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
                     /*useUsapPool=*/ false, zygoteArgs);
     }
