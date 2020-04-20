@@ -28,6 +28,7 @@ import static com.android.internal.os.ZygoteConnectionConstants.WRAPPED_PID_TIME
 
 import android.annotation.UnsupportedAppUsage;
 import android.content.pm.ApplicationInfo;
+import android.graphics.Typeface;
 import android.metrics.LogMaker;
 import android.net.Credentials;
 import android.net.LocalSocket;
@@ -234,6 +235,10 @@ class ZygoteConnection {
             } catch (ErrnoException errnoEx) {
                 throw new IllegalStateException("Unable to set up pipe for invoke-with", errnoEx);
             }
+        }
+
+        if (parsedArgs.mRefreshTheme) {
+            Typeface.recreateDefaults();
         }
 
         /**
