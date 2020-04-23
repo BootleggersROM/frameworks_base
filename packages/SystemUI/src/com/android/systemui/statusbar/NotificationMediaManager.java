@@ -886,8 +886,8 @@ public class NotificationMediaManager implements Dumpable {
 
     private float getLockScreenMediaBlurLevel() {
         float level = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_BLUR, 250,
-                UserHandle.USER_CURRENT) / 10;
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25,
+                UserHandle.USER_CURRENT) / 100;
         return level;
     }
 }
