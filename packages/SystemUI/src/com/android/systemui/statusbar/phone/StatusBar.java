@@ -1155,7 +1155,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     private void drawBlurView() {
         Bitmap surfaceBitmap = ImageUtilities.screenshotSurface(mContext);
         float blurRadius = (float) mBlurRadius;
-        if (surfaceBitmap == null || mBlurRadius == 0) {
+        if (surfaceBitmap == null) {
             mQSBlurView.setImageDrawable(null);
         } else {
             mQSBlurView.setImageBitmap(ImageUtilities.blurImage(mContext, surfaceBitmap, blurRadius));
@@ -4767,7 +4767,7 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
 
     private void setQSblurRadius() {
         mBlurRadius = Settings.System.getIntForUser(mContext.getContentResolver(), 
-                Settings.System.QS_BLUR_RADIUS, 5, UserHandle.USER_CURRENT);
+                Settings.System.QS_BLUR_RADIUS, 7, UserHandle.USER_CURRENT);
     }
 
     private void setUseLessBoringHeadsUp() {
