@@ -5202,7 +5202,7 @@ public final class Settings {
         public static final String QS_BLUR_RADIUS = "qs_blur_radius";
         /** @hide */
         private static final Validator QS_BLUR_RADIUS_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 25);
+                new SettingsValidators.InclusiveIntegerRangeValidator(1, 25);
 
         /**
          * @hide
