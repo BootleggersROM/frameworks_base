@@ -17,6 +17,7 @@ package com.android.systemui.theme;
 
 import android.content.om.OverlayInfo;
 import android.content.om.OverlayManager;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.util.ArrayMap;
 import android.util.Log;
@@ -174,6 +175,15 @@ class ThemeOverlayManager {
                 setEnabled(overlaysToDisable.get(category), category, userHandles, false);
             }
         }
+
+        // Notify zygote that we need to refresh fonts
+        SystemProperties.set("sys.refresh_theme", "1");
+        /**for (UserHandle userHandle : userHandles) {
+            float fontSize = Settings.System.getFloatForUser(mContext.getContentResolver(),
+                    Settings.System.FONT_SCALE, 1.0f, UserHandle.USER_CURRENT);
+            Settings.System.putFloatForUser(mContext.getContentResolver(),
+                    Settings.System.FONT_SCALE, (fontSize + 0.0000001f), UserHandle.USER_CURRENT);
+        }**/
     }
 
     private void setEnabled(
