@@ -9,7 +9,7 @@
 
     <!-- Color of the FOD view -->
     <color name="config_fodColor">#00ff00</color>
-
+    <color name="config_fodColorBackground">#20000000</color>
     <!-- Partial screenshot -->
     <color name="screenshot_partial_layout_background">#20000000</color>
     <color name="screenshot_partial_capture_background">@*android:color/accent_device_default</color>
