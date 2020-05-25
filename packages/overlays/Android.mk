@@ -52,6 +52,7 @@ LOCAL_REQUIRED_MODULES := \
 	IconShapeCylinderOverlay \
 	IconShapeHexagonOverlay \
 	IconShapeVesselOverlay \
+	IconShapeRoundedHexagonOverlay \
 	NavigationBarMode3ButtonOverlay \
 	NavigationBarMode2ButtonOverlay \
 	NavigationBarModeGesturalOverlay \
