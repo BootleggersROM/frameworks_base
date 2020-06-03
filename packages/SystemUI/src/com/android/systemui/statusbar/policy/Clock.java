@@ -31,6 +31,7 @@ import android.content.IntentFilter;
 import android.content.res.TypedArray;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.os.UserHandle;
 import android.text.Spannable;
