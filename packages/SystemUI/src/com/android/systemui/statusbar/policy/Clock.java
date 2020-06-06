@@ -627,6 +627,7 @@ public class Clock extends TextView implements DemoMode, Tunable, CommandQueue.C
                     newValue = "0"; // hide seconds
                 }
                 mShowSeconds = Integer.parseInt(newValue) == 1;
+                updateShowSeconds();
                 break;
         }
         if (mCalendar != null) {
