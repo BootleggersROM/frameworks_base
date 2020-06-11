@@ -335,13 +335,16 @@ public class RecordingService extends Service {
             }
 
             if (mVideoBitrateOpt > 2) {
-                VIDEO_FRAME_RATE = mIsLowRamEnabled ? 30 : 60;
+                int maxRefreshRate = Settings.System.getInt(getApplicationContext().getContentResolver(),
+                    Settings.System.PEAK_REFRESH_RATE, getApplicationContext().getResources().getInteger(
+                com.android.internal.R.integer.config_defaultPeakRefreshRate));
+                VIDEO_FRAME_RATE = mIsLowRamEnabled ? 30 : maxRefreshRate;
                 if (!mIsLowRamEnabled) {
                     TOTAL_NUM_TRACKS = 2;
                     AUDIO_CHANNEL_TYPE = AudioFormat.CHANNEL_IN_STEREO;
                 }
             } else {
-                VIDEO_FRAME_RATE = mIsLowRamEnabled ? 25 : 48;
+                VIDEO_FRAME_RATE = mIsLowRamEnabled ? 25 : (maxRefreshRate * 0.8);
                 if (!mIsLowRamEnabled) {
                     TOTAL_NUM_TRACKS = 1;
                     AUDIO_CHANNEL_TYPE = AudioFormat.CHANNEL_IN_MONO;
