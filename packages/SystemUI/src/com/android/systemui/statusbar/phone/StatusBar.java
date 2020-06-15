@@ -797,9 +797,6 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         mCommandQueue = getComponent(CommandQueue.class);
         mCommandQueue.addCallback(this);
 
-        // this will initialize Pulse and begin listening for media events
-        mMediaManager.addCallback(Dependency.get(PulseController.class));
-
         RegisterStatusBarResult result = null;
         try {
             result = mBarService.registerStatusBar(mCommandQueue);
@@ -890,6 +887,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
         int disabledFlags2 = result.mDisabledFlags2;
         Dependency.get(InitController.class).addPostInitTask(
                 () -> setUpDisableFlags(disabledFlags1, disabledFlags2));
+
+        // this will initialize Pulse and begin listening for media events
+        mMediaManager.addCallback(Dependency.get(PulseController.class));
     }
 
     // ================================================================================
