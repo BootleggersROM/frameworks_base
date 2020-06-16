@@ -44,6 +44,10 @@ class ThemeOverlayManager {
     static final String SETTINGS_PACKAGE = "com.android.settings";
     @VisibleForTesting
     static final String SYSUI_PACKAGE = "com.android.systemui";
+    @VisibleForTesting
+    static final String GMS_PACKAGE = "com.android.systemui";
+    @VisibleForTesting
+    static final String WELLBEING_PACKAGE = "com.android.systemui";
 
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_COLOR = "android.theme.customization.accent_color";
@@ -53,6 +57,12 @@ class ThemeOverlayManager {
     static final String OVERLAY_CATEGORY_STYLE_SETTINGS = "android.theme.customization.style.settings";
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_STYLE_SYSUI = "android.theme.customization.style.systemui";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_STYLE_GMS =
+            "android.theme.customization.style.gms";
+    @VisibleForTesting
+    static final String OVERLAY_CATEGORY_STYLE_WELLBEING =
+            "android.theme.customization.style.wellbeing";
     @VisibleForTesting
     static final String OVERLAY_CATEGORY_FONT = "android.theme.customization.font";
     @VisibleForTesting
@@ -86,6 +96,8 @@ class ThemeOverlayManager {
             OVERLAY_CATEGORY_STYLE_ANDROID,
             OVERLAY_CATEGORY_STYLE_SETTINGS,
             OVERLAY_CATEGORY_STYLE_SYSUI,
+            OVERLAY_CATEGORY_STYLE_GMS,
+            OVERLAY_CATEGORY_STYLE_WELLBEING,
             OVERLAY_CATEGORY_ICON_ANDROID,
             OVERLAY_CATEGORY_ICON_SYSUI,
             OVERLAY_CATEGORY_ICON_SETTINGS,
@@ -137,6 +149,8 @@ class ThemeOverlayManager {
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLE_ANDROID, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLE_SYSUI, SYSUI_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLE_SETTINGS, SETTINGS_PACKAGE);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLE_GMS, GMS_PACKAGE);
+        mCategoryToTargetPackage.put(OVERLAY_CATEGORY_STYLE_WELLBEING, WELLBEING_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_ANDROID, ANDROID_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SYSUI, SYSUI_PACKAGE);
         mCategoryToTargetPackage.put(OVERLAY_CATEGORY_ICON_SETTINGS, SETTINGS_PACKAGE);
