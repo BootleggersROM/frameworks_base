@@ -4864,6 +4864,12 @@ public final class Settings {
         private static final Validator HEADS_UP_STOPLIST_VALUES_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+	/**
+         * Holds current enabled volume panel implementation
+         * @hide
+         */
+        public static final String SYSTEMUI_PLUGIN_VOLUME = "systemui_plugin_volume";
+
         /**
          * Which applications to disable heads up notifications for
          *
@@ -5920,6 +5926,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
             PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
             PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
+	    PRIVATE_SETTINGS.add(SYSTEMUI_PLUGIN_VOLUME);
         }
 
         /**
