@@ -130,4 +130,7 @@
     <java-symbol type="string" name="gaming_mode_notification_content" />
     <java-symbol type="string" name="gaming_mode_enabled_toast" />
     <java-symbol type="string" name="gaming_mode_disabled_toast" />
+
+    <!-- String to show toast message on clipboard -->
+    <java-symbol type="string" name="clipboard_in_use_toast" />
 </resources>

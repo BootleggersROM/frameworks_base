@@ -36,14 +36,18 @@ import android.content.Context;
 import android.content.IClipboard;
 import android.content.IOnPrimaryClipChangedListener;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.net.Uri;
 import android.os.Binder;
+import android.os.Handler;
 import android.os.IBinder;
 import android.os.IUserManager;
+import android.os.Looper;
 import android.os.Parcel;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
@@ -56,6 +60,7 @@ import android.text.TextUtils;
 import android.util.Slog;
 import android.util.SparseArray;
 import android.view.autofill.AutofillManagerInternal;
+import android.widget.Toast;
 
 import com.android.server.LocalServices;
 import com.android.server.SystemService;
@@ -740,6 +745,28 @@ public class ClipboardService extends SystemService {
 
     private boolean clipboardAccessAllowed(int op, String callingPackage, int uid,
             @UserIdInt int userId) {
+
+        boolean showClipboardToast = Settings.Secure.getIntForUser(getContext().getContentResolver(),
+                Settings.Secure.SHOW_CLIPBOARD_TOAST, 0, userId) == 1;
+        if (showClipboardToast) {
+	        // create toast that app has tried to access clipboard
+	        final PackageManager pm = getContext().getPackageManager();
+	        ApplicationInfo ai;
+	        try {
+	            ai = pm.getApplicationInfo(callingPackage, 0);
+	        } catch (final NameNotFoundException e) {
+	            ai = null;
+	        }
+	        final String applicationName = (String) (ai != null ? pm.getApplicationLabel(ai) : "(unknown)");
+	        Handler handler = new Handler(Looper.getMainLooper());
+	        handler.post(new Runnable() {
+	            @Override
+	            public void run() {
+	                Toast.makeText(getContext(),getContext().getString(
+                        com.android.internal.R.string.clipboard_in_use_toast, applicationName), Toast.LENGTH_SHORT).show();
+	            }
+	        });
+        }
         // Check the AppOp.
         if (mAppOps.noteOp(op, uid, callingPackage) != AppOpsManager.MODE_ALLOWED) {
             return false;
