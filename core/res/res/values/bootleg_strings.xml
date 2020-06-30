@@ -45,4 +45,6 @@
     <string name="gaming_mode_enabled_toast">Gaming mode turned on</string>
     <string name="gaming_mode_disabled_toast">Gaming mode turned off</string>
 
+    <!-- String to show toast message on clipboard -->
+    <string name="clipboard_in_use_toast">%s tried to access the clipboard</string>
 </resources>
