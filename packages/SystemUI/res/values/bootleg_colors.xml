@@ -14,4 +14,8 @@
     <color name="screenshot_partial_layout_background">#20000000</color>
     <color name="screenshot_partial_capture_background">@*android:color/accent_device_default</color>
     <color name="screenshot_partial_cancel_background">#a0000000</color>
+
+    <!-- Colors for gradient colors on QS -->
+    <color name="qs_tile_gradient_start">@*android:color/accent_device_default</color>
+    <color name="qs_tile_gradient_end">@*android:color/bootleg_accent_gradient_end_color</color>
 </resources>
