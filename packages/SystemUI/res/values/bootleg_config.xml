@@ -32,6 +32,12 @@
     <!-- Whether to use the mask for the quicksettings icons-->
     <bool name="config_useMaskForQs">true</bool>
 
+    <!-- Whether to use a gradient tint for the quicksettings icons -->
+    <bool name="config_useGradientForQs">false</bool>
+
+    <!-- Whether to use a image mask (background and foreground) for the quicksettings icons -->
+    <bool name="config_useImageMasksForQs">false</bool>
+
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
