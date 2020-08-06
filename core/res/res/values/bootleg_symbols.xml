@@ -34,6 +34,9 @@
     <!-- Bootleg unneccesary gradient declaration | Just for our shishu bars -->
     <java-symbol type="color" name="bootleg_accent_gradient_end_color" />
 
+    <!-- Android dynamic accent resource, since google didn't made it symbolic -->
+    <java-symbol type="color" name="accent_device_default" />
+
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 
