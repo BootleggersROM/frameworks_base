@@ -5599,10 +5599,10 @@ public final class Settings {
         public static final Validator STATUS_BAR_BRIGHTNESS_CONTROL_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Toggle for clipboard access toast.
+         * Clipboard access info
          * @hide
          */
-        public static final String SHOW_CLIPBOARD_TOAST = "show_clipboard_toast";
+        public static final String CLIPBOARD_TOAST_INFO = "clipboard_toast_info";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
