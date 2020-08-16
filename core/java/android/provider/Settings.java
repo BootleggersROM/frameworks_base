@@ -5893,6 +5893,11 @@ public final class Settings {
         private static final Validator STATUS_BAR_CUSTOM_HEADER_HEIGHT_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * @hide
+         */
+        public static final String QS_HEADER_STYLE = "qs_header_style";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6223,6 +6228,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
             PRIVATE_SETTINGS.add(STATUS_BAR_CUSTOM_HEADER_HEIGHT);
+            PRIVATE_SETTINGS.add(QS_HEADER_STYLE);
         }
 
         /**

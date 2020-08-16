@@ -43,4 +43,12 @@ public class ThemesUtils {
             "com.bootleggers.qstile.pureaccent"
     };
 
+    public static final String[] QS_HEADER_THEMES = {
+        "com.android.systemui.qsheader.black", // 0
+        "com.android.systemui.qsheader.grey", // 1
+        "com.android.systemui.qsheader.lightgrey", // 2
+        "com.android.systemui.qsheader.accent", // 3
+        "com.android.systemui.qsheader.transparent", // 4
+    };
+
 }

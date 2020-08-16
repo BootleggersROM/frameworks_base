@@ -4741,6 +4741,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_TILE_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_HEADER_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -4773,6 +4776,9 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
                 stockTileStyle();
                 updateTileStyle();
                 mQSPanel.getHost().reloadAllTiles();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_HEADER_STYLE))) {
+                stockQSHeaderStyle();
+                updateQSHeaderStyle();
             }
             update();
         }
@@ -4873,6 +4879,18 @@ public class StatusBar extends SystemUI implements DemoMode, TunerService.Tunabl
     // Unload all qs tile styles back to stock
     public void stockTileStyle() {
         BootlegUtils.stockTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    }
+
+    // Switches qs header style from stock to custom
+    public void updateQSHeaderStyle() {
+        int qsHeaderStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_HEADER_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        BootlegUtils.updateQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsHeaderStyle);
+    }
+
+    // Unload all qs header styles back to stock
+    public void stockQSHeaderStyle() {
+        BootlegUtils.stockQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
