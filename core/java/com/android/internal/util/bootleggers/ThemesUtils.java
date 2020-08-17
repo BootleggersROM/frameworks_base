@@ -23,6 +23,7 @@ public class ThemesUtils {
             "com.android.systemui.qstile.circletrim",
             "com.android.systemui.qstile.dualtonecircletrim",
             "com.android.systemui.qstile.squircletrim",
+            "com.bootleggers.qstile.cookie",
             "com.bootleggers.qstile.deletround",
             "com.bootleggers.qstile.inktober",
             "com.bootleggers.qstile.shishunights",
