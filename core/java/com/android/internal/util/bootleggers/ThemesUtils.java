@@ -20,9 +20,9 @@ public class ThemesUtils {
 
     public static final String[] QS_TILE_THEMES = {
             "default_qstile",
-            "com.android.systemui.qstile.circletrim",
-            "com.android.systemui.qstile.dualtonecircletrim",
-            "com.android.systemui.qstile.squircletrim",
+            "com.bootleggers.qstile.trim",
+            "com.bootleggers.qstile.dualtone",
+            "com.bootleggers.qstile.dualtonetrim",
             "com.bootleggers.qstile.cookie",
             "com.bootleggers.qstile.deletround",
             "com.bootleggers.qstile.inktober",
