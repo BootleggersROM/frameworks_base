@@ -30,7 +30,6 @@ public class ThemesUtils {
             "com.bootleggers.qstile.monogradient",
             "com.bootleggers.qstile.wavey",
             "com.bootleggers.qstile.squaremedo",
-            "com.bootleggers.qstile.pokesign",
             "com.bootleggers.qstile.ninja",
             "com.bootleggers.qstile.dottedcircle",
             "com.bootleggers.qstile.shishuink",
