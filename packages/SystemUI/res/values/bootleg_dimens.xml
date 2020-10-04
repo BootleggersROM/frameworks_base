@@ -47,4 +47,8 @@
     <dimen name="status_bar_mobile_type_height">8dp</dimen>
     <dimen name="status_bar_mobile_type_padding">2dp</dimen>
     <dimen name="status_bar_mobile_type_padding_limit">10dp</dimen>
+
+    <!-- Additional gesture navbar lengths -->
+    <dimen name="navigation_home_handle_width_medium">125dp</dimen>
+    <dimen name="navigation_home_handle_width_long">155dp</dimen>
 </resources>

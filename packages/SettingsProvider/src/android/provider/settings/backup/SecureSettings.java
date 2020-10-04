@@ -222,5 +222,6 @@ public class SecureSettings {
         Settings.Secure.SCREEN_OFF_UDFPS_ENABLED,
         Settings.Secure.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
         Settings.Secure.IGNORE_AUTH_CONFIRMATION,
+        Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
     };
 }
