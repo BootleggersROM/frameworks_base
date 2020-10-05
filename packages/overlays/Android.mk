@@ -28,6 +28,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontNotoSerifSourceOverlay \
 	NavigationBarMode2ButtonOverlay \
 	NavigationBarMode3ButtonOverlay \
+	NavigationBarMode2ButtonOverlay \
 	NavigationBarModeGesturalOverlay \
 	NavigationBarModeGesturalOverlayNarrowBack \
 	NavigationBarModeGesturalOverlayWideBack \
