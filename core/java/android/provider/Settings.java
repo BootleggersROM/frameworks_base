@@ -6011,6 +6011,24 @@ public final class Settings {
         public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
 
         /**
+         * Timeout for ambient pulse in seconds - 0 is no timeout
+         * @hide
+         */
+        public static final String AOD_NOTIFICATION_PULSE_TIMEOUT = "ambient_notification_light_timeout";
+
+        /**
+         * Whether to use accent color for pulse
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_ACCENT = "ambient_notification_light_accent";
+
+        /**
+         * Pulse Ambient lights color
+         * @hide
+         */
+        public static final String NOTIFICATION_PULSE_COLOR = "ambient_notification_light_color";
+
+        /**
          * Enable weather in lockscreen
          * @hide
          */
