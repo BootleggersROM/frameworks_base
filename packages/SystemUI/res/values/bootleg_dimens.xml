@@ -51,4 +51,7 @@
     <!-- Additional gesture navbar lengths -->
     <dimen name="navigation_home_handle_width_medium">125dp</dimen>
     <dimen name="navigation_home_handle_width_long">155dp</dimen>
+
+    <!-- Screenrecord -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
 </resources>
