@@ -5751,6 +5751,12 @@ public final class Settings {
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
 
         /**
+         * Hide Statusbar on LockScreen
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_STATUS_BAR = "hide_lockscreen_status_bar";
+
+        /**
          * Wheter to show network traffic indicator in statusbar
          * @hide
          */
