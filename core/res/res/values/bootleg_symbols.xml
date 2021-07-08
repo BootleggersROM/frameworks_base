@@ -10,4 +10,7 @@
 
     <!-- Whether usage of the proximity sensor during doze is supported -->
     <java-symbol type="bool" name="doze_proximity_sensor_supported" />
+
+    <!-- For dynamic default font styles -->
+    <java-symbol type="string" name="config_bodyFontFamily" />
 </resources>
