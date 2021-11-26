@@ -4854,4 +4854,7 @@
   <java-symbol type="dimen" name="status_bar_height_default" />
 
   <java-symbol type="bool" name="system_server_plays_face_haptics" />
+
+  <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+  <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 </resources>
