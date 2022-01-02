@@ -220,6 +220,7 @@ public class SecureSettings {
         Settings.Secure.LOCKSCREEN_PIN_SCRAMBLE_LAYOUT,
         Settings.Secure.IGNORE_AUTH_CONFIRMATION,
         Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
-        Settings.Secure.SHOW_WIFI_STANDARD_ICON
+        Settings.Secure.SHOW_WIFI_STANDARD_ICON,
+        Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS
     };
 }
