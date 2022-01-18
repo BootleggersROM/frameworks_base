@@ -5882,6 +5882,12 @@ public final class Settings {
         public static final String STATUSBAR_NOTIF_COUNT = "statusbar_notif_count";
 
         /**
+         * Force full screen for devices with cutout
+         * @hide
+         */
+        public static final String FORCE_FULLSCREEN_CUTOUT_APPS = "force_full_screen_cutout_apps";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6093,6 +6099,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(AICP_LOCKSCREEN_WEATHER_STYLE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_TEMP);
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_CITY);
+            PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
         }
 
         /**
