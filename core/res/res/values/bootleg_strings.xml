@@ -31,5 +31,8 @@
 
     <!-- Parallel space badge -->
     <string name="parallel_space_badge_label">%1$s</string>
+
+    <!-- App lock -->
+    <string name="unlock_application">Unlock <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
 
