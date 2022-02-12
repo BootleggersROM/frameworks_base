@@ -27,4 +27,6 @@
     <!-- QS tiles message-->
     <string name="tap_to_add_tiles">Tap on tiles to add or remove</string>
 
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Recognizing face...</string>
 </resources>
