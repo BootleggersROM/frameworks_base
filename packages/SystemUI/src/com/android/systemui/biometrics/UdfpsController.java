@@ -198,8 +198,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
     private boolean mAttemptedToDismissKeyguard;
     private final Set<Callback> mCallbacks = new HashSet<>();
     private final int mUdfpsVendorCode;
-
-    private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
     private final SecureSettings mSecureSettings;
     private boolean mScreenOffUdfpsEnabled;
 
@@ -304,11 +302,10 @@ public class UdfpsController implements DozeReceiver, Dumpable {
                 });
             } else {
                 boolean acquiredVendor = acquiredInfo == FINGERPRINT_ACQUIRED_VENDOR;
-                final boolean isAodEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
-                final boolean isShowingAmbientDisplay = mStatusBarStateController.isDozing() && mScreenOn;
-
-                if (acquiredVendor && ((mScreenOffUdfpsEnabled && !mScreenOn) || (isAodEnabled && isShowingAmbientDisplay))) {
-                    if (vendorCode == mUdfpsVendorCode) {
+                final boolean isDozing = mStatusBarStateController.isDozing() || !mScreenOn;
+                if (acquiredVendor && vendorCode == mUdfpsVendorCode) {
+                    if ((mScreenOffUdfpsEnabled && isDozing) /** Screen off and dozing */ ||
+                            (mKeyguardUpdateMonitor.isDreaming() && mScreenOn) /** AOD or pulse */) {
                         if (mContext.getResources().getBoolean(R.bool.config_pulseOnFingerDown)) {
                             mContext.sendBroadcastAsUser(
                                     new Intent(PULSE_ACTION), new UserHandle(UserHandle.USER_CURRENT));
@@ -838,8 +835,7 @@ public class UdfpsController implements DozeReceiver, Dumpable {
 
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
-        mUdfpsVendorCode = context.getResources().getInteger(R.integer.config_udfpsVendorCode);
-        mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
+        mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfpsVendorCode);
         mSecureSettings = secureSettings;
         updateScreenOffUdfpsState();
         mSecureSettings.registerContentObserver(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED,
