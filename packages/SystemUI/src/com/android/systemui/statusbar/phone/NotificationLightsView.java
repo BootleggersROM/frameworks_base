@@ -84,41 +84,30 @@ public class NotificationLightsView extends RelativeLayout {
     }
 
     public int getNotificationLightsColor() {
-        int color = 0xFFFFFFFF;
         int colorMode = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.NOTIFICATION_PULSE_COLOR_MODE,
                 0, UserHandle.USER_CURRENT);
         int customColor = Settings.System.getIntForUser(mContext.getContentResolver(),
                 Settings.System.NOTIFICATION_PULSE_COLOR, 0xFFFFFFFF,
                 UserHandle.USER_CURRENT);
-        switch (colorMode) {
-            case 1: // Wallpaper
-                try {
-                    WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
-                    WallpaperInfo wallpaperInfo = wallpaperManager.getWallpaperInfo();
-                    if (wallpaperInfo == null) { // if not a live wallpaper
-                        Drawable wallpaperDrawable = wallpaperManager.getDrawable();
-                        Bitmap bitmap = ((BitmapDrawable)wallpaperDrawable).getBitmap();
-                        if (bitmap != null) { // if wallpaper is not blank
-                            Palette p = Palette.from(bitmap).generate();
-                            int wallColor = p.getDominantColor(color);
-                            if (color != wallColor)
-                                color = wallColor;
-                        }
+        int color = customColor;
+        if (colorMode == 0) { // accent
+            color = Utils.getColorAccentDefaultColor(getContext());
+        } else if (colorMode == 1) { // wallpapper
+            try {
+                WallpaperManager wallpaperManager = WallpaperManager.getInstance(mContext);
+                WallpaperInfo wallpaperInfo = wallpaperManager.getWallpaperInfo();
+                if (wallpaperInfo == null) { // if not a live wallpaper
+                    Drawable wallpaperDrawable = wallpaperManager.getDrawable();
+                    Bitmap bitmap = ((BitmapDrawable) wallpaperDrawable).getBitmap();
+                    if (bitmap != null) { // if wallpaper is not blank
+                        Palette p = Palette.from(bitmap).generate();
+                        int wallColor = p.getDominantColor(color);
+                        if (color != wallColor)
+                            color = wallColor;
                     }
-                } catch (Exception e) { /* nothing to do, will use fallback */ }
-                break;
-            case 2: // Accent
-                color = Utils.getColorAccentDefaultColor(getContext());
-                break;
-            case 3: // Custom
-                color = customColor;
-                break;
-            case 4:
-                color = getRandomColor();
-                break;
-            default: // White
-                color = 0xFFFFFFFF;
+                }
+            } catch (Exception e) { /* nothing to do, will use fallback */ }
         }
         return color;
     }
