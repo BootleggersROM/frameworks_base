@@ -243,6 +243,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private ImageButton mSettingsIcon;
     private View mAppVolumeView;
     private ImageButton mAppVolumeIcon;
+    private String mAppVolumeActivePackageName;
     private FrameLayout mZenIcon;
     private final List<VolumeRow> mRows = new ArrayList<>();
     private ConfigurableTexts mConfigurableTexts;
@@ -1173,6 +1174,7 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     private boolean shouldShowAppVolume() {
+        mAppVolumeActivePackageName = null;
         ContentResolver cr = mContext.getContentResolver();
         int showAppVolume = Settings.System.getInt(cr, Settings.System.SHOW_APP_VOLUME, 0);
         boolean ret = showAppVolume == 1;
@@ -1181,19 +1183,31 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
             AudioManager audioManager = mController.getAudioManager();
             for (AppVolume av : audioManager.listAppVolumes()) {
                 if (av.isActive()) {
-                    ret = true;
-            break;
+                mAppVolumeActivePackageName = av.getPackageName();
+                return mAppVolumeActivePackageName != null;
                 }
             }
         }
-        return ret;
+        return false;
+    }
+
+    private Drawable getApplicationIcon(String packageName) {
+        PackageManager pm = mContext.getPackageManager();
+        Drawable icon = null;
+        try {
+            icon = pm.getApplicationIcon(packageName);
+        } catch (Exception e) {
+            // nothing to do
+        }
+        return icon;
     }
 
     public void initAppVolumeH() {
+        boolean showAppVolume = shouldShowAppVolume();
         if (mAppVolumeView != null) {
-            mAppVolumeView.setVisibility(shouldShowAppVolume() ? VISIBLE : GONE);
+            mAppVolumeView.setVisibility(showAppVolume ? VISIBLE : GONE);
         }
-        if (mAppVolumeIcon != null) {
+        if (mAppVolumeIcon != null && showAppVolume) {
             mAppVolumeIcon.setOnClickListener(v -> {
                 Events.writeEvent(Events.EVENT_SETTINGS_CLICK);
                 Intent intent = new Intent(Settings.Panel.ACTION_APP_VOLUME);
@@ -1202,6 +1216,12 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
                 Dependency.get(ActivityStarter.class).startActivity(intent,
                         true /* dismissShade */);
             });
+            Drawable icon = getApplicationIcon(mAppVolumeActivePackageName);
+            if (icon != null) {
+                mAppVolumeIcon.setImageTintList(null);
+                mAppVolumeIcon.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                mAppVolumeIcon.setImageDrawable(icon);
+            }
         }
     }
 
