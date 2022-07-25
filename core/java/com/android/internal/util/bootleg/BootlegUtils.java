@@ -22,6 +22,10 @@ import android.content.res.Resources;
 import android.hardware.input.InputManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
+import android.os.RemoteException;
+import android.os.ServiceManager;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.InputDevice;
@@ -31,6 +35,13 @@ import android.view.KeyEvent;
 import com.android.internal.R;
 
 public class BootlegUtils {
+
+    public static void switchScreenOff(Context ctx) {
+        PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
+        if (pm != null) {
+            pm.goToSleep(SystemClock.uptimeMillis());
+        }
+    }
 
     // Check if device has a notch
     public static boolean hasNotch(Context context) {
