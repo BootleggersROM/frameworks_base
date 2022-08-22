@@ -11104,6 +11104,15 @@ public final class Settings {
         public static void setLocationProviderEnabled(ContentResolver cr,
                 String provider, boolean enabled) {
         }
+
+        /**
+         * Whether UDFPS is active while the screen is off.
+         *
+         * <p>1 if true, 0 or unset otherwise.
+         *
+         * @hide
+         */
+        public static final String SCREEN_OFF_UDFPS_ENABLED = "screen_off_udfps_enabled";
     }
 
     /**
