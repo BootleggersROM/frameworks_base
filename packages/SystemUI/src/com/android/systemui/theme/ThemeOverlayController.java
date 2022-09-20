@@ -42,6 +42,7 @@ import android.content.res.Resources;
 import android.database.ContentObserver;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.SystemProperties;
 import android.os.Handler;
 import android.os.UserHandle;
 import android.os.UserManager;
@@ -73,6 +74,8 @@ import com.android.systemui.monet.Style;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
+import com.android.systemui.statusbar.policy.ConfigurationController;
+import com.android.systemui.statusbar.policy.ConfigurationController.ConfigurationListener;
 import com.android.systemui.util.settings.SecureSettings;
 
 import org.json.JSONException;
@@ -143,11 +146,19 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
     private final SparseArray<WallpaperColors> mDeferredWallpaperColors = new SparseArray<>();
     private final SparseIntArray mDeferredWallpaperColorsFlags = new SparseIntArray();
     private final WakefulnessLifecycle mWakefulnessLifecycle;
+    private ConfigurationController mConfigurationController;
 
     // Defers changing themes until Setup Wizard is done.
     private boolean mDeferredThemeEvaluation;
     // Determines if we should ignore THEME_CUSTOMIZATION_OVERLAY_PACKAGES setting changes.
     private boolean mSkipSettingChange;
+
+    private final ConfigurationListener mConfigurationListener = new ConfigurationListener() {
+        @Override
+        public void onThemeChanged() {
+            setBootColorProps();
+        }
+    };
 
     private final DeviceProvisionedListener mDeviceProvisionedListener =
             new DeviceProvisionedListener() {
@@ -363,7 +374,8 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
             SecureSettings secureSettings, WallpaperManager wallpaperManager,
             UserManager userManager, DeviceProvisionedController deviceProvisionedController,
             UserTracker userTracker, DumpManager dumpManager, FeatureFlags featureFlags,
-            @Main Resources resources, WakefulnessLifecycle wakefulnessLifecycle) {
+            @Main Resources resources, WakefulnessLifecycle wakefulnessLifecycle,
+            ConfigurationController configurationController) {
         mContext = context;
         mIsMonochromaticEnabled = featureFlags.isEnabled(Flags.MONOCHROMATIC_THEMES);
         mIsMonetEnabled = featureFlags.isEnabled(Flags.MONET);
@@ -379,6 +391,8 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
         mUserTracker = userTracker;
         mResources = resources;
         mWakefulnessLifecycle = wakefulnessLifecycle;
+        mConfigurationController = configurationController;
+        mConfigurationController.addCallback(mConfigurationListener);
         dumpManager.registerDumpable(TAG, this);
     }
 
@@ -469,6 +483,25 @@ public class ThemeOverlayController implements CoreStartable, Dumpable {
                 }
             }
         });
+
+        // To set props without needing an overlay change, Usually the props are only set when you first change wallpaper i.e after overlay change.
+        // we wish to avoid this, call setBootColorProps at the start of service, this will set props on boot so by the time you first reboot,
+        // boot colors would already be there and bootanim would be colored.
+        setBootColorProps();
+    }
+
+    private void setBootColorProps() {
+        // persist.bootanim.color1, persist.bootanim.color2, persist.bootanim.color3, persist.bootanim.color4
+        int[] bootColors = {android.R.color.system_accent3_100, android.R.color.system_accent1_300, android.R.color.system_accent2_500, android.R.color.system_accent1_100};
+        try {
+            for (int i = 0; i < bootColors.length; i++) {
+                String color = String.valueOf(mResources.getColor(bootColors[i]));
+                SystemProperties.set(String.format("persist.bootanim.color%d", i + 1), color);
+                Log.d("ThemeOverlayController", String.format("Writing boot color boot animation colors: %d %s", i, color));
+            }
+        } catch (RuntimeException e) {
+            Log.w("ThemeOverlayController", "Cannot set sysprop. Look for 'init' and 'dmesg' logs for more info.");
+        }
     }
 
     private void reevaluateSystemTheme(boolean forceReload) {
