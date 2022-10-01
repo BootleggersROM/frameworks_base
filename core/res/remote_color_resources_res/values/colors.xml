@@ -66,4 +66,7 @@
   <color name="system_neutral2_800">#303030</color>
   <color name="system_neutral2_900">#1b1b1b</color>
   <color name="system_neutral2_1000">#000000</color>
+    <!-- Transparent color variants -->
+  <color name="system_accent_transparent_background_light">#83f6e5</color>
+  <color name="system_accent_transparent_background_dark">#00271e</color>
 </resources>

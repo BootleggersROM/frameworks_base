@@ -21,4 +21,7 @@
     <!-- Bootleg unneccesary gradient declaration | Just for our shishu bars -->
     <color name="bootleg_accent_gradient_end_color">@*android:color/system_accent3_600</color>
 
+    <!-- Transparent color variants -->
+    <color name="system_accent_transparent_background_light">@*android:color/system_accent1_100</color>
+    <color name="system_accent_transparent_background_dark">@*android:color/system_accent1_900</color>
 </resources>
