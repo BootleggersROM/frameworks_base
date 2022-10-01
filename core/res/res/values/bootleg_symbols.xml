@@ -14,4 +14,8 @@
     <!-- Light / Regular style fonts -->
     <java-symbol type="string" name="config_lightFontFamily" />
     <java-symbol type="string" name="config_regularFontFamily" />
+
+    <!-- Transparent color variants -->
+    <java-symbol type="color" name="system_accent_transparent_background_light" />
+    <java-symbol type="color" name="system_accent_transparent_background_dark" />
 </resources>

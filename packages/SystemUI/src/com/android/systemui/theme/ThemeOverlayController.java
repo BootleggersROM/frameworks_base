@@ -532,6 +532,14 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
                     int l = luminosity - 1;
                     resourceName = "android:color/system_" + name + paletteIndex + "_" + l + "00";
             }
+            // Update our transparent resource
+            if (resourceName.equals("android:color/system_accent1_50")) {
+                overlay.setResourceValue("android:color/system_accent_transparent_background_light", TypedValue.TYPE_INT_COLOR_ARGB8,
+                        ColorUtils.setAlphaComponent(colorShades.get(i), 0xB1));
+            } else if (resourceName.equals("android:color/system_accent1_900")) {
+                overlay.setResourceValue("android:color/system_accent_transparent_background_dark", TypedValue.TYPE_INT_COLOR_ARGB8,
+                        ColorUtils.setAlphaComponent(colorShades.get(i), 0xAE));
+            }
             overlay.setResourceValue(resourceName, TypedValue.TYPE_INT_COLOR_ARGB8,
                     ColorUtils.setAlphaComponent(colorShades.get(i), 0xFF));
         }

@@ -66,5 +66,8 @@
     <public name="system_neutral2_800" />
     <public name="system_neutral2_900" />
     <public name="system_neutral2_1000" />
+    <!-- Transparent color variants -->
+    <public name="system_accent_transparent_background_dark" />
+    <public name="system_accent_transparent_background_light" />
   </public-group>
 </resources>
