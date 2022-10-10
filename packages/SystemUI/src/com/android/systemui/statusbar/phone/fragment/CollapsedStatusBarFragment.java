@@ -566,7 +566,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
 
     /** Hides the ongoing call chip. */
     public void hideOngoingCallChip(boolean animate) {
-        animateHide(mOngoingCallChip, animate, true);
+        animateHide(mOngoingCallChip, animate, false);
     }
 
     /** Displays the ongoing call chip. */
