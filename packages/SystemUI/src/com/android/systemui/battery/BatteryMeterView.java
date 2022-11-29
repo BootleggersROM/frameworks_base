@@ -449,7 +449,8 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     }
 
     public void updateVisibility() {
-        if (mBatteryStyle == BATTERY_STYLE_TEXT || mBatteryStyle == BATTERY_STYLE_HIDDEN) {
+        if ((mBatteryStyle == BATTERY_STYLE_TEXT && !mIsQsHeader)
+                || mBatteryStyle == BATTERY_STYLE_HIDDEN) {
             mBatteryIconView.setVisibility(View.GONE);
             mBatteryIconView.setImageDrawable(null);
         } else {
@@ -552,9 +553,10 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
 
     public void updateBatteryStyle() {
         switch (mBatteryStyle) {
-            case BATTERY_STYLE_TEXT:
             case BATTERY_STYLE_HIDDEN:
             break;
+            case BATTERY_STYLE_TEXT:
+            if (!mIsQsHeader) break;
             case BATTERY_STYLE_PORTRAIT:
             mBatteryIconView.setImageDrawable(mAccessorizedDrawable);
             break;
