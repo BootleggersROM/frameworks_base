@@ -74,6 +74,7 @@ import com.android.systemui.statusbar.phone.StatusBarKeyguardViewManager;
 import com.android.systemui.statusbar.phone.SystemUIDialogManager;
 import com.android.systemui.statusbar.phone.UnlockedScreenOffAnimationController;
 import com.android.systemui.statusbar.phone.panelstate.PanelExpansionStateManager;
+import com.android.systemui.statusbar.policy.BatteryController;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.util.concurrency.DelayableExecutor;
@@ -106,6 +107,7 @@ import kotlin.Unit;
 @SuppressWarnings("deprecation")
 @SysUISingleton
 public class UdfpsController implements DozeReceiver {
+
     private static final String TAG = "UdfpsController";
     private static final long AOD_INTERRUPT_TIMEOUT_MILLIS = 1000;
 
@@ -181,6 +183,13 @@ public class UdfpsController implements DozeReceiver {
     private final SecureSettings mSecureSettings;
     private boolean mScreenOffUdfpsEnabled;
 
+    private boolean mDisableSmartPixels;
+    private boolean mLowPowerMode = false;
+    private boolean mSmartPixelsFlag = false;
+    private int mSmartPixelsEnabled = 0;
+    private int mSmartPixelsOnPowerSave= 0;
+    private final BatteryController mBatteryController;
+
     @VisibleForTesting
     public static final VibrationAttributes UDFPS_VIBRATION_ATTRIBUTES =
             new VibrationAttributes.Builder()
@@ -200,6 +209,9 @@ public class UdfpsController implements DozeReceiver {
     private final ScreenLifecycle.Observer mScreenObserver = new ScreenLifecycle.Observer() {
         @Override
         public void onScreenTurnedOn() {
+            if (mDisableSmartPixels) {
+                isSmartPixelsEnabled();
+            }
             mScreenOn = true;
             if (mAodInterruptRunnable != null) {
                 mAodInterruptRunnable.run();
@@ -644,7 +656,8 @@ public class UdfpsController implements DozeReceiver {
             @NonNull ActivityLaunchAnimator activityLaunchAnimator,
             @NonNull Optional<AlternateUdfpsTouchProvider> alternateTouchProvider,
             @NonNull SecureSettings secureSettings,
-            @BiometricsBackground Executor biometricsExecutor) {
+            @BiometricsBackground Executor biometricsExecutor,
+            @NonNull BatteryController batteryController) {
         mContext = context;
         mExecution = execution;
         mVibrator = vibrator;
@@ -675,6 +688,7 @@ public class UdfpsController implements DozeReceiver {
         mActivityLaunchAnimator = activityLaunchAnimator;
         mAlternateTouchProvider = alternateTouchProvider.orElse(null);
         mBiometricExecutor = biometricsExecutor;
+        mBatteryController = batteryController;
 
         mOrientationListener = new BiometricDisplayListener(
                 context,
@@ -699,6 +713,7 @@ public class UdfpsController implements DozeReceiver {
         udfpsHapticsSimulator.setUdfpsController(this);
         udfpsShell.setUdfpsOverlayController(mUdfpsOverlayController);
         mUdfpsVendorCode = context.getResources().getInteger(R.integer.config_udfpsVendorCode);
+        mDisableSmartPixels = mContext.getResources().getBoolean(com.android.internal.R.bool.disable_smart_pixels_on_udfps);
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
         mSecureSettings = secureSettings;
         updateScreenOffUdfpsState();
@@ -718,6 +733,61 @@ public class UdfpsController implements DozeReceiver {
         boolean isSupported = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_supportsScreenOffUdfps);
         mScreenOffUdfpsEnabled = isSupported && mSecureSettings.getInt(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED, 0) == 1;
+    }
+
+    private void isSmartPixelsEnabled() {
+        if (!mSmartPixelsFlag) {
+            mSmartPixelsEnabled = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.SMART_PIXELS_ENABLE,
+                    0, UserHandle.USER_CURRENT);
+            Log.i(TAG, "SmartPixels: SmartPixels enabled - " + mSmartPixelsEnabled);
+            mSmartPixelsOnPowerSave = Settings.System.getIntForUser(
+                    mContext.getContentResolver(), Settings.System.SMART_PIXELS_ON_POWER_SAVE,
+                    0, UserHandle.USER_CURRENT);
+            Log.i(TAG, "SmartPixels: SmartPixels on Power Save enabled - " + mSmartPixelsOnPowerSave);
+            mLowPowerMode = mBatteryController.isPowerSave();
+            Log.i(TAG, "SmartPixels: Low power mode - " + mLowPowerMode);
+        }
+    }
+
+    private void disableSmartPixels() {
+        Log.i(TAG, "SmartPixels: Disable SmartPixels");
+        if (mLowPowerMode && (mSmartPixelsOnPowerSave == 1) && (mSmartPixelsEnabled == 1)) {
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ON_POWER_SAVE,
+                    0, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ENABLE,
+                    0, UserHandle.USER_CURRENT);
+        } else if (mLowPowerMode && (mSmartPixelsOnPowerSave == 1)) {
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ON_POWER_SAVE,
+                    0, UserHandle.USER_CURRENT);
+        } else {
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ENABLE,
+                    0, UserHandle.USER_CURRENT);
+        }
+    }
+
+    private void enableSmartPixels() {
+        Log.i(TAG, "SmartPixels: Enable SmartPixels");
+        if (mLowPowerMode && (mSmartPixelsOnPowerSave == 1) && (mSmartPixelsEnabled == 1)) {
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ON_POWER_SAVE,
+                    1, UserHandle.USER_CURRENT);
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ENABLE,
+                    1, UserHandle.USER_CURRENT);
+        } else if (mLowPowerMode && (mSmartPixelsOnPowerSave == 1)) {
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ON_POWER_SAVE,
+                    1, UserHandle.USER_CURRENT);
+        } else {
+            Settings.System.putIntForUser(mContext.getContentResolver(),
+                    Settings.System.SMART_PIXELS_ENABLE,
+                    1, UserHandle.USER_CURRENT);
+        }
     }
 
     /**
@@ -889,6 +959,13 @@ public class UdfpsController implements DozeReceiver {
     private void onFingerDown(long requestId, int x, int y, float minor, float major) {
         mExecution.assertIsMainThread();
 
+        if (!mSmartPixelsFlag) {
+            if (mDisableSmartPixels && ((mSmartPixelsEnabled == 1) || ((mSmartPixelsOnPowerSave == 1) && mLowPowerMode))) {
+                disableSmartPixels();
+            }
+            mSmartPixelsFlag = true;
+        }
+
         if (mOverlay == null) {
             Log.w(TAG, "Null request in onFingerDown");
             return;
@@ -950,6 +1027,12 @@ public class UdfpsController implements DozeReceiver {
         mExecution.assertIsMainThread();
         mActivePointerId = -1;
         mAcquiredReceived = false;
+
+        if (mDisableSmartPixels && ((mSmartPixelsEnabled == 1) || ((mSmartPixelsOnPowerSave == 1) && mLowPowerMode))) {
+            enableSmartPixels();
+        }
+        mSmartPixelsFlag = false;
+
         if (mOnFingerDown) {
             if (mAlternateTouchProvider != null) {
                 mBiometricExecutor.execute(() -> {
