@@ -36,7 +36,6 @@ public class StatusBarIconHolder {
     public static final int TYPE_MOBILE = 2;
     public static final int TYPE_NETWORK_TRAFFIC = 3;
     public static final int TYPE_IMS = 4;
-    public static final int TYPE_NETWORK_TRAFFIC = 42;
 
     private StatusBarIcon mIcon;
     private WifiIconState mWifiState;
