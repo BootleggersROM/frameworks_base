@@ -29,7 +29,6 @@ import android.annotation.Nullable;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.database.ContentObserver;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.UserHandle;
@@ -144,8 +143,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private final DumpManager mDumpManager;
 
     private int mClockStyle;
-
-    private View mBatteryBars[] = new View[2];
 
     private List<String> mBlockedIcons = new ArrayList<>();
     private Map<Startable, Startable.State> mStartableStates = new ArrayMap<>();
@@ -301,8 +298,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mClockView = mStatusBar.findViewById(R.id.clock);
         mCenterClockLayout = (LinearLayout) mStatusBar.findViewById(R.id.center_clock_layout);
         mRightClock = mStatusBar.findViewById(R.id.right_clock);
-        mBatteryBars[0] = mStatusBar.findViewById(R.id.battery_bar);
-        mBatteryBars[1] = mStatusBar.findViewById(R.id.battery_bar_1);
         mOngoingCallChip = mStatusBar.findViewById(R.id.ongoing_call_chip);
         showEndSideContent(false);
         initEmergencyCryptkeeperText();
@@ -541,9 +536,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             animateHide(mRightClock, animate, true);
         }
         animateHide(mEndSideContent, animate, true);
-        for (View batteryBar: mBatteryBars) {
-            animateHide(batteryBar, animate, false);
-        }
     }
 
     private void showEndSideContent(boolean animate) {
@@ -555,9 +547,6 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
                 animateShow(mRightClock, animate);
             }
             animateShow(mEndSideContent, animate);
-            for (View batteryBar: mBatteryBars) {
-                 animateShow(batteryBar, animate);
-            }
         } else {
             // We are in the middle of a system status event animation, which will animate the
             // alpha (but not the visibility). Allow the view to become visible again
