@@ -141,6 +141,8 @@ public class NetworkControllerImpl extends BroadcastReceiver
     private final LogBuffer mLogBuffer;
     private final MobileSignalControllerFactory mMobileFactory;
 
+    private boolean mSwap = false;
+
     private TelephonyCallback.ActiveDataSubscriptionIdListener mPhoneStateListener;
     private int mActiveMobileDataSubscription = INVALID_SUBSCRIPTION_ID;
 
@@ -811,9 +813,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
         if (volte1 && volte2) {
             return R.drawable.stat_sys_volte_slot12;
         } else if (volte1) {
-           return R.drawable.stat_sys_volte_slot1;
+           return mSwap ? R.drawable.stat_sys_volte_slot2 : R.drawable.stat_sys_volte_slot1;
         } else if (volte2) {
-            return R.drawable.stat_sys_volte_slot2;
+            return mSwap ? R.drawable.stat_sys_volte_slot1 : R.drawable.stat_sys_volte_slot2;
         }
         return 0;
     }
@@ -822,9 +824,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
         if (vowifi1 && vowifi2) {
             return R.drawable.stat_sys_vowifi_slot12;
         } else if (vowifi1) {
-            return R.drawable.stat_sys_vowifi_slot1;
+            return mSwap ? R.drawable.stat_sys_vowifi_slot2 : R.drawable.stat_sys_vowifi_slot1;
         } else if (vowifi2) {
-            return R.drawable.stat_sys_vowifi_slot2;
+            return mSwap ? R.drawable.stat_sys_vowifi_slot1 : R.drawable.stat_sys_vowifi_slot2;
         }
         return 0;
     }
@@ -1047,12 +1049,13 @@ public class NetworkControllerImpl extends BroadcastReceiver
                         : lhs.getSimSlotIndex() - rhs.getSimSlotIndex();
             }
         });
+        String str = createSubscriptionChangeStatement(mCurrentSubscriptions, subscriptions);
+        mSwap = str.equals("old=[1], new=[2, 1]") ? true : false;
         Log.i(
                 TAG,
                 String.format(
                         Locale.US,
-                        "Subscriptions changed: %s",
-                        createSubscriptionChangeStatement(mCurrentSubscriptions, subscriptions)));
+                        "Subscriptions changed: %s", str));
         mCurrentSubscriptions = subscriptions;
 
         SparseArray<MobileSignalController> cachedControllers =
