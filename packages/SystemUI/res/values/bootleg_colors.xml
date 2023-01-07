@@ -8,4 +8,7 @@
     <!-- reTicker -->
     <color name="reticker_background_color">@android:color/system_neutral1_50</color>
 
+    <!-- Keyguard buttons (udfps, affordance etc.) -->
+    <color name="keyguard_button_fg_color">@android:color/white</color>
+    <color name="keyguard_button_bg_color">#80000000</color>
 </resources>
