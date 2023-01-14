@@ -4470,6 +4470,11 @@ public final class NotificationPanelViewController extends PanelViewController {
                 mSettingsChangeObserver
         );
         mContentResolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.KEYGUARD_QUICK_TOGGLES),
+                /* notifyForDescendants */ false,
+                mSettingsChangeObserver
+        );
+        mContentResolver.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.RETICKER_STATUS),
                 /* notifyForDescendants */ false,
                 mSettingsChangeObserver,
@@ -4716,6 +4721,11 @@ public final class NotificationPanelViewController extends PanelViewController {
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             if (DEBUG_LOGCAT) Log.d(TAG, "onSettingsChanged");
+
+            if (uri.getLastPathSegment().equals(
+                    Settings.System.KEYGUARD_QUICK_TOGGLES)) {
+                mKeyguardBottomAreaViewModel.updateSettings();
+            }
 
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.RETICKER_STATUS))
