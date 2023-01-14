@@ -4837,6 +4837,11 @@ public final class NotificationPanelViewController implements Dumpable {
                 UserHandle.USER_ALL
         );
         updateReticker();
+        mContentResolver.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.KEYGUARD_QUICK_TOGGLES),
+                /* notifyForDescendants */ false,
+                mSettingsChangeObserver
+        );
     }
 
     /** Updates notification panel-specific flags on {@link SysUiState}. */
@@ -5682,7 +5687,12 @@ public final class NotificationPanelViewController implements Dumpable {
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
-            debugLog("onSettingsChanged");
+            if (DEBUG_LOGCAT) Log.d(TAG, "onSettingsChanged");
+
+            if (uri.getLastPathSegment().equals(
+                    Settings.System.KEYGUARD_QUICK_TOGGLES)) {
+                mKeyguardBottomAreaViewModel.updateSettings();
+            }
 
             if (uri.equals(Settings.System.getUriFor(
                     Settings.System.RETICKER_STATUS))

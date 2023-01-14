@@ -5991,6 +5991,17 @@ public final class Settings {
         public static final String LOCKSCREEN_WEATHER_SHOW_CITY = "lockscreen_weather_show_city";
 
         /**
+         * Bottom screen shortcuts on keyguard
+         * Two lists of strings delimeted by ;
+         * Each list of string is delimited by ,
+         * Valid strings are: home, wallet, qr, camera, flashlight and none
+         * The order in each list decides the priority for each shortcut
+         * @hide
+         */
+        @Readable
+        public static final String KEYGUARD_QUICK_TOGGLES = "keyguard_quick_toggles";
+
+        /**
          * These are all public system settings
          *
          * @hide

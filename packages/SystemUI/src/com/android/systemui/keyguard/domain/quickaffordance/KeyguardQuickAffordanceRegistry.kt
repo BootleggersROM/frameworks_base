@@ -22,35 +22,42 @@ import com.android.systemui.keyguard.data.quickaffordance.KeyguardQuickAffordanc
 import com.android.systemui.keyguard.data.quickaffordance.QrCodeScannerKeyguardQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.QuickAccessWalletKeyguardQuickAffordanceConfig
 import com.android.systemui.keyguard.shared.quickaffordance.KeyguardQuickAffordancePosition
+import android.content.Context
+import android.provider.Settings
+
 import javax.inject.Inject
 
 /** Central registry of all known quick affordance configs. */
 interface KeyguardQuickAffordanceRegistry<T : KeyguardQuickAffordanceConfig> {
     fun getAll(position: KeyguardQuickAffordancePosition): List<T>
     fun get(key: String): T
+    fun updateSettings()
 }
 
 class KeyguardQuickAffordanceRegistryImpl
 @Inject
 constructor(
-    homeControls: HomeControlsKeyguardQuickAffordanceConfig,
-    quickAccessWallet: QuickAccessWalletKeyguardQuickAffordanceConfig,
-    qrCodeScanner: QrCodeScannerKeyguardQuickAffordanceConfig,
+    private val context: Context,
+    private val homeControls: HomeControlsKeyguardQuickAffordanceConfig,
+    private val quickAccessWallet: QuickAccessWalletKeyguardQuickAffordanceConfig,
+    private val qrCodeScanner: QrCodeScannerKeyguardQuickAffordanceConfig,
 ) : KeyguardQuickAffordanceRegistry<KeyguardQuickAffordanceConfig> {
-    private val configsByPosition =
+
+    private val configsBySetting: Map<String, KeyguardQuickAffordanceConfig> =
         mapOf(
-            KeyguardQuickAffordancePosition.BOTTOM_START to
-                listOf(
-                    homeControls,
-                ),
-            KeyguardQuickAffordancePosition.BOTTOM_END to
-                listOf(
-                    quickAccessWallet,
-                    qrCodeScanner,
-                ),
+            "home" to homeControls,
+            "wallet" to quickAccessWallet,
+            "qr" to qrCodeScanner,
         )
-    private val configByKey =
-        configsByPosition.values.flatten().associateBy { config -> config.key }
+
+    private var configsByPosition: Map<KeyguardQuickAffordancePosition, MutableList<KeyguardQuickAffordanceConfig>>
+    private var configByClass: Map<KClass<out KeyguardQuickAffordanceConfig>, KeyguardQuickAffordanceConfig>
+
+    init {
+        configsByPosition = mapOf()
+        configByClass = mapOf()
+        updateSettings()
+    }
 
     override fun getAll(
         position: KeyguardQuickAffordancePosition,
@@ -62,5 +69,36 @@ constructor(
         key: String,
     ): KeyguardQuickAffordanceConfig {
         return configByKey.getValue(key)
+    }
+
+    override fun updateSettings() {
+        var setting = Settings.System.getString(context.getContentResolver(),
+                Settings.System.KEYGUARD_QUICK_TOGGLES)
+        if (setting == null || setting.isEmpty())
+            setting = "home,flashlight;wallet,qr,camera"
+        val split: List<String> = setting.split(";")
+        val start: List<String> = split.get(0).split(",")
+        val end: List<String> = split.get(1).split(",")
+        var startList: MutableList<KeyguardQuickAffordanceConfig> = mutableListOf()
+        var endList: MutableList<KeyguardQuickAffordanceConfig> = mutableListOf()
+        if (!start.get(0).equals("none")) {
+            for (str in start)
+                startList.add(configsBySetting.getOrDefault(str, homeControls))
+        }
+        if (!end.get(0).equals("none")) {
+            for (str in end)
+                endList.add(configsBySetting.getOrDefault(str, quickAccessWallet))
+        }
+
+        configsByPosition =
+            mapOf(
+                KeyguardQuickAffordancePosition.BOTTOM_START to
+                    startList,
+                KeyguardQuickAffordancePosition.BOTTOM_END to
+                    endList,
+            )
+
+        configByClass =
+            configsByPosition.values.flatten().associateBy { config -> config::class }
     }
 }
