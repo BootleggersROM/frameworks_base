@@ -124,4 +124,7 @@
         <item>org.lineageos.recorder</item>
         <item>org.lineageos.aperture</item>
     </string-array>
+
+    <!-- Display color inversion availability -->
+    <bool name="config_displayInversionAvailable">true</bool>
 </resources>
