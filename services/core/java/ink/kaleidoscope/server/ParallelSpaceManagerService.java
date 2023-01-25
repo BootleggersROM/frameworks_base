@@ -100,9 +100,9 @@ public final class ParallelSpaceManagerService extends SystemService {
         "com.android.launcher3",
         "com.caf.fmradio",
         "com.google.android.apps.nexuslauncher",
+        "com.google.android.pixel.setupwizard",
         "com.google.android.projection.gearhead",
-        "org.lineageos.setupwizard",
-        "com.crdroid.updater"
+        "com.google.android.setupwizard"
     );
 
     /**
