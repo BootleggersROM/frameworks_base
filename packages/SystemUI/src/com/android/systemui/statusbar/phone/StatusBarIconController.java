@@ -16,6 +16,7 @@ package com.android.systemui.statusbar.phone;
 
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_ICON;
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_MOBILE;
+import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_NETWORK_TRAFFIC;
 import static com.android.systemui.statusbar.phone.StatusBarIconHolder.TYPE_WIFI;
 
 import android.annotation.Nullable;
@@ -50,6 +51,7 @@ import com.android.systemui.statusbar.phone.StatusBarSignalPolicy.WifiIconState;
 import com.android.systemui.statusbar.pipeline.StatusBarPipelineFlags;
 import com.android.systemui.statusbar.pipeline.wifi.ui.view.ModernStatusBarWifiView;
 import com.android.systemui.statusbar.pipeline.wifi.ui.viewmodel.WifiViewModel;
+import com.android.systemui.statusbar.policy.NetworkTrafficSB;
 import com.android.systemui.tuner.TunerService;
 import com.android.systemui.util.Assert;
 
@@ -185,8 +187,10 @@ public interface StatusBarIconController {
 
         @Override
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            super.onSetIcon(viewIndex, icon);
-            mDarkIconDispatcher.applyDark((DarkReceiver) mGroup.getChildAt(viewIndex));
+            View view = mGroup.getChildAt(viewIndex);
+            if (view instanceof StatusBarIconView) {
+                ((StatusBarIconView) view).set(icon);
+            }
         }
 
         @Override
@@ -396,6 +400,9 @@ public interface StatusBarIconController {
 
                 case TYPE_MOBILE:
                     return addMobileIcon(index, slot, holder.getMobileState());
+
+                case TYPE_NETWORK_TRAFFIC:
+                    return addNetworkTraffic(index, slot);
             }
 
             return null;
@@ -427,6 +434,12 @@ public interface StatusBarIconController {
             if (mIsInDemoMode) {
                 mDemoStatusIcons.addDemoWifiView(state);
             }
+            return view;
+        }
+
+        protected NetworkTrafficSB addNetworkTraffic(int index, String slot) {
+            NetworkTrafficSB view = onCreateNetworkTraffic(slot);
+            mGroup.addView(view, index, onCreateLayoutParams());
             return view;
         }
 
@@ -464,6 +477,12 @@ public interface StatusBarIconController {
             Context mobileContext = mMobileContextProvider.getMobileContextForSub(subId, mContext);
             StatusBarMobileView view = StatusBarMobileView
                     .fromContext(mobileContext, slot);
+            return view;
+        }
+
+        private NetworkTrafficSB onCreateNetworkTraffic(String slot) {
+            NetworkTrafficSB view = new NetworkTrafficSB(mContext);
+            view.setPadding(2, 0, 2, 0);
             return view;
         }
 
@@ -508,8 +527,10 @@ public interface StatusBarIconController {
         }
 
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
-            view.set(icon);
+            View view = mGroup.getChildAt(viewIndex);
+            if (view instanceof StatusBarIconView) {
+                ((StatusBarIconView) view).set(icon);
+            }
         }
 
         public void onSetIconHolder(int viewIndex, StatusBarIconHolder holder) {

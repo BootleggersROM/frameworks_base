@@ -5751,6 +5751,69 @@ public final class Settings {
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
 
         /**
+         * Wheter to show network traffic indicator in statusbar
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_STATE = "network_traffic_state";
+
+        /**
+         * Network traffic inactivity threshold
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD = "network_traffic_autohide_threshold";
+
+        /**
+         * Whether to show the kill app button in notification guts
+         * @hide
+         */
+        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
+                "notification_guts_kill_app_button";
+
+        /**
+         * reTicker Status
+         * @hide
+         */
+        public static final String RETICKER_STATUS = "reticker_status";
+
+        /**
+         * reTicker Colored
+         * @hide
+         */
+        public static final String RETICKER_COLORED = "reticker_colored";
+
+        /**
+         * Only enable reTicker in landscape mode
+         * @hide
+         */
+        public static final String RETICKER_LANDSCAPE_ONLY = "reticker_landscape_only";
+
+        /**
+         * Whether to blink flashlight for incoming calls
+         * 0 = Disabled (Default)
+         * 1 = Blink flashlight only in Ringer mode
+         * 2 = Blink flashlight only when ringer is not audible
+         * 3 = Blink flahslight only when entirely silent
+         * 4 = Blink flashlight always regardless of ringer mode
+         * @hide
+         */
+        @Readable
+        public static final String FLASHLIGHT_ON_CALL = "flashlight_on_call";
+
+        /**
+         * Whether flashlight_on_call ignores DND (Zen Mode)
+         * @hide
+         */
+        @Readable
+        public static final String FLASHLIGHT_ON_CALL_IGNORE_DND = "flashlight_on_call_ignore_dnd";
+
+        /**
+         * Rate in Hz in which to blink flashlight_on_call
+         * @hide
+         */
+        @Readable
+        public static final String FLASHLIGHT_ON_CALL_RATE = "flashlight_on_call_rate";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5925,6 +5988,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
+            PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
         }
 
         /**
@@ -11316,6 +11382,12 @@ public final class Settings {
          */
         public static final String QS_SHOW_DATA_USAGE = "qs_show_data_usage";
 
+        /**
+         * Control whether FLAG_SECURE is ignored for all windows.
+         * @hide
+         */
+        @Readable
+        public static final String WINDOW_IGNORE_SECURE = "window_ignore_secure";
 
         /**
          * These entries are considered common between the personal and the managed profile,

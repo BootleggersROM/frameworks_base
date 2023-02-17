@@ -209,5 +209,8 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.USE_OLD_MOBILETYPE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.FULLSCREEN_GESTURES, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.FLASHLIGHT_ON_CALL, new InclusiveIntegerRangeValidator(0, 4));
+        VALIDATORS.put(System.FLASHLIGHT_ON_CALL_IGNORE_DND, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.FLASHLIGHT_ON_CALL_RATE, new InclusiveIntegerRangeValidator(1, 5));
     }
 }
