@@ -27,14 +27,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ListAdapter;
 
-<<<<<<< HEAD
-=======
 import com.android.systemui.statusbar.BlurUtils;
 import com.android.systemui.dump.DumpManager;
 
 import androidx.constraintlayout.helper.widget.Flow;
 
->>>>>>> 5e288ec74b69... SystemUI: Also blur power sub-menus
 /**
  * Creates a customized Dialog for displaying the Shut Down and Restart actions.
  */
