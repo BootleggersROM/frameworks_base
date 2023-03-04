@@ -5751,6 +5751,12 @@ public final class Settings {
         public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
 
         /**
+         * Hide Statusbar on LockScreen
+         * @hide
+         */
+        public static final String HIDE_LOCKSCREEN_STATUS_BAR = "hide_lockscreen_status_bar";
+
+        /**
          * Wheter to show network traffic indicator in statusbar
          * @hide
          */
@@ -5812,6 +5818,13 @@ public final class Settings {
          */
         @Readable
         public static final String FLASHLIGHT_ON_CALL_RATE = "flashlight_on_call_rate";
+
+        /**
+         * Disable power menu on secure lock screens
+         *
+         * @hide
+         */
+        public static final String LOCK_POWER_MENU_DISABLED = "lockscreen_power_menu_disabled";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -11369,6 +11382,12 @@ public final class Settings {
         public static final String FACE_UNLOCK_METHOD = "face_unlock_method";
 
         /**
+         * Whether to show Wi-Fi standard icon
+         * @hide
+         */
+        public static final String SHOW_WIFI_STANDARD_ICON = "show_wifi_standard_icon";
+
+        /**
          * Gesture navbar length mode.
          * Supported modes: 0 for normal length, 1 for medium and 2 for long.
          * Default 0.
@@ -11388,6 +11407,31 @@ public final class Settings {
          */
         @Readable
         public static final String WINDOW_IGNORE_SECURE = "window_ignore_secure";
+
+         /**
+         * Whether to show the brightness slider in quick settings panel.
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
+
+        /**
+         * Whether to show the brightness slider in quick settings panel.
+         * 0 = Top, 1 = Bottom
+         * @hide
+         */
+        public static final String QS_BRIGHTNESS_SLIDER_POSITION = "qs_brightness_slider_position";
+
+        /**
+         * Whether to show the auto brightness icon in quick settings panel.
+         * @hide
+         */
+        public static final String QS_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
+
+        /**
+         * Control whether GMS is enabled for this user.
+         * @hide
+         */
+        public static final String GMS_ENABLED = "gms_enabled";
 
         /**
          * These entries are considered common between the personal and the managed profile,

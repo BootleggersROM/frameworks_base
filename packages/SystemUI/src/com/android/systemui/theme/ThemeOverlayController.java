@@ -81,6 +81,8 @@ import com.android.systemui.util.settings.SecureSettings;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ink.kaleidoscope.ParallelSpaceManager;
+
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Collection;
@@ -340,7 +342,9 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
             boolean newWorkProfile = Intent.ACTION_MANAGED_PROFILE_ADDED.equals(intent.getAction());
             boolean isManagedProfile = mUserManager.isManagedProfile(
                     intent.getIntExtra(Intent.EXTRA_USER_HANDLE, 0));
-            if (newWorkProfile) {
+            boolean isParallelSpace =
+                    Intent.ACTION_PARALLEL_SPACE_CHANGED.equals(intent.getAction());
+            if (newWorkProfile || isParallelSpace) {
                 if (!mDeviceProvisionedController.isCurrentUserSetup() && isManagedProfile) {
                     Log.i(TAG, "User setup not finished when " + intent.getAction()
                             + " was received. Deferring... Managed profile? " + isManagedProfile);
@@ -394,6 +398,7 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
         if (DEBUG) Log.d(TAG, "Start");
         final IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_MANAGED_PROFILE_ADDED);
+        filter.addAction(Intent.ACTION_PARALLEL_SPACE_CHANGED);
         filter.addAction(Intent.ACTION_WALLPAPER_CHANGED);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter, mMainExecutor,
                 UserHandle.ALL);
@@ -416,6 +421,27 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
                         if (mSkipSettingChange) {
                             if (DEBUG) Log.d(TAG, "Skipping setting change");
                             mSkipSettingChange = false;
+                            return;
+                        }
+                        reevaluateSystemTheme(true /* forceReload */);
+                    }
+                },
+                UserHandle.USER_ALL);
+
+        mSecureSettings.registerContentObserverForUser(
+                Settings.Secure.getUriFor(Settings.Secure.QS_BRIGHTNESS_SLIDER_POSITION),
+                false,
+                new ContentObserver(mBgHandler) {
+                    @Override
+                    public void onChange(boolean selfChange, Collection<Uri> collection, int flags,
+                            int userId) {
+                        if (DEBUG) Log.d(TAG, "Overlay changed for user: " + userId);
+                        if (mUserTracker.getUserId() != userId) {
+                            return;
+                        }
+                        if (!mDeviceProvisionedController.isUserSetup(userId)) {
+                            Log.i(TAG, "Theme application deferred when setting changed.");
+                            mDeferredThemeEvaluation = true;
                             return;
                         }
                         reevaluateSystemTheme(true /* forceReload */);
@@ -672,7 +698,7 @@ public class ThemeOverlayController extends CoreStartable implements Dumpable {
                 managedProfiles.add(userInfo.getUserHandle());
             }
         }
-
+        managedProfiles.addAll(ParallelSpaceManager.getInstance().getParallelUserHandles());
         if (DEBUG) {
             Log.d(TAG, "Applying overlays: " + categoryToPackage.keySet().stream()
                     .map(key -> key + " -> " + categoryToPackage.get(key)).collect(

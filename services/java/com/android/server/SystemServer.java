@@ -216,6 +216,9 @@ import com.android.server.wm.WindowManagerService;
 
 import dalvik.system.VMRuntime;
 
+import ink.kaleidoscope.server.GmsManagerService;
+import ink.kaleidoscope.server.ParallelSpaceManagerService;
+
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -402,6 +405,10 @@ public final class SystemServer implements Dumpable {
             "com.android.server.media.MediaCommunicationService";
     private static final String APP_COMPAT_OVERRIDES_SERVICE_CLASS =
             "com.android.server.compat.overrides.AppCompatOverridesService$Lifecycle";
+    private static final String GMS_MANAGER_SERVICE_SERVICE_CLASS =
+            "ink.kaleidoscope.server.GmsManagerService";
+    private static final String PARALLEL_SPACE_SERVICE_CLASS =
+            "ink.kaleidoscope.server.ParallelSpaceManagerService";
 
     private static final String ROLE_SERVICE_CLASS = "com.android.role.RoleService";
     private static final String GAME_MANAGER_SERVICE_CLASS =
@@ -422,6 +429,9 @@ public final class SystemServer implements Dumpable {
             "com.android.server.adservices.AdServicesManagerService$Lifecycle";
 
     private static final String TETHERING_CONNECTOR_CLASS = "android.net.ITetheringConnector";
+
+    private static final String APP_LOCK_SERVICE_CLASS =
+            "com.android.server.app.AppLockManagerService$Lifecycle";
 
     private static final String PERSISTENT_DATA_BLOCK_PROP = "ro.frp.pst";
 
@@ -2744,6 +2754,10 @@ public final class SystemServer implements Dumpable {
             t.traceEnd();
         }
 
+        t.traceBegin("AppLockManagerService");
+        mSystemServiceManager.startService(APP_LOCK_SERVICE_CLASS);
+        t.traceEnd();
+
         t.traceBegin("StartBootPhaseDeviceSpecificServicesReady");
         mSystemServiceManager.startBootPhase(t, SystemService.PHASE_DEVICE_SPECIFIC_SERVICES_READY);
         t.traceEnd();
@@ -2768,6 +2782,14 @@ public final class SystemServer implements Dumpable {
 
         t.traceBegin("AppCompatOverridesService");
         mSystemServiceManager.startService(APP_COMPAT_OVERRIDES_SERVICE_CLASS);
+        t.traceEnd();
+
+        t.traceBegin("StartGmsManagerService");
+        mSystemServiceManager.startService(GMS_MANAGER_SERVICE_SERVICE_CLASS);
+        t.traceEnd();
+
+        t.traceBegin("StartParallelSpaceManagerService");
+        mSystemServiceManager.startService(PARALLEL_SPACE_SERVICE_CLASS);
         t.traceEnd();
 
         // These are needed to propagate to the runnable below.
