@@ -5316,6 +5316,12 @@ public final class Settings {
         public static final String NOTIFICATION_LIGHT_PULSE = "notification_light_pulse";
 
         /**
+         * Whether Proximity on Wake is Enabled or not
+         * @hide
+         */
+        public static final String PROXIMITY_ON_WAKE = "proximity_on_wake";
+
+        /**
          * Show pointer location on screen?
          * 0 = no
          * 1 = yes
@@ -5827,6 +5833,15 @@ public final class Settings {
         public static final String LOCK_POWER_MENU_DISABLED = "lockscreen_power_menu_disabled";
 
         /**
+         * Whether allowing pocket service to register sensors and dispatch informations.
+         *   0 = disabled
+         *   1 = enabled
+         * @author Carlo Savignano
+         * @hide
+         */
+        public static final String POCKET_JUDGE = "pocket_judge";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6004,6 +6019,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_IGNORE_DND);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL_RATE);
+            PRIVATE_SETTINGS.add(POCKET_JUDGE);
         }
 
         /**
