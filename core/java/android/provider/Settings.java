@@ -5994,12 +5994,12 @@ public final class Settings {
          * Bottom screen shortcuts on keyguard
          * Two lists of strings delimeted by ;
          * Each list of string is delimited by ,
-         * Valid strings are: home, wallet, qr, camera, flashlight and none
+         * for valid string see BuiltInKeyguardQuickAffordanceKeys under SystemUI
          * The order in each list decides the priority for each shortcut
          * @hide
          */
         @Readable
-        public static final String KEYGUARD_QUICK_TOGGLES = "keyguard_quick_toggles";
+        public static final String KEYGUARD_QUICK_TOGGLES_NEW = "keyguard_quick_toggles_new";
 
         /**
          * These are all public system settings

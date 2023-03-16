@@ -17,6 +17,19 @@
 
 package com.android.systemui.keyguard.domain.quickaffordance
 
+import android.content.Context
+import android.provider.Settings
+
+import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.CAMERA
+import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.DO_NOT_DISTURB
+import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.FLASHLIGHT
+import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.HOME_CONTROLS
+import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.QR_CODE_SCANNER
+import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.QUICK_ACCESS_WALLET
+
+import com.android.systemui.keyguard.data.quickaffordance.CameraQuickAffordanceConfig
+import com.android.systemui.keyguard.data.quickaffordance.DoNotDisturbQuickAffordanceConfig
+import com.android.systemui.keyguard.data.quickaffordance.FlashlightQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.HomeControlsKeyguardQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.KeyguardQuickAffordanceConfig
 import com.android.systemui.keyguard.data.quickaffordance.QrCodeScannerKeyguardQuickAffordanceConfig
@@ -34,6 +47,8 @@ interface KeyguardQuickAffordanceRegistry<T : KeyguardQuickAffordanceConfig> {
     fun updateSettings()
 }
 
+const val DEFAULT_CONFIG = HOME_CONTROLS + "," + FLASHLIGHT + ";" + QUICK_ACCESS_WALLET + "," + QR_CODE_SCANNER + "," + CAMERA
+
 class KeyguardQuickAffordanceRegistryImpl
 @Inject
 constructor(
@@ -41,13 +56,19 @@ constructor(
     private val homeControls: HomeControlsKeyguardQuickAffordanceConfig,
     private val quickAccessWallet: QuickAccessWalletKeyguardQuickAffordanceConfig,
     private val qrCodeScanner: QrCodeScannerKeyguardQuickAffordanceConfig,
+    private val camera: CameraQuickAffordanceConfig,
+    private val flashlight: FlashlightQuickAffordanceConfig,
+    private val doNotDisturb: DoNotDisturbQuickAffordanceConfig
 ) : KeyguardQuickAffordanceRegistry<KeyguardQuickAffordanceConfig> {
 
     private val configsBySetting: Map<String, KeyguardQuickAffordanceConfig> =
         mapOf(
-            "home" to homeControls,
-            "wallet" to quickAccessWallet,
-            "qr" to qrCodeScanner,
+            HOME_CONTROLS to homeControls,
+            QUICK_ACCESS_WALLET to quickAccessWallet,
+            QR_CODE_SCANNER to qrCodeScanner,
+            CAMERA to camera,
+            FLASHLIGHT to flashlight,
+            DO_NOT_DISTURB to doNotDisturb
         )
 
     private var configsByPosition: Map<KeyguardQuickAffordancePosition, MutableList<KeyguardQuickAffordanceConfig>>
@@ -73,9 +94,9 @@ constructor(
 
     override fun updateSettings() {
         var setting = Settings.System.getString(context.getContentResolver(),
-                Settings.System.KEYGUARD_QUICK_TOGGLES)
+                Settings.System.KEYGUARD_QUICK_TOGGLES_NEW)
         if (setting == null || setting.isEmpty())
-            setting = "home,flashlight;wallet,qr,camera"
+            setting = DEFAULT_CONFIG
         val split: List<String> = setting.split(";")
         val start: List<String> = split.get(0).split(",")
         val end: List<String> = split.get(1).split(",")
