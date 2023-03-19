@@ -263,6 +263,10 @@ public class AmbientDisplayConfiguration {
             Settings.Secure.DOZE_ON_CHARGE, 0, user) == 1;
     }
 
+    private boolean boolSettingSystem(String name, int user, int def) {
+        return Settings.System.getIntForUser(mContext.getContentResolver(), name, def, user) != 0;
+    }
+
     private boolean alwaysOnChargingEnabled(int user) {
         if (alwaysOnChargingEnabledSetting(user)) {
             final Intent intent = mContext.registerReceiver(null, sIntentFilter);
@@ -380,5 +384,15 @@ public class AmbientDisplayConfiguration {
 
     private void putDozeSetting(String name, String value, int userId) {
         Settings.Secure.putStringForUser(mContext.getContentResolver(), name, value, userId);
+    }
+
+    /** {@hide} */
+    public boolean alwaysOnAmbientLightEnabled(int user) {
+        final boolean ambientLightsEnabled = boolSettingSystem(Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED, user, 0);
+        if (ambientLightsEnabled) {
+            boolean ambientLightsActivated = boolSettingSystem(Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, user, 0);
+            return ambientLightsActivated && !accessibilityInversionEnabled(user) && alwaysOnAvailable();
+        }
+        return false;
     }
 }

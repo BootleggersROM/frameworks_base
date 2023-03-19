@@ -58,6 +58,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.StatusBarManager;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -78,6 +79,7 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.os.PowerManager;
 import android.os.Process;
+import android.os.SystemClock;
 import android.os.Trace;
 import android.os.UserManager;
 import android.os.VibrationEffect;
@@ -235,6 +237,7 @@ import com.android.systemui.statusbar.phone.TapAgainViewController;
 import com.android.systemui.statusbar.phone.UnlockedScreenOffAnimationController;
 import com.android.systemui.statusbar.phone.dagger.CentralSurfacesComponent;
 import com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment;
+import com.android.systemui.statusbar.phone.NotificationLightsView;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 import com.android.systemui.statusbar.policy.KeyguardQsUserSwitchController;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
@@ -274,6 +277,8 @@ public final class NotificationPanelViewController implements Dumpable {
     private static final boolean DEBUG_LOGCAT = Compile.IS_DEBUG && Log.isLoggable(TAG, Log.DEBUG);
     private static final boolean SPEW_LOGCAT = Compile.IS_DEBUG && Log.isLoggable(TAG, Log.VERBOSE);
     private static final boolean DEBUG_DRAWABLE = false;
+    private static final boolean DEBUG_PULSE_LIGHT = false;
+
     private static final VibrationEffect ADDITIONAL_TAP_REQUIRED_VIBRATION_EFFECT =
             VibrationEffect.get(VibrationEffect.EFFECT_STRENGTH_MEDIUM, false);
     /** The parallax amount of the quick settings translation when dragging down the panel. */
@@ -341,6 +346,8 @@ public final class NotificationPanelViewController implements Dumpable {
     private final ConfigurationController mConfigurationController;
     private final Provider<FlingAnimationUtils.Builder> mFlingAnimationUtilsBuilder;
     private final NotificationStackScrollLayoutController mNotificationStackScrollLayoutController;
+    private NotificationLightsView mPulseLightsView;
+    private boolean mPulseLightHandled;
     private final InteractionJankMonitor mInteractionJankMonitor;
     private final LayoutInflater mLayoutInflater;
     private final FeatureFlags mFeatureFlags;
@@ -1130,6 +1137,7 @@ public final class NotificationPanelViewController implements Dumpable {
         mReTickerContentTV = mView.findViewById(R.id.ticker_content);
         mNotificationStackScroller = mView.findViewById(R.id.notification_stack_scroller);
 
+        mPulseLightsView = mView.findViewById(R.id.lights_container);
         initBottomArea();
 
         mWakeUpCoordinator.setStackScroller(mNotificationStackScrollLayoutController);
@@ -1641,6 +1649,11 @@ public final class NotificationPanelViewController implements Dumpable {
                     - mUdfpsMaxYBurnInOffset;
         }
 
+        if (!hasVisibleNotifications) {
+            Settings.System.putIntForUser(mView.getContext().getContentResolver(),
+                    Settings.System.AMBIENT_NOTIFICATION_LIGHT, 0,
+                    UserHandle.USER_CURRENT);
+        }
         mClockPositionAlgorithm.setup(
                 mStatusBarHeaderHeightKeyguard,
                 expandedFraction,
@@ -4347,6 +4360,34 @@ public final class NotificationPanelViewController implements Dumpable {
         mStatusBarStateController.setAndInstrumentDozeAmount(mView, dozeAmount, animate);
 
         updateKeyguardStatusViewAlignment(animate);
+		if (mPulseLightsView != null) {
+            updatePulseLightState(dozing);
+        }
+    }
+
+    private void updatePulseLightState(boolean dozing) {
+        boolean mAmbientLights = Settings.System.getIntForUser(
+                mView.getContext().getContentResolver(), Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
+                0, UserHandle.USER_CURRENT) != 0;
+        if (DEBUG_PULSE_LIGHT) {
+            Log.d(TAG, "updatePulseLightState dozing = " + dozing + " mAmbientLights = "  + mAmbientLights);
+        }
+        if (mAmbientLights) {
+            if (dozing) {
+                // TODO on screen off should we restart pulse?
+                // if that should work we need to decide at this point
+                // if the current notifications "would" turn the screen on
+                // just checking hasActiveClearableNotifications is obviusly not
+                // enough here - so for now dont even try to do it
+            } else {
+                // screen on!
+                mPulseLightsView.setVisibility(View.GONE);
+                Settings.System.putIntForUser(mView.getContext().getContentResolver(),
+                        Settings.System.AMBIENT_NOTIFICATION_LIGHT, 0,
+                        UserHandle.USER_CURRENT);
+                mPulseLightHandled = true;
+            }
+        }
     }
 
     public void setPulsing(boolean pulsing) {
@@ -4354,6 +4395,13 @@ public final class NotificationPanelViewController implements Dumpable {
         final boolean
                 animatePulse =
                 !mDozeParameters.getDisplayNeedsBlanking() && mDozeParameters.getAlwaysOn();
+        boolean pulseLights = Settings.System.getIntForUser(
+                mView.getContext().getContentResolver(), Settings.System.PULSE_AMBIENT_LIGHT,
+                0, UserHandle.USER_CURRENT) != 0;
+        boolean mAmbientLights = Settings.System.getIntForUser(
+                mView.getContext().getContentResolver(), Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
+                0, UserHandle.USER_CURRENT) != 0;
+        boolean mActiveNotif = mNotificationStackScrollLayoutController.hasActiveClearableNotifications(ROWS_ALL);
         if (animatePulse) {
             mAnimateNextPositionUpdate = true;
         }
@@ -4361,6 +4409,43 @@ public final class NotificationPanelViewController implements Dumpable {
         // The height callback will take care of pushing the clock to the right position.
         if (!mPulsing && !mDozing) {
             mAnimateNextPositionUpdate = false;
+        }
+        if (mPulseLightsView != null) {
+            if (DEBUG_PULSE_LIGHT) {
+                Log.d(TAG, "setPulsing pulsing = " + pulsing + " pulseLights = " + pulseLights
+                        + " mAmbientLights = " + mAmbientLights + " mActiveNotif = " + mActiveNotif
+                        + " mPulseLightHandled = " + mPulseLightHandled + " mDozing = " + mDozing);
+            }
+            if (mPulsing) {
+                if (mActiveNotif) {
+                    // show the bars if we have to
+                    if (pulseLights) {
+                        mPulseLightsView.animateNotification(true);
+                        mPulseLightsView.setVisibility(View.VISIBLE);
+                    }
+                    if (mAmbientLights) { 
+                        mPulseLightHandled = false;
+                        // tell power manager that we want to enable aod
+                        // must do that here already not on pulsing = false
+                        Settings.System.putIntForUser(mView.getContext().getContentResolver(),
+                                Settings.System.AMBIENT_NOTIFICATION_LIGHT, 1,
+                                UserHandle.USER_CURRENT);
+                    }
+                }
+            } else {
+                // continue to pulse - if not screen was turned on in the meantime
+                if (mActiveNotif && mAmbientLights && mDozing && !mPulseLightHandled) {
+                    // no-op if pulseLights is also enabled
+                    mPulseLightsView.animateNotification(true);
+                    mPulseLightsView.setVisibility(View.VISIBLE);
+                } else {
+                    // no active notifications or just pulse without aod - so no reason to continue
+                    mPulseLightsView.setVisibility(View.GONE);
+                    Settings.System.putIntForUser(mView.getContext().getContentResolver(),
+                            Settings.System.AMBIENT_NOTIFICATION_LIGHT, 0,
+                            UserHandle.USER_CURRENT);
+                }
+            }
         }
         mNotificationStackScrollLayoutController.setPulsing(pulsing, animatePulse);
 
