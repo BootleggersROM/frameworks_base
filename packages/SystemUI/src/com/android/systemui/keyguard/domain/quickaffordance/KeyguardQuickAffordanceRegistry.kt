@@ -17,9 +17,6 @@
 
 package com.android.systemui.keyguard.domain.quickaffordance
 
-import android.content.Context
-import android.provider.Settings
-
 import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.CAMERA
 import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.DO_NOT_DISTURB
 import com.android.systemui.keyguard.data.quickaffordance.BuiltInKeyguardQuickAffordanceKeys.FLASHLIGHT
@@ -47,7 +44,7 @@ interface KeyguardQuickAffordanceRegistry<T : KeyguardQuickAffordanceConfig> {
     fun updateSettings()
 }
 
-const val DEFAULT_CONFIG = HOME_CONTROLS + "," + FLASHLIGHT + ";" + QUICK_ACCESS_WALLET + "," + QR_CODE_SCANNER + "," + CAMERA
+const val DEFAULT_CONFIG = HOME_CONTROLS + "," + FLASHLIGHT + "," + DO_NOT_DISTURB + ";" + QUICK_ACCESS_WALLET + "," + QR_CODE_SCANNER + "," + CAMERA
 
 class KeyguardQuickAffordanceRegistryImpl
 @Inject
@@ -72,11 +69,11 @@ constructor(
         )
 
     private var configsByPosition: Map<KeyguardQuickAffordancePosition, MutableList<KeyguardQuickAffordanceConfig>>
-    private var configByClass: Map<KClass<out KeyguardQuickAffordanceConfig>, KeyguardQuickAffordanceConfig>
+    private var configByKey: Map<String, KeyguardQuickAffordanceConfig>
 
     init {
         configsByPosition = mapOf()
-        configByClass = mapOf()
+        configByKey = mapOf()
         updateSettings()
     }
 
@@ -119,7 +116,7 @@ constructor(
                     endList,
             )
 
-        configByClass =
-            configsByPosition.values.flatten().associateBy { config -> config::class }
+        configByKey =
+            configsByPosition.values.flatten().associateBy { config -> config.key }
     }
 }
