@@ -141,4 +141,7 @@
 
     <!-- Defines custom OEM sensor for pocket detection. -->
     <string name="config_pocketJudgeVendorSensorName"></string>
+
+    <!-- Boost Framework -->
+    <bool name="config_supportsBoostFramework">false</bool>    
 </resources>
