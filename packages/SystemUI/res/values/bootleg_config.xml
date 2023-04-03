@@ -76,4 +76,15 @@
     <!-- The CPUs to display in CPUInfoService view -->
     <string name="config_displayCpus" translatable="false"></string>
 
+    <!-- This value is used when notification_scrim_transparent is set to true.
+         Allows to change how transparent is the scrim notification area  -->
+    <item name="config_notification_scrim_transparency_amount" translatable="false" format="float" type="dimen">
+        0
+    </item>
+
+    <!-- This value is used when notification_scrim_transparent is set to true.
+         Allows to change how transparent is the scrim background area (for example, in the header)  -->
+    <item name="config_behind_scrim_transparency_amount" translatable="false" format="float" type="dimen">
+        0
+    </item>
 </resources>
