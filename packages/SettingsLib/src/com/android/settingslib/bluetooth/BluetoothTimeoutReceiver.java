@@ -34,7 +34,7 @@ public class BluetoothTimeoutReceiver extends BroadcastReceiver {
 
     public static void setTimeoutAlarm(Context context, long alarmTime) {
         Intent intent = new Intent(INTENT_TIMEOUT);
-        intent.setClassName("com.android.settings", "com.android.settingslib.bluetooth.BluetoothTimeoutReceiver");
+        intent.setClass(context, BluetoothTimeoutReceiver.class);
         PendingIntent pending = PendingIntent.getBroadcast(
                 context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE);
         AlarmManager alarmManager =

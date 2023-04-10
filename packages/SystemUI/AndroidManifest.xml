@@ -1049,6 +1049,14 @@
             android:permission="android.permission.CUSTOMIZE_SYSTEM_UI"
             />
 
+        <!-- Bluetooth Timeout -->
+        <receiver android:name="com.android.settingslib.bluetooth.BluetoothTimeoutReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.bluetooth.intent.TIMEOUT" />
+            </intent-filter>
+        </receiver>
+
         <!-- Wifi Timeout -->
         <receiver android:name="com.android.settingslib.wifi.WifiTimeoutReceiver"
             android:exported="true">
