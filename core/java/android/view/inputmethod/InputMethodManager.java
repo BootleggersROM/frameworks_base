@@ -73,7 +73,6 @@ import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.text.style.SuggestionSpan;
-import android.util.BoostFramework;
 import android.util.Log;
 import android.util.Pools.Pool;
 import android.util.Pools.SimplePool;
@@ -282,11 +281,6 @@ public final class InputMethodManager {
      * @see InputMethodSubtype#getMode()
      */
     private static final String SUBTYPE_MODE_VOICE = "voice";
-
-    //Perf
-    static BoostFramework mPerfBoost = null;
-    static boolean IME_BOOST_ENABLED = false;
-    static boolean isImeBoostPropertyRead = false;
 
     /**
      * Provide this to {@link IInputMethodManager#startInputOrWindowGainedFocus(
@@ -663,20 +657,6 @@ public final class InputMethodManager {
             ImeTracing.getInstance().triggerClientDump(
                     "InputMethodManager.DelegateImpl#startInput", InputMethodManager.this,
                     null /* icProto */);
-
-            if (isImeBoostPropertyRead == false) {
-                mPerfBoost = new BoostFramework();
-
-                if (mPerfBoost != null) {
-                    IME_BOOST_ENABLED = Boolean.parseBoolean(mPerfBoost.perfGetProp("ro.vendor.qti.sys.fw.use_ime_boost", "false"));
-                }
-                isImeBoostPropertyRead = true;
-            }
-
-            if (IME_BOOST_ENABLED == true && mPerfBoost != null) {
-                mPerfBoost.perfEvent(BoostFramework.VENDOR_HINT_IME_LAUNCH_EVENT, null);
-            }
-
             synchronized (mH) {
                 mCurrentTextBoxAttribute = null;
                 mCompletions = null;
@@ -2268,7 +2248,6 @@ public final class InputMethodManager {
             @Nullable IBinder windowGainingFocus, @StartInputFlags int startInputFlags,
             @SoftInputModeFlags int softInputMode, int windowFlags) {
         final View view;
-        final ViewRootImpl viewRoot;
         synchronized (mH) {
             view = getServedViewLocked();
 
@@ -2285,14 +2264,13 @@ public final class InputMethodManager {
 
         if (windowGainingFocus == null) {
             windowGainingFocus = view.getWindowToken();
-            viewRoot = view.getViewRootImpl();
-            if (windowGainingFocus == null || viewRoot == null) {
+            if (windowGainingFocus == null) {
                 Log.e(TAG, "ABORT input: ServedView must be attached to a Window");
                 return false;
             }
             startInputFlags = getStartInputFlags(view, startInputFlags);
-            softInputMode = viewRoot.mWindowAttributes.softInputMode;
-            windowFlags = viewRoot.mWindowAttributes.flags;
+            softInputMode = view.getViewRootImpl().mWindowAttributes.softInputMode;
+            windowFlags = view.getViewRootImpl().mWindowAttributes.flags;
         }
 
         // Now we need to get an input connection from the served view.

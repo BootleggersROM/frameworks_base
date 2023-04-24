@@ -337,7 +337,6 @@ enum MountExternalKind {
 // Must match values in com.android.internal.os.Zygote.
 enum RuntimeFlags : uint32_t {
     DEBUG_ENABLE_JDWP = 1,
-    PROFILE_SYSTEM_SERVER = 1 << 14,
     PROFILE_FROM_SHELL = 1 << 15,
     MEMORY_TAG_LEVEL_MASK = (1 << 19) | (1 << 20),
     MEMORY_TAG_LEVEL_TBI = 1 << 19,
@@ -1798,11 +1797,9 @@ static void SpecializeCommon(JNIEnv* env, uid_t uid, gid_t gid, jintArray gids, 
                                            instruction_set.value().c_str());
     }
 
-    if (is_system_server && !(runtime_flags & RuntimeFlags::PROFILE_SYSTEM_SERVER)) {
+    if (is_system_server) {
         // Prefetch the classloader for the system server. This is done early to
         // allow a tie-down of the proper system server selinux domain.
-        // We don't prefetch when the system server is being profiled to avoid
-        // loading AOT code.
         env->CallStaticObjectMethod(gZygoteInitClass, gGetOrCreateSystemServerClassLoader);
         if (env->ExceptionCheck()) {
             // Be robust here. The Java code will attempt to create the classloader
@@ -2257,9 +2254,7 @@ pid_t zygote::ForkCommon(JNIEnv* env, bool is_system_server,
     // region shared with the child process we reduce the number of pages that
     // transition to the private-dirty state when malloc adjusts the meta-data
     // on each of the pages it is managing after the fork.
-    if (mallopt(M_PURGE_ALL, 0) != 1) {
-      mallopt(M_PURGE, 0);
-    }
+    mallopt(M_PURGE, 0);
   }
 
   pid_t pid = fork();

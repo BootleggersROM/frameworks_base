@@ -1727,11 +1727,9 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             // TODO(b/216365040): The decision to prevent HBM for HDR in low power mode should be
             // done in HighBrightnessModeController.
             if (mHbmController.getHighBrightnessMode() == BrightnessInfo.HIGH_BRIGHTNESS_MODE_HDR
-                    && (mBrightnessReasonTemp.modifier & BrightnessReason.MODIFIER_DIMMED) == 0
-                    && (mBrightnessReasonTemp.modifier & BrightnessReason.MODIFIER_LOW_POWER)
-                    == 0) {
-                // We want to scale HDR brightness level with the SDR level, we also need to restore
-                // SDR brightness immediately when entering dim or low power mode.
+                    && ((mBrightnessReason.modifier & BrightnessReason.MODIFIER_DIMMED) == 0
+                    || (mBrightnessReason.modifier & BrightnessReason.MODIFIER_LOW_POWER) == 0)) {
+                // We want to scale HDR brightness level with the SDR level
                 animateValue = mHbmController.getHdrBrightnessValue();
             }
 
@@ -1790,13 +1788,13 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
 
         // Log any changes to what is currently driving the brightness setting.
         if (!mBrightnessReasonTemp.equals(mBrightnessReason) || brightnessAdjustmentFlags != 0) {
-            if (DEBUG) Slog.v(TAG, "Brightness [" + brightnessState + "] reason changing to: '"
+            Slog.v(TAG, "Brightness [" + brightnessState + "] reason changing to: '"
                     + mBrightnessReasonTemp.toString(brightnessAdjustmentFlags)
                     + "', previous reason: '" + mBrightnessReason + "'.");
             mBrightnessReason.set(mBrightnessReasonTemp);
         } else if (mBrightnessReasonTemp.reason == BrightnessReason.REASON_MANUAL
                 && userSetBrightnessChanged) {
-            if (DEBUG) Slog.v(TAG, "Brightness [" + brightnessState + "] manual adjustment.");
+            Slog.v(TAG, "Brightness [" + brightnessState + "] manual adjustment.");
         }
 
 
@@ -2044,7 +2042,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             Trace.asyncTraceBegin(Trace.TRACE_TAG_POWER, SCREEN_ON_BLOCKED_TRACE_NAME, 0);
             mPendingScreenOnUnblocker = new ScreenOnUnblocker();
             mScreenOnBlockStartRealTime = SystemClock.elapsedRealtime();
-            if (DEBUG) Slog.i(TAG, "Blocking screen on until initial contents have been drawn.");
+            Slog.i(TAG, "Blocking screen on until initial contents have been drawn.");
         }
     }
 
@@ -2052,7 +2050,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         if (mPendingScreenOnUnblocker != null) {
             mPendingScreenOnUnblocker = null;
             long delay = SystemClock.elapsedRealtime() - mScreenOnBlockStartRealTime;
-            if (DEBUG) Slog.i(TAG, "Unblocked screen on after " + delay + " ms");
+            Slog.i(TAG, "Unblocked screen on after " + delay + " ms");
             Trace.asyncTraceEnd(Trace.TRACE_TAG_POWER, SCREEN_ON_BLOCKED_TRACE_NAME, 0);
         }
     }
@@ -2062,7 +2060,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             Trace.asyncTraceBegin(Trace.TRACE_TAG_POWER, SCREEN_OFF_BLOCKED_TRACE_NAME, 0);
             mPendingScreenOffUnblocker = new ScreenOffUnblocker();
             mScreenOffBlockStartRealTime = SystemClock.elapsedRealtime();
-            if (DEBUG) Slog.i(TAG, "Blocking screen off");
+            Slog.i(TAG, "Blocking screen off");
         }
     }
 
@@ -2070,7 +2068,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
         if (mPendingScreenOffUnblocker != null) {
             mPendingScreenOffUnblocker = null;
             long delay = SystemClock.elapsedRealtime() - mScreenOffBlockStartRealTime;
-            if (DEBUG) Slog.i(TAG, "Unblocked screen off after " + delay + " ms");
+            Slog.i(TAG, "Unblocked screen off after " + delay + " ms");
             Trace.asyncTraceEnd(Trace.TRACE_TAG_POWER, SCREEN_OFF_BLOCKED_TRACE_NAME, 0);
         }
     }
@@ -2643,7 +2641,7 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
                 && mProximity == PROXIMITY_POSITIVE) {
             // Only ignore if it is still reporting positive (near)
             mIgnoreProximityUntilChanged = true;
-            if (DEBUG) Slog.i(TAG, "Ignoring proximity");
+            Slog.i(TAG, "Ignoring proximity");
             updatePowerState();
         }
     }

@@ -19,7 +19,6 @@
 #define LOG_NDEBUG 1
 
 #include <android-base/macros.h>
-#include <android-base/parsebool.h>
 #include <android-base/properties.h>
 #include <android/graphics/jni_runtime.h>
 #include <android_runtime/AndroidRuntime.h>
@@ -54,8 +53,6 @@
 using namespace android;
 using android::base::GetBoolProperty;
 using android::base::GetProperty;
-using android::base::ParseBool;
-using android::base::ParseBoolResult;
 
 extern int register_android_os_Binder(JNIEnv* env);
 extern int register_android_os_Process(JNIEnv* env);
@@ -214,7 +211,6 @@ extern int register_com_android_internal_os_ZygoteInit(JNIEnv *env);
 extern int register_com_android_internal_security_VerityUtils(JNIEnv* env);
 extern int register_com_android_internal_util_VirtualRefBasePtr(JNIEnv *env);
 extern int register_android_window_WindowInfosListener(JNIEnv* env);
-extern int register_com_android_internal_app_ActivityTrigger(JNIEnv *env);
 
 // Namespace for Android Runtime flags applied during boot time.
 static const char* RUNTIME_NATIVE_BOOT_NAMESPACE = "runtime_native_boot";
@@ -705,24 +701,17 @@ int AndroidRuntime::startVm(JavaVM** pJavaVM, JNIEnv** pEnv, bool zygote, bool p
 
     // Read if we are using the profile configuration, do this at the start since the last ART args
     // take precedence.
-    std::string profile_boot_class_path_flag =
-            server_configurable_flags::GetServerConfigurableFlag(RUNTIME_NATIVE_BOOT_NAMESPACE,
-                                                                 PROFILE_BOOT_CLASS_PATH,
-                                                                 /*default_value=*/"");
-    bool profile_boot_class_path;
-    switch (ParseBool(profile_boot_class_path_flag)) {
-        case ParseBoolResult::kError:
-            // Default to the system property.
-            profile_boot_class_path =
-                    GetBoolProperty("dalvik.vm.profilebootclasspath", /*default_value=*/false);
-            break;
-        case ParseBoolResult::kTrue:
-            profile_boot_class_path = true;
-            break;
-        case ParseBoolResult::kFalse:
-            profile_boot_class_path = false;
-            break;
+    property_get("dalvik.vm.profilebootclasspath", propBuf, "");
+    std::string profile_boot_class_path_flag = propBuf;
+    // Empty means the property is unset and we should default to the phenotype property.
+    // The possible values are {"true", "false", ""}
+    if (profile_boot_class_path_flag.empty()) {
+        profile_boot_class_path_flag = server_configurable_flags::GetServerConfigurableFlag(
+                RUNTIME_NATIVE_BOOT_NAMESPACE,
+                PROFILE_BOOT_CLASS_PATH,
+                /*default_value=*/ "");
     }
+    const bool profile_boot_class_path = (profile_boot_class_path_flag == "true");
     if (profile_boot_class_path) {
         addOption("-Xcompiler-option");
         addOption("--count-hotness-in-compiled-code");
@@ -1662,7 +1651,6 @@ static const RegJNIRec gRegJNI[] = {
 
         REG_JNI(register_android_animation_PropertyValuesHolder),
         REG_JNI(register_android_security_Scrypt),
-        REG_JNI(register_com_android_internal_app_ActivityTrigger),
         REG_JNI(register_com_android_internal_content_F2fsUtils),
         REG_JNI(register_com_android_internal_content_NativeLibraryHelper),
         REG_JNI(register_com_android_internal_os_FuseAppLoop),

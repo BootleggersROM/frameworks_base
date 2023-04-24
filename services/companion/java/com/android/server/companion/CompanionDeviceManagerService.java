@@ -507,7 +507,7 @@ public class CompanionDeviceManagerService extends SystemService {
 
             final int id = association.getId();
 
-            if (DEBUG) Slog.i(TAG, "Removing inactive self-managed association id=" + id);
+            Slog.i(TAG, "Removing inactive self-managed association id=" + id);
             disassociateInternal(id);
         }
     }
@@ -527,11 +527,9 @@ public class CompanionDeviceManagerService extends SystemService {
         @Override
         public void associate(AssociationRequest request, IAssociationRequestCallback callback,
                 String packageName, int userId) throws RemoteException {
-            if (DEBUG) {
-                Slog.i(TAG, "associate() "
+            Slog.i(TAG, "associate() "
                     + "request=" + request + ", "
                     + "package=u" + userId + "/" + packageName);
-            }
             enforceCallerCanManageAssociationsForPackage(getContext(), userId, packageName,
                     "create associations");
 
@@ -872,7 +870,7 @@ public class CompanionDeviceManagerService extends SystemService {
         final AssociationInfo association = new AssociationInfo(id, userId, packageName,
                 macAddress, displayName, deviceProfile, selfManaged,
                 /* notifyOnDeviceNearby */ false, /* revoked */ false, timestamp, Long.MAX_VALUE);
-        if (DEBUG) Slog.i(TAG, "New CDM association created=" + association);
+        Slog.i(TAG, "New CDM association created=" + association);
         mAssociationStore.addAssociation(association);
 
         // If the "Device Profile" is specified, make the companion application a holder of the
@@ -1217,7 +1215,7 @@ public class CompanionDeviceManagerService extends SystemService {
     }
 
     private void maybeGrantAutoRevokeExemptions() {
-        if (DEBUG) Slog.d(TAG, "maybeGrantAutoRevokeExemptions()");
+        Slog.d(TAG, "maybeGrantAutoRevokeExemptions()");
 
         PackageManager pm = getContext().getPackageManager();
         for (int userId : LocalServices.getService(UserManagerInternal.class).getUserIds()) {

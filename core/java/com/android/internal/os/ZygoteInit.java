@@ -26,6 +26,7 @@ import android.app.ApplicationLoaders;
 import android.compat.annotation.UnsupportedAppUsage;
 import android.content.pm.SharedLibraryInfo;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Environment;
 import android.os.IInstalld;
@@ -101,9 +102,20 @@ public class ZygoteInit {
     private static final String SOCKET_NAME_ARG = "--socket-name=";
 
     /**
+     * Used to pre-load resources.
+     */
+    @UnsupportedAppUsage
+    private static Resources mResources;
+
+    /**
      * The path of a file that contains classes to preload.
      */
     private static final String PRELOADED_CLASSES = "/system/etc/preloaded-classes";
+
+    /**
+     * Controls whether we should preload resources during zygote init.
+     */
+    private static final boolean PRELOAD_RESOURCES = true;
 
     private static final int UNPRIVILEGED_UID = 9999;
     private static final int UNPRIVILEGED_GID = 9999;
@@ -131,7 +143,7 @@ public class ZygoteInit {
         cacheNonBootClasspathClassLoaders();
         bootTimingsTraceLog.traceEnd(); // CacheNonBootClasspathClassLoaders
         bootTimingsTraceLog.traceBegin("PreloadResources");
-        Resources.preloadResources();
+        preloadResources();
         bootTimingsTraceLog.traceEnd(); // PreloadResources
         Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
         nativePreloadAppProcessHALs();
@@ -175,12 +187,6 @@ public class ZygoteInit {
         System.loadLibrary("android");
         System.loadLibrary("compiler_rt");
         System.loadLibrary("jnigraphics");
-
-        try {
-            System.loadLibrary("qti_performance");
-        } catch (UnsatisfiedLinkError e) {
-            Log.e(TAG, "Couldn't load qti_performance");
-        }
     }
 
     native private static void nativePreloadAppProcessHALs();
@@ -230,21 +236,6 @@ public class ZygoteInit {
         Log.i(TAG, "Warmed up JCA providers in "
                 + (SystemClock.uptimeMillis() - startTime) + "ms.");
         Trace.traceEnd(Trace.TRACE_TAG_DALVIK);
-    }
-
-    private static boolean isExperimentEnabled(String experiment) {
-        boolean defaultValue = SystemProperties.getBoolean(
-                "dalvik.vm." + experiment,
-                /*def=*/false);
-        // Can't use device_config since we are the zygote, and it's not initialized at this point.
-        return SystemProperties.getBoolean(
-                "persist.device_config." + DeviceConfig.NAMESPACE_RUNTIME_NATIVE_BOOT
-                        + "." + experiment,
-                defaultValue);
-    }
-
-    /* package-private */ static boolean shouldProfileSystemServer() {
-        return isExperimentEnabled("profilesystemserver");
     }
 
     /**
@@ -350,7 +341,14 @@ public class ZygoteInit {
             // If we are profiling the boot image, reset the Jit counters after preloading the
             // classes. We want to preload for performance, and we can use method counters to
             // infer what clases are used after calling resetJitCounters, for profile purposes.
-            if (isExperimentEnabled("profilebootclasspath")) {
+            // Can't use device_config since we are the zygote.
+            String prop = SystemProperties.get(
+                    "persist.device_config.runtime_native_boot.profilebootclasspath", "");
+            // Might be empty if the property is unset since the default is "".
+            if (prop.length() == 0) {
+                prop = SystemProperties.get("dalvik.vm.profilebootclasspath", "");
+            }
+            if ("true".equals(prop)) {
                 Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "ResetJitCounters");
                 VMRuntime.resetJitCounters();
                 Trace.traceEnd(Trace.TRACE_TAG_DALVIK);
@@ -403,11 +401,102 @@ public class ZygoteInit {
     }
 
     /**
+     * Load in commonly used resources, so they can be shared across processes.
+     *
+     * These tend to be a few Kbytes, but are frequently in the 20-40K range, and occasionally even
+     * larger.
+     */
+    private static void preloadResources() {
+        try {
+            mResources = Resources.getSystem();
+            mResources.startPreloading();
+            if (PRELOAD_RESOURCES) {
+                Log.i(TAG, "Preloading resources...");
+
+                long startTime = SystemClock.uptimeMillis();
+                TypedArray ar = mResources.obtainTypedArray(
+                        com.android.internal.R.array.preloaded_drawables);
+                int N = preloadDrawables(ar);
+                ar.recycle();
+                Log.i(TAG, "...preloaded " + N + " resources in "
+                        + (SystemClock.uptimeMillis() - startTime) + "ms.");
+
+                startTime = SystemClock.uptimeMillis();
+                ar = mResources.obtainTypedArray(
+                        com.android.internal.R.array.preloaded_color_state_lists);
+                N = preloadColorStateLists(ar);
+                ar.recycle();
+                Log.i(TAG, "...preloaded " + N + " resources in "
+                        + (SystemClock.uptimeMillis() - startTime) + "ms.");
+
+                if (mResources.getBoolean(
+                        com.android.internal.R.bool.config_freeformWindowManagement)) {
+                    startTime = SystemClock.uptimeMillis();
+                    ar = mResources.obtainTypedArray(
+                            com.android.internal.R.array.preloaded_freeform_multi_window_drawables);
+                    N = preloadDrawables(ar);
+                    ar.recycle();
+                    Log.i(TAG, "...preloaded " + N + " resource in "
+                            + (SystemClock.uptimeMillis() - startTime) + "ms.");
+                }
+            }
+            mResources.finishPreloading();
+        } catch (RuntimeException e) {
+            Log.w(TAG, "Failure preloading resources", e);
+        }
+    }
+
+    private static int preloadColorStateLists(TypedArray ar) {
+        int N = ar.length();
+        for (int i = 0; i < N; i++) {
+            int id = ar.getResourceId(i, 0);
+
+            if (id != 0) {
+                if (mResources.getColorStateList(id, null) == null) {
+                    throw new IllegalArgumentException(
+                            "Unable to find preloaded color resource #0x"
+                                    + Integer.toHexString(id)
+                                    + " (" + ar.getString(i) + ")");
+                }
+            }
+        }
+        return N;
+    }
+
+
+    private static int preloadDrawables(TypedArray ar) {
+        int N = ar.length();
+        for (int i = 0; i < N; i++) {
+            int id = ar.getResourceId(i, 0);
+
+            if (id != 0) {
+                if (mResources.getDrawable(id, null) == null) {
+                    throw new IllegalArgumentException(
+                            "Unable to find preloaded drawable resource #0x"
+                                    + Integer.toHexString(id)
+                                    + " (" + ar.getString(i) + ")");
+                }
+            }
+        }
+        return N;
+    }
+
+    /**
      * Runs several special GCs to try to clean up a few generations of softly- and final-reachable
      * objects, along with any other garbage. This is only useful just before a fork().
      */
     private static void gcAndFinalize() {
         ZygoteHooks.gcAndFinalize();
+    }
+
+    private static boolean shouldProfileSystemServer() {
+        boolean defaultValue = SystemProperties.getBoolean("dalvik.vm.profilesystemserver",
+                /*default=*/ false);
+        // Can't use DeviceConfig since it's not initialized at this point.
+        return SystemProperties.getBoolean(
+                "persist.device_config." + DeviceConfig.NAMESPACE_RUNTIME_NATIVE_BOOT
+                        + ".profilesystemserver",
+                defaultValue);
     }
 
     /**
@@ -491,13 +580,6 @@ public class ZygoteInit {
      * in the forked system server process in the zygote SELinux domain.
      */
     private static void prefetchStandaloneSystemServerJars() {
-        if (shouldProfileSystemServer()) {
-            // We don't prefetch AOT artifacts if we are profiling system server, as we are going to
-            // JIT it.
-            // This method only gets called from native and should already be skipped if we profile
-            // system server. Still, be robust and check it again.
-            return;
-        }
         String envStr = Os.getenv("STANDALONE_SYSTEMSERVER_JARS");
         if (TextUtils.isEmpty(envStr)) {
             return;

@@ -114,7 +114,4 @@
 
     <!-- Pocket Service -->
     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
-
-    <!-- Boost Framework -->
-    <java-symbol type="bool" name="config_supportsBoostFramework" />
 </resources>

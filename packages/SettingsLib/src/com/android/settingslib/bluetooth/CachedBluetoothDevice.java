@@ -209,7 +209,7 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
 
         synchronized (mProfileLock) {
             if (profile instanceof A2dpProfile || profile instanceof HeadsetProfile
-                    || profile instanceof HearingAidProfile || profile instanceof LeAudioProfile) {
+                    || profile instanceof HearingAidProfile) {
                 setProfileConnectedStatus(profile.getProfileId(), false);
                 switch (newProfileState) {
                     case BluetoothProfile.STATE_CONNECTED:
@@ -227,14 +227,7 @@ public class CachedBluetoothDevice implements Comparable<CachedBluetoothDevice> 
                     case BluetoothProfile.STATE_DISCONNECTED:
                         if (mHandler.hasMessages(profile.getProfileId())) {
                             mHandler.removeMessages(profile.getProfileId());
-                            if (profile.getConnectionPolicy(mDevice) > BluetoothProfile.CONNECTION_POLICY_FORBIDDEN) {
-                                /* If we received state DISCONNECTED and previous state was CONNECTING
-                                * and connection policy is FORBIDDEN or UNKNOWN then it's not really
-                                * a failure to connect.
-                                */
-                                Log.w(TAG, "onProfileStateChanged(): Failed to connect profile");
-                                setProfileConnectedStatus(profile.getProfileId(), true);
-                            }
+                            setProfileConnectedStatus(profile.getProfileId(), true);
                         }
                         break;
                     default:

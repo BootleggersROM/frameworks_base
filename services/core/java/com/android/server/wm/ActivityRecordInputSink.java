@@ -92,7 +92,6 @@ class ActivityRecordInputSink {
         } else {
             mInputWindowHandleWrapper.setInputConfigMasked(0, InputConfig.NOT_TOUCHABLE);
         }
-        mInputWindowHandleWrapper.setDisplayId(mActivityRecord.getDisplayId());
         return mInputWindowHandleWrapper;
     }
 

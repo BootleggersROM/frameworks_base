@@ -1162,11 +1162,6 @@ public final class BroadcastQueue {
                 + ", uid=" + r.callingUid + ") to " + component.flattenToShortString();
     }
 
-    private boolean isBootCompletedIntent(Intent intent) {
-        return intent.getAction() == Intent.ACTION_BOOT_COMPLETED ||
-                intent.getAction() == Intent.ACTION_LOCKED_BOOT_COMPLETED;
-    }
-
     final void processNextBroadcastLocked(boolean fromMsg, boolean skipOomAdj) {
         BroadcastRecord r;
 
@@ -1553,14 +1548,7 @@ public final class BroadcastQueue {
                 info.activityInfo.name);
 
         boolean skip = false;
-        if (isBootCompletedIntent(r.intent) &&
-                mService.shouldSkipBootCompletedBroadcastForPackage(
-                        info.activityInfo.applicationInfo)) {
-            Slog.i(TAG, "BOOT_COMPLETED broadcast skipped because of strict standby for "
-                    + info.activityInfo.applicationInfo.packageName);
-            skip = true;
-        }
-        if (!skip && brOptions != null &&
+        if (brOptions != null &&
                 (info.activityInfo.applicationInfo.targetSdkVersion
                         < brOptions.getMinManifestReceiverApiLevel() ||
                 info.activityInfo.applicationInfo.targetSdkVersion

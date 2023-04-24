@@ -37,7 +37,6 @@ import java.util.Map;
 /** @hide */
 public class ApplicationLoaders {
     private static final String TAG = "ApplicationLoaders";
-    private static final boolean DEBUG = false;
 
     @UnsupportedAppUsage
     public static ApplicationLoaders getDefault() {
@@ -212,7 +211,7 @@ public class ApplicationLoaders {
         cached.loader = classLoader;
         cached.sharedLibraries = sharedLibraries;
 
-        if (DEBUG) Log.d(TAG, "Created zygote-cached class loader: " + path);
+        Log.d(TAG, "Created zygote-cached class loader: " + path);
         mSystemLibsCacheMap.put(path, cached);
     }
 

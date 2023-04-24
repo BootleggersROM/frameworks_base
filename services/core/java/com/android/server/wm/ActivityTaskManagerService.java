@@ -269,7 +269,6 @@ import com.android.server.sdksandbox.SdkSandboxManagerLocal;
 import com.android.server.statusbar.StatusBarManagerInternal;
 import com.android.server.uri.NeededUriGrants;
 import com.android.server.uri.UriGrantsManagerInternal;
-import com.android.server.usage.AppStandbyInternal;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -379,7 +378,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
      * @see WindowManagerThreadPriorityBooster
      */
     final Object mGlobalLockWithoutBoost = mGlobalLock;
-    public ActivityTaskSupervisor mTaskSupervisor;
+    ActivityTaskSupervisor mTaskSupervisor;
     ActivityClientController mActivityClientController;
     RootWindowContainer mRootWindowContainer;
     WindowManagerService mWindowManager;
@@ -781,8 +780,6 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
 
     private int mDeviceOwnerUid = Process.INVALID_UID;
 
-    public AppStandbyInternal mAppStandbyInternal;
-
     private final class SettingObserver extends ContentObserver {
         private final Uri mFontScaleUri = Settings.System.getUriFor(FONT_SCALE);
         private final Uri mHideErrorDialogsUri = Settings.Global.getUriFor(HIDE_ERROR_DIALOGS);
@@ -866,7 +863,6 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
             mTaskSupervisor.onSystemReady();
             mActivityClientController.onSystemReady();
         }
-        mAppStandbyInternal = LocalServices.getService(AppStandbyInternal.class);
     }
 
     public void onInitPowerManagement() {
@@ -3572,7 +3568,7 @@ public class ActivityTaskManagerService extends IActivityTaskManager.Stub {
                         null /* launchIntoPipHostActivity */, "enterPictureInPictureMode",
                         transition);
                 // Continue the pausing process after entering pip.
-                if (r.isState(PAUSING) && r.mPauseSchedulePendingForPip) {
+                if (r.isState(PAUSING)) {
                     r.getTask().schedulePauseActivity(r, false /* userLeaving */,
                             false /* pauseImmediately */, true /* autoEnteringPip */, "auto-pip");
                 }

@@ -82,7 +82,6 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
     private final String mNetworkNameDefault;
     private final String mNetworkNameSeparator;
     private final ContentObserver mObserver;
-    private final Handler mHandler = new Handler();
     // Save entire info for logging, we only use the id.
     final SubscriptionInfo mSubscriptionInfo;
     private Map<String, MobileIconGroup> mNetworkToIconLookup;
@@ -400,7 +399,6 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
 
     @Override
     public void notifyListeners(SignalCallback callback) {
-        mHandler.post(() -> {
         // If the device is on carrier merged WiFi, we should let WifiSignalController to control
         // the SysUI states.
         if (mNetworkController.isCarrierMergedWifi(mSubscriptionInfo.getSubscriptionId())) {
@@ -439,7 +437,6 @@ public class MobileSignalController extends SignalController<MobileState, Mobile
                 sbInfo.showTriangle,
                 mCurrentState.isDefault);
         callback.setMobileDataIndicators(mobileDataIndicators);
-        });
     }
 
     private QsInfo getQsInfo(String contentDescription, int dataTypeIcon) {

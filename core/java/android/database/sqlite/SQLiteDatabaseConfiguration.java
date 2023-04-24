@@ -299,7 +299,7 @@ public final class SQLiteDatabaseConfiguration {
             if (isLegacyCompatibilityWalEnabled()) {
                 return SQLiteCompatibilityWalFlags.getWALSyncMode();
             } else {
-                return SQLiteGlobal.getWALSyncMode();
+                return SQLiteGlobal.getDefaultSyncMode();
             }
         } else {
             return SQLiteGlobal.getDefaultSyncMode();
