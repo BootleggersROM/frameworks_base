@@ -1498,7 +1498,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
         PackageManagerService m = new PackageManagerService(injector, onlyCore, factoryTest,
                 String.valueOf(Build.TIME), Build.IS_ENG, Build.IS_USERDEBUG, Build.VERSION.SDK_INT,
-                Build.FINGERPRINT);
+                Build.VERSION.INCREMENTAL);
         t.traceEnd(); // "create package manager"
 
         final CompatChange.ChangeListener selinuxChangeListener = packageName -> {
