@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot_recovery">Gendannelse</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="keyguard_plugged_in_dash_charging">Hurtig Opladning</string>
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein fra</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine til</string>
+    <string name="force_stop_dlg_title">Tving til at standse?</string>
+    <string name="force_stop_dlg_text">Hvis du tvinger en app til at stoppe, kan det medføre, at den ikke fungerer korrekt.</string>
+    <string name="omnijaws_service_error">Fejl</string>
+    <string name="omnijaws_service_unkown">Ingen vejrdata</string>
+    <string name="omnijaws_service_error_long">Fejl ved indlæsningen af vejrdata</string>
+    <string name="omnijaws_service_disabled">Tjenesten er deaktiveret</string>
+    <string name="omnijaws_detail_header">Vejr</string>
+    <string name="omnijaws_label_default">Vejr</string>
+    <string name="omnijaws_current_text">Nu</string>
+    <string name="omnijaws_package_not_available">OmniJaws er ikke tilgængelig</string>
+    <string name="omnijaws_service_last_update">Seneste opdatering:</string>
+    <string name="quick_settings_heads_up_label">Svævende meddelelse</string>
+    <string name="accessibility_quick_settings_heads_up_off">Svævende meddelelser fra.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Svævende meddelelser til.</string>
+</resources>

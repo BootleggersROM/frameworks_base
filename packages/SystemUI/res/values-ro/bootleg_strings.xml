@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Repornește</string>
+    <string name="global_action_reboot_sub">Sistem</string>
+    <string name="global_action_reboot_recovery">Recuperare</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Interfața sistem</string>
+    <string name="global_action_settings">Configurări</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare Rapidă (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> până la finalizare)</string>
+    <string name="keyguard_plugged_in_dash_charging">Încărcare rapidă</string>
+    <string name="status_bar_icons">Pictograme bară de stare</string>
+    <string name="status_bar_roaming">Indicator roaming</string>
+    <string name="quick_settings_caffeine_label">Cafeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cofeina oprită</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cofeina pornită</string>
+    <string name="quick_settings_smart_pixels">Pixeli inteligenți</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto-activare pixeli inteligenți</string>
+    <string name="force_stop_dlg_title">Oprește forțat?</string>
+    <string name="force_stop_dlg_text">Dacă oprești forțat o aplicație ar putea apărea erori.</string>
+    <string name="quick_settings_cpuinfo_label">Informații Cpu</string>
+    <string name="quick_settings_compass_label">Busolă</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Pornire\u2026</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">E</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <string name="omnijaws_service_error">Eroare</string>
+    <string name="omnijaws_service_unkown">Lipsă date metereologice</string>
+    <string name="omnijaws_service_error_long">Eroare date metereologice</string>
+    <string name="omnijaws_service_disabled">Serviciu dezactivat</string>
+    <string name="omnijaws_detail_header">Vreme</string>
+    <string name="omnijaws_label_default">Vreme</string>
+    <string name="omnijaws_current_text">Acum</string>
+    <string name="omnijaws_package_not_available">OmniJaws indisponibil</string>
+    <string name="omnijaws_service_last_update">Ultima actualizare:</string>
+    <string name="quick_settings_heads_up_label">Atenționare</string>
+    <string name="accessibility_quick_settings_heads_up_off">Atenționare oprită.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Atenționare pornită.</string>
+</resources>

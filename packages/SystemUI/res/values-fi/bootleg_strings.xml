@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Käynnistä uudelleen</string>
+    <string name="global_action_reboot_recovery">Palautustila</string>
+    <string name="global_action_reboot_bootloader">Käynnistyslataus</string>
+    <string name="global_action_reboot_systemui">Käyttöliittymä</string>
+    <string name="global_action_settings">Asetukset</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Lataus</string>
+    <string name="quick_settings_caffeine_label">Kofeiini</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeiini pois</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeiini päälle</string>
+    <string name="force_stop_dlg_title">Pakota lopetus?</string>
+    <string name="force_stop_dlg_text">Jos pakotat sovelluksen pysähtymään, se saattaa alkaa toimia virheellisesti.</string>
+    <string name="omnijaws_service_error">Virhe</string>
+    <string name="omnijaws_service_unkown">Ei säätietoja</string>
+    <string name="omnijaws_service_error_long">Virhe ladattaessa säätietoja</string>
+    <string name="omnijaws_service_disabled">Palvelu poistettu käytöstä</string>
+    <string name="omnijaws_detail_header">Sää</string>
+    <string name="omnijaws_label_default">Sää</string>
+    <string name="omnijaws_current_text">Nyt</string>
+    <string name="omnijaws_package_not_available">OmniJaws ei ole saatavilla</string>
+    <string name="omnijaws_service_last_update">Viimeisin päivitys:</string>
+    <string name="quick_settings_heads_up_label">Leijuvat ilmoitukset</string>
+    <string name="accessibility_quick_settings_heads_up_off">Leijuvat ilmoitukset pois.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Leijuvat ilmoitukset päällä.</string>
+</resources>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+**
+** Copyright 2022, Bootleggers
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="face_unlock_disabled_idle">因為無活動，人臉解鎖已停用</string>
+    <string name="reboot_to_bootloader_title">重新啟動至 Bootloader 模式</string>
+    <string name="reboot_to_bootloader_message">正在重啟至 Bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">重新啟動至 Recovery 模式</string>
+    <string name="reboot_to_recovery_message">正在重啟至 Recovery\u2026</string>
+    <string name="reboot_system_title">重啟系統</string>
+    <string name="reboot_system_message">正在重啟系統\u2026</string>
+    <string name="unlock_application">解鎖 <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <string name="pocket_lock_message_long_press">長按電源鍵以解鎖</string>
+    <string name="pocket_view_title">口袋防誤觸模式已開啟</string>
+    <string name="pocket_view_title_cancel">若要使用您的手機：</string>
+    <string name="pocket_view_top_tag_cancel">檢查手機的藍色區域是否被遮擋，並清除所有污垢或灰塵。</string>
+    <string name="pocket_view_top_tag_cancel2">長按電源鍵強制退出口袋防誤觸模式</string>
+</resources>

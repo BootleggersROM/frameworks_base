@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Επανεκκίνηση</string>
+    <string name="global_action_reboot_recovery">Ανάκτηση</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Σύστημα UI</string>
+    <string name="global_action_settings">Ρυθμίσεις</string>
+    <string name="keyguard_plugged_in_dash_charging">Ταχεία Φόρτιση</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="force_stop_dlg_title">Αναγκαστική διακοπή;</string>
+    <string name="force_stop_dlg_text">Αν επιβάλετε τη διακοπή μιας εφαρμογής, ενδέχεται να μην λειτουργήσει σωστά.</string>
+    <string name="omnijaws_service_error">Σφάλμα</string>
+    <string name="omnijaws_service_unkown">Δεν υπάρχουν δεδομένα καιρού</string>
+    <string name="omnijaws_service_error_long">Σφάλμα κατά τη φόρτωση δεδομένων καιρού</string>
+    <string name="omnijaws_service_disabled">Η υπηρεσία είναι ανενεργή</string>
+    <string name="omnijaws_detail_header">Καιρός</string>
+    <string name="omnijaws_label_default">Καιρός</string>
+    <string name="omnijaws_current_text">Τώρα</string>
+    <string name="omnijaws_package_not_available">Το OmniJaws δεν είναι διαθέσιμο</string>
+    <string name="omnijaws_service_last_update">Τελευταία ενημέρωση:</string>
+    <string name="quick_settings_heads_up_label">Αναδυόμενες ειδοποιήσεις</string>
+    <string name="accessibility_quick_settings_heads_up_off">Αναδυόμενες ειδοποιήσεις ανενεργές.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Αναδυόμενες ειδοποιήσεις ενεργές.</string>
+</resources>

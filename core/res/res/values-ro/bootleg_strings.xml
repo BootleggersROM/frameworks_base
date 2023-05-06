@@ -17,11 +17,11 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="reboot_to_bootloader_title">Neustart in Bootloader</string>
-    <string name="reboot_to_bootloader_message">Neustart in Bootloader\u2026</string>
-    <string name="reboot_to_recovery_title">Neustart ins Recovery</string>
-    <string name="reboot_to_recovery_message">Neustart ins Recovery\u2026</string>
-    <string name="reboot_system_title">System neustarten</string>
-    <string name="reboot_system_message">System wird neugestartet\u2026</string>
+    <string name="reboot_to_bootloader_title">Reporniţi în modul bootloader</string>
+    <string name="reboot_to_bootloader_message">Se repornește în modul bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Reporniţi în modul recuperare</string>
+    <string name="reboot_to_recovery_message">Se repornește în modul recuperare\u2026</string>
+    <string name="reboot_system_title">Repornește sistemul</string>
+    <string name="reboot_system_message">Se repornește sistemul\u2026</string>
     <string name="parallel_space_badge_label">%1$s</string>
 </resources>

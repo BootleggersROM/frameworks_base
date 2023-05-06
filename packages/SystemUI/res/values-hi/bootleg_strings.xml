@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">पुन: शुरू करें</string>
+    <string name="global_action_reboot_recovery">रिकवरी</string>
+    <string name="global_action_reboot_bootloader">बूटलोडर</string>
+    <string name="global_action_reboot_systemui">सिस्टम यूआई</string>
+    <string name="global_action_settings">सेटिंग्स</string>
+    <string name="keyguard_plugged_in_dash_charging">डैश चार्जिंग</string>
+    <string name="status_bar_roaming">रोमिंग सूचक</string>
+    <string name="quick_settings_caffeine_label">कैफीन</string>
+    <string name="accessibility_quick_settings_caffeine_off">कैफीन बंद</string>
+    <string name="accessibility_quick_settings_caffeine_on">कैफीन चालू</string>
+    <string name="force_stop_dlg_title">बलपूर्वक रोके?</string>
+    <string name="force_stop_dlg_text">यदि आप कोई ऍप जबरदस्ती बंद करते हे, तो वो दुर्व्यवहार कर सकता हे|</string>
+    <string name="omnijaws_service_error">एरर!</string>
+    <string name="omnijaws_service_unkown">मौसम के बारे में जानकारी उपलब्ध नहीं|</string>
+    <string name="omnijaws_service_error_long">मौसम की जानकारी अभी उप्लब्ध नही हें</string>
+    <string name="omnijaws_service_disabled">सेवा अक्षम है</string>
+    <string name="omnijaws_detail_header">मौसम</string>
+    <string name="omnijaws_label_default">मौसम</string>
+    <string name="omnijaws_current_text">अभी</string>
+    <string name="omnijaws_package_not_available">ओमनीजौज़ उपलब्ध नहीं है।</string>
+    <string name="omnijaws_service_last_update">अंतिम अद्यतन</string>
+    <string name="quick_settings_heads_up_label">संकेत</string>
+    <string name="accessibility_quick_settings_heads_up_off">संकेत बंद</string>
+    <string name="accessibility_quick_settings_heads_up_on">संकेत चालु</string>
+</resources>

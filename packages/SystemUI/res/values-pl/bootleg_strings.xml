@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Uruchom ponownie</string>
+    <string name="global_action_reboot_sub">System</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Tryb Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="global_action_settings">Ustawienia</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Szybkie Ładowanie (<xliff:g id="charging_time_left" example="4 godziny i 2 minuty">%s</xliff:g> do naładowania)</string>
+    <string name="keyguard_plugged_in_dash_charging">Ładowanie Dash</string>
+    <string name="status_bar_icons">Ikony paska stanu</string>
+    <string name="status_bar_roaming">Wskaźnik roamingu</string>
+    <string name="quick_settings_caffeine_label">Kofeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofeina wył.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofeina wł.</string>
+    <string name="quick_settings_smart_pixels">Smart piksele</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Automatyczne włączanie Inteligentnych pikseli</string>
+    <string name="force_stop_dlg_title">Wymuszone wyłączenie?</string>
+    <string name="force_stop_dlg_text">Jeśli wymusisz zatrzymanie aplikacji, może ona działać nieprawidłowo.</string>
+    <string name="quick_settings_cpuinfo_label">Informacje o CPU</string>
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="stopnie">%1$.0f</xliff:g>\u00b0 <xliff:g id="kierunek">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Rozpoczynanie\u2026</string>
+    <string name="quick_settings_compass_N">Pn.</string>
+    <string name="quick_settings_compass_NE">Pn.-Wsch.</string>
+    <string name="quick_settings_compass_E">Wsch.</string>
+    <string name="quick_settings_compass_SE">Pd.-Wsch.</string>
+    <string name="quick_settings_compass_S">Płd.</string>
+    <string name="quick_settings_compass_SW">Pd.-Zach.</string>
+    <string name="quick_settings_compass_W">Zach.</string>
+    <string name="quick_settings_compass_NW">Pn.-Zach.</string>
+    <string name="omnijaws_service_error">Wystąpił błąd</string>
+    <string name="omnijaws_service_unkown">Brak danych o pogodzie</string>
+    <string name="omnijaws_service_error_long">Błąd podczas ładowania danych o pogodzie</string>
+    <string name="omnijaws_service_disabled">Usługa wyłączona</string>
+    <string name="omnijaws_detail_header">Pogoda</string>
+    <string name="omnijaws_label_default">Pogoda</string>
+    <string name="omnijaws_current_text">Teraz</string>
+    <string name="omnijaws_package_not_available">OmniJaws nie jest dostępny</string>
+    <string name="omnijaws_service_last_update">Ostatnia aktualizacja:</string>
+    <string name="quick_settings_heads_up_label">Wyskakujące powiadomienia</string>
+    <string name="accessibility_quick_settings_heads_up_off">Wyskakujące powiadomienia wył.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Wyskakujące powiadomienia wł.</string>
+</resources>

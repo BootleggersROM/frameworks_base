@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">إعادة تشغيل</string>
+    <string name="global_action_reboot_sub">النظام</string>
+    <string name="global_action_reboot_recovery">الإسترداد</string>
+    <string name="global_action_reboot_bootloader">محمل الاقلاع</string>
+    <string name="global_action_reboot_systemui">واجهة النظام</string>
+    <string name="global_action_settings">الإعدادات</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_dash_charging">الشحن فائق السرعة</string>
+    <string name="status_bar_icons">رموز شريط الحالة</string>
+    <string name="status_bar_roaming">مؤشر التجوال</string>
+    <string name="quick_settings_caffeine_label">وضع الكافيين</string>
+    <string name="accessibility_quick_settings_caffeine_off">كافيين معطل</string>
+    <string name="accessibility_quick_settings_caffeine_on">كافيين مفعل</string>
+    <string name="quick_settings_smart_pixels">الدقة الذكية</string>
+    <string name="quick_settings_smart_pixels_on_power_save">تمكين الدقة الذكية تلقائياً</string>
+    <string name="force_stop_dlg_title">إيقاف إجباري؟</string>
+    <string name="force_stop_dlg_text">في حالة فرض إيقاف التطبيق، ربما لا يعمل بشكل صحيح.</string>
+    <string name="quick_settings_cpuinfo_label">معلومات المعالج</string>
+    <string name="quick_settings_compass_label">البوصلة</string>
+    <string name="quick_settings_compass_value"><xliff:g id="درجات">%1$.0f</xliff:g>\u00b0 <xliff:g id="الإتجاه">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">جار التهيئة</string>
+    <string name="quick_settings_compass_N">شمال</string>
+    <string name="quick_settings_compass_NE">شمال شرق</string>
+    <string name="quick_settings_compass_E">شرق</string>
+    <string name="quick_settings_compass_SE">جنوب شرق</string>
+    <string name="quick_settings_compass_S">جنوب</string>
+    <string name="quick_settings_compass_SW">جنوب غرب</string>
+    <string name="quick_settings_compass_W">غرب</string>
+    <string name="quick_settings_compass_NW">شمال غرب</string>
+    <string name="omnijaws_service_error">خطأ</string>
+    <string name="omnijaws_service_unkown">لا يوجد بيانات الطقس</string>
+    <string name="omnijaws_service_error_long">خطأ في تحميل بيانات الطقس</string>
+    <string name="omnijaws_service_disabled">الخدمة معطّلة</string>
+    <string name="omnijaws_detail_header">الطقس</string>
+    <string name="omnijaws_label_default">الطقس</string>
+    <string name="omnijaws_current_text">الآن</string>
+    <string name="omnijaws_package_not_available">OmniJaws غير متاح</string>
+    <string name="omnijaws_service_last_update">آخر تحديث:</string>
+    <string name="quick_settings_heads_up_label">الإشعارات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">الإشعارات العلوية متوقفة.</string>
+    <string name="accessibility_quick_settings_heads_up_on">الإشعارات العلوية تعمل.</string>
+</resources>

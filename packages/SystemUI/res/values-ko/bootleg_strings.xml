@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">다시 시작</string>
+    <string name="global_action_reboot_recovery">복구 모드</string>
+    <string name="global_action_reboot_bootloader">부트로더</string>
+    <string name="global_action_reboot_systemui">시스템UI</string>
+    <string name="global_action_settings">설정</string>
+    <string name="keyguard_plugged_in_dash_charging">고속 충전중</string>
+    <string name="quick_settings_caffeine_label">카페인</string>
+    <string name="accessibility_quick_settings_caffeine_off">카페인 꺼짐</string>
+    <string name="accessibility_quick_settings_caffeine_on">카페인 켜짐</string>
+    <string name="force_stop_dlg_title">강제로 종료하시겠습니까?</string>
+    <string name="force_stop_dlg_text">강제로 앱을 종료하면 예기치 않은 오류가 발생할 수 있습니다.</string>
+    <string name="omnijaws_service_error">오류</string>
+    <string name="omnijaws_service_unkown">날씨 정보 없음</string>
+    <string name="omnijaws_service_error_long">날씨 정보 불러오기 오류</string>
+    <string name="omnijaws_service_disabled">서비스 사용 중지됨</string>
+    <string name="omnijaws_detail_header">날씨</string>
+    <string name="omnijaws_label_default">날씨</string>
+    <string name="omnijaws_current_text">지금</string>
+    <string name="omnijaws_package_not_available">OmniJaws를 사용할 수 없음</string>
+    <string name="omnijaws_service_last_update">- 마지막 업데이트:</string>
+    <string name="quick_settings_heads_up_label">헤드업 알림</string>
+    <string name="accessibility_quick_settings_heads_up_off">헤드 업 알림 꺼짐</string>
+    <string name="accessibility_quick_settings_heads_up_on">헤드 업 알림 켜짐</string>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Khởi động lại</string>
+    <string name="global_action_reboot_more">Đang khởi động lại\u2026</string>
+    <string name="global_action_reboot_sub">Hệ thống</string>
+    <string name="global_action_reboot_recovery">Chế độ phục hồi</string>
+    <string name="global_action_reboot_bootloader">Trình nạp khởi động</string>
+    <string name="global_action_reboot_systemui">Giao diện người dùng hệ thống</string>
+    <string name="global_action_settings">Cài đặt</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc nhanh (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> đến khi đầy)</string>
+    <string name="keyguard_plugged_in_dash_charging">Đang sạc nhanh</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc nhanh(<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> cho đến đầyl)</string>
+    <string name="keyguard_plugged_in_warp_charging">Sạc nhanh Warp</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh VOOC (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Sạc nhanh VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh (<xliff:g id="charging_time_left" example="4 tiếng và 2 phút">%1$s</xliff:g> đến khi đầy)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Đang sạc siêu nhanh</string>
+    <string name="tap_to_add_tiles">Nhấn vào ô để thêm hoặc xóa</string>
+    <string name="face_unlock_recognizing">Đang nhận diện khuôn mặt...</string>
+    <string name="status_bar_icons">Biểu tượng thanh trạng thái</string>
+    <string name="status_bar_roaming">Hiển thị chỉ báo chuyển vùng</string>
+    <string name="status_bar_data_saver">Tiết kiệm dữ liệu</string>
+    <string name="usage_data">đã dùng hôm nay</string>
+    <string name="usage_data_default_suffix">Dữ liệu</string>
+    <string name="usage_wifi_default_suffix">Wifi</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Tắt Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_on">Bật Caffeine</string>
+    <string name="screenrecord_stopdot_label">Hiển thị nút dừng</string>
+    <string name="screenrecord_stopdot_summary">Chạm và giữ để di chuyển</string>
+    <string name="screenrecord_lowquality_label">Chất lượng thấp cho dung lượng nhỏ hơn</string>
+    <string name="screenrecord_lowquality_summary">Cho kích thước tập tin nhỏ hơn</string>
+    <string name="screenrecord_longer_timeout_switch_label">Giới hạn kích thước tệp lớn hơn</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Giới hạn cỡ ghi ở 15 GB</string>
+    <string name="screenrecord_skip_time_label">Bỏ qua bộ đếm</string>
+    <string name="screenrecord_skip_time_summary">Loại bỏ 3 giây chờ</string>
+    <string name="quick_settings_smart_pixels">Điểm ảnh thông minh</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Tự động bật Điểm ảnh thông minh</string>
+    <string name="force_stop_dlg_title">Buộc dừng?</string>
+    <string name="force_stop_dlg_text">Nếu bạn buộc dừng ứng dụng, nó có thể hoạt động không ổn định.</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="quick_settings_cpuinfo_label">Thông tin CPU</string>
+    <string name="quick_settings_compass_label">La bàn</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Đang khởi tạo\u2026</string>
+    <string name="quick_settings_compass_N">B</string>
+    <string name="quick_settings_compass_NE">ĐB</string>
+    <string name="quick_settings_compass_E">Đ</string>
+    <string name="quick_settings_compass_SE">ĐN</string>
+    <string name="quick_settings_compass_S">N</string>
+    <string name="quick_settings_compass_SW">TN</string>
+    <string name="quick_settings_compass_W">T</string>
+    <string name="quick_settings_compass_NW">TB</string>
+    <string name="qs_data_switch_label">Chuyển Sim dữ liệu</string>
+    <string name="omnijaws_service_error">Lỗi</string>
+    <string name="omnijaws_service_unkown">Không có dữ liệu thời tiết</string>
+    <string name="omnijaws_service_error_long">Lỗi khi tải dữ liệu thời tiết</string>
+    <string name="omnijaws_service_disabled">Dịch vụ đã bị tắt</string>
+    <string name="omnijaws_detail_header">Thời tiết</string>
+    <string name="omnijaws_label_default">Thời tiết</string>
+    <string name="omnijaws_current_text">Bây giờ</string>
+    <string name="omnijaws_package_not_available">OmniJaws không có sẵn</string>
+    <string name="omnijaws_service_last_update">Cập nhật lần cuối:</string>
+    <string name="quick_settings_heads_up_label">Thông báo nổi</string>
+    <string name="accessibility_quick_settings_heads_up_off">Thông báo nổi đã tắt.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Thông báo nổi đã bật.</string>
+    <string name="bluetooth_is_off">Bluetooth đang tắt</string>
+    <string name="tap_a_device_to_connect">Nhấn vào một thiết bị để kết nối</string>
+</resources>

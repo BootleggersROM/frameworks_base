@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Ponovo pokreni</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="global_action_settings">Postavke</string>
+    <string name="keyguard_plugged_in_dash_charging">Brzo punjenje</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein je isključen</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein je uključen</string>
+    <string name="force_stop_dlg_title">Prisilno zaustaviti?</string>
+    <string name="force_stop_dlg_text">Ako prisilno zaustavite aplikaciju, može se čudno ponašati.</string>
+    <string name="omnijaws_service_error">Pogreška</string>
+    <string name="omnijaws_service_unkown">Nema podataka o vremenu</string>
+    <string name="omnijaws_service_error_long">Greška pri učitavanju podataka o vremenu</string>
+    <string name="omnijaws_service_disabled">Usluga je onemogućena</string>
+    <string name="omnijaws_detail_header">Vrijeme</string>
+    <string name="omnijaws_label_default">Vrijeme</string>
+    <string name="omnijaws_current_text">Sada</string>
+    <string name="omnijaws_package_not_available">OmniJaws nije dostupan</string>
+    <string name="omnijaws_service_last_update">Posljednje ažuriranje:</string>
+    <string name="quick_settings_heads_up_label">Plutajuće obavijesti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plutajuće obavijesti isključene.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plutajuće obavijesti uključene.</string>
+</resources>

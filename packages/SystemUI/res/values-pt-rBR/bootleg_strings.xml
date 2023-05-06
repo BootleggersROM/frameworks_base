@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">Reiniciar</string>
+    <string name="global_action_reboot_more">Reiniciando\u2026</string>
+    <string name="global_action_reboot_sub">Sistema</string>
+    <string name="global_action_reboot_recovery">TWRP</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Interface do sistema</string>
+    <string name="global_action_settings">Configurações</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até estar cheio)</string>
+    <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até completar a carga)</string>
+    <string name="keyguard_plugged_in_warp_charging">Carregamento Rápido</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até completar a carga)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Carregamento rápido</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Super rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Carregamento Super rápido</string>
+    <string name="tap_to_add_tiles">Toque nos blocos para adicionar ou remover</string>
+    <string name="face_unlock_recognizing">Reconhecendo rosto...</string>
+    <string name="status_bar_icons">Ícones da barra de status</string>
+    <string name="status_bar_roaming">Indicador de roaming</string>
+    <string name="status_bar_data_saver">Economia de dados</string>
+    <string name="usage_data">usado hoje</string>
+    <string name="usage_data_default_suffix">Dados</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desligada</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína ligada</string>
+    <string name="screenrecord_stopdot_label">Mostrar ponto de parar gravação</string>
+    <string name="screenrecord_stopdot_summary">Pressione e segure para movê-lo</string>
+    <string name="screenrecord_lowquality_label">Qualidade mais baixa</string>
+    <string name="screenrecord_lowquality_summary">Para gerar arquivos menores</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite de tamanho de arquivo maior</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limite o tamanho da gravação para 15 GB</string>
+    <string name="screenrecord_skip_time_label">Pular timer</string>
+    <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
+    <string name="quick_settings_smart_pixels">Pixels Inteligentes</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto-ativação dos Smart Pixels</string>
+    <string name="force_stop_dlg_title">Forçar parada?</string>
+    <string name="force_stop_dlg_text">Se você forçar a parada de um app, ele pode apresentar mau funcionamento.</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="quick_settings_cpuinfo_label">Informação da CPU</string>
+    <string name="quick_settings_compass_label">Bússola</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Inicializando\u2026</string>
+    <string name="quick_settings_compass_N">N</string>
+    <string name="quick_settings_compass_NE">NE</string>
+    <string name="quick_settings_compass_E">L</string>
+    <string name="quick_settings_compass_SE">SE</string>
+    <string name="quick_settings_compass_S">S</string>
+    <string name="quick_settings_compass_SW">SW</string>
+    <string name="quick_settings_compass_W">W</string>
+    <string name="quick_settings_compass_NW">NW</string>
+    <string name="qs_data_switch_label">Trocar cartão de dados</string>
+    <string name="omnijaws_service_error">Erro</string>
+    <string name="omnijaws_service_unkown">Sem informações do clima</string>
+    <string name="omnijaws_service_error_long">Erro ao carregar as informações do clima</string>
+    <string name="omnijaws_service_disabled">Serviço desabilitado</string>
+    <string name="omnijaws_detail_header">Clima</string>
+    <string name="omnijaws_label_default">Clima</string>
+    <string name="omnijaws_current_text">Agora</string>
+    <string name="omnijaws_package_not_available">OmniJaws não disponível</string>
+    <string name="omnijaws_service_last_update">Última atualização:</string>
+    <string name="quick_settings_heads_up_label">Notificações pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas.</string>
+    <string name="bluetooth_is_off">O Bluetooth está desligado</string>
+    <string name="tap_a_device_to_connect">Toque em um dispositivo para conectar</string>
+</resources>

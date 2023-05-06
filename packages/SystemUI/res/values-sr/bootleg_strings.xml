@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot_recovery">Режим опоравка</string>
+    <string name="global_action_reboot_bootloader">Боотлоадер</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash пуњење</string>
+    <string name="quick_settings_caffeine_label">Кофеин</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеин је искључен</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеин је укључен</string>
+    <string name="omnijaws_service_error">Грешка</string>
+    <string name="omnijaws_detail_header">Време</string>
+    <string name="omnijaws_label_default">Време</string>
+</resources>

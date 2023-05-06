@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot">重新启动</string>
+    <string name="global_action_reboot_more">重新启动\u2026</string>
+    <string name="global_action_reboot_sub">系统</string>
+    <string name="global_action_reboot_recovery">恢复模式</string>
+    <string name="global_action_reboot_bootloader">引导模式</string>
+    <string name="global_action_reboot_systemui">系统界面</string>
+    <string name="global_action_settings">设置</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • 正在快速充电 (还需 <xliff:g id="charging_time_left">%s</xliff:g>充满)</string>
+    <string name="keyguard_plugged_in_dash_charging">正在快速充电</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp 闪充中 (还需<xliff:g id="charging_time_left">%s</xliff:g> 后充满)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp 闪充</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC 闪充</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart 闪充中 (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> 后充满)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart 闪充</string>
+    <string name="tap_to_add_tiles">点按图块即可添加或移除</string>
+    <string name="face_unlock_recognizing">正在识别面部...</string>
+    <string name="status_bar_icons">状态栏图标</string>
+    <string name="status_bar_roaming">漫游指示器</string>
+    <string name="status_bar_data_saver">流量节省程序</string>
+    <string name="usage_data">今日已用</string>
+    <string name="usage_data_default_suffix">移动数据</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="quick_settings_caffeine_label">保持亮屏</string>
+    <string name="accessibility_quick_settings_caffeine_off">保持亮屏已关闭</string>
+    <string name="accessibility_quick_settings_caffeine_on">保持亮屏已开启</string>
+    <string name="screenrecord_stopdot_label">显示停止圆点</string>
+    <string name="screenrecord_stopdot_summary">长按移动</string>
+    <string name="screenrecord_lowquality_label">低画质</string>
+    <string name="screenrecord_lowquality_summary">压缩录屏文件</string>
+    <string name="screenrecord_longer_timeout_switch_label">更大的文件大小限制</string>
+    <string name="screenrecord_longer_timeout_switch_summary">限制录屏文件大小为 15GB</string>
+    <string name="screenrecord_skip_time_label">跳过倒计时</string>
+    <string name="screenrecord_skip_time_summary">移除 3 秒等待</string>
+    <string name="quick_settings_smart_pixels">智能像素</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自动启用智能像素</string>
+    <string name="force_stop_dlg_title">强制停止？</string>
+    <string name="force_stop_dlg_text">强行停止某个应用可能会导致其出现异常。</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="quick_settings_cpuinfo_label">CPU 信息</string>
+    <string name="quick_settings_compass_label">指南针</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">正在初始化\u2026</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">东北</string>
+    <string name="quick_settings_compass_E">东</string>
+    <string name="quick_settings_compass_SE">东南</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">西南</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">西北</string>
+    <string name="qs_data_switch_label">切换移动数据卡</string>
+    <string name="omnijaws_service_error">错误</string>
+    <string name="omnijaws_service_unkown">没有天气数据</string>
+    <string name="omnijaws_service_error_long">加载天气数据时出错</string>
+    <string name="omnijaws_service_disabled">服务已禁用</string>
+    <string name="omnijaws_detail_header">天气</string>
+    <string name="omnijaws_label_default">天气</string>
+    <string name="omnijaws_current_text">现在</string>
+    <string name="omnijaws_package_not_available">OmniJaws 不可用</string>
+    <string name="omnijaws_service_last_update">最近更新:</string>
+    <string name="quick_settings_heads_up_label">浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">关闭浮动通知</string>
+    <string name="accessibility_quick_settings_heads_up_on">启用浮动通知</string>
+    <string name="bluetooth_is_off">蓝牙已关闭</string>
+    <string name="tap_a_device_to_connect">点击要连接的设备</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="global_action_reboot_recovery">மீட்பு (ரெகவரி)</string>
+    <string name="global_action_reboot_bootloader">பூட் லோடர்</string>
+    <string name="global_action_reboot_systemui">சிஸ்டம்Ui</string>
+    <string name="keyguard_plugged_in_dash_charging">டாஷ் சார்ஜிங்</string>
+    <string name="quick_settings_caffeine_label">காஃபின்</string>
+    <string name="accessibility_quick_settings_caffeine_off">காஃபின் ஆஃப்</string>
+    <string name="accessibility_quick_settings_caffeine_on">காஃபின்யயை செயல்படுத்து</string>
+    <string name="quick_settings_heads_up_label">ஹெட்ஸ் அப்</string>
+    <string name="accessibility_quick_settings_heads_up_off">ஹெட்ஸ் அப் ஆஃப்செய்.</string>
+    <string name="accessibility_quick_settings_heads_up_on">ஹெட்ஸ் அப் ஆன்செய்.</string>
+</resources>
