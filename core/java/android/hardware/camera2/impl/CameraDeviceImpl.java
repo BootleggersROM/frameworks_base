@@ -89,7 +89,7 @@ public class CameraDeviceImpl extends CameraDevice
     private final boolean DEBUG = false;
 
     private static final int REQUEST_ID_NONE = -1;
-
+    private int customOpMode = 0;
     // TODO: guard every function with if (!mRemoteDevice) check (if it was closed)
     private ICameraDeviceUserWrapper mRemoteDevice;
 
@@ -396,6 +396,10 @@ public class CameraDeviceImpl extends CameraDevice
         }
     }
 
+    public void setVendorStreamConfigMode(int fpsrange) {
+        customOpMode = fpsrange;
+    }
+
     @Override
     public String getId() {
         return mCameraId;
@@ -449,7 +453,11 @@ public class CameraDeviceImpl extends CameraDevice
                     "any output streams");
         }
 
-        checkInputConfiguration(inputConfig);
+        try {
+            checkInputConfiguration(inputConfig);
+        } catch (IllegalArgumentException e) {
+            Log.w(TAG, "Check input configuration failed due to: " + e.getMessage());
+        }
 
         boolean success = false;
 
@@ -514,6 +522,7 @@ public class CameraDeviceImpl extends CameraDevice
                         mConfiguredOutputs.put(streamId, outConfig);
                     }
                 }
+                operatingMode = (operatingMode | (customOpMode << 16));
 
                 int offlineStreamIds[];
                 if (sessionParams != null) {
@@ -1576,11 +1585,15 @@ public class CameraDeviceImpl extends CameraDevice
                 Log.w(TAG, "ignore input format/size check for white listed app");
                 return;
             }
-            if (!checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/false) &&
-                    !checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/true)) {
-                throw new IllegalArgumentException("Input config with format " +
-                        inputFormat + " and size " + inputConfig.getWidth() + "x" +
-                        inputConfig.getHeight() + " not supported by camera id " + mCameraId);
+            boolean skipInputConfigCheck =
+                SystemProperties.getBoolean("persist.camera.skip_input_config_check", false);
+            if (!skipInputConfigCheck) {
+              if (!checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/false) &&
+                      !checkInputConfigurationWithStreamConfigurations(inputConfig, /*maxRes*/true)) {
+                  throw new IllegalArgumentException("Input config with format " +
+                          inputFormat + " and size " + inputConfig.getWidth() + "x" +
+                          inputConfig.getHeight() + " not supported by camera id " + mCameraId);
+              }
             }
         }
     }
