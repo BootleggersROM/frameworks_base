@@ -33,7 +33,7 @@
         android:layout_height="match_parent"
         android:layout_weight="1"
         android:gravity="center_vertical|start"
-        android:paddingStart="@dimen/status_bar_padding_start" >
+        android:paddingStart="@dimen/status_bar_left_clock_starting_padding" >
 
         <com.android.systemui.statusbar.policy.VariableDateView
             android:id="@+id/date"
