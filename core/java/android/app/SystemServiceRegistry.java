@@ -1612,10 +1612,10 @@ public final class SystemServiceRegistry {
                 case Context.APP_PREDICTION_SERVICE:
                 case Context.INCREMENTAL_SERVICE:
                 case Context.ETHERNET_SERVICE:
-                    return null;
+                    break; // Don't log WTF for these specific services
+                default:
+                    Slog.wtf(TAG, "Manager wrapper not available: " + name);
             }
-            Slog.wtf(TAG, "Manager wrapper not available: " + name);
-            return null;
         }
         return ret;
     }
@@ -1641,10 +1641,11 @@ public final class SystemServiceRegistry {
      * This method must be called during static initialization only.
      */
     private static <T> void registerService(@NonNull String serviceName,
-            @NonNull Class<T> serviceClass, @NonNull ServiceFetcher<T> serviceFetcher) {
-        SYSTEM_SERVICE_NAMES.put(serviceClass, serviceName);
-        SYSTEM_SERVICE_FETCHERS.put(serviceName, serviceFetcher);
-        SYSTEM_SERVICE_CLASS_NAMES.put(serviceName, serviceClass.getSimpleName());
+                                            @NonNull Class<T> serviceClass,
+                                            @NonNull ServiceFetcher<T> serviceFetcher) {
+        SYSTEM_SERVICE_NAMES.putIfAbsent(serviceClass, serviceName);
+        SYSTEM_SERVICE_FETCHERS.putIfAbsent(serviceName, serviceFetcher);
+        SYSTEM_SERVICE_CLASS_NAMES.putIfAbsent(serviceName, serviceClass.getSimpleName());
     }
 
     /**
