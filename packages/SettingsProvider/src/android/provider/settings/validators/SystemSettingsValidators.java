@@ -16,6 +16,7 @@
 
 package android.provider.settings.validators;
 
+import static android.provider.settings.validators.SettingsValidators.ANY_INTEGER_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.ANY_STRING_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.BOOLEAN_VALIDATOR;
 import static android.provider.settings.validators.SettingsValidators.COMPONENT_NAME_VALIDATOR;
@@ -32,6 +33,8 @@ import android.os.BatteryManager;
 import android.provider.Settings.System;
 import android.util.ArrayMap;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -216,5 +219,39 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.OMNI_LOCKSCREEN_WEATHER_ENABLED, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.AICP_LOCKSCREEN_WEATHER_STYLE, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.ENABLE_RIPPLE_EFFECT, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.KEYGUARD_QUICK_TOGGLES_NEW,
+                new Validator() {
+                    @Override
+                    public boolean validate(String value) {
+                        if (value == null) return true;
+                        if (!value.contains(";")) return false;
+                        final List<String> valid = Arrays.asList(
+                            "home",
+                            "wallet",
+                            "qr_code_scanner",
+                            "camera",
+                            "flashlight",
+                            "do_not_disturb"
+                        );
+                        final String[] split = value.split(";");
+                        if (split.length != 2) return false;
+                        if (!split[0].equals("none")) {
+                            String[] args = split[0].split(",");
+                            for (String arg : args)
+                                if (!valid.contains(arg))
+                                    return false;
+                        }
+                        if (!split[1].equals("none")) {
+                            String[] args = split[1].split(",");
+                            for (String arg : args)
+                                if (!valid.contains(arg))
+                                    return false;
+                        }
+                        return true;
+                    }
+                });
+        VALIDATORS.put(System.STATUS_BAR_LOGO, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_LOGO_POSITION, ANY_INTEGER_VALIDATOR);
+        VALIDATORS.put(System.STATUS_BAR_LOGO_STYLE, ANY_INTEGER_VALIDATOR);
     }
 }

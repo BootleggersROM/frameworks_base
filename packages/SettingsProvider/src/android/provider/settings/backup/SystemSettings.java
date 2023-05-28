@@ -96,5 +96,9 @@ public class SystemSettings {
         Settings.System.OMNI_LOCKSCREEN_WEATHER_ENABLED,
         Settings.System.AICP_LOCKSCREEN_WEATHER_STYLE,
         Settings.System.ENABLE_RIPPLE_EFFECT,
+        Settings.System.KEYGUARD_QUICK_TOGGLES_NEW,
+        Settings.System.STATUS_BAR_LOGO,
+        Settings.System.STATUS_BAR_LOGO_POSITION,
+        Settings.System.STATUS_BAR_LOGO_STYLE,
     };
 }

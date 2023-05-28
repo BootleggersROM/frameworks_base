@@ -34,7 +34,6 @@ import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
-import com.android.settingslib.Utils
 import com.android.systemui.R
 import com.android.systemui.animation.Expandable
 import com.android.systemui.animation.Interpolators
@@ -314,33 +313,7 @@ object KeyguardBottomAreaViewBinder {
                 }
             }
         }
-
-        view.isActivated = viewModel.isActivated
-        view.drawable.setTint(
-            Utils.getColorAttrDefaultColor(
-                view.context,
-                if (viewModel.isActivated) {
-                    com.android.internal.R.attr.textColorPrimaryInverse
-                } else {
-                    com.android.internal.R.attr.textColorPrimary
-                },
-            )
-        )
-
-        view.backgroundTintList =
-            if (!viewModel.isSelected) {
-                Utils.getColorAttr(
-                    view.context,
-                    if (viewModel.isActivated) {
-                        com.android.internal.R.attr.colorAccentPrimary
-                    } else {
-                        com.android.internal.R.attr.colorSurface
-                    }
-                )
-            } else {
-                null
-            }
-
+        
         view.isClickable = viewModel.isClickable
         if (viewModel.isClickable) {
             if (viewModel.useLongPress) {

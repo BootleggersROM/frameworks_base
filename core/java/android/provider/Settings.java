@@ -5920,6 +5920,65 @@ public final class Settings {
         public static final String LOCKSCREEN_ALBUMART_FILTER = "lockscreen_albumart_filter";
 
         /**
+         * Statusbar logo
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO = "status_bar_logo";
+
+        /**
+         * Position of Status bar logo
+         * 0 - Left (default)
+         * 1 - Right
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO_POSITION = "status_bar_logo_position";
+
+        /**
+         * Statusbar logo custom style
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
+
+        /**
+         * Whether edge light is enabled.
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_ENABLED = "edge_light_enabled";
+
+        /**
+         * Whether to show edge light for all pulse events and not just for notifications.
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_ALWAYS_TRIGGER_ON_PULSE = "edge_light_always_trigger_on_pulse";
+
+        /**
+         * Whether to repeat edge light animation until pulse timeout.
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_REPEAT_ANIMATION = "edge_light_repeat_animation";
+
+        /**
+         * Color mode of edge light.
+         * 0: Accent
+         * 1: Notification
+         * 2: Wallpaper
+         * 3: Custom
+         * Default 0
+         * @hide
+         */
+        public static final String EDGE_LIGHT_COLOR_MODE = "edge_light_color_mode";
+
+        /**
+         * Custom color (hex value) for edge light.
+         * Default #FFFFFF
+         * @hide
+         */
+        public static final String EDGE_LIGHT_CUSTOM_COLOR = "edge_light_custom_color";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5989,6 +6048,17 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_WEATHER_SHOW_CITY = "lockscreen_weather_show_city";
+
+        /**
+         * Bottom screen shortcuts on keyguard
+         * Two lists of strings delimeted by ;
+         * Each list of string is delimited by ,
+         * for valid string see BuiltInKeyguardQuickAffordanceKeys under SystemUI
+         * The order in each list decides the priority for each shortcut
+         * @hide
+         */
+        @Readable
+        public static final String KEYGUARD_QUICK_TOGGLES_NEW = "keyguard_quick_toggles_new";
 
         /**
          * These are all public system settings
@@ -6132,6 +6202,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCKSCREEN_WEATHER_SHOW_CITY);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_POSITION);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO_STYLE);
         }
 
         /**
@@ -11806,6 +11879,31 @@ public final class Settings {
          * @hide
          */
         public static final String SLEEP_MODE_RINGER_MODE = "sleep_mode_ringer_mode";
+
+        /**
+         * Whether to enable DOZE only when charging
+         * @hide
+         */
+        public static final String DOZE_ON_CHARGE = "doze_on_charge";
+
+        /**
+         * Whether to trigger doze for new notifications
+         * @hide
+         */
+        public static final String DOZE_FOR_NOTIFICATIONS = "doze_for_notifications";
+
+        /**
+         * Whether to show ambient instead of waking for the dt2w gesture
+         * @hide
+         */
+        public static final String DOZE_DOUBLE_TAP_GESTURE_AMBIENT = "doze_double_tap_gesture_ambient";
+
+        /**
+         * Whether to show ambient instead of waking for the pickup gesture
+         * Do note quick pickup (device sensor) is already configured to do that
+         * @hide
+         */
+        public static final String DOZE_PICK_UP_GESTURE_AMBIENT = "doze_pick_up_gesture_ambient";
 
         /**
          * These entries are considered common between the personal and the managed profile,

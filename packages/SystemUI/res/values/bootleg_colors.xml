@@ -9,4 +9,7 @@
     <color name="reticker_background_color">@android:color/system_neutral1_50</color>
     
     <color name="accent_device_default_light">@*android:color/accent_device_default_light</color>
+
+    <!-- Keyguard buttons (udfps, affordance etc.) -->    
+    <color name="keyguard_button_bg_color">?android:attr/textColorPrimaryInverse</color>
 </resources>
