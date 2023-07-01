@@ -5,7 +5,7 @@
     <string name="global_action_reboot_sub">Sistema</string>
     <string name="global_action_reboot_recovery">TWRP</string>
     <string name="global_action_reboot_bootloader">Bootloader</string>
-    <string name="global_action_reboot_systemui">Interface do sistema</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
     <string name="global_action_settings">Configurações</string>
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até estar cheio)</string>
     <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>

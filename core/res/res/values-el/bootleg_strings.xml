@@ -17,5 +17,18 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="face_unlock_disabled_idle">Το ξεκλείδωμα με αναγνώριση προσώπου απενεργοποιήθηκε λόγω αδράνειας</string>
+    <string name="reboot_to_bootloader_title">Επανεκκίνηση στον bootloader</string>
+    <string name="reboot_to_bootloader_message">Επανεκκίνηση σε bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Επανεκκίνηση σε recovery</string>
+    <string name="reboot_to_recovery_message">Επανεκκίνηση σε recovery\u2026</string>
     <string name="reboot_system_title">Επανεκκίνηση συστήματος</string>
+    <string name="reboot_system_message">Επανεκκίνηση συστήματος\u2026</string>
+    <string name="parallel_space_badge_label">%1$s</string>
+    <string name="unlock_application">Ξεκλείδωμα <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <string name="pocket_lock_message_long_press">Πιέστε και κρατήστε πατημένο το κουμπί τροφοδοσίας για να ξεκλειδώσετε</string>
+    <string name="pocket_view_title">Η λειτουργία τσέπης είναι ενεργοποιημένη</string>
+    <string name="pocket_view_title_cancel">Για να χρησιμοποιήσετε το τηλέφωνο σας:</string>
+    <string name="pocket_view_top_tag_cancel">Ελέγξτε εάν η μπλε περιοχή του τηλεφώνου σας είναι ελεύθερη από τυχόν εμπόδια, και καθαρίστε τυχόν βρωμιά ή σκόνη.</string>
+    <string name="pocket_view_top_tag_cancel2">Πατήστε παρατεταμένα το κουμπί τροφοδοσίας για αναγκαστική έξοδο από τη λειτουργία τσέπης.</string>
 </resources>

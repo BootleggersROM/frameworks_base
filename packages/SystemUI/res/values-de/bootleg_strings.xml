@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="global_action_reboot">Neustart</string>
+    <string name="global_action_reboot_more">Neustart\u2026</string>
     <string name="global_action_reboot_sub">System</string>
     <string name="global_action_reboot_recovery">Recovery</string>
     <string name="global_action_reboot_bootloader">Bootloader</string>
@@ -8,15 +9,36 @@
     <string name="global_action_settings">Einstellungen</string>
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g> bis zur vollständigen Aufladung)</string>
     <string name="keyguard_plugged_in_dash_charging">Schnellladen</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp-Schnellladen(<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp-Ladevorgang</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC-Ladevorgang (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC-Ladevorgang</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart-Ladevorgang (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart-Ladevorgang</string>
+    <string name="tap_to_add_tiles">Auf Kacheln tippen, um sie hinzuzufügen oder zu entfernen</string>
+    <string name="face_unlock_recognizing">Gesicht erkennen...</string>
     <string name="status_bar_icons">Statusleistensymbole</string>
     <string name="status_bar_roaming">Roaming-Indikator</string>
+    <string name="status_bar_data_saver">Datensparmodus</string>
+    <string name="usage_data">Heute verbraucht</string>
+    <string name="usage_data_default_suffix">Mobile Datennutzung</string>
+    <string name="usage_wifi_default_suffix">WLAN</string>
     <string name="quick_settings_caffeine_label">Caffeine</string>
     <string name="accessibility_quick_settings_caffeine_off">Caffeine aus</string>
     <string name="accessibility_quick_settings_caffeine_on">Caffeine an</string>
+    <string name="screenrecord_stopdot_label">Stop-Button anzeigen</string>
+    <string name="screenrecord_stopdot_summary">Zum Verschieben lange gedrückt halten</string>
+    <string name="screenrecord_lowquality_label">Niedrigere Qualität</string>
+    <string name="screenrecord_lowquality_summary">Zum Verringern der Dateigröße</string>
+    <string name="screenrecord_longer_timeout_switch_label">Max. Dateigröße erhöhen</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Größe der Aufnahme auf 15 GB begrenzen</string>
+    <string name="screenrecord_skip_time_label">Timer überspringen</string>
+    <string name="screenrecord_skip_time_summary">3 Sekunden Wartezeit entfernen</string>
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Smart Pixels automatisch einschalten</string>
     <string name="force_stop_dlg_title">Stoppen erzwingen?</string>
     <string name="force_stop_dlg_text">Das Beenden der App zu erzwingen kann zu unerwünschtem Verhalten führen.</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="quick_settings_cpuinfo_label">CPU-Info</string>
     <string name="quick_settings_compass_label">Kompass</string>
     <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0<xliff:g id="direction">%2$s</xliff:g></string>
@@ -29,6 +51,7 @@
     <string name="quick_settings_compass_SW">SW</string>
     <string name="quick_settings_compass_W">W</string>
     <string name="quick_settings_compass_NW">NW</string>
+    <string name="qs_data_switch_label">SIM-Karte wechseln</string>
     <string name="omnijaws_service_error">Fehler</string>
     <string name="omnijaws_service_unkown">Keine Wetterdaten</string>
     <string name="omnijaws_service_error_long">Fehler beim Laden der Wetterdaten</string>
@@ -41,4 +64,6 @@
     <string name="quick_settings_heads_up_label">Heads-up</string>
     <string name="accessibility_quick_settings_heads_up_off">Heads-up aus.</string>
     <string name="accessibility_quick_settings_heads_up_on">Heads-up an.</string>
+    <string name="bluetooth_is_off">Bluetooth ist deaktiviert</string>
+    <string name="tap_a_device_to_connect">Gerät antippen zum Verbinden</string>
 </resources>

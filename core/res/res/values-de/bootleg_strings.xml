@@ -17,6 +17,7 @@
 */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="face_unlock_disabled_idle">Gesichtsentsperrung wurde wegen Inaktivität deaktiviert</string>
     <string name="reboot_to_bootloader_title">Neustart in Bootloader</string>
     <string name="reboot_to_bootloader_message">Neustart in Bootloader\u2026</string>
     <string name="reboot_to_recovery_title">Neustart ins Recovery</string>
@@ -24,4 +25,10 @@
     <string name="reboot_system_title">System neustarten</string>
     <string name="reboot_system_message">System wird neugestartet\u2026</string>
     <string name="parallel_space_badge_label">%1$s</string>
+    <string name="unlock_application">Entsperre <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
+    <string name="pocket_lock_message_long_press">Zum Entsperren Power-Taste gedrückt halten</string>
+    <string name="pocket_view_title">Taschenmodus aktiviert</string>
+    <string name="pocket_view_title_cancel">Um das Gerät zu verwenden:</string>
+    <string name="pocket_view_top_tag_cancel">Überprüfen Sie, ob der Näherungssensor ihres Telefons von jeglichen Hindernissen entfernt ist und entfernen Sie jeden Schmutz oder Staub.</string>
+    <string name="pocket_view_top_tag_cancel2">Langes Drücken der Power-Taste, um den Taschenmodus zu beenden.</string>
 </resources>
